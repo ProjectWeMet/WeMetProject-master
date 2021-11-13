@@ -103,27 +103,13 @@
             <h2 style="color: #b05ea1;">Departments</h2>
         </div>
 
-        <div class="row">
-            <div *ngFor ="let card of homeServiceService.allCategrey" class="col-sm-6 col-lg-4">
-                <div class="work-item two three">
-                    <i class="flaticon-accounting"></i>
-                    <!-- <h6 class="card-category">{{homeServiceService.display_image}}</h6> -->
-   <!-- <img style=" width: 100% !important;height:220px !important;margin-top: 20px !important;"
-        src="{{getImagePath(image)}}"> -->
-        
-         <!-- <h6 class="card-category">{{card.image}}</h6> -->
+        <div fxLayout="row wrap">
+            <div fxFlex="25%"  *ngFor ="let card of homeServiceService.allCategrey" >
+        <app-department-we-met [categoryId]="card.categoryId"  [categoryTitle]="card.categoryTitle" [image]="card.image">
 
-                    <img class="card-img-top" style=" padding-bottom:8%; width: 50%;" src="{{getImagePath(image)}}"  alt="Card image cap">
-                    <h3  style="color: #000000;">{{card.categoryTitle}}</h3>
-                    <h3 style="color: #000000;">{{card.categoryId}}</h3>
-                    
-                </div>
+        </app-department-we-met>
             </div>
-
         </div>
-        <!-- <app-department-we-met *ngFor ="let card of homeServiceService.allCategrey"  [categoryId]="card.categoryId"  [categoryTitle]="card.categoryTitle" [image]="card.image">
-
-        </app-department-we-met> -->
 
         <!-- <div class="row" style="padding-top: 2%;">
             <div class="col-sm-6 col-lg-4">
