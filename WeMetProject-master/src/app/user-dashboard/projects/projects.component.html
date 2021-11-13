@@ -1,0 +1,131 @@
+<!-- Navbar -->
+<!-- <app-navbar></app-navbar> -->
+<app-user-navbar></app-user-navbar>
+<!-- End Navbar -->
+
+<!-- Page Title -->
+<div class="page-title-area">
+    <div class="d-table">
+        <div class="d-table-cell">
+            <div class="container">
+                <div class="title-item">
+                    <h2>Jobs</h2>
+                    <ul>
+                        <li>
+                            <img src="assets/img/home-three/title-img-two.png" alt="Image">
+                            <!-- <a routerLink="/">Home</a> -->
+                        </li>
+                        <li><span>/</span></li>
+                        <li>Jobs</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- End Page Title -->
+
+<!-- Jobs -->
+<div class="job-area-list ptb-50">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-md-12">
+                <ul class="job-list-item align-items-center">
+                   
+                    <li>
+                        
+                        <mat-form-field appearance="outline">
+                            <mat-label>Order By</mat-label>
+                            <select matNativeControl [(ngModel)]="orderBy" (ngModelChange)="getOrderBy()" >
+                              <option  value="Latest">Latest</option>
+                              <option value="Oldest">Oldest</option>
+                              <option  value="LeastViewed">Least viewed</option>
+                              <option value="MostViewed">Most viewed</option>
+                            </select>
+                          </mat-form-field>
+                    </li>
+                    <li></li>
+                </ul>
+
+                <app-card-project *ngFor="let card of UserService.Projects" [fName]="card.fName"
+                [lName]="card.lName" [projectTitle]="card.projectTitle" [countApplyJob]="card.countApplyJob" 
+                [projectDetails]="card.projectDetails" [dateOfCreate]="card.dateOfCreate" [projectId]="card.projectId">
+            </app-card-project>
+                    
+
+              
+            </div>
+
+            <div class="col-lg-4 col-md-12">
+                <div class="job-list-right">
+                        <div class="job-list-all">
+                            <div class="search">
+                                <h3>Search Project</h3>
+
+                                    <input type="text" class="form-control" [formControl]="title" placeholder="Project title ">
+                            </div>
+                            <div class="search mt-4 cmn-padding">
+                                <h3>Category</h3>
+                                    <ul class="job-cmn-cat ">
+                                        
+                                        <li *ngFor="let card of UserService.Categorys">
+                                            <div class="form-check">
+                                                <!-- <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+                                                <label class="form-check-label" for="defaultCheck1">{{card.categoryTitle}}</label> -->
+                                                <input class="form-check-input"  (change)="onChange(card?.categoryTitle, $any($event.target)?.checked)"name="{{ card.categoryTitle }}" type="checkbox" id="{{card.categoryTitle}}">
+                                                <label class="form-check-label" for="{{card.categoryTitle}}">
+                                                    {{card.categoryTitle}}
+                                                </label>
+                                            </div>
+                                        </li>   
+                                    </ul>
+                            </div>
+
+                            <div class="search">
+                                <h3>DateFrom</h3>
+                                <input type="date" [formControl]="startAt" class="form-control" placeholder="From ">
+                                <h3 class="mt-3">DateTo</h3>
+
+                                <input type="date" [formControl]="EndAt" class="form-control" placeholder="To ">
+
+                            
+                            </div>
+
+                            <div class="salary cmn-padding">
+                                <h3>Budget</h3>
+    
+                                <mat-slider
+                                thumbLabel
+                                [displayWith]="formatLabel"
+                                tickInterval="10"
+                                step="10"
+                                min="10"
+                                max="1000"
+                                color="primary"
+                                [(ngModel)]="value"
+                                aria-label="units"></mat-slider>
+                                <label class="example-value-label"> Budget : 10 - {{value}} JD</label>
+
+                            </div>
+
+                            <div class="search ">
+                                <h3>Skills</h3>
+                                <textarea type="text" [formControl]="Skills" class="form-control" placeholder=""></textarea>
+
+                            
+                            </div>
+                            <div class="level">
+                                <button type="submit" (click)="search()" class="btn">Filter Now</button>
+                            </div>
+                        </div>
+                    
+                </div>  
+            </div>
+        </div>
+    </div>
+</div>
+<!-- End Jobs -->
+
+<!-- Footer -->
+<!-- <app-footer></app-footer> -->
+<!-- End Footer -->

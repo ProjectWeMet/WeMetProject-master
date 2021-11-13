@@ -1,0 +1,52 @@
+<h1 mat-dialog-title style="text-align: center;">Meeting schedule</h1>
+<mat-dialog-content class="mat-typography">
+    <form [formGroup]="formGroup" >
+        <div class="col-md-12" >
+            <div class="form-group">
+               <mat-form-field class="example-full-width " appearance="outline" >
+                   <mat-label >Meeting link</mat-label>
+                   <input matInput formControlName="link" >
+                   <mat-error *ngIf="formGroup.controls.link.hasError('required')">
+                    Meeting link is <strong> Required</strong>
+                   </mat-error>
+               </mat-form-field>
+             </div> 
+             <div class="form-group">
+               <mat-form-field class="example-full-width " appearance="outline" >
+                 <mat-label >Meeting date</mat-label>
+                 <input matInput type="date" formControlName="Date"  >
+                 <mat-error *ngIf="formGroup.controls.Date.hasError('required')">
+                    Date is <strong> Required</strong>
+                 </mat-error>
+             </mat-form-field>
+             </div>
+             <div class="form-group">
+                <mat-form-field class="example-full-width " appearance="outline" >
+                  <mat-label >Meeting startTime</mat-label>
+                  <input matInput type="time" formControlName="StartTime"  >
+                  <mat-error *ngIf="formGroup.controls.StartTime.hasError('required')">
+                    StartTime is <strong> Required</strong>
+                  </mat-error>
+              </mat-form-field>
+              </div>
+              <div class="form-group">
+                <mat-form-field class="example-full-width " appearance="outline" >
+                  <mat-label >Meeting endTime</mat-label>
+                  <input matInput type="time" formControlName="EndTime"  >
+                  <mat-error *ngIf="formGroup.controls.EndTime.hasError('required')">
+                    EndTime is <strong> Required</strong>
+                  </mat-error>
+              </mat-form-field>
+              </div>
+             
+             
+             
+           
+           
+         </div>
+    </form>
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+  <button mat-button mat-dialog-close>Cancel</button>
+  <button [disabled]="!formGroup.valid" mat-button [mat-dialog-close]="true" cdkFocusInitial (click)="saveItem()">Send</button>
+</mat-dialog-actions>

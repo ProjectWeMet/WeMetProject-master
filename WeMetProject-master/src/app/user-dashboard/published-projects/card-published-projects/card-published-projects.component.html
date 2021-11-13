@@ -1,0 +1,19 @@
+<div class="published-item" (click)="ViewDetailes()">
+    <a >
+        <div *ngIf="!isAccept" class="span-two two">Processing</div>
+        <div *ngIf="isAccept && isComplete" class="span-two three">Complete</div>
+        <div *ngIf="isAccept && !isComplete && !isExecution" class="span-two four">Open</div>
+        <div *ngIf="isAccept && !isComplete && isExecution" class="span-two five">Execution</div>
+
+        <h3>{{projectTitle}}</h3>
+        <ul>
+            <li><i class="material-icons">sticky_note_2</i>{{countApplyJob | showApplyJob}}</li>
+            <li><i class="material-icons">access_time</i>{{dateOfCreate | daysBetweenDates}}</li>
+        </ul>
+        <ul>
+            <li class="span-two" style="color: #fff;"><i class="material-icons">edit</i>
+                Edit Project</li>
+        </ul>
+        <p>{{projectDetails | lengthStringFormate}}</p>
+    </a>
+</div>

@@ -1,0 +1,19 @@
+<h1>{{homeServiceService.categorey[0].categoryId}}</h1>
+<h1>{{homeServiceService.categorey[0].categoryTitle}}</h1>
+<h1>{{homeServiceService.categorey[0].image}}</h1>
+
+
+
+                <div class="row" style="margin-bottom:15px;">
+                    <div class="col-md-3">
+                      <input type="file" #file placeholder="Choose Image" 
+                      (change)="uploadFile(file.files,homeServiceService.categorey[0].categoryId)" 
+                      style="display:none;">
+                      <button type="button" class="btn btn-success" 
+                      (click)="file.click()">Upload Image</button>
+                    </div>
+                  </div>
+
+                  <!-- <h6 class="card-category">{{homeServiceService.display_image}}</h6> -->
+
+

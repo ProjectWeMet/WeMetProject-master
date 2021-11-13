@@ -1,0 +1,13 @@
+<div class="employer-item" (click)="ViewDetailes()">
+    <a >
+        <h3>{{projectTitle}}</h3>
+        <ul>
+            <li><i class="material-icons">person</i> {{fName}} {{lName}}</li>
+            <li><i class="material-icons">access_time</i>{{dateOfCreate | daysBetweenDates}}</li>
+        </ul>
+        <p>{{projectDetails | lengthStringFormate}}</p>
+        <ul>
+            <li class="span-two"><i class="material-icons">sticky_note_2</i>{{countApplyJob | showApplyJob}}</li>
+        </ul>
+    </a>
+</div>

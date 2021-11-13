@@ -1,0 +1,107 @@
+
+<!-- Navbar -->
+<app-user-navbar></app-user-navbar>
+<!-- End Navbar -->
+
+<!-- Page Title -->
+<div class="page-title-area">
+    <div class="d-table">
+        <div class="d-table-cell">
+            <div class="container">
+                <div class="title-item">
+                    <h2>Jobs</h2>
+                    <ul>
+                        <li>
+                            <img src="assets/img/home-three/title-img-two.png" alt="Image">
+                            <a routerLink="/">Home</a>
+                        </li>
+                        <li><span>/</span></li>
+                        <li>Jobs</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- End Page Title -->
+
+<!-- Jobs -->
+<div class="job-area-list ptb-50">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-md-12">
+               
+               
+
+                <app-user-card *ngFor="let card of UserService.Users" [userId]="card.userId"
+                [email]="card.email" [fname]="card.fname" [lname]="card.lname" 
+                [phoneNumber]="card.phoneNumber" [dob]="card.dob" [country]="card.country" [specialization]="card.specialization" 
+                 [biography]="card.biography"  [imageName]="card.imageName" [userName]="card.userName" [password]="card.password"
+                 [roleNameId]="card.roleNameId" [jobTitle]="card.jobTitle" [isActive]="card.isActive" [skill]="card.skill"
+                 [createDate]="card.createDate" [verification]="card.verification" (openProfile)="goToPrpfile()">
+                </app-user-card>
+                
+
+             
+            </div>
+<!-- --------------------------------------------------------------------------------------------------------- -->
+            <div class="col-lg-4 col-md-12">
+                <div class="job-list-right">
+                   
+
+                    <div class="job-list-all">
+                        <div class="search">
+                            
+                            <h3>Specialization</h3>
+                                <input type="text" class="form-control" [formControl]="specialization" placeholder="">
+                        </div>
+
+
+                            <div class="search ">
+                                <h3>Skills</h3>
+                                <textarea type="text" [formControl]="skill" class="form-control" placeholder=""></textarea>
+
+                            
+                            </div>
+
+                            <div class="search">
+                                <h3>jobTitle</h3>
+                                    <input type="text" class="form-control" [formControl]="jobTitle" placeholder="">
+                            </div>
+
+                            <div class="search">
+                                <h3> Country</h3>
+                                <mat-select [formControl]="country">
+                                
+                                <mat-option *ngFor="let c of countryList" [value]="c">
+                                    {{c}}
+                                </mat-option>
+                                </mat-select>
+                            </div>
+
+                            <div class="form-check">
+                            <input class="form-check-input"  (change)="onChange($any($event.target)?.checked)" type="checkbox" id="isActive">
+                            <label class="form-check-label">
+                                Is Active
+                            </label>
+                        </div>
+                            <!-- <section class="example-section">
+                                <p><mat-checkbox [formControl]="isActive">Active Now</mat-checkbox></p>
+                              </section> -->
+
+                              <div class="level">
+                                <button type="submit" (click)="search()" class="btn">Filter Now</button>
+                            </div>
+                    </div>
+
+                     
+                </div>  
+            </div>
+        </div>
+    </div>
+</div>
+<!-- End Jobs -->
+
+<!-- Footer -->
+
+<!-- End Footer -->

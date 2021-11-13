@@ -1,0 +1,53 @@
+<h1 mat-dialog-title style="text-align: center;">Apply Job</h1>
+<mat-dialog-content class="mat-typography">
+    <form [formGroup]="formGroup" >
+        <div class="col-md-12" >
+            <div class="form-group">
+               <mat-form-field class="example-full-width " appearance="outline" >
+                   <mat-label >Delivery term</mat-label>
+                   <input matInput formControlName="term" placeholder="Ex: 1 week">
+                   <mat-error *ngIf="formGroup.controls.term.hasError('required')">
+                    Delivery term is <strong> Required</strong>
+                   </mat-error>
+               </mat-form-field>
+             </div> 
+             <div class="form-group">
+               <mat-form-field class="example-full-width " appearance="outline" >
+                 <mat-label >Discretionary Budget</mat-label>
+                 <input matInput type="number" formControlName="Budget" placeholder="Ex: 100 JD" >
+                 
+                 <mat-error *ngIf="formGroup.controls.Budget.hasError('required')">
+                    Budget is <strong> Required</strong>
+                 </mat-error>
+             </mat-form-field>
+             </div>
+             
+             <div class="form-group">
+                <mat-form-field appearance="outline" class="example-full-width ">
+                    <ngx-mat-file-input formControlName="fileControl" placeholder="CV "  >
+                      <!-- <mat-icon ngxMatFileInputIcon>folder</mat-icon> -->
+                    </ngx-mat-file-input>
+                    <mat-error *ngIf="formGroup.controls.fileControl.hasError('required')">
+                        CV is <strong> Required</strong>
+                    </mat-error>
+    
+                  </mat-form-field>
+             </div>
+             <mat-form-field appearance="outline"class="example-full-width ">
+                <mat-label>Apply Details</mat-label>
+                <textarea matInput #message maxlength="500" formControlName="Details"></textarea>
+                <mat-hint align="end">{{message.value.length}} / 500</mat-hint>
+                <mat-error *ngIf="formGroup.controls.Details.hasError('required')">
+                    Details is <strong> Required</strong>
+                </mat-error>
+
+              </mat-form-field>
+           
+           
+         </div>
+    </form>
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+  <button mat-button mat-dialog-close>Cancel</button>
+  <button [disabled]="!formGroup.valid" mat-button [mat-dialog-close]="true" cdkFocusInitial (click)="saveItem()">Add</button>
+</mat-dialog-actions>

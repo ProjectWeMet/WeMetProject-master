@@ -1,0 +1,46 @@
+<div style="background-color: #1f283d;" class="sidebar" data-color="purple" data-background-color="black" data-image="../assets/img/sidebar-2.jpg">
+    <!--
+      Tip 1: You can change the color of the sidebar using: data-color="purple | azure | green | orange | danger"
+
+      Tip 2: you can also add an image using data-image tag
+  -->
+    <div class="logo"><a href="javascript:void(0)" (click)="GoDashboredAdmin()" class="simple-text logo-normal">
+        Dashboard Admin
+      </a></div>
+    <div class="sidebar-wrapper">
+      <ul class="nav">
+        <li class="nav-item active  ">
+          <a href="javascript:void(0)"  (click)="GoDashboredAdmin()"class="nav-link" >
+            <i class="material-icons">dashboard</i>
+            <p>Dashboard</p>
+          </a>
+        </li>
+        <li class="nav-item ">
+          <a href="javascript:void(0)" (click)=" GoProfileAdmin()"  class="nav-link" >
+            <i class="material-icons">person</i>
+            <p>User Profile</p>
+          </a>
+        </li>
+        <li class="nav-item ">
+          <a href="javascript:void(0)" (click)=" GoToReportUser()"  class=" nav-link "  >
+            <i class="material-icons">content_paste</i>
+            <p>Table List</p>
+          </a>
+        </li>
+    
+        <li class="nav-item ">
+          <a class="nav-link"href="javascript:void(0)" (click)="  GoTologin()">
+            <i class="material-icons">bubble_chart</i>
+            <p>Log Out </p>
+          </a>
+        </li>
+       
+        <!-- <li class="nav-item active-pro ">
+              <a class="nav-link" href="./upgrade.html">
+                  <i class="material-icons">unarchive</i>
+                  <p>Upgrade to PRO</p>
+              </a>
+          </li> -->
+      </ul>
+    </div>
+  </div>

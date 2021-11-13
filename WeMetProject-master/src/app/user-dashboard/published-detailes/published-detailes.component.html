@@ -1,0 +1,159 @@
+<!-- Navbar -->
+<!-- End Navbar -->
+
+<!-- Page Title -->
+<div class="page-title-area two">
+    <div class="d-table">
+        <div class="d-table-cell">
+            <div class="container">
+                <div class="row align-items-end">
+                    <div class="col-lg-8 col-md-12">
+                        <div class="left"> 
+                            <!-- <img src="assets/img/job-details1.png" alt="Details"> -->
+                            <h2>{{UserService.projectDetaile[0].projectTitle}}</h2>
+                            <ul>
+                               <li><i class="material-icons">category</i>
+                                    {{UserService.projectDetaile[0].categoryTitle}}</li>
+                                <li><i class="material-icons">access_time_filled</i> {{UserService.projectDetaile[0].dateOfCreate |daysBetweenDates }}</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- <div class="col-lg-4 col-md-12">
+                        <div class="right">
+                            <a class="cmn-btn" routerLink="/job-details">Apply Now <i class='bx bx-plus'></i></a>
+                            <ul>
+                                <li><a routerLink="/job-details"><i class='bx bx-heart'></i> Save</a></li>
+                                <li><a routerLink="/job-details"><i class='bx bx-share-alt'></i> Share</a></li>
+                                <li><a routerLink="/job-details"><i class='bx bxs-report'></i> Report</a></li>
+                            </ul>
+                        </div>
+                    </div> -->
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- End Page Title -->
+
+<!-- Job Details -->
+<div class="job-details-area ptb-50"  style="background-color: #f1f0f6
+;">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-md-12">
+                <div class="widget-area1">
+                    <div class="job widget-item">
+                        <h3>Project Details</h3>
+                        <h6>{{UserService.projectDetaile[0].projectDetails}}</h6>
+                    </div>
+
+                    <div class="job widget-item">
+                        <h3>Required Skills</h3>
+                        <h6>{{UserService.projectDetaile[0].requiredSkills}}</h6>
+                    </div>     
+                 
+                    <div class="job widget-item">
+                        <h3>Employment applications</h3>
+                        <div *ngIf="!UserService.projectDetaile[0].countApplyJob" style="text-align: center;">
+                            <h6 >There are no applicants yet.</h6>
+
+                        </div>
+                        <div *ngIf="UserService.projectDetaile[0].countApplyJob">
+                            <div *ngFor="let card of UserService.ApplyJob">
+                                <div class="apply-item">
+                                    <a >
+                                        <img src="assets/img/home-one/job1.png" alt="Employer">
+                                        <h4>{{card.fName}} {{card.lName}}</h4>
+                                        <ul>
+                                            <li><i class="material-icons">attach_money</i>Budget:<span>{{card.offerValue}} JD</span>  </li>
+                                            <li><i class="material-icons">access_time</i>Delivery term:<span>{{card.deliveryTerm}}</span> </li>
+                                        </ul>
+                                        <p>{{card.offerDetails}}</p>
+                                        <ul>
+                                            <li class="resume" style="color: #fff;" (click)="downloadFile(card.cv)"><i class="material-icons">download_for_offline</i>Resume</li>
+                                        </ul>
+                                        <ul >
+                                            <li *ngIf="card.isSendSchedule" class="schedule" style="color: #fff; background-color: #c2b0e2;" ><i class="material-icons">schedule_send</i>
+                                                Send schedule</li>
+                                            <li *ngIf="!card.isSendSchedule" class="schedule" style="color: #fff;"  (click)="openDialog(card.userId,card.idApplyJob)"><i class="material-icons">schedule_send</i>
+                                                Send schedule</li>
+                                        </ul>
+                                    </a> 
+                                </div>    
+                                <hr>
+                            </div>
+                          
+                                       
+                        </div>
+                        </div>
+                       
+                                 
+                       
+                           
+                </div>
+            </div>
+
+            <div class="col-lg-4 col-md-12">
+                <div class="widget-area1">
+                    <!-- <div class="job widget-item">
+                        <h3>project card</h3>
+
+                        <form>
+                            <label><i class="flaticon-send"></i></label>
+                            <input type="text" class="form-control" placeholder="Email address">
+                            <button type="submit" class="btn">Get Job Alert</button>
+                        </form>
+                    </div> -->
+                    <div class="owner1">
+                        <div class="top">
+                            <img src="assets/img/home-one/job4.png" alt="Owner">
+                            <h3>{{UserService.projectDetaile[0].fName}} {{UserService.projectDetaile[0].lName}}</h3>
+                            <i class="flaticon-send"></i>
+                            <span>{{UserService.projectDetaile[0].jobTitle}}</span>
+                        </div>
+                    </div>
+                    <div class="information widget-item">
+                        <h3>Project Information</h3>
+
+                        <ul>
+                            <li>
+                                <img class="bag"src="assets/img/suitcase-black-shape.png" alt="Details" >
+                                <h4>Project state</h4>
+                                <span class="span-two" style=" color: #fff;">Open</span>
+                            </li>
+                            <li>
+                                <img class="bag"src="assets/img/suitcase-black-shape.png" alt="Details" >
+                                <h4>Category</h4>
+                                <span>{{UserService.projectDetaile[0].categoryTitle}}</span>
+                            </li>
+                            <li>
+                                <img class="bag"src="assets/img/suitcase-black-shape.png" alt="Details" >
+                                <h4>Posted date</h4>
+                                <span>{{UserService.projectDetaile[0].dateOfCreate |daysBetweenDates }}</span>
+                            </li>
+                            <li>
+                                <img class="bag"src="assets/img/suitcase-black-shape.png" alt="Details" >
+                                <h4>Budgety</h4>
+                                <span>{{UserService.projectDetaile[0].expectedBudget}} JD</span>
+                            </li>
+                            <li>
+                                <img class="bag"src="https://cdn-icons-png.flaticon.com/512/39/39581.png" alt="Details" >
+                                <h4>Execution time</h4>
+                                <span>{{UserService.projectDetaile[0].estimatedDeliveryTime}}</span>
+                            </li>
+                            <li>
+                                <img class="bag"src="https://cdn-icons-png.flaticon.com/512/39/39581.png" alt="Details" >
+                                <h4>Count apply</h4>
+                                <span>{{UserService.projectDetaile[0].countApplyJob}} Apply</span>
+                            </li>
+                           
+                        </ul>
+                    </div>
+
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

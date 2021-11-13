@@ -1,0 +1,28 @@
+
+    <div  style="background-color:#202940 ;" class="card card-profile">
+        <div class="card-avatar">
+          
+                <!-- <img class="img" src="../assets/img/faces/marc.jpg" /> -->
+                <img style=" width: 100% !important;height:220px !important;margin-top: 20px !important;"
+src="{{getImagePath(imageName)}}">
+
+                <div class="row" style="margin-bottom:15px;">
+                    <div class="col-md-3">
+                      <input type="file" #file placeholder="Choose Image" 
+                      (change)="uploadFile(file.files,9)" 
+                      style="display:none;">
+                      <button type="button" class="btn btn-success" 
+                      (click)="file.click()">Upload Image</button>
+                    </div>
+                  </div>
+        </div>
+        <div class="card-body">
+            <h6 class="card-category">{{adminDashboardService.display_image}}</h6>
+            <h4 class="card-title">{{fname}}  </h4>
+            <p class="card-description">
+              {{biography}}  
+            </p>
+            <a href="#pablo" class="btn btn-primary btn-round">Follow</a>
+        </div>
+    </div>
+

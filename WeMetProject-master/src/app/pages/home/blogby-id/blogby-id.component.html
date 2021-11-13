@@ -1,0 +1,19 @@
+<h1>{{homeServiceService.Blog[0].Id}}</h1>
+<h1>{{homeServiceService.Blog[0].Title}}</h1>
+<h1>{{homeServiceService.Blog[0].img}}</h1>
+<h1>{{homeServiceService.Blog[0].Description}}</h1>
+
+
+                <div class="row" style="margin-bottom:15px;">
+                    <div class="col-md-3">
+                      <input type="file" #file placeholder="Choose Image" 
+                      (change)="uploadFile(file.files,homeServiceService.Blog[0].Id)" 
+                      style="display:none;">
+                      <button type="button" class="btn btn-success" 
+                      (click)="file.click()">Upload Image</button>
+                    </div>
+                  </div>
+
+                 
+
+

@@ -1,0 +1,158 @@
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+
+<div class="page-title-area">
+    <div class="d-table">
+        <div class="d-table-cell">
+            <div class="container">
+                <div class="title-item">
+                    <h2>Jobs</h2>
+                    <ul>
+                        <li>
+                            <img src="assets/img/home-three/title-img-two.png" alt="Image">
+                            <a routerLink="/">Home</a>
+                        </li>
+                        <li><span>/</span></li>
+                        <li>Jobs</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- End Page Title -->
+
+<!-- Jobs -->
+<div class="job-details-area ptb-50"  style="background-color: #f1f0f6;">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-md-12">
+                <div class="widget-area1">
+                    <div class="job widget-item">
+                        <h3>Add Project</h3>
+                    <form>
+                        <div class="form-group">
+                                  <mat-form-field class="col-lg-12 col-md-12" appearance="outline" >
+                                      <mat-label >Project Title</mat-label>
+                                      <input matInput>
+                                      <mat-error>
+                                        Project Title<strong> Required</strong>
+                                      </mat-error>
+                                  </mat-form-field>
+                        </div> 
+                                <div class="form-group">
+                                    <mat-form-field class="col-lg-12 col-md-12" appearance="outline" >
+                                        <mat-label >Skills</mat-label>
+                                        <input matInput>
+                                        <mat-error>
+                                         Skills <strong> Required</strong>
+                                        </mat-error>
+                                    </mat-form-field>
+                                  </div> 
+
+                                  <div class="form-group">
+                                        <mat-label >Skills</mat-label>
+                                        <textarea  rows="15" type="text" class="col-lg-12 col-md-12" placeholder=""></textarea>
+                                  </div> 
+                                
+                               
+                                <div class="form-group">
+                                  
+                                    <h4>Budget</h4>
+        
+                                    <mat-slider
+                                    thumbLabel
+                                    
+                                    tickInterval="10"
+                                    step="10"
+                                    min="10"
+                                    max="1000"
+                                    color="primary"
+                                    [(ngModel)]="value"
+                                    aria-label="units"></mat-slider>
+                                    <h6 class="example-value-label"> Budget : 10 - {{value}} JD</h6>
+    
+                                
+                            </div>
+
+                            <div class="form-group">
+                                <mat-form-field class="col-lg-12 col-md-12" appearance="outline" >
+                                    <mat-label >Estimated Delivery Time</mat-label>
+                                    <input matInput>
+                                    <mat-error>
+                                        Estimated Delivery Time<strong> Required</strong>
+                                    </mat-error>
+                                </mat-form-field>
+                              </div> 
+
+                               
+                                
+                                <button  mat-raised-button  class="form-button">Sign In</button>
+                    
+                                
+                      </form>
+                </div>
+                
+            </div>
+
+                
+               
+            </div>
+            <div class="col-lg-4 col-md-12" >
+            <div class="information widget-item">
+                <h3>How do you add your project?</h3>
+
+                <ul>
+                    <li>
+                        <h4>Start building your project</h4>
+                        <span>Through Freelance, you can build your project as you want, enter the project details and the expected budget, so that your project will be reviewed and published for free on Freelance.
+                            After that, the best registered freelancers will submit different offers for you to choose the right offer for you and start implementing your project</span>
+                    </li>
+                    <li>
+                        <h4>An independent site that guarantees your rights</h4>
+                        <span>When you deal with a freelancer through a freelance site, the site remains a mediator between you and the freelancer who implements your project, and only when the project is fully implemented is the amount transferred to the account of the freelancer who implemented your project.</span>
+                    </li>
+                    <li>
+                        <h4>Tips for a successful business</h4>
+                        <ul>
+                            <li>Enter the project details accurately</li>
+                            <li>Fill in all the fields and provide examples of what you want</li>
+                            <li>Divide the project into several small phases</li>
+                        </ul>
+                        
+                    </li>
+                   
+                   
+                </ul>
+            </div>
+
+            <!-- <div class="col-lg-4 col-md-12" >
+                                <div class="job-cmn-cat flex-divide">
+                                    <ul class="left">
+                                        <li style="color: rgba(0, 0, 0, 0.666); font-size: large;">
+                                            <span style="color: black; font-size: large;">building your project</span> 
+                                            Your project Freedom in your independent project.
+                                            Then, the best participants will be exposed to the right offer for you and you start your project.
+                                        </li>
+                                        <li style="color: rgba(0, 0, 0, 0.666); font-size: large;">
+                                            <span style="color: black; font-size: large;">An independent site that guarantees your rights</span> 
+                                            ndalone project operates on a paging basis.
+                                        </li>
+                                        <li style="color: black;">
+                                            Tips for a successful business
+                                            <ul class="a">
+                                                <li style="color: rgba(0, 0, 0, 0.666);">Enter the project details accurately</li>
+                                                <li style="color: rgba(0, 0, 0, 0.666);">Fill in all the fields and provide examples of what you want</li>
+                                                <li style="color: rgba(0, 0, 0, 0.666);">Divide the project into several small phases</li>
+                                        </ul>
+                                        </li>
+                                    </ul>
+
+                                    
+                                </div>                  
+                   
+                
+            </div> -->
+        </div>
+    </div>
+</div>

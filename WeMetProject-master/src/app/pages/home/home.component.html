@@ -1,0 +1,483 @@
+<!-- aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa -->
+<!-- qqqqqqqqqqqqqq -->
+<!-- Navbar -->
+<!-- <app-navbar></app-navbar> -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.bundle.min.js">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.0.3/css/font-awesome.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js">
+<app-navbar-page></app-navbar-page>
+<!-- End Navbar -->
+
+<!-- Banner -->
+<div >
+<div class="banner-area three" style="background-image: url(../../../assets/img/Jobbbbbbb.jpg );background-repeat: no-repeat;background-size:cover;background-position:center;height:100vh;" >
+    <div class="banner-shape-three"><img src=""  alt="Shape"></div>
+
+    <div class="container-fluid">
+        <div class="banner-content two three">
+            <div class="d-table">
+                <div style="padding-bottom: 38rem;" class="d-table-cell">
+                    <h1>We’ll Help You To Find Your <span>Desire Job</span></h1>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="banner-bottom-btn">
+        <a routerLink="/jobs"><i class='bx bx-mouse-alt'></i></a>
+    </div>
+</div>
+<!-- End Banner -->
+
+<!-- Employer -->
+<!-- <section class="employer-area pb-100"> -->
+    <div  class="employer-area pb-100">
+    <div class="container">
+        <div class="section-title three">
+            <div class="sub-title-wrap">
+                <img src="assets/img/home-three/title-img.png" alt="Icon">
+                <span class="sub-title">Employers Offering Job</span>
+            </div>
+            <h2>Company Offering Job</h2>
+        </div>
+    </div>
+<!-- </section> -->
+    <div style="padding:6%" class="row ">
+        <div  *ngFor="let card of UserService.Projects"  class="col-lg-6 col-md-12">
+            <div   class="employer-item">
+                <a  routerLink="/job-details">
+                    <img src="assets/img/home-one/job1.png" alt="Employer">
+                    <h3> <i class="material-icons">person</i> {{card.fName}} {{card.lName}}</h3>
+                    <ul>
+                        <li><i class="material-icons">access_time</i>{{card.dateOfCreate}}</li>
+                    </ul>
+                    <p >{{card.projectDetails | lengthStringFormate}}</p>    
+                    <br>    
+                    <br>  
+                    <br>        
+                    <span class="span-two">FULL TIME</span>
+                </a>
+            </div>
+        </div>
+
+    </div>
+
+<!--  
+<div class="container">
+    <mat-grid-list cols="2" rowHeight="260px" gutterSize ="22px"  >
+        <mat-grid-tile
+        *ngFor="let card of UserService.Projects"
+        >
+            <app-cardsprojects         [fName]="card.fName"
+            [lName]="card.lName" [projectTitle]="card.projectTitle" [countApplyJob]="card.countApplyJob" 
+            [projectDetails]="card.projectDetails" [dateOfCreate]="card.dateOfCreate" [projectId]="card.projectId">
+        </app-cardsprojects>
+        </mat-grid-tile>
+      </mat-grid-list>
+</div> -->
+    
+   
+  
+
+
+
+        
+
+
+
+<!-- End Employer -->
+
+
+
+
+<!-- Work -->
+<section class="work-area two three pt-100 pb-70">
+    <div class="container">
+        <div class="section-title three">
+            <div class="sub-title-wrap">
+                <img src="assets/img/home-three/title-img.png" alt="Icon">
+                <span class="sub-title">Working Process</span>
+            </div>
+            <!-- <h2>See How It Works</h2> -->
+            <h2 style="color: #b05ea1;">Departments</h2>
+        </div>
+
+        <div class="row">
+            <div *ngFor ="let card of homeServiceService.allCategrey" class="col-sm-6 col-lg-4">
+                <div class="work-item two three">
+                    <i class="flaticon-accounting"></i>
+                    <!-- <h6 class="card-category">{{homeServiceService.display_image}}</h6> -->
+   <!-- <img style=" width: 100% !important;height:220px !important;margin-top: 20px !important;"
+        src="{{getImagePath(image)}}"> -->
+        
+         <!-- <h6 class="card-category">{{card.image}}</h6> -->
+
+                    <img class="card-img-top" style=" padding-bottom:8%; width: 50%;" src="{{getImagePath(image)}}"  alt="Card image cap">
+                    <h3  style="color: #000000;">{{card.categoryTitle}}</h3>
+                    <h3 style="color: #000000;">{{card.categoryId}}</h3>
+                    
+                </div>
+            </div>
+
+        </div>
+        <!-- <app-department-we-met *ngFor ="let card of homeServiceService.allCategrey"  [categoryId]="card.categoryId"  [categoryTitle]="card.categoryTitle" [image]="card.image">
+
+        </app-department-we-met> -->
+
+        <!-- <div class="row" style="padding-top: 2%;">
+            <div class="col-sm-6 col-lg-4">
+                <div class="work-item two three">
+                    <i class="flaticon-accounting"></i>
+                    <img class="card-img-top" style=" padding-bottom:8%;width: 50%;" src="https://jo.mostaql.com/assets/images/landing/pie-chart.svg"  alt="Card image cap">
+                    
+                    <h3 style="color: #000000;">Electronic marketing and sales</h3>
+                   </div>
+            </div>
+
+            <div class="col-sm-6 col-lg-4">
+                <div class="work-item two three">
+                    <i class="flaticon-file"></i>
+                    <img class="card-img-top" style=" padding-bottom:8%;width: 50%;" src="https://jo.mostaql.com/assets/images/landing/computer.svg"  alt="Card image cap">
+                    
+                    <h3 style="color: #000000;">Writing, editing, translating and languages</h3>
+                    </div>
+            </div>
+            
+            <div class="col-sm-6 offset-sm-3 offset-lg-0 col-lg-4">
+                <div class="work-item two three work-border">
+                    <i class="flaticon-businessman-paper-of-the-application-for-a-job"></i>
+                    <img class="card-img-top" style=" padding-bottom:8%;width: 50%;" src="https://jo.mostaql.com/assets/images/landing/transfer.svg"  alt="Card image cap">
+                    
+                    <h3 style="color: #000000;">Support, help and enter data</h3>
+                   </div>
+            </div>
+        </div> -->
+    </div>
+</section>
+<!-- End Work -->
+
+<!-- Feature -->
+
+<!-- End Feature -->
+
+<!-- Company -->
+<section class="company-area pb-70">
+    <div class="container">
+       
+
+        <div id="container" class="row">
+            <div class="col-sm-6 col-lg-3 mix n">
+                <div class="company-item">
+                    <div class="feature-top-right">
+                        <span>Most Viewed</span>
+                    </div>
+
+                    <div class="top">
+                        <a routerLink="/employer-details"><img src="assets/img/home-one/company1.png" alt="Brand"></a>
+                        <h3><a routerLink="/employer-details">Pi Agency</a></h3>
+                        <span>Part Time Job</span>
+                        <p><i class="flaticon-appointment"></i> 10 min ago / Austria, Vienna</p>
+                    </div>
+
+                    <div class="bottom">
+                        <ul>
+                            <li>Pay Relocation Free</li>
+                            <li>Remote Work</li>
+                            <li>Duration: 5 Years</li>
+                        </ul>
+                        <span>Annual Salary</span>
+                        <h4>50K</h4>
+                        <a routerLink="/employer-details"><i class="flaticon-right-arrow"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-sm-6 col-lg-3 mix n">
+                <div class="company-item">
+                    <div class="feature-top-right">
+                        <span>Most Viewed</span>
+                    </div>
+
+                    <div class="top">
+                        <a routerLink="/employer-details"><img src="assets/img/home-one/company2.png" alt="Brand"></a>
+                        <h3><a routerLink="/employer-details">Kn It</a></h3>
+                        <span>Permanent Job</span>
+                        <p><i class="flaticon-appointment"></i> 9 min ago / Tirana, Albania</p>
+                    </div>
+
+                    <div class="bottom">
+                        <ul>
+                            <li>Graphic Designer</li>
+                            <li>Remote Work</li>
+                            <li>Duration: 2 Years</li>
+                        </ul>
+                        <span>Annual Salary</span>
+                        <h4>56K</h4>
+                        <a routerLink="/employer-details"><i class="flaticon-right-arrow"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-sm-6 col-lg-3 mix m">
+                <div class="company-item">
+                    <div class="feature-top-right">
+                        <span>Featured</span>
+                    </div>
+                    <div class="top">
+                        <a routerLink="/employer-details"><img src="assets/img/home-one/company3.png" alt="Brand"></a>
+                        <h3><a routerLink="/employer-details">Orbit Inc.</a></h3>
+                        <span>Part Time Job</span>
+                        <p><i class="flaticon-appointment"></i> 8 min ago / Doha, Qatar</p>
+                    </div>
+
+                    <div class="bottom">
+                        <ul>
+                            <li>Product Manager</li>
+                            <li>Remote Work</li>
+                            <li>Duration: 5 Years</li>
+                        </ul>
+                        <span>Annual Salary</span>
+                        <h4>70K</h4>
+                        <a routerLink="/employer-details"><i class="flaticon-right-arrow"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-sm-6 col-lg-3 mix o">
+                <div class="company-item">
+                    <div class="feature-top-right">
+                        <span>Newest</span>
+                    </div>
+
+                    <div class="top">
+                        <a routerLink="/employer-details"><img src="assets/img/home-one/company4.png" alt="Brand"></a>
+                        <h3><a routerLink="/employer-details">Dev Roside</a></h3>
+                        <span>Full Time Job</span>
+                        <p><i class="flaticon-appointment"></i> 15 min ago / UK, England</p>
+                    </div>
+
+                    <div class="bottom">
+                        <ul>
+                            <li>Design & Developer</li>
+                            <li>Remote Work</li>
+                            <li>Duration: 2 Years</li>
+                        </ul>
+                        <span>Annual Salary</span>
+                        <h4>89K</h4>
+                        <a routerLink="/employer-details"><i class="flaticon-right-arrow"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-sm-6 col-lg-3 mix o">
+                <div class="company-item">
+                    <div class="feature-top-right">
+                        <span>Newest</span>
+                    </div>
+
+                    <div class="top">
+                        <a routerLink="/employer-details"><img src="assets/img/home-one/company5.png" alt="Brand"></a>
+                        <h3><a routerLink="/employer-details">Roshu.co</a></h3>
+                        <span>Part Time Job</span>
+                        <p><i class="flaticon-appointment"></i> 10 min ago / Cardiff, England</p>
+                    </div>
+
+                    <div class="bottom">
+                        <ul>
+                            <li>Internet Operator</li>
+                            <li>Remote Work</li>
+                            <li>Duration: 2 Years</li>
+                        </ul>
+                        <span>Annual Salary</span>
+                        <h4>66K</h4>
+                        <a routerLink="/employer-details"><i class="flaticon-right-arrow"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-sm-6 col-lg-3 mix m">
+                <div class="company-item">
+                    <div class="feature-top-right">
+                        <span>Featured</span>
+                    </div>
+                    <div class="top">
+                        <a routerLink="/employer-details"><img src="assets/img/home-one/company6.png" alt="Brand"></a>
+                        <h3><a routerLink="/employer-details">Omti. Med</a></h3>
+                        <span>Part Time Job</span>
+                        <p><i class="flaticon-appointment"></i> 40 min ago / Tokyo, Japan</p>
+                    </div>
+
+                    <div class="bottom">
+                        <ul>
+                            <li>Caring Officer</li>
+                            <li>Remote Work</li>
+                            <li>Duration: 2 Years</li>
+                        </ul>
+                        <span>Annual Salary</span>
+                        <h4>50K</h4>
+                        <a routerLink="/employer-details"><i class="flaticon-right-arrow"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-sm-6 col-lg-3 mix o">
+                <div class="company-item">
+                    <div class="feature-top-right">
+                        <span>Newest</span>
+                    </div>
+                    
+                    <div class="top">
+                        <a routerLink="/employer-details"><img src="assets/img/home-one/company7.png" alt="Brand"></a>
+                        <h3><a routerLink="/employer-details">Rahbar</a></h3>
+                        <span>Full Time Job</span>
+                        <p><i class="flaticon-appointment"></i> 7 min ago / Washington, US</p>
+                    </div>
+
+                    <div class="bottom">
+                        <ul>
+                            <li>Media Connector</li>
+                            <li>Remote Work</li>
+                            <li>Duration: 3 Years</li>
+                        </ul>
+                        <span>Annual Salary</span>
+                        <h4>87K</h4>
+                        <a routerLink="/employer-details"><i class="flaticon-right-arrow"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-sm-6 col-lg-3 mix n">
+                <div class="company-item">
+                    <div class="feature-top-right">
+                        <span>Most Viewed</span>
+                    </div>
+
+                    <div class="top">
+                        <a routerLink="/employer-details"><img src="assets/img/home-one/company8.png" alt="Brand"></a>
+                        <h3><a routerLink="/employer-details">Doblin. Fo</a></h3>
+                        <span>Part Time Job</span>
+                        <p><i class="flaticon-appointment"></i> 12 min ago / California, US</p>
+                    </div>
+
+                    <div class="bottom">
+                        <ul>
+                            <li>Private Officer</li>
+                            <li>Remote Work</li>
+                            <li>Duration: 1 Year</li>
+                        </ul>
+                        <span>Annual Salary</span>
+                        <h4>50K</h4>
+                        <a routerLink="/employer-details"><i class="flaticon-right-arrow"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- End Company -->
+
+
+<!-- TESTIMONIALS -->
+<div id="myCarousel" class="carousel slide" data-ride="carousel">
+    <!-- Carousel indicators -->
+    <ol class="carousel-indicators">
+        <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+        <li data-target="#myCarousel" data-slide-to="1"></li>
+        <li data-target="#myCarousel" data-slide-to="2"></li>
+    </ol> <!-- Wrapper for carousel items -->
+    <div class="carousel-inner">
+        <div class="item carousel-item active">
+            <div class="img-box"><img src="https://i.imgur.com/Ur43esv.jpg" alt=""></div>
+            <p class="testimonial">Phasellus vitae suscipit justo. Mauris pharetra feugiat ante id lacinia. Etiam faucibus mauris id tempor egestas. Duis luctus turpis at accumsan tincidunt. Phasellus risus risus, volutpat vel tellus ac, tincidunt fringilla massa. Etiam hendrerit dolor eget rutrum.</p>
+            <p class="overview"><b>Paula Wilsons</b>Seo Analyst </p>
+            <div class="star-rating"> </div>
+        </div>
+        <div class="item carousel-item">
+            <div class="img-box"><img src="https://i.imgur.com/8RKXAIV.jpg" alt=""></div>
+            <p class="testimonial">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam eu sem tempor, varius quam at, luctus dui. Mauris magna metus, dapibus nec turpis vel, semper malesuada ante. Vestibulum idac nisl bibendum scelerisque non non purus. Suspendisse varius nibh non aliquet.</p>
+            <p class="overview"><b>Paula Wilson</b>Media Analyst </p>
+            <div class="star-rating"> </div>
+        </div>
+        <div class="item carousel-item">
+            <div class="img-box"><img src="https://i.imgur.com/J6l19aF.jpg" alt=""></div>
+            <p class="testimonial">Vestibulum quis quam ut magna consequat faucibus. Pellentesque eget nisi a mi suscipit tincidunt. Utmtc tempus dictum risus. Pellentesque viverra sagittis quam at mattis. Suspendisse potenti. Aliquam sit amet gravida nibh, facilisis gravida odio. Phasellus auctor velit.</p>
+            <p class="overview"><b>Antonio Moreno</b>Web Developer</p>
+            <div class="star-rating"> </div>
+        </div>
+    </div> <!-- Carousel controls --> <a class="carousel-control left carousel-control-prev" href="#myCarousel" data-slide="prev"> <i class="fa fa-angle-left"></i> </a> <a class="carousel-control right carousel-control-next" href="#myCarousel" data-slide="next"> <i class="fa fa-angle-right"></i> </a>
+</div>
+      <!-- END OF TESTIMONIALS -->
+  
+
+
+<!-- Client -->
+
+    <!-- TESTIMONIALS -->
+
+
+      <!-- END OF TESTIMONIALS -->
+
+<!-- End Client -->
+
+<!-- Blog -->
+<section class="blog-area three pt-100 pb-70">
+    <div class="container">
+        <div class="section-title three">
+            <div class="sub-title-wrap">
+                <img src="assets/img/home-three/title-img.png" alt="Icon">
+                <span class="sub-title">News & Blog</span>
+            </div>
+            <h2>Latest Blog Posts</h2>
+        </div>
+
+        <div class="row">
+            <div *ngFor ="let cardblog of homeServiceService.allBlog" class="col-sm-6 col-lg-4">
+                <div class="blog-item">
+                    <div class="top">
+                        <a routerLink="/blog-details"><img src="assets/img/home-one/blog1.jpg" alt="Blog"></a>
+                    </div>
+                    <span>{{cardblog.Title}}</span>
+                    <h3><a routerLink="/blog-details">{{cardblog.Description}} </a></h3>
+                    <!-- <div class="cmn-link">
+                        <a routerLink="/blog-details"><i class="flaticon-right-arrow one"></i> Learn More <i class="flaticon-right-arrow two"></i></a>
+                    </div> -->
+                </div>
+            </div>
+
+            <!-- <div class="col-sm-6 col-lg-4">
+                <div class="blog-item">
+                    <div class="top">
+                        <a routerLink="/blog-details"><img src="assets/img/home-one/blog2.jpg" alt="Blog"></a>
+                    </div>
+                    <span>Career advice. 11-09-2020</span>
+                    <h3><a routerLink="/blog-details">Today From Connecting With Potential Employers</a></h3>
+                    <div class="cmn-link">
+                        <a routerLink="/blog-details"><i class="flaticon-right-arrow one"></i> Learn More <i class="flaticon-right-arrow two"></i></a>
+                    </div>
+                </div>
+            </div> -->
+
+            <!-- <div class="col-sm-6 offset-sm-3 offset-lg-0 col-lg-4">
+                <div class="blog-item">
+                    <div class="top">
+                        <a routerLink="/blog-details"><img src="assets/img/home-one/blog3.jpg" alt="Blog"></a>
+                    </div>
+                    <span>Future plan. 10-09-2020</span>
+                    <h3><a routerLink="/blog-details">We’ve Weeded Through Hundreds Of Job Hunting</a></h3>
+                    <div class="cmn-link">
+                        <a routerLink="/blog-details"><i class="flaticon-right-arrow one"></i> Learn More <i class="flaticon-right-arrow two"></i></a>
+                    </div>
+                </div>
+            </div> -->
+        </div>
+    </div>
+</section>
+</div>
+<!-- End Blog -->
+ئ
+<!-- Footer -->
+
+<!-- End Footer -->
+<app-footer-page></app-footer-page>
+
