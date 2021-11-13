@@ -10,7 +10,7 @@
 <!-- End Navbar -->
 
 <!-- Banner -->
-<div >
+<div style="overflow-x:hidden;" >
 <div class="banner-area three" style="background-image: url(../../../assets/img/Jobbbbbbb.jpg );background-repeat: no-repeat;background-size:cover;background-position:center;height:100vh;" >
     <div class="banner-shape-three"><img src=""  alt="Shape"></div>
 
@@ -444,6 +444,24 @@
                     </div> -->
                 </div>
             </div>
+            <div class="col-sm-6 col-lg-4">
+                <div class="blog-item" *ngFor ="let cardblog of homeServiceService.allBlog">
+                    <div class="top">
+                        <a routerLink="/blog-details"><img src="assets/img/home-one/blog2.jpg" alt="Blog"></a>
+                         <!-- <h6 >{{homeServiceService.displayBlog_image}}</h6> -->
+       <!-- <img src="{{getImagePath(img)}}"> -->
+                    </div>
+                    <span>{{cardblog.Title}}</span>
+                    <h3><a routerLink="/blog-details">{{cardblog.Description}}</a></h3>
+                   
+                </div>
+            </div>
+
+            
+            
+            <!-- <app-department-we-met *ngFor ="let cardblog of homeServiceService.allBlog"  [Id]="cardblog.Id"  [Title]="cardblog.Title" [image]="cardblog.img">
+    
+            </app-department-we-met> -->
 
             <!-- <div class="col-sm-6 col-lg-4">
                 <div class="blog-item">

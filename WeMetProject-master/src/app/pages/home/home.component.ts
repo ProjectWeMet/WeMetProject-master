@@ -27,6 +27,7 @@ export class HomeComponent implements OnInit {
   
     this.UserService.getAllProjects();
     this.homeServiceService.GetAllCategorey();
+    
   }
  
   getImagePath(value:string ){
