@@ -1,9 +1,9 @@
 <h1>{{homeServiceService.categorey[0].categoryId}}</h1>
 <h1>{{homeServiceService.categorey[0].categoryTitle}}</h1>
 <h1>{{homeServiceService.categorey[0].image}}</h1>
-
-
-
+<img style=" width: 100% !important;height:180px !important;margin-top: 20px !important;"
+        src="{{getImagePath(image)}}">
+        <h6 class="card-category">{{homeServiceService.display_image}}</h6>
                 <div class="row" style="margin-bottom:15px;">
                     <div class="col-md-3">
                       <input type="file" #file placeholder="Choose Image" 

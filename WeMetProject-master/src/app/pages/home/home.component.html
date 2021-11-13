@@ -103,7 +103,7 @@
             <h2 style="color: #b05ea1;">Departments</h2>
         </div>
 
-        <div fxLayout="row wrap">
+        <div fxLayout="row wrap" fxLayoutGap="10px grid">
             <div fxFlex="32%"  *ngFor ="let card of homeServiceService.allCategrey" >
         <app-department-we-met [categoryId]="card.categoryId"  [categoryTitle]="card.categoryTitle" [image]="card.image">
 
