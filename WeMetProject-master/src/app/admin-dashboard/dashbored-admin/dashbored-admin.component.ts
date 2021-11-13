@@ -28,6 +28,7 @@ export class DashboredAdminComponent implements OnInit {
   @Input () role:string|undefined;
   @Input () createDate:string|undefined;
 
+
   
 
   
@@ -38,6 +39,7 @@ export class DashboredAdminComponent implements OnInit {
     this.adminDashboardService.CountAcceptJobSchedule();
     this.adminDashboardService.CountCompleteProject();
     this.adminDashboardService.GetAllUsers();
+    
 
   }
   ngOnInit(): void {

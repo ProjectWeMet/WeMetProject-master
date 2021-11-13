@@ -10,6 +10,8 @@ import { LengthStringFormatePipe } from './home/cardsprojects/length-string-form
 import { DepartmentWeMetComponent } from './home/department-we-met/department-we-met.component';
 import { BlogComponent } from './home/blog/blog.component';
 import { BlogbyIdComponent } from './home/blogby-id/blogby-id.component';
+import { OurTeamComponent } from './about/our-team/our-team.component';
+import { OurTeamByIdComponent } from './about/our-team-by-id/our-team-by-id.component';
 
 
 
@@ -22,7 +24,9 @@ import { BlogbyIdComponent } from './home/blogby-id/blogby-id.component';
     LengthStringFormatePipe,
     DepartmentWeMetComponent,
     BlogComponent,
-    BlogbyIdComponent
+    BlogbyIdComponent,
+    OurTeamComponent,
+    OurTeamByIdComponent
     
     
 
