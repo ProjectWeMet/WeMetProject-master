@@ -1,5 +1,6 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Router } from '@angular/router';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { ToastrService } from 'ngx-toastr';
 
@@ -18,7 +19,7 @@ export class HomeServiceService {
   }] 
   displayBlog_image:any
   Blog:any={}
-  constructor(private http:HttpClient,private toaster:ToastrService , private spinner: NgxSpinnerService) { }
+  constructor(private http:HttpClient,private toaster:ToastrService , private spinner: NgxSpinnerService,private router:Router) { }
 
 
   GetAllCategorey(){
@@ -112,7 +113,9 @@ GetAllBLOG(){
     },(error) => this.toaster.error(error.status));
   }
 
-  uploadAttachmentt(file:FormData,id:number){
+
+
+  uploadAttachmentt(file:FormData,Categorey:any){
     debugger
 
     const headerDict = {
@@ -122,22 +125,47 @@ GetAllBLOG(){
     const requestOptions = {
     headers: new HttpHeaders(headerDict),
     };
-    this.http.post('https://localhost:44374/api/' +'BLOG/upload/',file).subscribe((data1: any) => {
-    this.displayBlog_image=data1.image;
+    this.http.post('https://localhost:44374/api/' +'Category/upload/',file).subscribe((data1: any) => {
+    this.display_image=data1.image;
     debugger
     if(data1){
-    console.log(this.displayBlog_image);
+    console.log(this.display_image);
     const data2={
-      image:this.displayBlog_image.toString(),
-      Id:id
-   
+      image:this.display_image.toString(),
+      categoryId:Categorey.CategoreyId,
+      categoryTitle:Categorey.categoryTitle
       }
-      this.UpdateImageBlog(data2)
+      this.UpdateCategoreyAll(data2)
   }
     }, err => {
     
     })
     }
+    UpdateCategoreyAll(date1:any){debugger
+      const headerDict = {
+        'Content-Type': 'application/json',
+        'Accept': 'application/json'
+        }
+        const requestOptions = {
+        headers: new HttpHeaders(headerDict),
+        };
+      this.spinner.show();
+      this.http.put('https://localhost:44374/api/Category/UpdateCategoryAll',date1,requestOptions)
+      .subscribe((data:any)=>{
+       this.spinner.hide();
+      //  this.GetProjectById(date1.projectId);
+      this.router.navigate(['admin/dash']);
+  
+      //  this.toastr.success('Deleted ');
+     
+     },error=>{
+       this.spinner.hide();
+       // this.toastr.error(' Not Deleted ');
+     
+     })
+    }
+
+
     UpdateImageBlog(data3:any){
       debugger
       const headerDict = {
@@ -156,5 +184,6 @@ GetAllBLOG(){
   
     
     }
+
 
 }
