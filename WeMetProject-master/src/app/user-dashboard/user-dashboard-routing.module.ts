@@ -14,6 +14,7 @@ import { PublishedDetailesComponent } from './published-detailes/published-detai
 import { MyProfileComponent } from './my-profile/my-profile.component';
 import { EditProfileComponent } from './edit-profile/edit-profile.component';
 
+
 const routes: Routes = [
   {
     path:'user',
@@ -59,6 +60,14 @@ const routes: Routes = [
   {
     path:'editInfo',
     component:EditProfileComponent
+
+
+
+  },{
+    path:'editProject',
+    component:EditProjctComponent
+
+
   }
 ]
 

@@ -7,6 +7,8 @@ import { SharedModule } from '../shared/shared.module';
 import { AdminProfileComponent } from './admin-profile/admin-profile.component';
 import { ReportTableUSERComponent } from './report-table-user/report-table-user.component';
 import { CardProfileComponent } from './admin-profile/card-profile/card-profile.component';
+import { CategoregAllComponent } from './dashbored-admin/categoreg-all/categoreg-all.component';
+import { AppUpdateCategoreyDialogComponent } from './dashbored-admin/app-update-categorey-dialog/app-update-categorey-dialog.component';
 
 
 @NgModule({
@@ -14,7 +16,11 @@ import { CardProfileComponent } from './admin-profile/card-profile/card-profile.
     DashboredAdminComponent,
     AdminProfileComponent,
     ReportTableUSERComponent,
-    CardProfileComponent
+    CardProfileComponent,
+    CategoregAllComponent,
+
+    AppUpdateCategoreyDialogComponent,
+  
     
   ],
   imports: [

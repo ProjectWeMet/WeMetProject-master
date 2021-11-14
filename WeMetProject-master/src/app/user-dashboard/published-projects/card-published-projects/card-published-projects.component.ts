@@ -29,4 +29,10 @@ export class CardPublishedProjectsComponent implements OnInit {
     }
     
   }
+  EditProject(){debugger
+    if(this.projectId){
+      this.UserService.GetProjectById(this.projectId);
+      this.router.navigate(['user/editProject']);
+    }
+  }
 }

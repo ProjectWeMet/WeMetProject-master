@@ -44,5 +44,5 @@ export class OurTeamComponent implements OnInit {
       }
   ngOnInit(): void {
   }
-// kkkkkkkkkk
+
 }

@@ -1,5 +1,3 @@
-
-
 <body class="dark-edition" style="background-color: #202940; height: 190vh;">
     <div class="wrapper ">
         <!-- sidebar -->
@@ -29,148 +27,54 @@
                                   Name
                                 </th>
                                 <th>
-                                  Country
+                                    Project Title
                                 </th>
                                 <th>
-                                  City
+                                    Count Apply Job
+                                </th>
+                            
+                                <th>
+                                    Date Of Create
                                 </th>
                                 <th>
-                                 Accept / Not Accept
-                                </th>
+                                    Accept 
+                                   </th>
+                                   <th>
+                                  Not Accept
+                                   </th>
                               </thead>
-                              <tbody>
+                              <tbody *ngFor ="let card of adminDashboardService.viewProjectNotAcceptAdmin" >
                                 <tr>
                                   <td>
-                                    1
+                               {{card.projectId}}
                                   </td>
                                   <td>
-                                    Dakota Rice
+                            {{card.fName}} {{card.lName}}
                                   </td>
                                   <td>
-                                    Niger
+                                 {{card.projectTitle}}
                                   </td>
                                   <td>
-                                    Oud-Turnhout
+                                    {{card.countApplyJob}}
                                   </td>
-                                  <td class="td-actions text-right">
-                                    <button type="button" rel="tooltip" title="Edit Task" class="btn btn-white btn-link btn-sm">
-                                      <i class="material-icons">edit</i>
+                                  <td>
+                         
+                                    {{card.dateOfCreate}}
+                                  </td>
+                                  <td  class="td-actions text-right">
+                                    <button  (click)="showProfile(card.projectId)"  type="button" rel="tooltip" title="Edit Task" class="btn btn-white btn-link btn-sm">
+                                      <i   class="material-icons">edit</i>
                                     </button>
+  
+                                   
+                                  </td>
+                                  <td>
                                     <button type="button" rel="tooltip" title="Remove" class="btn btn-white btn-link btn-sm">
-                                      <i class="material-icons">close</i>
-                                    </button>
+                                        <i class="material-icons">close</i>
+                                      </button>
                                   </td>
                                 </tr>
-                                <tr>
-                                  <td>
-                                    2
-                                  </td>
-                                  <td>
-                                    Minerva Hooper
-                                  </td>
-                                  <td>
-                                    Curaçao
-                                  </td>
-                                  <td>
-                                    Sinaai-Waas
-                                  </td>
-                                  <td class="td-actions text-right">
-                                    <button type="button" rel="tooltip" title="Edit Task" class="btn btn-white btn-link btn-sm">
-                                      <i class="material-icons">edit</i>
-                                    </button>
-                                    <button type="button" rel="tooltip" title="Remove" class="btn btn-white btn-link btn-sm">
-                                      <i class="material-icons">close</i>
-                                    </button>
-                                  </td>
-                                </tr>
-                                <tr>
-                                  <td>
-                                    3
-                                  </td>
-                                  <td>
-                                    Sage Rodriguez
-                                  </td>
-                                  <td>
-                                    Netherlands
-                                  </td>
-                                  <td>
-                                    Baileux
-                                  </td>
-                                  <td class="td-actions text-right">
-                                    <button type="button" rel="tooltip" title="Edit Task" class="btn btn-white btn-link btn-sm">
-                                      <i class="material-icons">edit</i>
-                                    </button>
-                                    <button type="button" rel="tooltip" title="Remove" class="btn btn-white btn-link btn-sm">
-                                      <i class="material-icons">close</i>
-                                    </button>
-                                  </td>
-                                </tr>
-                                <tr>
-                                  <td>
-                                    4
-                                  </td>
-                                  <td>
-                                    Philip Chaney
-                                  </td>
-                                  <td>
-                                    Korea, South
-                                  </td>
-                                  <td>
-                                    Overland Park
-                                  </td>
-                                  <td class="td-actions text-right">
-                                    <button type="button" rel="tooltip" title="Edit Task" class="btn btn-white btn-link btn-sm">
-                                      <i class="material-icons">edit</i>
-                                    </button>
-                                    <button type="button" rel="tooltip" title="Remove" class="btn btn-white btn-link btn-sm">
-                                      <i class="material-icons">close</i>
-                                    </button>
-                                  </td>
-                                </tr>
-                                <tr>
-                                  <td>
-                                    5
-                                  </td>
-                                  <td>
-                                    Doris Greene
-                                  </td>
-                                  <td>
-                                    Malawi
-                                  </td>
-                                  <td>
-                                    Feldkirchen in Kärnten
-                                  </td>
-                                  <td class="td-actions text-right">
-                                    <button type="button" rel="tooltip" title="Edit Task" class="btn btn-white btn-link btn-sm">
-                                      <i class="material-icons">edit</i>
-                                    </button>
-                                    <button type="button" rel="tooltip" title="Remove" class="btn btn-white btn-link btn-sm">
-                                      <i class="material-icons">close</i>
-                                    </button>
-                                  </td>
-                                </tr>
-                                <tr>
-                                  <td>
-                                    6
-                                  </td>
-                                  <td>
-                                    Mason Porter
-                                  </td>
-                                  <td>
-                                    Chile
-                                  </td>
-                                  <td>
-                                    Gloucester
-                                  </td>
-                                  <td class="td-actions text-right">
-                                    <button type="button" rel="tooltip" title="Edit Task" class="btn btn-white btn-link btn-sm">
-                                      <i class="material-icons">edit</i>
-                                    </button>
-                                    <button type="button" rel="tooltip" title="Remove" class="btn btn-white btn-link btn-sm">
-                                      <i class="material-icons">close</i>
-                                    </button>
-                                  </td>
-                                </tr>
+                           
                               </tbody>
                             </table>
                           </div>

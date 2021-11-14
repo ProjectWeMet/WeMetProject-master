@@ -21,6 +21,11 @@ export class AdminDashboardService {
   data6 : any=[{
 
   }]
+  acceptProject : any=[{
+
+  }]
+
+  viewProjectNotAcceptAdmin:any=[{}]
 
 
 
@@ -131,6 +136,35 @@ export class AdminDashboardService {
          (error) => this.toaster.error(error.status));
         
           }
+
+
+
+          
+     ViewProjectNotAcceptAdmin(){
+        debugger
+        //call services
+     return this.http.get('https://localhost:44374/api/Users/ViewProjectNotAcceptAdmin').subscribe((result)=> { 
+       this.viewProjectNotAcceptAdmin=result,
+       console.log(this.viewProjectNotAcceptAdmin),
+      //  this.AcceptProject(this.viewProjectNotAcceptAdmin.projectId)
+       this.spinner.hide();
+       this.toaster.success('Data Retrieved!'); },
+       (error) => this.toaster.error(error.status));
+      
+        }
+
+                  
+    AcceptProject(id:any){
+    debugger
+      //call services
+   return this.http.post('https://localhost:44374/api/Project/AcceptProject',id).subscribe((result)=> { 
+    this.ViewProjectNotAcceptAdmin();
+     console.log(this.acceptProject)
+     this.spinner.hide();
+     this.toaster.success('Data Retrieved!'); },
+     (error) => this.toaster.error(error.status));
+    
+      }
         
       
     
