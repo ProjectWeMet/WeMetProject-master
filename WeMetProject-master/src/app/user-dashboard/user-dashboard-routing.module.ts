@@ -11,6 +11,7 @@ import { PublishedProjectsComponent } from './published-projects/published-proje
 import { UsersComponent } from './users/users.component';
 import { AddProjectComponent } from './add-project/add-project.component';
 import { PublishedDetailesComponent } from './published-detailes/published-detailes.component';
+import { EditProjctComponent } from './edit-project/edit-projct.component';
 
 const routes: Routes = [
   {
@@ -45,6 +46,11 @@ const routes: Routes = [
   },{
     path:'publishedDetailes',
     component:PublishedDetailesComponent
+
+
+  },{
+    path:'editProject',
+    component:EditProjctComponent
 
 
   }

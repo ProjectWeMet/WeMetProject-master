@@ -1,0 +1,44 @@
+
+textarea{
+    
+    border-radius: .5rem;
+    border-color: #89888a47;
+}
+
+textarea:hover{
+    
+    border-radius: .5rem;
+    border-color: #020202;
+}
+
+
+
+  .form-button {
+    background-color:#5f468bc6;
+    color: #ffffff;
+    border: none;
+    border-radius: 1.5rem;
+    font-weight: 600;
+    cursor: pointer;
+    
+   
+  }
+  .form-button:hover,
+  .form-button:focus,
+  .form-button:active,
+  .form-button.active,
+  .form-button:active:focus,
+  .form-button:active:hover,
+  .form-button.active:hover,
+  .form-button.active:focus {
+    background-color:#5a3e8a;
+      
+      border: none;
+      border-radius: 1.5rem;
+     
+     
+      font-weight: 600;
+     
+  }
+
+ 
