@@ -68,4 +68,13 @@ export class UserNavbarComponent implements OnInit {
    
   }
 
+  goToMyProfile(){
+    this.spinner.show();
+    setTimeout(() => {
+      this.spinner.hide();
+      this.router.navigate(['user/myProfile']);
+    }, 2000);
+   
+  }
+
 }

@@ -268,18 +268,12 @@ export class UsersComponent implements OnInit {
     "Åland Islands"
 ]
 
-
-
-
-
-
   country1:any;
   specialization1:any;
   skill1:any;
   jobTitle1:any;
   active1:any;
   
-
 
   onChange(isChecked: boolean) {
     if(isChecked) {

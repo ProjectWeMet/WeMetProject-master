@@ -1,6 +1,5 @@
 import { NgModule, Pipe } from '@angular/core';
 import { CommonModule } from '@angular/common';
-
 import { UserDashboardRoutingModule } from './user-dashboard-routing.module';
 import { ProjectsComponent } from './projects/projects.component';
 import { ProjectDetailesComponent } from './project-detailes/project-detailes.component';
@@ -25,7 +24,7 @@ import { CardPublishedProjectsComponent } from './published-projects/card-publis
 import { LenghtStringFormatPipe } from './users/user-card/lenght-string-format.pipe';
 import { PublishedDetailesComponent } from './published-detailes/published-detailes.component';
 import { AddScheduleDialogComponent } from './published-detailes/add-schedule-dialog/add-schedule-dialog.component';
-import { MyWorkCardComponent } from './my-work/my-work-card/my-work-card.component';
+
 import { AddJopOfferComponent } from './add-jop-offer/add-jop-offer.component';
 
 
@@ -56,7 +55,7 @@ import { AddJopOfferComponent } from './add-jop-offer/add-jop-offer.component';
     DaysBetweenDatesPipe,
 
     LenghtStringFormatPipe,
-    MyWorkCardComponent,
+   
     AddJopOfferComponent,
 
 

@@ -11,6 +11,8 @@ import { PublishedProjectsComponent } from './published-projects/published-proje
 import { UsersComponent } from './users/users.component';
 import { AddProjectComponent } from './add-project/add-project.component';
 import { PublishedDetailesComponent } from './published-detailes/published-detailes.component';
+import { MyProfileComponent } from './my-profile/my-profile.component';
+import { EditProfileComponent } from './edit-profile/edit-profile.component';
 
 const routes: Routes = [
   {
@@ -45,8 +47,18 @@ const routes: Routes = [
   },{
     path:'publishedDetailes',
     component:PublishedDetailesComponent
-
-
+  },
+  {
+    path:'addJopOffer',
+    component:AddJopOfferComponent
+  },
+  {
+    path:'myProfile',
+    component:MyProfileComponent
+  },
+  {
+    path:'editInfo',
+    component:EditProfileComponent
   }
 ]
 
