@@ -1,0 +1,39 @@
+
+   
+<!-- 
+    <div class="work-item two three">
+        <i class="flaticon-accounting"></i>
+        <img style=" width: 100% !important;height:180px !important;margin-top: 20px !important;"
+        src="{{getImagePath(image)}}">
+        <h6 class="card-category">{{homeServiceService.display_image}}</h6>
+      
+        <h3 (click)="showProfile()"  style="color: #000000;">{{categoryId}}</h3>
+        <h3 (click)="showProfile()"  style="color: #000000;">{{categoryTitle}}</h3>
+        <h3 (click)="showProfile()"  style="color: #000000;">{{image}}</h3>
+   
+
+        
+      
+    </div> -->
+
+
+
+    <mat-card  style="  background: -webkit-linear-gradient(left, #3B064D, #BC6FF1);width: 97%;height:96%;" class="example-card">
+        <mat-card-header>
+       
+        </mat-card-header>
+        <img style=" width: 100% !important;height:180px !important;margin-top: 20px !important;"
+        src="{{getImagePath(image)}}">
+        <h6 style="color: #202940;"  class="card-category">{{homeServiceService.display_image}}</h6>        <mat-card-content>
+          <h6 style="color: black;">
+            {{categoryTitle}}
+          </h6>
+        </mat-card-content>
+        <mat-card-actions style="color: #8b92a9;margin-bottom: 0.5%;">
+            <button mat-button  (click)="openDialog(categoryId,categoryTitle,image)"> <i class="material-icons">edit</i>Edit</button>
+
+
+
+        </mat-card-actions>
+      </mat-card>
+      
