@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { MatSliderChange } from '@angular/material/slider';
 import { UserDashboardService } from 'src/app/Service/user-dashboard.service';
-// import * as moment from 'moment';
+//import * as moment from 'moment';
 @Component({
   selector: 'app-add-project',
   templateUrl: './add-project.component.html',

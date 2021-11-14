@@ -14,9 +14,11 @@ export class UserDashboardService {
   Projects:any=[];
   PublishedProjects:any=[];
 
+
   projectDetaile:any=[];
   Users:any=[];
- addProject:any=[];
+  addProject:any=[];
+  addProjectToUser:any=[];
   ApplyJob:any=[];
   UserId:number=7;
   CV:any;
@@ -188,15 +190,11 @@ export class UserDashboardService {
     this.http.get('https://localhost:44374/api/Users/GetUserById/'+id).subscribe((data:any)=>{
       debugger
       this.User=data;
-      // console.log(this.data1);
-      
-    // this.router.navigate(['user/profile']);
       this.spiner.hide();
 
     },err=>{
       this.spiner.hide();
-      // this.toastr.error(err.status);
-      // this.router.navigate(['']);
+      this.toastr.error(err.status);
     })
   }
 
@@ -341,6 +339,31 @@ uploadAttachment(file:FormData, apply:any){
   
   })
 }
+
+
+AddProjectToUser(data:any){debugger
+  const headerDict={
+    'Content-Type':'application/json',
+    'Accept':'application/json'
+  }
+  const requestOptions={
+    headers:new HttpHeaders(headerDict)
+  }
+  this.spiner.show();
+   this.http.post('https://localhost:44374/api/Project/AddProjectToUser',data,requestOptions)
+   .subscribe((data:any)=>{
+    this.spiner.hide();
+    this.addProjectToUser=data;
+
+     this.toastr.success('add successfull');
+  
+  },error=>{
+    this.spiner.hide();
+     this.toastr.error(' Not Deleted ');
+  
+  })
+}
+
 
   addSchedule(schedule:any,ProjectId:number){debugger
     this.spiner.show();

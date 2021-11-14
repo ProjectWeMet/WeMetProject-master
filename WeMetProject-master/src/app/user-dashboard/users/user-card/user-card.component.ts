@@ -27,13 +27,7 @@ export class UserCardComponent implements OnInit {
   @Input ()  skill:string|undefined;
   @Input ()  createDate: string|undefined;
   @Input ()  verification: number|undefined;
-  // @Input ()  role: null,
-  // @Input ()  roleName: null,
-  // @Input ()  "applyJobUserProject": null,
-  // @Input () "myWork": null,
-  // @Input () "offerUser": null,
-  // @Input () "schedule": null,
-  // @Input () "testmonial": null
+  
   @Output() openProfile = new EventEmitter();
 
   showProfile()
@@ -50,7 +44,10 @@ export class UserCardComponent implements OnInit {
   }
 
   hireMe(){
+    if(this.userId){
+    this.UserService.getUserById(this.userId);
     this.router.navigate(['user/addJopOffer']);
+    }
   }
   constructor(public UserService:UserDashboardService,private router:Router) { }
 
