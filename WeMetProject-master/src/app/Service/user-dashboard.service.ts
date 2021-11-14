@@ -14,7 +14,7 @@ export class UserDashboardService {
   Projects:any=[];
   PublishedProjects:any=[];
 
-  projectDetaile:any={};
+  projectDetaile:any=[];
   Users:any=[];
  addProject:any=[];
   ApplyJob:any=[];
@@ -221,10 +221,11 @@ export class UserDashboardService {
 
 
    
-  GetProjectById(id:number){
+  GetProjectById(id:number){debugger
     return this.http.get('https://localhost:44374/api/Project/ProjectById/'+id)
     .subscribe((data:any)=>{
      this.projectDetaile=data;
+     debugger
      this.getApplyJobByProject(id);
     //  console.log(id+"GetProjectById")
    })
@@ -367,7 +368,18 @@ uploadAttachment(file:FormData, apply:any){
    
    })
   }
-
+  editProject(Project:any){debugger
+    this.spiner.show();
+    this.http.post('https://localhost:44374/api/Project/editProject',Project)
+    .subscribe((data:any)=>{
+     this.spiner.hide();
+     this.toastr.success('Update project successfully' );
+       },error=>{
+     this.spiner.hide();
+     this.toastr.error('Something went wrong');
+   
+  })
 }
 
 
+}
