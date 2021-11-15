@@ -67,8 +67,6 @@ const routes: Routes = [
   },{
     path:'editProject',
     component:EditProjctComponent
-
-
   }
 ]
 

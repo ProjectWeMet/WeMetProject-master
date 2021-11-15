@@ -389,37 +389,21 @@
             <h2>Latest Blog Posts</h2>
         </div>
 <!-- Bushra Assi  -->
-        <div class="row">
-            <div *ngFor ="let cardblog of homeServiceService.allBlog" class="col-sm-6 col-lg-4">
-                <div class="blog-item">
-                    <div class="top">
-                        <a routerLink="/blog-details"><img src="assets/img/home-one/blog1.jpg" alt="Blog"></a>
-                    </div>
-                    <span>{{cardblog.Title}}</span>
-                    <h3><a routerLink="/blog-details">{{cardblog.Description}} </a></h3>
-                    <!-- <div class="cmn-link">
-                        <a routerLink="/blog-details"><i class="flaticon-right-arrow one"></i> Learn More <i class="flaticon-right-arrow two"></i></a>
-                    </div> -->
+     
+            
+
+            <div fxLayout="row wrap" fxLayoutGap="10px grid">
+                <div fxFlex="32%"  *ngFor ="let cardblog of homeServiceService.allBlog" >
+            <app-blog [id]="cardblog.id"  [title]="cardblog.title" [img]="cardblog.img" [descriptions]="cardblog.descriptions">
+    
+            </app-blog>
                 </div>
             </div>
-            <div class="col-sm-6 col-lg-4">
-                <div class="blog-item" *ngFor ="let cardblog of homeServiceService.allBlog">
-                    <div class="top">
-                        <a routerLink="/blog-details"><img src="assets/img/home-one/blog2.jpg" alt="Blog"></a>
-                         <!-- <h6 >{{homeServiceService.displayBlog_image}}</h6> -->
-       <!-- <img src="{{getImagePath(img)}}"> -->
-                    </div>
-                    <span>{{cardblog.Title}}</span>
-                    <h3><a routerLink="/blog-details">{{cardblog.Description}}</a></h3>
-                   
-                </div>
-            </div>
+       
 
             
             
-            <!-- <app-department-we-met *ngFor ="let cardblog of homeServiceService.allBlog"  [Id]="cardblog.Id"  [Title]="cardblog.Title" [image]="cardblog.img">
-    
-            </app-department-we-met> -->
+         
 
             <!-- <div class="col-sm-6 col-lg-4">
                 <div class="blog-item">
@@ -446,7 +430,7 @@
                     </div>
                 </div>
             </div> -->
-        </div>
+       
     </div>
 </section>
 </div>

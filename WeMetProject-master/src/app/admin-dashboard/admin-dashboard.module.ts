@@ -9,6 +9,9 @@ import { ReportTableUSERComponent } from './report-table-user/report-table-user.
 import { CardProfileComponent } from './admin-profile/card-profile/card-profile.component';
 import { CategoregAllComponent } from './dashbored-admin/categoreg-all/categoreg-all.component';
 import { AppUpdateCategoreyDialogComponent } from './dashbored-admin/app-update-categorey-dialog/app-update-categorey-dialog.component';
+import { TableUsersComponent } from './table-users/table-users.component';
+import { HeightthreeapllyprojectComponent } from './heightthreeapllyproject/heightthreeapllyproject.component';
+import { LengthStringFormatePipePipe } from './heightthreeapllyproject/length-string-formate-pipe.pipe';
 
 
 @NgModule({
@@ -20,6 +23,9 @@ import { AppUpdateCategoreyDialogComponent } from './dashbored-admin/app-update-
     CategoregAllComponent,
 
     AppUpdateCategoreyDialogComponent,
+     TableUsersComponent,
+     HeightthreeapllyprojectComponent,
+     LengthStringFormatePipePipe,
   
     
   ],

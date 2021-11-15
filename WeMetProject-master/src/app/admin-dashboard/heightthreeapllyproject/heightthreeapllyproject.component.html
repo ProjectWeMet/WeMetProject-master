@@ -8,83 +8,33 @@
             <app-admin-navbar></app-admin-navbar>
             <!-- End Navbar -->
             <div class="content">
-                <div class="container-fluid">
-                  <div class="row">
-                    <div class="col-md-12">
-                      <div id="pdfTable" #pdfTable class="card">
-                        <div class="card-header card-header-primary">
-                          <h4 class="card-title ">Accept Project </h4>
-                          
+                <div class="container">
+                    <div class="section-title three">
+                        <div class="sub-title-wrap">
+                            <img src="assets/img/home-three/title-img.png" alt="Icon">
                         </div>
-                        <div class="card-body">
-                          <div class="table-responsive">
-                            <table class="table">
-                              <thead class=" text-primary">
-                                <th>
-                                  ID
-                                </th>
-                                <th>
-                                  Name
-                                </th>
-                                <th>
-                                    Project Title
-                                </th>
-                                <th>
-                                    Count Apply Job
-                                </th>
-                            
-                                <th>
-                                    Date Of Create
-                                </th>
-                                <th>
-                                    Accept 
-                                   </th>
-                                   <th>
-                                   Reject
-                                   </th>
-                              </thead>
-                              <tbody *ngFor ="let card of adminDashboardService.viewProjectNotAcceptAdmin" >
-                                <tr>
-                                  <td>
-                               {{card.projectId}}
-                                  </td>
-                                  <td>
-                            {{card.fName}} {{card.lName}}
-                                  </td>
-                                  <td>
-                                 {{card.projectTitle}}
-                                  </td>
-                                  <td>
-                                    {{card.countApplyJob}}
-                                  </td>
-                                  <td>
-                         
-                                    {{card.dateOfCreate}}
-                                  </td>
-                                  <td  class="td-actions text-right">
-                                    <button  (click)="AcceptProjectt(card.projectId)"  type="button" rel="tooltip" title="Edit Task" class="btn btn-white btn-link btn-sm">
-                                      <i   class="material-icons">edit</i>
-                                    </button>
-  
-                                   
-                                  </td>
-                                  <td>
-                                    <button (click)="RejectProjectt(card.projectId)"    type="button" rel="tooltip" title="Remove" class="btn btn-white btn-link btn-sm">
-                                        <i class="material-icons">close</i>
-                                      </button>
-                                  </td>
-                                </tr>
-                           
-                              </tbody>
-                            </table>
-                          </div>
-                          <button class="btn btn-primary" (click)="downloadAsPDF();">Export To PDF</button>
-
-                        </div>
-                      </div>
+                        <h2 style="color: #f1f0f6;font-weight: 700;">Company Offering Job</h2>
                     </div>
-                  
-                  </div>
+                </div>
+            <!-- </section> -->
+                <div style="padding:6%" class="row ">
+                    <div  *ngFor="let card of adminDashboardService.getallProjectHighestApplyJob"  class="col-lg-6 col-md-12">
+                        <div   class="employer-item">
+                            <a  routerLink="/job-details">
+                                <img src="assets/img/home-one/job1.png" alt="Employer">
+                                <h3>  {{card.fName}} {{card.lName}}</h3>
+                                <ul>
+                                    <li><i class="material-icons">access_time</i>{{card.dateOfCreate}}</li>
+                                </ul>
+                                <p >{{card.projectDetails|lengthStringFormatePipe }}</p>    
+                                <br>    
+                                <br>  
+                                <br>        
+                                <span class="span-two">FULL TIME</span>
+                            </a>
+                        </div>
+                    </div>
+            
                 </div>
               </div>
             <!-- footer -->

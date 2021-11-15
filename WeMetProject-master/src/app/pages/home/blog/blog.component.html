@@ -1,27 +1,18 @@
-
-<div class="col-sm-6 col-lg-4">
-    <div class="blog-item">
-        
-        <!-- <img style=" padding-bottom:8%; width: 50%;"src="{{getImagePath(imageName)}}"> -->
-        <!-- <img class="card-img-top" style=" padding-bottom:8%; width: 50%;" src="https://jo.mostaql.com/assets/images/landing/transfer-1.svg"  alt="Card image cap"> -->
-        <h3 (click)="showProfile()"  style="color: #000000;">{{Id}}</h3>
-        <span>{{Title}}</span>
-        <p>{{Description}}</p>
-        <h6 class="card-category">{{homeServiceService.displayBlog_image}}</h6>
-   <img style=" width: 100% !important;height:220px !important;margin-top: 20px !important;"
-        src="{{getImagePath(img)}}">
-        
-        
-                        <!-- <div class="row" style="margin-bottom:15px;">
-                            <div class="col-md-3">
-                              <input type="file" #file placeholder="Choose Image" 
-                              (change)="uploadFile(file.files)" 
-                              style="display:none;">
-                              <button type="button" class="btn btn-success" 
-                              (click)="file.click()">Upload Image</button>
-                            </div>
-                          </div> --> 
-    </div>
-</div> 
+<div class="blog-item">
+  <div class="top">
+      <!-- <a routerLink="/blog-details"><img src="assets/img/home-one/blog1.jpg" alt="Blog"></a> -->
+      <img style=" width: 100% !important;height:220px !important;margin-top: 20px !important;"
+      src="{{getImagePath(img)}}">
+  </div>
+  <span>{{title}}</span>
+  <h3><a routerLink="/blog-details">{{descriptions}} </a></h3>
+  <h6 class="card-category">{{homeServiceService.displayBlog_image}}</h6>
+  <h3 (click)="  showProfile()">
+{{id}}
+  </h3>
+  <!-- <div class="cmn-link">
+      <a routerLink="/blog-details"><i class="flaticon-right-arrow one"></i> Learn More <i class="flaticon-right-arrow two"></i></a>
+  </div> -->
+</div>
 
 
