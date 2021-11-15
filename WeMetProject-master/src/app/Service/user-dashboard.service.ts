@@ -404,5 +404,18 @@ AddProjectToUser(data:any){debugger
   })
 }
 
+editUserQualification(data:any){debugger
+  this.spiner.show();
+  this.http.post('https://localhost:44374/api/Users/updateQualification',data)
+  .subscribe((data:any)=>{
+   this.spiner.hide();
+   this.toastr.success('Update User successfully' );
+     },error=>{
+   this.spiner.hide();
+   this.toastr.error('Something went wrong');
+ 
+})
+}
+
 
 }

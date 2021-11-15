@@ -20,8 +20,12 @@ export class MyProfileComponent implements OnInit {
     this.UserService.getUserById(this.UserService.UserId);
   }
 
+
   EditInfo(){
-    this.router.navigate(['user/editInfo']);
+    if(this.UserService.UserId){
+      this.UserService.getUserById(this.UserService.UserId);
+      this.router.navigate(['user/editInfo']);
+    }
   }
 
 }
