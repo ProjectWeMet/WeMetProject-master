@@ -17,16 +17,20 @@ export class HomeComponent implements OnInit {
   @Input () countApplyJob:number|undefined;
   @Input () projectDetails:string|undefined;
   @Input () dateOfCreate:string|undefined;
-
   @Input () categoryTitle:string|undefined;
   @Input () categoryId:any|undefined;
   @Input () image:any|undefined;
   
-  
+  @Input () title:string|undefined;
+  @Input () id:any|undefined;
+  @Input () img:any|undefined;
+  @Input () descriptions:string|undefined;
   constructor(public UserService:UserDashboardService,private router:Router,public homeServiceService:HomeServiceService) { 
   
     this.UserService.getAllProjects();
     this.homeServiceService.GetAllCategorey();
+    this.homeServiceService.GetAllBLOG();
+    
     
   }
  
