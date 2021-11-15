@@ -17,10 +17,14 @@ export class ProfileComponent implements OnInit {
     debugger
     this.UserService.getMyWorkById(id);
     this.router.navigate(['user/myWork']);
-    console.log("hgfghggfgfgfg0",this.UserService.User[0].userId);
   }
   ngOnInit(): void {
     
   }
+
+  hireMe(){
+    this.UserService.getUserById(this.UserService.User[0].userId);
+    this.router.navigate(['user/addJopOffer']);}
+    
 
 }

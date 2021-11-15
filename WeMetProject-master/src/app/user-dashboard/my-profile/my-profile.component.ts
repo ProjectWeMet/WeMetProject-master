@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { UserDashboardService } from 'src/app/Service/user-dashboard.service';
 
 @Component({
   selector: 'app-my-profile',
@@ -7,9 +9,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MyProfileComponent implements OnInit {
 
-  constructor() { }
+  constructor(public UserService:UserDashboardService,private router:Router) { }
 
+  goToMyWork(id:number){
+    debugger
+    this.UserService.getMyWorkById(id);
+    
+  }
   ngOnInit(): void {
+    this.UserService.getUserById(this.UserService.UserId);
+  }
+
+  EditInfo(){
+    this.router.navigate(['user/editInfo']);
   }
 
 }

@@ -13,34 +13,57 @@ textarea:hover{
 
 
 
-  .form-button {
-    background-color:#5f468bc6;
-    color: #ffffff;
+.form-button {
+  background-color:#5f468bc6;
+  color: #ffffff;
+  border: none;
+  border-radius: 1.5rem;
+  font-weight: 600;
+  cursor: pointer;
+  
+ 
+}
+.form-button:hover,
+.form-button:focus,
+.form-button:active,
+.form-button.active,
+.form-button:active:focus,
+.form-button:active:hover,
+.form-button.active:hover,
+.form-button.active:focus {
+  background-color:#5a3e8a;
     
-   
     border: none;
     border-radius: 1.5rem;
-    padding: 2%;
+   
+   
     font-weight: 600;
-    width: 30%;
-    cursor: pointer;
+   
+}
+  .example-section {
+    margin: 12px 0;
   }
-  .form-button:hover,
-  .form-button:focus,
-  .form-button:active,
-  .form-button.active,
-  .form-button:active:focus,
-  .form-button:active:hover,
-  .form-button.active:hover,
-  .form-button.active:focus {
-    background-color:#5a3e8a;
-      
-      border: none;
-      border-radius: 1.5rem;
-      padding: 2%;
-     
-      font-weight: 600;
-      width: 30%;
-  }
+
+  h4 {
+    font-size: 20px;
+    font-weight: bold;
+    color: #221668;
+    transition: 0.5s all ease;
+}
+.h4{
+  font-size: 20px;
+    font-weight: bold;
+    color: #221668;
+    transition: 0.5s all ease;
+    margin-left: 100px;
+
+}
+.li {
+  font-weight: bold;
+  font-size: 15px;
+  color: #a4a0b9;
+  transition: 0.5s all ease;
+  margin-left: 100px;
+}
 
  

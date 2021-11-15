@@ -40,5 +40,11 @@ textarea:hover{
       font-weight: 600;
      
   }
+  h4 {
+    font-size: 20px;
+    font-weight: bold;
+    color: #221668;
+    transition: 0.5s all ease;
+}
 
  
