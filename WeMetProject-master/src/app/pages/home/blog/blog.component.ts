@@ -9,17 +9,17 @@ import { UserDashboardService } from 'src/app/Service/user-dashboard.service';
   styleUrls: ['./blog.component.css']
 })
 export class BlogComponent implements OnInit {
-  @Input () Title:string|undefined;
-  @Input () Id:any|undefined;
+  @Input () title:string|undefined;
+  @Input () id:any|undefined;
   @Input () img:any|undefined;
-  @Input () Description:string|undefined;
+  @Input () descriptions:string|undefined;
   constructor(public UserService:UserDashboardService ,private router:Router,public homeServiceService: HomeServiceService) { }
   showProfile()
   {debugger
-    if(this.Id)
+    if(this.id)
     {
-      this.homeServiceService.GetCategoreyById(this.Id);
-      this.router.navigate(['home/show']);
+      this.homeServiceService.GetBLOGById(this.id);
+      this.router.navigate(['home/BlogId']);
       // this.openProfile.emit();
     }
     else{

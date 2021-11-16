@@ -1,7 +1,13 @@
 import { HttpClient } from '@angular/common/http';
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, ElementRef, Input, OnInit, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 import { AdminDashboardService } from 'src/app/Service/admin-dashboard.service';
+
+
+import * as pdfMake from "pdfmake/build/pdfmake";
+import * as pdfFonts from "pdfmake/build/vfs_fonts";
+const htmlToPdfmake = require("html-to-pdfmake");
+(pdfMake as any).vfs = pdfFonts.pdfMake.vfs;
 
 @Component({
   selector: 'app-report-table-user',
@@ -16,11 +22,22 @@ export class ReportTableUSERComponent implements OnInit {
   @Input () dateOfCreate :any|undefined;
   @Input ()  projectId :any|undefined;
   
+  @ViewChild('pdfTable')
+  pdfTable!: ElementRef;
+  
+  public downloadAsPDF() {
+    const pdfTable = this.pdfTable.nativeElement;
+    var html = htmlToPdfmake(pdfTable.innerHTML);
+    const documentDefinition = { content: html };
+    pdfMake.createPdf(documentDefinition).download(); 
+     
+  }
+
   constructor(public adminDashboardService: AdminDashboardService,private router:Router) { 
     this.adminDashboardService.ViewProjectNotAcceptAdmin();
 
   }
-  showProfile(id:any)
+  AcceptProjectt(id:any)
   {debugger
     const data = {projectId:id}
     if(id)
@@ -33,6 +50,23 @@ export class ReportTableUSERComponent implements OnInit {
       // this.toastr.warning('This item cannot be loded!!')
     }
   }
+
+    RejectProjectt(id:any)
+  {debugger
+    const data = {projectId:id}
+    if(id)
+    {
+      this.adminDashboardService.RejectProject(data);
+      // this.router.navigate(['admin/report']);
+      // this.openProfile.emit();
+    }
+    else{
+      // this.toastr.warning('This item cannot be loded!!')
+    }
+  }
+
+ 
+  
   ngOnInit(): void {
   }
 

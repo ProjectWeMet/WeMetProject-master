@@ -62,7 +62,6 @@ export class HomeServiceService {
     const data2={
       image:this.display_image.toString(),
       categoryId:id
-   
       }
       this.UpdateImageCategory(data2)
   }
@@ -90,30 +89,6 @@ export class HomeServiceService {
   
   }
   
-//BLOG
-GetAllBLOG(){
-  //call services
-  return this.http.get('https://localhost:44374/api/BLOG').subscribe((result)=> { 
- this.allBlog=result,
- this.spinner.hide();
- this.toaster.success('Data Retrieved!'); },
- (error) => this.toaster.error(error.status));
-
-  }
-
-  GetBLOGById(id:number){
-    debugger
-    this.spinner.show();
-    this.http.get('https://localhost:44374/api/BLOG/GetBLOGById/'+id).subscribe((data:any)=>{
-      debugger
-      this.Blog=data;
-      console.log(this.Blog);
-      this.spinner.hide();
-      this.toaster.success('Data Retrieved!'); 
-    },(error) => this.toaster.error(error.status));
-  }
-
-
 
   uploadAttachmentt(file:FormData,Categorey:any){
     debugger
@@ -166,6 +141,32 @@ GetAllBLOG(){
     }
 
 
+//BLOG
+  GetAllBLOG(){
+  //call services
+  return this.http.get('https://localhost:44374/api/BLOG').subscribe((result)=> { 
+ this.allBlog=result,
+ this.spinner.hide();
+ this.toaster.success('Data Retrieved!'); },
+ (error) => this.toaster.error(error.status));
+
+  }
+
+  GetBLOGById(id:any){
+    debugger
+    this.spinner.show();
+    this.http.get('https://localhost:44374/api/BLOG/GetBLOGById/'+id).subscribe((data:any)=>{
+      debugger
+      this.Blog=data;
+      console.log(this.Blog);
+      this.spinner.hide();
+      this.toaster.success('Data Retrieved!'); 
+    },(error) => this.toaster.error(error.status));
+  }
+
+
+//
+
     UpdateImageBlog(data3:any){
       debugger
       const headerDict = {
@@ -184,6 +185,31 @@ GetAllBLOG(){
   
     
     }
+    uploadAttachmentBlog(file:FormData,id:any){
+      debugger
+  
+      const headerDict = {
+      'Content-Type': 'application/json',
+      'Accept': 'application/json'
+      }
+      const requestOptions = {
+      headers: new HttpHeaders(headerDict),
+      };
+      this.http.post('https://localhost:44374/api/' +'BLOG/upload/',file).subscribe((data1: any) => {
+      this.displayBlog_image=data1.img;
+      debugger
+      if(data1){
+      console.log(this.displayBlog_image);
+      const data2={
+        img:this.displayBlog_image.toString(),
+        id:id
+        }
+        this.UpdateImageBlog(data2)
+    }
+      }, err => {
+      
+      })
+      }
 
 
 }

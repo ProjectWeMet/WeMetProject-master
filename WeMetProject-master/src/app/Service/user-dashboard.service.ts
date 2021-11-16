@@ -553,7 +553,6 @@ uploadImageWork(file:FormData, work:any){
     const requestOptions={
       headers:new HttpHeaders(headerDict)
     }
-
     this.spiner.show();
      this.http.post('https://localhost:44374/api/Project/SearchUserProject',data,requestOptions)
      .subscribe((data:any)=>{
@@ -575,6 +574,21 @@ uploadImageWork(file:FormData, work:any){
       this.allSchedule=data;
       this.spiner.hide();
 
+    },err=>{
+      this.spiner.hide();
+      this.toastr.error(err.status);
+    })
+  }
+editUserQualification(data:any){debugger
+  this.spiner.show();
+  this.http.post('https://localhost:44374/api/Users/updateQualification',data)
+  .subscribe((data:any)=>{
+   this.spiner.hide();
+   this.toastr.success('Update User successfully' );
+     },error=>{
+   this.spiner.hide();
+   this.toastr.error('Something went wrong');
+ 
     },err=>{
       this.spiner.hide();
       this.toastr.error(err.status);

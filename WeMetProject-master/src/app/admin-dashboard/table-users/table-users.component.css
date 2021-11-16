@@ -22072,14 +22072,3 @@
   /*
 Flaticon icon font: Flaticon
 */
-h2::after {
-  content: "";
-  width: 200px;
-  position: absolute;
-  margin: 0 auto;
-  height: 3px;
-  background: -webkit-linear-gradient(left, #3B064D, #BC6FF1);
-  left: 0;
-  right: 0;
-  bottom: -10px
-}

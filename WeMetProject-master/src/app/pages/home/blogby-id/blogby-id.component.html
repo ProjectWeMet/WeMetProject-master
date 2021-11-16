@@ -1,10 +1,10 @@
-<h1>{{homeServiceService.Blog[0].Id}}</h1>
-<h1>{{homeServiceService.Blog[0].Title}}</h1>
+<h1>{{homeServiceService.Blog[0].id}}</h1>
+<h1>{{homeServiceService.Blog[0].title}}</h1>
 <h1>{{homeServiceService.Blog[0].img}}</h1>
-<h1>{{homeServiceService.Blog[0].Description}}</h1>
+<h1>{{homeServiceService.Blog[0].descriptions}}</h1>
 
-
-                <div class="row" style="margin-bottom:15px;">
+<h1>Bushra</h1>
+                <!-- <div class="row" style="margin-bottom:15px;">
                     <div class="col-md-3">
                       <input type="file" #file placeholder="Choose Image" 
                       (change)="uploadFile(file.files,homeServiceService.Blog[0].Id)" 
@@ -12,8 +12,19 @@
                       <button type="button" class="btn btn-success" 
                       (click)="file.click()">Upload Image</button>
                     </div>
-                  </div>
+                  </div> -->
 
                  
 
-
+                  <img style=" width: 100% !important;height:180px !important;margin-top: 20px !important;"
+                  src="{{getImagePath(image)}}">
+                  <h6 class="card-category">{{homeServiceService.display_image}}</h6>
+                          <div class="row" style="margin-bottom:15px;">
+                              <div class="col-md-3">
+                                <input type="file" #file placeholder="Choose Image" 
+                                (change)="uploadFile(file.files,homeServiceService.Blog[0].id)" 
+                                style="display:none;">
+                                <button type="button" class="btn btn-success" 
+                                (click)="file.click()">Upload Image</button>
+                              </div>
+                            </div>
