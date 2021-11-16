@@ -6728,4 +6728,20 @@ button:focus {
 
 
   }
+  .workDialog .mat-dialog-container{
+    width: 900px;
+    border-radius: 10px;
+    border: 1px solid  #673AB7;
+
+
+  }
+  .deleteDialog .mat-dialog-container{
+    width: 400px;
+    border-radius: 10px;
+    border: 1px solid  #673AB7;
+
+
+  }
+
+
 
