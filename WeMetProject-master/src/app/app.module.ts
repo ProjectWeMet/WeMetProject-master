@@ -13,9 +13,10 @@ import { TippyModule } from '@ngneat/helipopper';
 
 
 
+
 @NgModule({
   declarations: [
-    AppComponent,
+    AppComponent
     
   
 

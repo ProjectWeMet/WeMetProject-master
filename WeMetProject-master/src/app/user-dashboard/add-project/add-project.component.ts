@@ -64,7 +64,7 @@ console.log(this.value) ;
    
   let today = new Date()
 
-  // this.DateOfCreate1=moment().format("YYYY-MM-DD[T]HH:mm:ss");
+  this.DateOfCreate1=new Date(new Date().toString().split('GMT')[0]+'UTC').toISOString();
 
   const data2={
     UserId:this.UserId1,

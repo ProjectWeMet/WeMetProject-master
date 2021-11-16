@@ -138,8 +138,7 @@ a .material-icons {
 }
 
 .profile-page .profile img {
-  max-width: 160px;
-  width: 100%;
+  max-width: 250px;
   margin: 0 auto;
   -webkit-transform: translate3d(0, -50%, 0);
   -moz-transform: translate3d(0, -50%, 0);
@@ -252,7 +251,7 @@ p {
 }
 
 img.rounded {
-  border-radius: 6px !important;
+  border-radius:20px !important;
 }
 
 .tab-content > .active {

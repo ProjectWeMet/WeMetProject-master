@@ -29,13 +29,18 @@ export class EditProfileComponent implements OnInit {
     debugger
     
       this.UserId1=this.UserService.UserId;
-      console.log(this.UserService.projectDetaile[0].expectedBudget) ;
+      console.log((this.biography.value).toString()) ;
+      console.log((this.specialization.value).toString()) ;
+      console.log((this.skill.value).toString()) ;
+      console.log((this.jobTitle.value).toString());
+      console.log(this.UserService.UserId);
+
       const data2={
-        UserId:parseInt(this.UserId1),
-        specialization:this.specialization.value.toString(),
-        skill:this.skill.value.toString(),
+        UserId:this.UserService.UserId,
+        Specialization:this.specialization.value.toString(),
+        Skill:this.skill.value.toString(),
         jobTitle:this.jobTitle.value.toString(),
-        biography:this.biography.value.toStrig(),
+        biography:this.biography.value.toString(),
         
       
       }
@@ -43,9 +48,17 @@ export class EditProfileComponent implements OnInit {
       
     }
 
-    EditProfile(){
-      
+    EditAccount(){
+      if(this.UserService.UserId){
+        this.UserService.getUserById(this.UserService.UserId);
+        this.router.navigate(['user/editAccount']);
+      }
     }
+
+    getImagePath(value:string ){
+      let basePath="../../../../assets/images/Uploaded File/";
+      return basePath+value;
+      }
 
   ngOnInit(): void {
   }
