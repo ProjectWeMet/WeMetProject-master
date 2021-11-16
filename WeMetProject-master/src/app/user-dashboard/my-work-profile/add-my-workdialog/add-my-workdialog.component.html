@@ -1,0 +1,76 @@
+<h1 mat-dialog-title style="text-align: center;">Add New Work</h1>
+<mat-dialog-content class="mat-typography">
+    <form [formGroup]="formGroup" >
+        <div class="col-md-12" >
+            <div class="row" style="text-align: center;">
+                <div class="col-md-6">
+                   
+                    <p><input type="file" formControlName="fileControl"   accept="image/*" name="image" id="file" (change)="readURL($event);" style="display: none;"></p>
+                    <p><label for="file" style="cursor: pointer;">
+                        <img for="file"  id="imgWork" [src]="imageSrc || 'https://cdn-icons.flaticon.com/png/512/4653/premium/4653765.png?token=exp=1636995701~hmac=481cea542cf60ce83a1ec897840e27c5'" alt="your image" /> 
+                        
+                    </label></p>
+
+                </div>
+            
+
+                <div class="col-md-6 mt-3">
+                    <mat-form-field class="example-full-width " appearance="outline" >
+                        <mat-label >Work title</mat-label>
+                        <input matInput formControlName="title" >
+                        <mat-error *ngIf="formGroup.controls.title.hasError('required')">
+                            Title is <strong> Required</strong>
+                        </mat-error>
+                    </mat-form-field>
+                    <mat-form-field class="example-full-width " appearance="outline" >
+                        <mat-label >Work link</mat-label>
+                        <input matInput formControlName="link" >
+                        <mat-error *ngIf="formGroup.controls.link.hasError('required')">
+                         Work link is <strong> Required</strong>
+                        </mat-error>
+                    </mat-form-field>
+                    
+                    <mat-form-field class="example-full-width " appearance="outline" >
+                        <mat-label >Completion date</mat-label>
+                        <input matInput type="date" formControlName="Date"  >
+                        <mat-error *ngIf="formGroup.controls.Date.hasError('required')">
+                           Date is <strong> Required</strong>
+                        </mat-error>
+                    </mat-form-field>
+                </div>
+                
+             </div> 
+            
+            <div class="row">
+                <div class="col-md-6 ">
+                <mat-form-field appearance="outline"class="example-full-width ">
+                    <mat-label>Brief description of the work </mat-label>
+                    <textarea matInput #message maxlength="300" formControlName="description"></textarea>
+                    <mat-hint align="end">{{message.value.length}} / 300</mat-hint>
+                    <mat-error *ngIf="formGroup.controls.description.hasError('required')">
+                        Description is <strong> Required</strong>
+                    </mat-error>
+    
+                    </mat-form-field>
+                </div>
+                <div class="col-md-6 ">
+                <mat-form-field appearance="outline"class="example-full-width ">
+                    <mat-label>Skills you used in this work</mat-label>
+                    <textarea matInput #message1 maxlength="200" formControlName="skills"></textarea>
+                    <mat-hint align="end">{{message1.value.length}} / 200</mat-hint>
+                    <mat-error *ngIf="formGroup.controls.skills.hasError('required')">
+                        Skill is <strong> Required</strong>
+                    </mat-error>
+    
+                    </mat-form-field>
+                </div>
+            </div>
+        
+           
+         </div>
+    </form>
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+  <button mat-button mat-dialog-close>Cancel</button>
+  <button [disabled]="!formGroup.valid" mat-button [mat-dialog-close]="true" cdkFocusInitial (click)="saveItem()">Add</button>
+</mat-dialog-actions>

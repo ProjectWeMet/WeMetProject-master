@@ -26,6 +26,13 @@ import { PublishedDetailesComponent } from './published-detailes/published-detai
 import { AddScheduleDialogComponent } from './published-detailes/add-schedule-dialog/add-schedule-dialog.component';
 
 import { AddJopOfferComponent } from './add-jop-offer/add-jop-offer.component';
+import { MyWorkProfileComponent } from './my-work-profile/my-work-profile.component';
+import { AddMyWorkdialogComponent } from './my-work-profile/add-my-workdialog/add-my-workdialog.component';
+import { EditMyWorkDialogComponent } from './my-work-profile/edit-my-work-dialog/edit-my-work-dialog.component';
+import { DeleteMyWorkDialogComponent } from './my-work-profile/delete-my-work-dialog/delete-my-work-dialog.component';
+import { GetDateFormatePipe } from './projects/card-project/GetDateFormate.pipe';
+import { CardShownProjectsComponent } from './shown-projects/card-shown-projects/card-shown-projects.component';
+import { ScheduleComponent } from './schedule/schedule.component';
 
 
 
@@ -49,8 +56,8 @@ import { AddJopOfferComponent } from './add-jop-offer/add-jop-offer.component';
 
     CardProjectComponent,
     LengthStringFormatePipe,
-    LenghtStringFormatPipe
-,
+    LenghtStringFormatPipe,
+    GetDateFormatePipe,
     ShowApplyJobPipe,
     DaysBetweenDatesPipe,
 
@@ -63,6 +70,12 @@ import { AddJopOfferComponent } from './add-jop-offer/add-jop-offer.component';
     CardPublishedProjectsComponent,
     PublishedDetailesComponent,
     AddScheduleDialogComponent,
+    MyWorkProfileComponent,
+    AddMyWorkdialogComponent,
+    EditMyWorkDialogComponent,
+    DeleteMyWorkDialogComponent,
+    CardShownProjectsComponent,
+    ScheduleComponent,
 
 
    

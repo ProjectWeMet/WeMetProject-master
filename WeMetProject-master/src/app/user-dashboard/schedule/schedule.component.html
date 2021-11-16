@@ -1,0 +1,106 @@
+<!-- Navbar -->
+<!-- <app-navbar></app-navbar> -->
+<app-user-navbar></app-user-navbar>
+<!-- End Navbar -->
+
+<!-- Page Title -->
+<div class="page-title-area">
+    <div class="d-table">
+        <div class="d-table-cell">
+            <div class="container">
+                <div class="title-item">
+                    <h2>Jobs</h2>
+                    <ul>
+                        <li>
+                            <img src="assets/img/home-three/title-img-two.png" alt="Image">
+                            <!-- <a routerLink="/">Home</a> -->
+                        </li>
+                        <li><span>/</span></li>
+                        <li>Jobs</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- End Page Title -->
+
+<!-- Jobs -->
+<div class="job-area-list ptb-50" style="background-color: #f1f0f6" >
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-md-12">
+                <!-- <ul class="job-list-item align-items-center">
+                   
+                    <li>
+                        
+                        <mat-form-field appearance="outline">
+                            <mat-label>Order By</mat-label>
+                            <select matNativeControl [(ngModel)]="orderBy" (ngModelChange)="getOrderBy()" >
+                              <option  value="Latest">Latest</option>
+                              <option value="Oldest">Oldest</option>
+                              <option  value="LeastViewed">Least viewed</option>
+                              <option value="MostViewed">Most viewed</option>
+                            </select>
+                          </mat-form-field>
+                    </li>
+                    <li></li>
+                </ul> -->
+
+                    <div *ngFor="let card of UserService.allSchedule">
+                        <div class="published-item" >
+                            <a >
+    
+                        
+                                <h3 (click)="ViewDetailes()">{{card.projectTitle}}</h3>
+                                <ul (click)="ViewDetailes()">
+                                    <li><i class="material-icons">person</i> {{card.fName}} {{card.lName}}</li>
+                                    <li><i class="material-icons">access_time</i>{{card.date}}</li>
+                                </ul>
+                                
+                                <p (click)="ViewDetailes()" >{{card.link}}</p>
+                                <p (click)="ViewDetailes()" >{{card.link}}</p>
+
+                            </a>
+                        </div>
+                    </div>
+
+              
+            </div>
+
+            <!-- <div class="col-lg-4 col-md-12"> 
+                <div class="job-list-right">
+                        <div class="job-list-all" style="background-color: #fff;">
+                            <div class="search">
+                                <h3>Search Project</h3>
+                                <label id="example-radio-group-label">Project Title : </label>
+                                    <input type="text" class="form-control mt-2"  [formControl]="title" placeholder="Project title ">
+                            </div>
+                            <div >
+                                <label id="example-radio-group-label">Project State :</label>
+                                <mat-radio-group
+                                aria-labelledby="example-radio-group-label"
+                                class="example-radio-group"
+                                color=primary
+                                [(ngModel)]="selectedState">
+                                <mat-radio-button class="example-radio-button" *ngFor="let state of stateProject" [value]="state">
+                                    {{state}}
+                                </mat-radio-button>
+                                </mat-radio-group>
+                            </div>
+ 
+                            <div class="level">
+                                <button type="submit" (click)="search()" class="btn">Filter Now</button>
+                            </div>
+                        </div>
+                    
+                </div>  
+            </div>  -->
+        </div>
+    </div>
+</div>
+<!-- End Jobs -->
+
+<!-- Footer -->
+<!-- <app-footer></app-footer> -->
+<!-- End Footer -->
