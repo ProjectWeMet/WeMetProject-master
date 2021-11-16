@@ -14,6 +14,9 @@ import { PublishedDetailesComponent } from './published-detailes/published-detai
 import { MyProfileComponent } from './my-profile/my-profile.component';
 import { EditProfileComponent } from './edit-profile/edit-profile.component';
 import { EditProjctComponent } from './edit-project/edit-projct.component';
+import { EditAccountComponent } from './edit-account/edit-account.component';
+import { MyScheduleComponent } from './my-schedule/my-schedule.component';
+
 
 
 const routes: Routes = [
@@ -61,12 +64,16 @@ const routes: Routes = [
   {
     path:'editInfo',
     component:EditProfileComponent
-
-
-
   },{
     path:'editProject',
     component:EditProjctComponent
+  },{
+    path:'editAccount',
+    component:EditAccountComponent
+  }
+  ,{
+    path:'mySchedule',
+    component:MyScheduleComponent
   }
 ]
 

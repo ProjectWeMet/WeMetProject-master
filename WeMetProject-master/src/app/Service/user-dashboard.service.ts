@@ -13,8 +13,6 @@ export class UserDashboardService {
   Categorys:any=[];
   Projects:any=[];
   PublishedProjects:any=[];
-
-
   projectDetaile:any=[];
   Users:any=[];
   addProject:any=[];
@@ -22,10 +20,10 @@ export class UserDashboardService {
   ApplyJob:any=[];
   UserId:number=7;
   CV:any;
-
-
+  display_image:any;
   User:any={};
   myWork:any=[];
+  Schedule:any=[];
   constructor(private http:HttpClient,private spiner :NgxSpinnerService,private router:Router
     ,private toastr:ToastrService ) { }
 
@@ -353,11 +351,8 @@ AddProjectToUser(data:any){debugger
    this.http.post('https://localhost:44374/api/Project/AddProjectToUser',data,requestOptions)
    .subscribe((data:any)=>{
     this.spiner.hide();
-    this.addProjectToUser=data;
-
      this.toastr.success('add successfull');
-  
-  },error=>{
+    },error=>{
     this.spiner.hide();
      this.toastr.error(' Not Deleted ');
   
@@ -417,5 +412,74 @@ editUserQualification(data:any){debugger
 })
 }
 
+editUserAccount(data:any){debugger
+  const headerDict={
+    'Content-Type':'application/json',
+    'Accept':'application/json'
+  }
+  const requestOptions={
+    headers:new HttpHeaders(headerDict)
+  }
+  this.spiner.show();
+  this.http.post('https://localhost:44374/api/Users/UpdatePersonalInformation',data,requestOptions)
+  .subscribe((data:any)=>{
+   this.spiner.hide();
+   this.toastr.success('Update User successfully' );
+     },error=>{
+   this.spiner.hide();
+   this.toastr.error('Something went wrong');
+ 
+})
+}
 
+uploadImageProfile(file:FormData,Profile:any){
+  debugger
+
+  const headerDict = {
+  'Content-Type': 'application/json',
+  'Accept': 'application/json'
+  }
+  const requestOptions = {
+  headers: new HttpHeaders(headerDict),
+  };
+  this.http.post('https://localhost:44374/api/' +'Users/upload/',file).subscribe((data1: any) => {
+  this.display_image=data1.imageName;
+  debugger
+  if(data1){
+  console.log(this.display_image);
+  const data2={
+    UserId:Profile.UserId,
+    Email:Profile.Email,
+    FName:Profile.FName,
+    LName:Profile.LName,
+    PhoneNumber:Profile.PhoneNumber,
+    DOB:Profile.DOB,
+    Country:Profile.Country,
+    imageName:this.display_image
+  
+  }
+    this.editUserAccount(data2);
+    
+}
+  }, err => {
+  
+  })
+  }
+
+
+  getAllSchedule(id:any){
+    this.spiner.show();
+     this.http.get('https://localhost:44374/api/Schedule/GetScheduleById/'+id)
+     .subscribe((data:any)=>{
+      this.spiner.hide();
+      this.Schedule=data;
+
+      // this.toastr.success('Deleted ');
+    
+    },error=>{
+      this.spiner.hide();
+      // this.toastr.error(' Not Deleted ');
+    
+    })
+  }
 }

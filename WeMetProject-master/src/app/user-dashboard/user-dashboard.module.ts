@@ -26,6 +26,8 @@ import { PublishedDetailesComponent } from './published-detailes/published-detai
 import { AddScheduleDialogComponent } from './published-detailes/add-schedule-dialog/add-schedule-dialog.component';
 
 import { AddJopOfferComponent } from './add-jop-offer/add-jop-offer.component';
+import { EditAccountComponent } from './edit-account/edit-account.component';
+import { MyScheduleComponent } from './my-schedule/my-schedule.component';
 
 
 
@@ -63,6 +65,8 @@ import { AddJopOfferComponent } from './add-jop-offer/add-jop-offer.component';
     CardPublishedProjectsComponent,
     PublishedDetailesComponent,
     AddScheduleDialogComponent,
+    EditAccountComponent,
+    MyScheduleComponent,
 
 
    
