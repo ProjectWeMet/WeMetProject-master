@@ -76,5 +76,13 @@ export class UserNavbarComponent implements OnInit {
     }, 2000);
    
   }
+  GoToSchedule(){
+    this.spinner.show();
+    setTimeout(() => {
+      this.spinner.hide();
+      this.router.navigate(['user/schedule']);
+    }, 2000);
+   
+  }
 
 }

@@ -1,0 +1,8 @@
+<h2 mat-dialog-title>Delete Confirmation</h2>
+<mat-dialog-content>
+  Do you want to delete {{data.title}} work?
+</mat-dialog-content>
+<mat-dialog-actions style="align-items: center;text-align: center;">
+  <button mat-raised-button mat-dialog-close tabindex="1" (click)="delete()">Yes</button>&nbsp;
+  <button mat-raised-button mat-dialog-close tabindex="-1">No</button>
+</mat-dialog-actions>
