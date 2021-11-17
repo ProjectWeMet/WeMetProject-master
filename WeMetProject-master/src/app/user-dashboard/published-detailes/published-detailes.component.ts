@@ -39,5 +39,8 @@ export class PublishedDetailesComponent implements OnInit {
     link.href = path;
     link.click();
   }
-
+  Complete(){
+    console.log(this.UserService.projectDetaile[0].isAccept)
+    // this.UserService.CompletProject(this.UserService.projectDetaile[0].projectId);
+  }
 }
