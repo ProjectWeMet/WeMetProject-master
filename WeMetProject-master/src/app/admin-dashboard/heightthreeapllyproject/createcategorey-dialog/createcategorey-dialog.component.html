@@ -1,0 +1,45 @@
+<h1 mat-dialog-title style="text-align: center;">Update Categorey</h1>
+<mat-dialog-content class="mat-typography">
+    <form  >
+        <div class="col-md-12" >
+            <div class="form-group">
+               <mat-form-field class="example-full-width " appearance="outline" >
+                   <mat-label >Category Title</mat-label>
+                   <input matInput [formControl]="categoryTitle"  placeholder="Ex: 1 week">
+                   <mat-error *ngIf="categoryTitle.hasError('required')">
+                    categoryTitle  is <strong> Required</strong>
+                   </mat-error>
+               </mat-form-field>
+             </div> 
+             <div class="form-group">
+               <mat-form-field class="example-full-width " appearance="outline" >
+                 <mat-label > Image</mat-label>
+                 <input matInput   [formControl]="image"  placeholder="" >
+ <div class="row" style="margin-bottom:15px;">
+                    <div class="col-md-3">
+                      <input [formControl]="image" type="file" #file placeholder="Choose Image" 
+                      (change)="uploadFile(file.files)" 
+                      style="display:none;">
+                      <button type="button" class="btn btn-success" 
+                      (click)="file.click()">Upload Image</button>
+                    </div>
+                  </div> 
+                
+                 <mat-error *ngIf="image.hasError('required')">
+                  image is <strong> Required</strong>
+                 </mat-error>
+             </mat-form-field>
+            
+            </div> 
+        </div> 
+    </form>
+    <h6 class="card-category">{{adminDashboardService.display_image2}}</h6>
+  
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+  <button mat-button mat-dialog-close>Cancel</button>
+  <button [disabled]="!image.valid && !categoryTitle.valid" mat-button [mat-dialog-close]="true" cdkFocusInitial (click)="saveItemm()">Add</button>
+</mat-dialog-actions>
+
+<!-- <img style=" width: 100% !important;height:180px !important;margin-top: 20px !important;"
+src="{{getImagePath(formGroup.controls.image)}}"> -->

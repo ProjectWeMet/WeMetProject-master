@@ -17,16 +17,26 @@ export class MyProfileComponent implements OnInit {
     this.router.navigate(['user/myWorkProfile']);
     
   }
+  goToMySchedule(id:number){
+    debugger
+    this.UserService.getAllSchedule(id);
+    this.router.navigate(['user/mySchedule']);
+    
+  }
   ngOnInit(): void {
     this.UserService.getUserById(this.UserService.UserId);
   }
 
-
+  getImagePath(value:string ){
+    let basePath="../../../../assets/images/Uploaded File/";
+    return basePath+value;
+    }
   EditInfo(){
     if(this.UserService.UserId){
       this.UserService.getUserById(this.UserService.UserId);
       this.router.navigate(['user/editInfo']);
     }
   }
+  
 
 }

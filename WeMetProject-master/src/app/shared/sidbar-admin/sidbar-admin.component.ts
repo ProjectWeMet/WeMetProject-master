@@ -55,6 +55,23 @@ export class SidbarAdminComponent implements OnInit {
       this.router.navigate(['admin/heightApplyProject']);
     }, 2000);
   }
+  searchProjectRepo(){
+    this.spinner.show();
+    setTimeout(() => {
+      this.spinner.hide();
+      this.router.navigate(['admin/searchProjectRepo']);
+    }, 2000);
+  }
+
+  GetAllContacts(){
+    this.spinner.show();
+    setTimeout(() => {
+      this.spinner.hide();
+      this.router.navigate(['admin/getAllContacts']);
+    }, 2000);
+  }
+  
+  
   
   
   
