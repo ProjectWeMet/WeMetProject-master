@@ -10,21 +10,12 @@ import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { ToastrModule } from 'ngx-toastr';
 
-
-
-
-
 @NgModule({
   declarations: [
     AppComponent
     
-  
-
-    
   ],
   imports: [
-    
-    
     
     SharedModule,
     BrowserModule,
