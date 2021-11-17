@@ -39,6 +39,7 @@ export class AddApplyDialogComponent implements OnInit {
       userId:this.UserService.UserId,
       projectId:this.UserService.projectDetaile[0].projectId,
     }
+    
     this.UserService.uploadAttachment(formData,date);
     // this.UserService.CreateApplyJob(dater);
     

@@ -14,14 +14,29 @@ export class MyProfileComponent implements OnInit {
   goToMyWork(id:number){
     debugger
     this.UserService.getMyWorkById(id);
+    this.router.navigate(['user/myWorkProfile']);
+    
+  }
+  goToMySchedule(id:number){
+    debugger
+    this.UserService.getAllSchedule(id);
+    this.router.navigate(['user/mySchedule']);
     
   }
   ngOnInit(): void {
     this.UserService.getUserById(this.UserService.UserId);
   }
 
+  getImagePath(value:string ){
+    let basePath="../../../../assets/images/Uploaded File/";
+    return basePath+value;
+    }
   EditInfo(){
-    this.router.navigate(['user/editInfo']);
+    if(this.UserService.UserId){
+      this.UserService.getUserById(this.UserService.UserId);
+      this.router.navigate(['user/editInfo']);
+    }
   }
+  
 
 }

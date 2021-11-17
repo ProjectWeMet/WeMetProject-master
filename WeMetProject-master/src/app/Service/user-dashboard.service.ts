@@ -13,19 +13,20 @@ export class UserDashboardService {
   Categorys:any=[];
   Projects:any=[];
   PublishedProjects:any=[];
-
-
   projectDetaile:any=[];
   Users:any=[];
+  userProject:any=[];
+
   addProject:any=[];
   addProjectToUser:any=[];
   ApplyJob:any=[];
-  UserId:number=7;
+  UserId:number=6;
   CV:any;
-
-
+  display_image:any;
+  allSchedule:any=[];
   User:any={};
   myWork:any=[];
+  Schedule:any=[];
   constructor(private http:HttpClient,private spiner :NgxSpinnerService,private router:Router
     ,private toastr:ToastrService ) { }
 
@@ -353,11 +354,8 @@ AddProjectToUser(data:any){debugger
    this.http.post('https://localhost:44374/api/Project/AddProjectToUser',data,requestOptions)
    .subscribe((data:any)=>{
     this.spiner.hide();
-    this.addProjectToUser=data;
-
      this.toastr.success('add successfull');
-  
-  },error=>{
+    },error=>{
     this.spiner.hide();
      this.toastr.error(' Not Deleted ');
   
@@ -403,6 +401,262 @@ AddProjectToUser(data:any){debugger
    
   })
 }
+uploadImageWork(file:FormData, work:any){
+  debugger
+  const headerDict = {
+  'Content-Type': 'application/json',
+  'Accept': 'application/json'
+  }
+  const requestOptions = {
+  headers: new HttpHeaders(headerDict),
+  };
+  this.http.post('https://localhost:44374/api/MyWork/uploadImage',file).subscribe((d: any) => {
+    
+    this.CV=d.imageName.toString();
+    debugger
+  if(d){    
+      const date={
+        link:work.link,
+        CompletionDate:work.CompletionDate,
+        description:work.description,
+        titel:work.titel,
+        userId:work.userId,
+        skill:work.skill,
+        ImageName:this.CV
+      }
+  
+      this.CreateWork(date)
 
+  }
+  }, error => {
+    console.log("data")
 
+  });
+  }
+  CreateWork(date1:any){debugger
+    const headerDict = {
+      'Content-Type': 'application/json',
+      'Accept': 'application/json'
+      }
+      const requestOptions = {
+      headers: new HttpHeaders(headerDict),
+      };
+    this.spiner.show();
+    this.http.post('https://localhost:44374/api/MyWork/CreateMyWork',date1,requestOptions)
+    .subscribe((data:any)=>{
+     this.spiner.hide();
+    //  this.GetProjectById(date1.projectId);
+    this.router.navigate(['user/myProfile']);
+
+    this.toastr.success('Create work successfully' );
+  },error=>{
+    this.spiner.hide();
+    this.toastr.error('Something went wrong');
+   
+   })
+  }
+  uploadEditImageWork(file:FormData, work:any){
+    debugger
+    const headerDict = {
+    'Content-Type': 'application/json',
+    'Accept': 'application/json'
+    }
+    const requestOptions = {
+    headers: new HttpHeaders(headerDict),
+    };
+    this.http.post('https://localhost:44374/api/MyWork/uploadImage',file).subscribe((d: any) => {
+      
+      this.CV=d.imageName.toString();
+      debugger
+    if(d){    
+        const date={
+          link:work.link,
+          CompletionDate:work.CompletionDate,
+          description:work.description,
+          titel:work.titel,
+          userId:work.userId,
+          skill:work.skill,
+          ImageName:this.CV,
+          myWorkId:work.myWorkId
+        }
+    
+        this.EditWork(date)
+  
+    }
+    }, error => {
+      console.log("data")
+  
+    });
+    }
+    EditWork(date1:any){debugger
+      const headerDict = {
+        'Content-Type': 'application/json',
+        'Accept': 'application/json'
+        }
+        const requestOptions = {
+        headers: new HttpHeaders(headerDict),
+        };
+      this.spiner.show();
+      this.http.post('https://localhost:44374/api/MyWork/UpdateMyWork',date1,requestOptions)
+      .subscribe((data:any)=>{
+       this.spiner.hide();
+      //  this.GetProjectById(date1.projectId);
+      this.router.navigate(['user/myProfile']);
+  
+      this.toastr.success('Update work successfully' );
+    },error=>{
+      this.spiner.hide();
+      this.toastr.error('Something went wrong');
+     
+     })
+    }
+    DeleteWork(workId:any){debugger
+      const headerDict = {
+        'Content-Type': 'application/json',
+        'Accept': 'application/json'
+        }
+        const requestOptions = {
+        headers: new HttpHeaders(headerDict),
+        };
+      this.spiner.show();
+      this.http.delete('https://localhost:44374/api/MyWork/delete/'+workId)
+      .subscribe((data:any)=>{
+       this.spiner.hide();
+      //  this.GetProjectById(date1.projectId);
+      this.router.navigate(['user/myProfile']);
+      this.toastr.success('Delete work successfully' );
+    },error=>{
+      this.spiner.hide();
+      this.toastr.error('Something went wrong');
+     
+     })
+    }
+    GetUserProjectById(id:number){debugger
+      return this.http.get('https://localhost:44374/api/Project/UserProjectByUserId/'+id)
+      .subscribe((data:any)=>{
+       this.userProject=data;
+       debugger
+       this.getApplyJobByProject(id);
+      //  console.log(id+"GetProjectById")
+     })
+   }
+   SearchUserProject(data:any){debugger
+    const headerDict={
+      'Content-Type':'application/json',
+      'Accept':'application/json'
+    }
+    const requestOptions={
+      headers:new HttpHeaders(headerDict)
+    }
+    this.spiner.show();
+     this.http.post('https://localhost:44374/api/Project/SearchUserProject',data,requestOptions)
+     .subscribe((data:any)=>{
+      this.spiner.hide();
+      this.userProject=data;
+
+      // this.toastr.success('Deleted ');
+    
+    },error=>{
+      this.spiner.hide();
+      // this.toastr.error(' Not Deleted ');
+    
+    })
+  }
+  getAllScheduleByUserId(id:number){
+    this.spiner.show();
+    this.http.get('https://localhost:44374/api/Schedule/GetAllScheduleByUserId/'+id).subscribe((data:any)=>{
+      debugger
+      this.allSchedule=data;
+      this.spiner.hide();
+
+    },err=>{
+      this.spiner.hide();
+      this.toastr.error(err.status);
+    })
+  }
+editUserQualification(data:any){debugger
+  this.spiner.show();
+  this.http.post('https://localhost:44374/api/Users/updateQualification',data)
+  .subscribe((data:any)=>{
+   this.spiner.hide();
+   this.toastr.success('Update User successfully' );
+     },error=>{
+   this.spiner.hide();
+   this.toastr.error('Something went wrong');
+ 
+})
 }
+
+editUserAccount(data:any){debugger
+  const headerDict={
+    'Content-Type':'application/json',
+    'Accept':'application/json'
+  }
+  const requestOptions={
+    headers:new HttpHeaders(headerDict)
+  }
+  this.spiner.show();
+  this.http.post('https://localhost:44374/api/Users/UpdatePersonalInformation',data,requestOptions)
+  .subscribe((data:any)=>{
+   this.spiner.hide();
+   this.toastr.success('Update User successfully' );
+     },error=>{
+   this.spiner.hide();
+   this.toastr.error('Something went wrong');
+ 
+})
+}
+
+uploadImageProfile(file:FormData,Profile:any){
+  debugger
+
+  const headerDict = {
+  'Content-Type': 'application/json',
+  'Accept': 'application/json'
+  }
+  const requestOptions = {
+  headers: new HttpHeaders(headerDict),
+  };
+  this.http.post('https://localhost:44374/api/' +'Users/upload/',file).subscribe((data1: any) => {
+  this.display_image=data1.imageName;
+  debugger
+  if(data1){
+  console.log(this.display_image);
+  const data2={
+    UserId:Profile.UserId,
+    Email:Profile.Email,
+    FName:Profile.FName,
+    LName:Profile.LName,
+    PhoneNumber:Profile.PhoneNumber,
+    DOB:Profile.DOB,
+    Country:Profile.Country,
+    imageName:this.display_image
+  
+  }
+    this.editUserAccount(data2);
+    
+}
+  }, err => {
+  
+  })
+  }
+
+
+  getAllSchedule(id:any){
+    this.spiner.show();
+     this.http.get('https://localhost:44374/api/Schedule/GetScheduleById/'+id)
+     .subscribe((data:any)=>{
+      this.spiner.hide();
+      this.Schedule=data;
+
+      // this.toastr.success('Deleted ');
+    
+    },error=>{
+      this.spiner.hide();
+      // this.toastr.error(' Not Deleted ');
+    
+    })
+  }
+}
+   
+
