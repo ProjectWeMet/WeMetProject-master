@@ -13,7 +13,9 @@ import { EditMyWorkDialogComponent } from './edit-my-work-dialog/edit-my-work-di
 })
 export class MyWorkProfileComponent implements OnInit {
 
-  constructor(public UserService:UserDashboardService,private router:Router, public dialog:MatDialog) { }
+  constructor(public UserService:UserDashboardService,private router:Router, public dialog:MatDialog) { 
+    this.UserService.getUserById(this.UserService.UserId)
+  }
 
   goToPersonalInfo(){
     this.router.navigate(['user/profile']);
