@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
+import { Router } from '@angular/router';
 import { UserDashboardService } from 'src/app/Service/user-dashboard.service';
 import { AddScheduleDialogComponent } from './add-schedule-dialog/add-schedule-dialog.component';
 
@@ -10,7 +11,7 @@ import { AddScheduleDialogComponent } from './add-schedule-dialog/add-schedule-d
 })
 export class PublishedDetailesComponent implements OnInit {
 
-  constructor(public UserService:UserDashboardService, public dialog:MatDialog) { 
+  constructor(public UserService:UserDashboardService, public dialog:MatDialog,private router:Router) { 
   }
 
   ngOnInit(): void {
@@ -40,4 +41,8 @@ export class PublishedDetailesComponent implements OnInit {
     link.click();
   }
 
+  goToUser(id:any){
+    this.UserService.getUserById(id);
+    this.router.navigate(['user/profile']);
+  }
 }

@@ -1,6 +1,6 @@
 <!-- Navbar -->
 <!-- End Navbar -->
-
+<app-user-navbar></app-user-navbar>
 <!-- Page Title -->
 <div class="page-title-area two">
     <div class="d-table">
@@ -63,8 +63,8 @@
                             <div *ngFor="let card of UserService.ApplyJob">
                                 <div class="apply-item">
                                     <a >
-                                        <img src="assets/img/home-one/job1.png" alt="Employer">
-                                        <h4>{{card.fName}} {{card.lName}}</h4>
+                                        <img src="assets/img/home-one/job1.png" alt="Employer" (click)="goToUser(card.userId)">
+                                        <h4 (click)="goToUser(card.userId)">{{card.fName}} {{card.lName}}</h4>
                                         <ul>
                                             <li><i class="material-icons">attach_money</i>Budget:<span>{{card.offerValue}} JD</span>  </li>
                                             <li><i class="material-icons">access_time</i>Delivery term:<span>{{card.deliveryTerm}}</span> </li>

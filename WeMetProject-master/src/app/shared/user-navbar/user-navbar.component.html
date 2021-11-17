@@ -1,4 +1,4 @@
-
+<!-- 
 <div class="navbar-area fixed-top">
 
   
@@ -33,31 +33,12 @@
                         </li>
   
   
-                        <!-- <li class="nav-item">
-                           
-  
-                            <a href="javascript:void(0)" class="nav-link dropdown-toggle" >Jobs <i class='bx bx-chevron-down'></i></a>
-                           
-                        </li>
-  
-                        <li class="nav-item">
-  
-                            <a href="javascript:void(0)" (click)="GoToAbout()"  class="nav-link dropdown-toggle">About <i class='bx bx-chevron-down'></i></a>
-  
-                           
-                        </li>
-  
-                        <li class="nav-item">
-                            <a href="javascript:void(0)" class="nav-link dropdown-toggle">Blog <i class='bx bx-chevron-down'></i></a>
-  
-                            
-                        </li> -->
+                       
   
                     </ul>
   
                     <div  class=" side-nav">
                       <a  href="javascript:void(0)"   class=" dropdown-toggle job-left  nav-link "><i class='bx bx-chevron-down'></i><span style="color:#221668;" (click)="  GoTologin()"  >Login/</span><i class='bx bx-chevron-down'></i> <span  style="color:#221668;" (click)= "  GoToRegister()">Register</span> <i class='bx bx-chevron-down'></i></a>
-                        <!-- <a class="login-left nav-link dropdown-toggle" routerLink="/register"><i class="flaticon-enter"></i></a> -->
                       <a class="job-right" routerLink="/post-a-job">Post A Job <i class='bx bx-plus'></i></a>
                     </div>
                 </div>
@@ -66,4 +47,57 @@
     </div>
   </div> 
   
+   -->
+
+   	<!-- Top menu -->
+    <!-- <head><link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css"></head> -->
+
+
+    <nav style="background: rgba(0,0,0,0.6);" class="navbar  navbar-expand-lg navbar-inverse navbar-fixed-top navbar-no-bg" role="navigation">
+        <div class="container">
+
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#top-navbar-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+
+            </div>
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="top-navbar-1">
+                <a   (click)="goToMyProfile()" style="background-image: url();" > <img src="../../../assets/img/png.png"  style="width:100px;height:80px;margin-right: 100px; background-color: none;float: left;border-radius:unset;margin-top:0;" alt=""></a>
+
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a>
+                            <i class="fa fa-home" style="font-size: 22px;margin-left: 12%;"></i> <span>Home</span>
+                        </a>
+                    </li>
+                    <li (click)="goToProject()">
+                        <a>
+                            <i class="fa fa-wrench" style="font-size: 22px;margin-left: 19%;" ></i> <span>Project</span>
+                        </a>
+                    </li>
+                    <li (click)="GoToUser()">
+                        <a>
+                            <i class="fa fa-user" style="font-size: 22px;margin-left: 17%;" ></i> <span > Uesr</span>
+                        </a>
+                    </li>
+                    <li (click)="GoToAddProject()">
+                        <a>
+                            <i class="fa fa-magic" style="font-size: 22px;margin-left: 15%;" ></i> <span>Add Project</span>
+                        </a>
+                    </li>
+                    <li (click)="GoToMyProject()">
+                        <a>
+                            <i class="fa fa-paper-plane" style="font-size: 22px;margin-left: 12%;" ></i> <span>My Project</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
   
