@@ -9,8 +9,12 @@ export class GetDateFormatePipe implements PipeTransform {
     if(value==null){
         return null;
     }
-    else {
-        return value.substring(0,10)
+    else if(value.substring(0,10)=="1900-01-01") {
+        return value.substring(11,16)
+    }
+    else{
+      return value.substring(0,10)
+
     }
    
         

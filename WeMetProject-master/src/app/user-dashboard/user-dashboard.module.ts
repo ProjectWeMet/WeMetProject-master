@@ -34,6 +34,7 @@ import { DeleteMyWorkDialogComponent } from './my-work-profile/delete-my-work-di
 import { GetDateFormatePipe } from './projects/card-project/GetDateFormate.pipe';
 import { CardShownProjectsComponent } from './shown-projects/card-shown-projects/card-shown-projects.component';
 import { ScheduleComponent } from './schedule/schedule.component';
+import { EditScheduleDialogComponent } from './schedule/edit-schedule-dialog/edit-schedule-dialog.component';
 
 
 
@@ -80,6 +81,7 @@ import { ScheduleComponent } from './schedule/schedule.component';
     DeleteMyWorkDialogComponent,
     CardShownProjectsComponent,
     ScheduleComponent,
+    EditScheduleDialogComponent,
 
 
 

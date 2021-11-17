@@ -23,6 +23,17 @@
     font-size: 20px;
     color: #3e236e;
 }
+.span-two {
+    color: #fff;
+    background-color: #21a212;
+    border-radius: 5px;
+    padding: 8px;
+    font-size: 13px;
+    display: inline-block;
+    position: absolute;
+    top: 0px;
+    right: 10px;
+}
 .apply-item ul {
     margin: 0;
     padding: 0;
