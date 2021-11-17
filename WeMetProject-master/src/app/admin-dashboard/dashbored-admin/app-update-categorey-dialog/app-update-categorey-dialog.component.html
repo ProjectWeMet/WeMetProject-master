@@ -1,6 +1,11 @@
 <h1 mat-dialog-title style="text-align: center;">Update Categorey</h1>
 <mat-dialog-content class="mat-typography">
     <form  >
+      <p><input type="file" formControlName="fileControl"   accept="image/*" name="image" id="file" (change)="readURL($event);" style="display: none;"></p>
+      <p><label for="file" style="cursor: pointer;">
+          <img for="file"  id="imgWork" style="width:50%;height:50%;margin-left: 23%;" [src]="imageSrc || getImagePath(data.image)" alt="your image" /> 
+          
+      </label></p>
         <div class="col-md-12" >
             <div class="form-group">
                <mat-form-field class="example-full-width " appearance="outline" >
@@ -12,28 +17,12 @@
                </mat-form-field>
              </div> 
              <div class="form-group">
-               <mat-form-field class="example-full-width " appearance="outline" >
-                 <mat-label > Image</mat-label>
-                 <input matInput   [formControl]="image"  placeholder="" >
- <div class="row" style="margin-bottom:15px;">
-                    <div class="col-md-3">
-                      <input [formControl]="image" type="file" #file placeholder="Choose Image" 
-                      (change)="uploadFile(file.files,categoryId,categoryTitle)" 
-                      style="display:none;">
-                      <button type="button" class="btn btn-success" 
-                      (click)="file.click()">Upload Image</button>
-                    </div>
-                  </div> 
-                
-                 <mat-error *ngIf="image.hasError('required')">
-                  image is <strong> Required</strong>
-                 </mat-error>
-             </mat-form-field>
+           
             
             </div> 
         </div> 
     </form>
-    <h6 class="card-category">{{adminDashboardService.display_image}}</h6>
+    <!-- <h6 class="card-category">{{adminDashboardService.display_image}}</h6> -->
   
 </mat-dialog-content>
 <mat-dialog-actions align="end">

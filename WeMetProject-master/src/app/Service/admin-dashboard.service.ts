@@ -338,7 +338,7 @@ export class AdminDashboardService {
       })
   }
   //uploadAttachmentCreateCategorey ====> Create Categorey
-  uploadAttachmentCreateCategorey(file: FormData) {
+  uploadAttachmentCreateCategorey(file: FormData,Categoreys:any) {
     debugger
 
     const headerDict = {
@@ -351,6 +351,13 @@ export class AdminDashboardService {
     this.http.post('https://localhost:44374/api/' + 'Category/upload/', file).subscribe((data1: any) => {
       this.display_image2 = data1.image;
       debugger
+    const  data={
+        image:this.display_image2,
+        categoryTitle:Categoreys.categoryTitle
+
+      }
+      this.CreateCategorey(data);
+      
     }, err => {
 
     })

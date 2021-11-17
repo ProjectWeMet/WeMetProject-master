@@ -76,14 +76,16 @@
                   <div   class="employer-item">
                       <a  routerLink="/job-details">
                           <img src="assets/img/home-one/job1.png" alt="Employer">
+                          <p >{{card.projectTitle|lengthStringFormatePipe }}</p>  
                           <h3>  {{card.fName}} {{card.lName}}</h3>
                           <ul>
+                            <li><i _ngcontent-uhe-c195="" style="font-size: larger;"  class="material-icons">sticky_note_2</i>{{card.countApplyJob}} Offer</li>
+                            <br>
                               <li><i class="material-icons">access_time</i>{{card.dateOfCreate}}</li>
-                              <br>
-                              <li><i _ngcontent-uhe-c195="" style="font-size: larger;"  class="material-icons">sticky_note_2</i>{{card.countApplyJob}} Offer</li>
+                           
 
                           </ul>
-                          <p >{{card.projectTitle|lengthStringFormatePipe }}</p>    
+                          
                           <br>    
                           <br>  
                           <br>        

@@ -27,7 +27,7 @@ export class HomeServiceService {
     return this.http.get('https://localhost:44374/api/Category').subscribe((result)=> { 
    this.allCategrey=result,
    this.spinner.hide();
-   this.toaster.success('Data Retrieved!'); },
+    },
    (error) => this.toaster.error(error.status));
   
     }

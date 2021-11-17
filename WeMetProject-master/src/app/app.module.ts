@@ -9,7 +9,7 @@ import { AdminDashboardRoutingModule } from './admin-dashboard/admin-dashboard-r
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { ToastrModule } from 'ngx-toastr';
-import { TippyModule } from '@ngneat/helipopper';
+
 
 
 
@@ -17,10 +17,6 @@ import { TippyModule } from '@ngneat/helipopper';
 @NgModule({
   declarations: [
     AppComponent
-    
-  
-
-    
   ],
   imports: [
     
@@ -35,8 +31,7 @@ import { TippyModule } from '@ngneat/helipopper';
  
     ToastrModule.forRoot({
       positionClass :'toast-bottom-right'}),
- 
-    TippyModule.forRoot()
+
     
 
   ],
