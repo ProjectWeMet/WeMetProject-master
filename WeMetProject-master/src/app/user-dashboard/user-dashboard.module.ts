@@ -24,10 +24,17 @@ import { CardPublishedProjectsComponent } from './published-projects/card-publis
 import { LenghtStringFormatPipe } from './users/user-card/lenght-string-format.pipe';
 import { PublishedDetailesComponent } from './published-detailes/published-detailes.component';
 import { AddScheduleDialogComponent } from './published-detailes/add-schedule-dialog/add-schedule-dialog.component';
-
 import { AddJopOfferComponent } from './add-jop-offer/add-jop-offer.component';
 import { EditAccountComponent } from './edit-account/edit-account.component';
 import { MyScheduleComponent } from './my-schedule/my-schedule.component';
+import { MyWorkProfileComponent } from './my-work-profile/my-work-profile.component';
+import { AddMyWorkdialogComponent } from './my-work-profile/add-my-workdialog/add-my-workdialog.component';
+import { EditMyWorkDialogComponent } from './my-work-profile/edit-my-work-dialog/edit-my-work-dialog.component';
+import { DeleteMyWorkDialogComponent } from './my-work-profile/delete-my-work-dialog/delete-my-work-dialog.component';
+import { GetDateFormatePipe } from './projects/card-project/GetDateFormate.pipe';
+import { CardShownProjectsComponent } from './shown-projects/card-shown-projects/card-shown-projects.component';
+import { ScheduleComponent } from './schedule/schedule.component';
+
 
 
 
@@ -51,8 +58,8 @@ import { MyScheduleComponent } from './my-schedule/my-schedule.component';
 
     CardProjectComponent,
     LengthStringFormatePipe,
-    LenghtStringFormatPipe
-,
+    LenghtStringFormatPipe,
+    GetDateFormatePipe,
     ShowApplyJobPipe,
     DaysBetweenDatesPipe,
 
@@ -67,6 +74,13 @@ import { MyScheduleComponent } from './my-schedule/my-schedule.component';
     AddScheduleDialogComponent,
     EditAccountComponent,
     MyScheduleComponent,
+    MyWorkProfileComponent,
+    AddMyWorkdialogComponent,
+    EditMyWorkDialogComponent,
+    DeleteMyWorkDialogComponent,
+    CardShownProjectsComponent,
+    ScheduleComponent,
+
 
 
    

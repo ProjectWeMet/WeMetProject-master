@@ -93,7 +93,7 @@
               <div class="profile-tabs">
                 <ul class="nav nav-pills nav-pills-icons justify-content-center" role="tablist">
                   <li class="nav-item">
-                    <a class="nav-link"  role="tab" data-toggle="tab">
+                    <a class="nav-link" (click)="goToPersonalInfo()" role="tab" data-toggle="tab">
                         <i class="bi bi-person-fill"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person-fill" viewBox="0 0 16 16">
                             <path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H3zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/>
                           </svg></i>
@@ -116,70 +116,79 @@
           </div>
   
           <div class="tab-content tab-space">
-            <div  id="studio">
-            <!-- Jobs -->
-                <div class="job-area-list ptb-50"  >
-                    <div class="container">
-                        <div class="row">
-                            <div class="col-lg-8 col-md-12">
-                                <!-- <ul class="job-list-item align-items-center">
-                                
-                                    <li>
-                                        
-                                        <mat-form-field appearance="outline">
-                                            <mat-label>Order By</mat-label>
-                                            <select matNativeControl [(ngModel)]="orderBy" (ngModelChange)="getOrderBy()" >
-                                            <option  value="Latest">Latest</option>
-                                            <option value="Oldest">Oldest</option>
-                                            <option  value="LeastViewed">Least viewed</option>
-                                            <option value="MostViewed">Most viewed</option>
-                                            </select>
-                                        </mat-form-field>
-                                    </li>
-                                    <li></li>
-                                </ul> -->
-
-                                <app-card-shown-projects *ngFor="let card of UserService.userProject" [projectId]="card.projectId"
-                                [isAccept]="card.isAccept" [isComplete]="card.isComplete" [countApplyJob]="card.countApplyJob" [isExecution]="card.isExecution"
-                                [projectTitle]="card.projectTitle" [dateOfCreate]="card.dateOfCreate" [projectDetails]="card.projectDetails" >
-                            </app-card-shown-projects>
-                                    
-
-                            
-                            </div>
-
-                            <div class="col-lg-4 col-md-12"> 
-                                <div class="job-list-right">
-                                        <div class="job-list-all" >
-                                            <div class="search">
-                                                <h3>Search Project</h3>
-                                                <label id="example-radio-group-label">Project Title : </label>
-                                                    <input type="text" class="form-control mt-2"  [formControl]="title" placeholder="Project title ">
-                                            </div>
-                                            <div >
-                                                <label id="example-radio-group-label">Project State :</label>
-                                                <mat-radio-group
-                                                aria-labelledby="example-radio-group-label"
-                                                class="example-radio-group"
-                                                color=primary
-                                                [(ngModel)]="selectedState">
-                                                <mat-radio-button class="example-radio-button" *ngFor="let state of stateProject" [value]="state">
-                                                    {{state}}
-                                                </mat-radio-button>
-                                                </mat-radio-group>
-                                            </div>
-                
-                                            <div class="level">
-                                                <button type="submit" (click)="search()" class="btn">Filter Now</button>
-                                            </div>
+            <div class="tab-pane active text-center gallery" id="studio">
+              <div class="row" >
+                <div class="col-lg-6 ml-auto " style="margin-bottom:3% ;">
+                    <mat-card class="example-card" (click)="openDialog()">
+                        <div class="page-title-area">
+                            <div class="d-table">
+                                <div class="d-table-cell">
+                                    <div class="container">
+                                        <div class="title-item">
+                                            <ul>
+                                                <li>
+                                                    <i class="material-icons">add_to_photos</i>
+                                                    Add New Work
+                                                </li>
+                                                <!-- <li><span>/</span></li>
+                                                <li>Jobs</li> -->
+                                            </ul>
                                         </div>
-                                    
-                                </div>  
-                            </div> 
+                                    </div>
+                                </div>
+                            </div>
                         </div>
+                      </mat-card> 
+                      </div> 
+                <div class="col-lg-6  " *ngFor="let card of UserService.myWork" style="margin-bottom:3% ; text-align: center;">
+                  <!-- <mat-card class="example-card" >
+                    <div mat-card-avatar ><i class="material-icons" (click)="EditDialog(card)" >edit</i>
                     </div>
-                </div>
-<!-- End Jobs -->
+
+                    <mat-card-header >
+                     
+
+                      <mat-card-title  >{{card.titel}}</mat-card-title>
+                      <mat-card-subtitle>{{card.completionDate}}</mat-card-subtitle>
+                    </mat-card-header>
+                    <i class="material-icons" (click)="DeleteDialog(card)" >cancel</i>
+
+                      <img mat-card-image class="example-image" src="{{getImagePath(card.imageName)}}" alt="Photo of a Shiba Inu">
+                      <mat-card-content>
+                        <p>
+                          {{card.description}}
+                        </p>
+                        <p>
+                          {{card.skill}}
+                        </p>
+                      </mat-card-content>
+                      <mat-card-actions>
+                        <button mat-button>{{card.link}}</button>
+                      </mat-card-actions>
+                    </mat-card>  -->
+                    <div class="card " style="height: 400px; text-align: left;">
+                      <div class="row g-0">
+                        <div class="col-md-5">
+                          <img src="{{getImagePath(card.imageName)}}" class="img-fluid rounded-start example-image"  alt="...">
+                        </div>
+                        <div class="col-md-7">
+                          <div class="card-body">
+                            <h5 class="card-title text-center">
+                              <i class="material-icons " style=" float: left;" (click)="EditDialog(card)" >edit</i>
+                              {{card.titel}}
+                              <i class="material-icons" style=" float: right;" (click)="DeleteDialog(card)" >cancel</i>
+                            </h5>
+                            <p class="card-text"> {{card.description}}</p>
+                            <p class="card-text">{{card.skill}}</p>   
+                            <p class="card-text">Link: {{card.link}}</p>
+                            <p class="card-text"><small class="text-muted">Last updated :{{card.completionDate |getDateFormate}}</small></p>
+
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                </div> 
+              </div>
             </div>
           </div>
 
@@ -198,9 +207,3 @@
     <script src="https://unpkg.com/bootstrap-material-design@4.1.1/dist/js/bootstrap-material-design.js" integrity="sha384-CauSuKpEqAFajSpkdjv3z9t8E7RlpJ1UP0lKM/+NdtSarroVKu069AlsRPKkFBz9" crossorigin="anonymous"></script>
   
   </body>
-
-
-
-<!-- Footer -->
-<!-- <app-footer></app-footer> -->
-<!-- End Footer -->

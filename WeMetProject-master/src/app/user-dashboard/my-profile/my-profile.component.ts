@@ -14,7 +14,9 @@ export class MyProfileComponent implements OnInit {
   goToMyWork(id:number){
     debugger
     this.UserService.getMyWorkById(id);
+
     this.router.navigate(['user/myWork']);
+
     
   }
   goToMySchedule(id:number){

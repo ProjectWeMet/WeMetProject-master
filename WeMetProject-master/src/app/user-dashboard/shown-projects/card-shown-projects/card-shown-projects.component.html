@@ -1,0 +1,14 @@
+<div class="published-item" >
+    <a >
+        <div *ngIf=" isComplete" class="span-two three">Complete</div>
+        <div *ngIf=" !isComplete && isExecution " class="span-two five">Execution</div>
+
+        <h3 (click)="ViewDetailes()">{{projectTitle}}</h3>
+        <ul (click)="ViewDetailes()">
+            <li><i class="material-icons">sticky_note_2</i>{{countApplyJob | showApplyJob}}</li>
+            <li><i class="material-icons">access_time</i>{{dateOfCreate | daysBetweenDates}}</li>
+        </ul>
+       
+        <p (click)="ViewDetailes()" >{{projectDetails | lengthStringFormate}}</p>
+    </a>
+</div>
