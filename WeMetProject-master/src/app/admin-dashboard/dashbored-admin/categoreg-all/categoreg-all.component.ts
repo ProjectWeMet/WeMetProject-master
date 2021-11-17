@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Component, Input, OnInit } from '@angular/core';
 import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 import { Router } from '@angular/router';
+import { AdminDashboardService } from 'src/app/Service/admin-dashboard.service';
 import { HomeServiceService } from 'src/app/Service/home-service.service';
 import { AddApplyDialogComponent } from 'src/app/user-dashboard/project-detailes/add-apply-dialog/add-apply-dialog.component';
 import { AppUpdateCategoreyDialogComponent } from '../app-update-categorey-dialog/app-update-categorey-dialog.component';
@@ -15,9 +16,9 @@ export class CategoregAllComponent implements OnInit {
   @Input () categoryId:number|undefined;
   @Input () image:any|undefined;
   @Input ()  categoryTitle :string|undefined;
-  constructor(private router:Router,public homeServiceService:HomeServiceService, private http: HttpClient,public dialog:MatDialog) { }
+  constructor(public adminDashboardService: AdminDashboardService,private router:Router,public homeServiceService:HomeServiceService, private http: HttpClient,public dialog:MatDialog) { }
   getImagePath(value:string ){
-    debugger
+    // debugger
     let basePath="../../../../assets/images/Uploaded File/";
     return basePath+value;
     }
@@ -33,7 +34,8 @@ export class CategoregAllComponent implements OnInit {
         data:{
           categoryId:id,
           categoryTitle:categoreytitle,
-          image:image
+          image:image,
+      
         }
       },
 

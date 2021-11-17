@@ -1,4 +1,4 @@
-<body class="dark-edition" style="background-color: #202940; height: 190vh;">
+<body class="dark-edition" style="background-color: #202940; height: 300vh;">
     <div class="wrapper ">
         <!-- sidebar -->
         <app-sidbar-admin></app-sidbar-admin>
@@ -8,34 +8,27 @@
             <app-admin-navbar></app-admin-navbar>
             <!-- End Navbar -->
             <div class="content">
-                <div class="container">
-                    <div class="section-title three">
-                        <div class="sub-title-wrap">
-                            <img src="assets/img/home-three/title-img.png" alt="Icon">
-                        </div>
-                        <h2 style="color: #f1f0f6;font-weight: 700;">Company Offering Job</h2>
-                    </div>
-                </div>
+              
             <!-- </section> -->
-                <div style="padding:6%" class="row ">
-                    <div  *ngFor="let card of adminDashboardService.getallProjectHighestApplyJob"  class="col-lg-6 col-md-12">
-                        <div   class="employer-item">
-                            <a  routerLink="/job-details">
-                                <img src="assets/img/home-one/job1.png" alt="Employer">
-                                <h3>  {{card.fName}} {{card.lName}}</h3>
-                                <ul>
-                                    <li><i class="material-icons">access_time</i>{{card.dateOfCreate}}</li>
-                                </ul>
-                                <p >{{card.projectDetails|lengthStringFormatePipe }}</p>    
-                                <br>    
-                                <br>  
-                                <br>        
-                                <span class="span-two">FULL TIME</span>
-                            </a>
-                        </div>
+            <div class="container" >
+                <div class="section-title three">
+                    <div class="sub-title-wrap">
+                        <!-- <img src="assets/img/home-three/title-img.png" alt="Icon"> -->
                     </div>
-            
+                    <h2 style="color: #f1f0f6;font-weight: 500;text-align: center;">
+                      
+                             Category All In WebSite</h2>
+                             <button (click)=" openDialog()" mat-button  style="  background: -webkit-linear-gradient(left, #3B064D, #BC6FF1);
+                             ;font-size: large;color: white;padding: 1%;" > <i  class="material-icons"></i>Add  Categorey</button>
                 </div>
+            </div>
+              <div  fxLayout="row wrap" fxLayoutGap="10px grid">
+              <div fxFlex="32%"  *ngFor ="let card of homeServiceService.allCategrey" >
+              <app-categoreg-all [categoryId]="card.categoryId"  [categoryTitle]="card.categoryTitle" [image]="card.image">
+              
+              </app-categoreg-all>
+              </div>
+              </div>
               </div>
             <!-- footer -->
             <app-admin-footer></app-admin-footer>

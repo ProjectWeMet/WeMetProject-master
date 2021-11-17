@@ -51,15 +51,31 @@
                         <div class="published-item" >
                             <a >
     
-                        
-                                <h3 (click)="ViewDetailes()">{{card.projectTitle}}</h3>
+                                <img src="assets/img/home-one/job1.png" alt="Employer" (click)="showProfile(card.userId)">
+
+                                <h3 (click)="ViewDetailes()"><span (click)="showProject(card.projectId)"> {{card.projectTitle}}</span>
+                                    <!-- <i class="material-icons" style=" float: right;  margin: 5px;" >cancel</i> -->
+                                    <i class="material-icons " style=" float: right; margin: 5px;" (click)="openDialog(card.scheduleId,card.link,card.date.substring(0,10),card.startTime.substring(11,16),card.endTime.substring(11,16))"  >edit</i>
+                                </h3>
                                 <ul (click)="ViewDetailes()">
-                                    <li><i class="material-icons">person</i> {{card.fName}} {{card.lName}}</li>
-                                    <li><i class="material-icons">access_time</i>{{card.date}}</li>
+                                    <li><i class="material-icons" (click)="showProfile(card.userId)">person</i> {{card.fName}} {{card.lName}}</li>
+                                </ul>
+                                <ul >
+                                   
+                                    <li  class="schedule" style="color: #fff;" (click)="accept(card.idJobOffer)" ><i class="material-icons">check</i>
+                                        Accept hire</li>
                                 </ul>
                                 
-                                <p (click)="ViewDetailes()" >{{card.link}}</p>
-                                <p (click)="ViewDetailes()" >{{card.link}}</p>
+
+                                <p  ><i class="material-icons">date_range</i>
+                                    <span>Date: {{card.date | getDateFormate}} </span>
+                                    <span style="margin-left: 30px;"> 
+                                        <i class="material-icons">access_time</i>
+                                        Time: {{card.startTime |getDateFormate}} to {{card.endTime |getDateFormate}}</span> 
+                                </p>
+                                <p  ><i class="material-icons">link</i>
+                                    Link: {{card.link}}</p>
+
 
                             </a>
                         </div>
@@ -68,26 +84,23 @@
               
             </div>
 
-            <!-- <div class="col-lg-4 col-md-12"> 
+            <div class="col-lg-4 col-md-12"> 
                 <div class="job-list-right">
                         <div class="job-list-all" style="background-color: #fff;">
                             <div class="search">
-                                <h3>Search Project</h3>
-                                <label id="example-radio-group-label">Project Title : </label>
+                                <h3>Search Schedule</h3>
+                                <label id="example-radio-group-label">Project Title </label>
                                     <input type="text" class="form-control mt-2"  [formControl]="title" placeholder="Project title ">
                             </div>
-                            <div >
-                                <label id="example-radio-group-label">Project State :</label>
-                                <mat-radio-group
-                                aria-labelledby="example-radio-group-label"
-                                class="example-radio-group"
-                                color=primary
-                                [(ngModel)]="selectedState">
-                                <mat-radio-button class="example-radio-button" *ngFor="let state of stateProject" [value]="state">
-                                    {{state}}
-                                </mat-radio-button>
-                                </mat-radio-group>
+                            <div class="search">
+                                <label id="example-radio-group-label">User name </label>
+                                    <input type="text" class="form-control mt-2"  [formControl]="name" placeholder="User name">
                             </div>
+                            <div class="search">
+                                <label id="example-radio-group-label">Date </label>
+                                    <input type="date" class="form-control mt-2"  [formControl]="dateSend" placeholder="Project title ">
+                            </div>
+                            
  
                             <div class="level">
                                 <button type="submit" (click)="search()" class="btn">Filter Now</button>
@@ -95,7 +108,7 @@
                         </div>
                     
                 </div>  
-            </div>  -->
+            </div> 
         </div>
     </div>
 </div>

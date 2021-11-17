@@ -20,7 +20,7 @@ export class UserDashboardService {
   addProject:any=[];
   addProjectToUser:any=[];
   ApplyJob:any=[];
-  UserId:number=6;
+  UserId:number=7;
   CV:any;
   display_image:any;
   allSchedule:any=[];
@@ -376,6 +376,19 @@ AddProjectToUser(data:any){debugger
    
    })
   }
+  editSchedule(schedule:any){debugger
+    this.spiner.show();
+    this.http.post('https://localhost:44374/api/Schedule/UpdateSchedule',schedule)
+    .subscribe((data:any)=>{
+     this.spiner.hide();
+     this.toastr.success(' Update Schedule successfully');
+     this.getAllScheduleByUserId(this.UserId)
+   },error=>{
+     this.spiner.hide();
+     this.toastr.error('Something went wrong');
+   
+   })
+  }
   SearchPublishedProject(Project:any){debugger
     this.spiner.show();
     this.http.post('https://localhost:44374/api/Project/SearchPublishedProject',Project)
@@ -574,6 +587,50 @@ uploadImageWork(file:FormData, work:any){
       this.toastr.error(err.status);
     })
   }
+  acceptJobSchedule(id:number){debugger
+    this.spiner.show();
+    this.http.get('https://localhost:44374/api/Schedule/AcceptJobSchedule/'+id).subscribe((data:any)=>{
+      debugger
+      this.spiner.hide();
+
+      this.getAllScheduleByUserId(this.UserId);
+
+    },err=>{
+      this.spiner.hide();
+      this.toastr.error(err.status);
+    })
+  }
+  searchSchedule(data:any){debugger
+    const headerDict={
+      'Content-Type':'application/json',
+      'Accept':'application/json'
+    }
+    const requestOptions={
+      headers:new HttpHeaders(headerDict)
+    }
+    this.spiner.show();
+    this.http.post('https://localhost:44374/api/Schedule/searchSchedule/',data,requestOptions).subscribe((data:any)=>{
+      debugger
+      this.allSchedule=data;
+      this.spiner.hide();
+
+    },err=>{
+      this.spiner.hide();
+      this.toastr.error(err.status);
+    })
+  }
+  CompletProject(projectId:any){
+    this.spiner.show();
+    this.http.get('https://localhost:44374/api/Project/CompletProject/'+projectId).subscribe((data:any)=>{
+      debugger
+      this.spiner.hide();
+      this.toastr.success("Complete project successfully ");
+      this.router.navigate(['user/publishedProjects']); },err=>{
+        this.spiner.hide();
+        this.toastr.error(err.status);
+      })
+    }
+
 editUserQualification(data:any){debugger
   this.spiner.show();
   this.http.post('https://localhost:44374/api/Users/updateQualification',data)
@@ -583,6 +640,7 @@ editUserQualification(data:any){debugger
      },error=>{
    this.spiner.hide();
    this.toastr.error('Something went wrong');
+
  
 })
 }
