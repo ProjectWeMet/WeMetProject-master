@@ -429,7 +429,7 @@ html * {
     .form-button:active:hover,
     .form-button.active:hover,
     .form-button.active:focus {
-      background-color:#683ab780;
+      background-color:#683ab7d0;
         border: none;
         border-radius: .5rem;
         padding: 2%;

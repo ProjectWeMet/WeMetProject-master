@@ -32,7 +32,6 @@ import { ToastrModule } from 'ngx-toastr';
     ToastrModule.forRoot({
       positionClass :'toast-bottom-right'}),
 
-    
 
   ],
   providers: [],

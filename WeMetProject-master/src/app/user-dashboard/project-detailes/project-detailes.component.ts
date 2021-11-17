@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
+import { Router } from '@angular/router';
 import { UserDashboardService } from 'src/app/Service/user-dashboard.service';
 import { AddApplyDialogComponent } from './add-apply-dialog/add-apply-dialog.component';
 
@@ -10,11 +11,16 @@ import { AddApplyDialogComponent } from './add-apply-dialog/add-apply-dialog.com
 })
 export class ProjectDetailesComponent implements OnInit {
 
-  constructor(public UserService:UserDashboardService, public dialog:MatDialog) { 
+  constructor(public UserService:UserDashboardService, public dialog:MatDialog,private router:Router) { 
     // this.UserService.getApplyJobByProject(this.UserService.projectDetaile[0].projectId);
 
   }
 
+  goToUser(id:any){
+debugger
+    this.UserService.getUserById(id);
+    this.router.navigate(['user/profile']);
+  }
   ngOnInit(): void {
   
   }
