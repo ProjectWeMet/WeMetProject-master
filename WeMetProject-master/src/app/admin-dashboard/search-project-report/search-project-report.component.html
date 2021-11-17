@@ -1,4 +1,4 @@
-<body class="dark-edition" style="background-color: #202940; height: 300vh;">
+<body class="dark-edition" style="background-color: #202940; height: 190vh;">
     <div class="wrapper ">
         <!-- sidebar -->
         <app-sidbar-admin></app-sidbar-admin>
@@ -7,28 +7,147 @@
             <!-- Navbar -->
             <app-admin-navbar></app-admin-navbar>
             <!-- End Navbar -->
+         
             <div class="content">
-              
-            <!-- </section> -->
-            <div class="container" >
-                <div class="section-title three">
-                    <div class="sub-title-wrap">
-                        <!-- <img src="assets/img/home-three/title-img.png" alt="Icon"> -->
+                <div class="container-fluid">
+                  <div class="row">
+                    <div class="container">
+                        <div class="section-title three">
+                            <div class="sub-title-wrap">
+                                <img src="assets/img/home-three/title-img.png" alt="Icon">
+                            </div>
+                            <h2 style="color: #f1f0f6;font-weight: 500;text-align: center;">Search Project  </h2>
+                        </div>
                     </div>
-                    <h2 style="color: #f1f0f6;font-weight: 500;text-align: center;">
-                      
-                             Category All In WebSite</h2>
-                             <button (click)=" openDialog()" mat-button  style="  background: -webkit-linear-gradient(left, #3B064D, #BC6FF1);
-                             ;font-size: large;color: white;padding: 1%;" > <i  class="material-icons"></i>Add  Categorey</button>
+                            <!-- /////////////////////////// -->
+
+
+        <div style="border: 1px  solid  #9095a2;  border-top-left-radius: 10% 10%;
+        border-bottom-left-radius: 10% 10%;padding: 2%;  border-top-right-radius: 10% 10%;
+        border-bottom-right-radius: 10% 10%;max-width: 70%;margin-bottom: 5%;margin-left: 14%;" class="job-list-right">
+                <div class="job-list-all">
+                    <div class="search">
+                        <h3>Search Project</h3>
+
+                            <input type="text" class="form-control" [formControl]="title" placeholder="Project title ">
+                    </div>
+                   
+
+                    <div style="display: flex;justify-content: space-between;" class="search">
+                        <div style="flex-basis: 40%;">
+                        <h3>DateFrom</h3>
+                        <input type="date" [formControl]="startAt" class="form-control" placeholder="From ">
+                    </div>
+                    <div style="flex-basis: 40%;">
+                        <h3 class="mt-3">DateTo</h3>
+                        <input type="date" [formControl]="EndAt" class="form-control" placeholder="To ">
+
+                    </div>
+                    </div>
+
+                  
+
+                    <div class="search ">
+                        <h3>Skills</h3>
+                        <textarea type="text" [formControl]="Skills" class="form-control" placeholder=""></textarea>
+
+                    </div>
+                    <div class="level">
+                        <button type="submit" (click)="search()" class="btn">Filter Now</button>
+                    </div>
                 </div>
-            </div>
-              <div  fxLayout="row wrap" fxLayoutGap="10px grid">
-              <div fxFlex="32%"  *ngFor ="let card of homeServiceService.allCategrey" >
-              <app-categoreg-all [categoryId]="card.categoryId"  [categoryTitle]="card.categoryTitle" [image]="card.image">
-              
-              </app-categoreg-all>
-              </div>
-              </div>
+            
+        </div>  
+  
+    <!-- \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\ -->
+   
+                    <div class="col-md-12">
+                      <div id="pdfTable" #pdfTable class="card">
+                      
+                        <div class="card-header card-header-primary">
+                          <h4 class="card-title ">All Project </h4>
+                          
+                        </div>
+                        <div class="card-body">
+                          <div class="table-responsive">
+                            <table class="table">
+                              <thead class=" text-primary">
+                                <th>
+                                  ID
+                                </th>
+                                <th>
+                                    projectTitle
+                                </th>
+                                <th>
+                                    isExecution
+                                </th>
+                                <th>
+                                    countApplyJob
+                                </th>
+                                
+                                <th>
+                                    expectedBudget
+                                </th>
+                                
+                                <th>
+                                    ISAccept 
+                                   </th>
+                                   <th>
+                                  IsComplete
+                                   </th>
+                                   <th>
+                                    DateOfCreate
+                                     </th>
+                                   
+                              </thead>
+                              <tbody *ngFor ="let card of adminDashboardService.Projects" >
+                                <tr>
+                                  <td>
+                               {{card.projectId}}
+                                  </td>
+                                  <td>
+                                    {{card.projectTitle}}
+                                     </td>
+                                 
+                             
+                               
+                                  <td>
+                                    {{card.isExecution}}
+                                  </td>
+                           
+                                
+                                  <td>
+                                    {{card.countApplyJob}}
+                                  </td>
+                                  
+                                  <td>
+                                    {{card.expectedBudget}}
+                                  </td>
+                                  <td>
+                         
+                                    {{card.isAccept}}
+                                  </td>
+                                  <td>
+                         
+                                    {{card.isComplete}}
+                                  </td>
+                                  <td>
+                         
+                                    {{card.dateOfCreate}}
+                                  </td>
+                                </tr>
+                           
+                              </tbody>
+                            </table>
+                          </div>
+                          <button class="btn btn-primary" (click)="downloadAsPDF();">Export To PDF</button>
+
+                        </div>
+                      </div>
+                    </div>
+        
+                  </div>
+                </div>
               </div>
             <!-- footer -->
             <app-admin-footer></app-admin-footer>
@@ -40,6 +159,8 @@
             </script>
         </div>
     </div>
+
+   
    
     <!--   Core JS Files   -->
     <script src="../assets/js/core/jquery.min.js"></script>
