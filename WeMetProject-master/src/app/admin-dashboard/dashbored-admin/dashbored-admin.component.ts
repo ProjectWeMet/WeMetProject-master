@@ -72,19 +72,6 @@ export class DashboredAdminComponent implements OnInit {
     this.adminDashboardService.GetallProjectHighestApplyJob();
   }
 
-  openDialog() {
-
-    const dialogConfig = new MatDialogConfig();
-
-    dialogConfig.disableClose = true;
-    dialogConfig.autoFocus = true;
-
-    this.dialog.open(AddApplyDialogComponent,{
-      panelClass: 'applyDialog'
-    }
-    );
-}
-
 ngOnInit(): void {
 }
 

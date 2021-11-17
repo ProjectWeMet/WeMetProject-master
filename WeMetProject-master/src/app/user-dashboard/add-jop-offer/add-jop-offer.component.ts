@@ -68,7 +68,7 @@ debugger
   const data2={
     
     UserId1:this.UserIdMan,
-    UsreId2:this.UserService.User[0].userId,
+    UserId2:this.UserService.User[0].userId,
     ProjectTitle:this.ProjectTitle.value.toString(),
     ProjectDetails:this.ProjectDetails.value.toString(),
     ExpectedBudget:this.ExpectedBudget1.toString(),
