@@ -20,7 +20,7 @@ export class UserDashboardService {
   addProject:any=[];
   addProjectToUser:any=[];
   ApplyJob:any=[];
-  UserId:number=7;
+  UserId:any;
   CV:any;
   display_image:any;
   allSchedule:any=[];

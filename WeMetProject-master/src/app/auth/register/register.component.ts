@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { AuthService } from 'src/app/Service/auth.service';
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
@@ -19,7 +20,9 @@ export class RegisterComponent implements OnInit {
     userName: new FormControl('', [Validators.required,Validators.minLength(5),Validators.maxLength(20)]),
     password: new FormControl('', [Validators.required,Validators.minLength(8)]),
     // gender: new FormControl('', [Validators.required]),
-    confirmPassword: new FormControl('', [Validators.required,Validators.minLength(8)])})
+    // confirmPassword: new FormControl('', [Validators.required,Validators.minLength(8)])
+  }
+    )
     hide = true;
     hide1 = true;
     countryList:string[] = [
@@ -275,8 +278,19 @@ export class RegisterComponent implements OnInit {
   ]
   
   onSubmit() {
-    console.log(this.registerForm.value);
-    this.route.navigate(['']);
+    const data={
+      email:this.registerForm.controls.email.value.toString() ,
+      fname: this.registerForm.controls.firstName.value.toString(),
+      lname:  this.registerForm.controls.lastName.value.toString(),
+      dob: this.registerForm.controls.dob.value.toString(),
+      country:  this.registerForm.controls.country.value.toString(),
+      userName:  this.registerForm.controls.userName.value.toString(),
+      password:  this.registerForm.controls.password.value.toString(),
+     
+    }
+    this.auth.Register(data);
+    // console.log(this.registerForm.value);
+     this.route.navigate(['']);
   }
   GoToLogin(){
     this.route.navigate(['']);
@@ -284,7 +298,7 @@ export class RegisterComponent implements OnInit {
    }
    
   
-  constructor(private route:Router) { }
+  constructor(private route:Router,public auth:AuthService) { }
 
   ngOnInit(): void {
   }

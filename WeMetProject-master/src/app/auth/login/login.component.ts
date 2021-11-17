@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { ThemePalette } from '@angular/material/core';
 import { ProgressSpinnerMode } from '@angular/material/progress-spinner';
+import { AuthService } from 'src/app/Service/auth.service';
 
 
 
@@ -32,6 +33,7 @@ export class LoginComponent implements OnInit {
 
     hide1 = true;
 
+    
     GoToRegister(){
      this.router.navigate(['register']);
 
@@ -39,7 +41,7 @@ export class LoginComponent implements OnInit {
 
     rememberMe: boolean;
 
-    constructor(private router:Router,private spinner: NgxSpinnerService) { 
+    constructor(private router:Router,private spinner: NgxSpinnerService,public auth:AuthService) { 
       this.rememberMe = false;
       this.AutoLogin();
   
@@ -60,29 +62,37 @@ export class LoginComponent implements OnInit {
       } 
      }
      
+     
      onSubmit() {
       
 
-      if(this.rememberMe){
-        localStorage.setItem('token','accessToken');
-        localStorage.setItem('userName', this.userName.value);
-        localStorage.setItem('password', this.password.value);
-        localStorage.setItem('rememberMe', 'yes')
+      const body:any={
+        username:this.userName.value.toString(),
+        password:this.password.value.toString()
+      };
+
+      this.auth.login(body);
+      
+      // if(this.rememberMe){
+      //   localStorage.setItem('token','accessToken');
+      //   localStorage.setItem('userName', this.userName.value);
+      //   localStorage.setItem('password', this.password.value);
+      //   localStorage.setItem('rememberMe', 'yes')
       
       //   this.spinner.show();
       // setTimeout(() => {
       //   this.spinner.hide();
       //   this.router.navigate(['home']);
       // }, 5000);
-      }
+      // }
       
-      this.spinner.show();
-      setTimeout(() => {
-        this.spinner.hide();
-        this.router.navigate(['user/projects']);
-      }, 3000);
+      // this.spinner.show();
+      // setTimeout(() => {
+      //   this.spinner.hide();
+      //   this.router.navigate(['user/projects']);
+      // }, 3000);
         
-        // this.router.navigate(['register']);
+      //   // this.router.navigate(['register']);
       
       }
      
