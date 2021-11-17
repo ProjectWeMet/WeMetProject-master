@@ -125,7 +125,7 @@
   }
   
   .header-filter::before {
-    background: #9c27b0;
+    background: #673AB7;
   }
   
   .main-raised {
@@ -146,8 +146,7 @@
   }
   
   .profile-page .profile img {
-    max-width: 160px;
-    width: 100%;
+    max-width: 250px;
     margin: 0 auto;
     -webkit-transform: translate3d(0, -50%, 0);
     -moz-transform: translate3d(0, -50%, 0);
@@ -214,7 +213,7 @@
   
   .nav-pills .nav-item .nav-link.active {
     color: #fff;
-    background-color: #9c27b0;
+    background-color: #673AB7;
     box-shadow: 0 5px 20px 0 rgba(0, 0, 0, 0.2),
       0 13px 24px -11px rgba(156, 39, 176, 0.6);
   }
@@ -345,7 +344,7 @@
   .dropdown-menu a:hover {
     box-shadow: 0 4px 20px 0 rgba(0, 0, 0, 0.14),
       0 7px 10px -5px rgba(156, 39, 176, 0.4);
-    background-color: #9c27b0;
+    background-color: #673AB7;
     color: #fff;
   }
   .show .dropdown-toggle:after {
@@ -414,12 +413,12 @@
   }
   
   footer p a:hover {
-    color: #9f26aa;
+    color: #673AB7;
     text-decoration: none;
   }
 
   .form-button {
-    background-color:#9f26aa;
+    background-color:#673AB7;
     color: #ffffff;
     border: none;
       border-radius: 0.5rem;

@@ -33,6 +33,15 @@ export class MyWorkComponent implements OnInit {
   goToPersonalInfo(){
     this.router.navigate(['user/profile']);
   }
+
+  hireMe(){
+    this.UserService.getUserById(this.UserService.User[0].userId);
+    this.router.navigate(['user/addJopOffer']);}
+
+    goToProfile(id:any){
+      this.UserService.getUserById(this.UserService.User[0].userId);
+    this.router.navigate(['user/profile']);}
+    
   ngOnInit(): void {
   }
 

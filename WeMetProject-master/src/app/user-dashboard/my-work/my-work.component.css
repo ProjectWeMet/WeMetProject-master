@@ -138,7 +138,8 @@ a .material-icons {
 }
 
 .profile-page .profile img {
-  max-width: 250px;
+  max-width: 160px;
+  width: 100%;
   margin: 0 auto;
   -webkit-transform: translate3d(0, -50%, 0);
   -moz-transform: translate3d(0, -50%, 0);
@@ -251,7 +252,7 @@ p {
 }
 
 img.rounded {
-  border-radius:20px !important;
+  border-radius: 6px !important;
 }
 
 .tab-content > .active {
@@ -405,7 +406,7 @@ footer p a {
 }
 
 footer p a:hover {
-  color: #673AB7;
+  color: #9f26aa;
   text-decoration: none;
 }
 
@@ -429,7 +430,7 @@ footer p a:hover {
   .form-button:active:hover,
   .form-button.active:hover,
   .form-button.active:focus {
-    background-color:#683ab780;
+    background-color:#683ab7d0;
       border: none;
       border-radius: .5rem;
       padding: 2%;

@@ -35,6 +35,30 @@ export class MyWorkProfileComponent implements OnInit {
     }    
     );
 }
+goToMyWork(id:number){
+  debugger
+  this.UserService.getMyWorkById(id);
+  this.router.navigate(['user/myWorkProfile']);
+
+  
+}
+goToMySchedule(id:number){
+  debugger
+  this.UserService.getAllSchedule(id);
+  this.router.navigate(['user/mySchedule']);
+  
+}
+getImagePath(value:string ){
+  let basePath="../../../../assets/images/Uploaded File/";
+  return basePath+value;
+  }
+
+  EditInfo(){
+    if(this.UserService.UserId){
+      this.UserService.getUserById(this.UserService.UserId);
+      this.router.navigate(['user/editInfo']);
+    }
+  }
 EditDialog(card:any){
   const dialogConfig = new MatDialogConfig();
 
@@ -67,12 +91,16 @@ DeleteDialog(card:any){
     
   });
 }
+goToMyProject(id:any){
+  this.UserService.getAllSchedule(id);
+this.router.navigate(['user/ShownProjects']);
+}
+goToinfo(id:number){
+  this.UserService.getUserById(id);
+  this.router.navigate(['user/myProfile']);
+}
   ngOnInit(): void {
   }
-  getImagePath(value:string ){
-    let basePath="../../../../assets/images/Uploaded File/";
-    return basePath+value;
-    }
 
 }
 function ConfirmationDialog(ConfirmationDialog: any, arg1: { data: { message: string; buttonText: { ok: string; cancel: string; }; }; }) {

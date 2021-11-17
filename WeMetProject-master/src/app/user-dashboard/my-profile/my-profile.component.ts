@@ -14,8 +14,7 @@ export class MyProfileComponent implements OnInit {
   goToMyWork(id:number){
     debugger
     this.UserService.getMyWorkById(id);
-
-    this.router.navigate(['user/myWork']);
+    this.router.navigate(['user/myWorkProfile']);
 
     
   }
@@ -32,6 +31,14 @@ export class MyProfileComponent implements OnInit {
   getImagePath(value:string ){
     let basePath="../../../../assets/images/Uploaded File/";
     return basePath+value;
+    }
+    goToMyProject(id:any){
+      this.UserService.getAllSchedule(id);
+    this.router.navigate(['user/ShownProjects']);
+    }
+    goToinfo(id:number){
+      this.UserService.getUserById(id);
+      this.router.navigate(['user/myProfile']);
     }
   EditInfo(){
     if(this.UserService.UserId){

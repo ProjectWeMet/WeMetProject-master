@@ -22,14 +22,18 @@ export class MyScheduleComponent implements OnInit {
     goToMyWork(id:number){
       debugger
       this.UserService.getMyWorkById(id);
-      this.router.navigate(['user/myWork']);
-      
+      this.router.navigate(['user/myWorkProfile']);
     }
+
     goToMySchedule(id:number){
       debugger
       this.UserService.getAllSchedule(id);
       this.router.navigate(['user/mySchedule']);
       
+    }
+    goToMyProject(id:any){
+      this.UserService.getAllSchedule(id);
+    this.router.navigate(['user/ShownProjects']);
     }
     EditInfo(){
       if(this.UserService.UserId){
