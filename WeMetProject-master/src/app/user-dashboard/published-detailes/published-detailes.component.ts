@@ -41,8 +41,14 @@ export class PublishedDetailesComponent implements OnInit {
     link.click();
   }
 
+
   goToUser(id:any){
     this.UserService.getUserById(id);
-    this.router.navigate(['user/profile']);
+    this.router.navigate(['user/profile']);}
+
+  Complete(){
+    console.log(this.UserService.projectDetaile[0].isAccept)
+    // this.UserService.CompletProject(this.UserService.projectDetaile[0].projectId);
+
   }
 }

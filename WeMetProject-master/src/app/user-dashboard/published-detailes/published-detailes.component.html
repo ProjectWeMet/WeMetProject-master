@@ -17,8 +17,15 @@
                                 <li><i class="material-icons">access_time_filled</i> {{UserService.projectDetaile[0].dateOfCreate |daysBetweenDates }}</li>
                             </ul>
                         </div>
+                       
                     </div>
+                    <div class="col-lg-4 col-md-12">
+                        <div class="right">
+                            <a class="apply-btn "(click)="Complete()" >Complete project <i class="material-icons">check</i>
+                            </a>
 
+                        </div>
+                        </div>
                     <!-- <div class="col-lg-4 col-md-12">
                         <div class="right">
                             <a class="cmn-btn" routerLink="/job-details">Apply Now <i class='bx bx-plus'></i></a>
@@ -115,12 +122,14 @@
                     </div>
                     <div class="information widget-item">
                         <h3>Project Information</h3>
-
                         <ul>
                             <li>
                                 <img class="bag"src="assets/img/suitcase-black-shape.png" alt="Details" >
                                 <h4>Project state</h4>
-                                <span class="span-two" style=" color: #fff;">Open</span>
+                                <div *ngIf="!(UserService.projectDetaile[0].isAccept)" class="span-two two">Processing</div>
+                                <div *ngIf="UserService.projectDetaile[0].isAccept && UserService.projectDetaile[0].isComplete" class="span-two three">Complete</div>
+                                <div *ngIf="UserService.projectDetaile[0].isAccept && !(UserService.projectDetaile[0].isComplete) && !(UserService.projectDetaile[0].isExecution)" class="span-two four">Open</div>
+                                <div *ngIf="UserService.projectDetaile[0].isAccept && !(UserService.projectDetaile[0].isComplete) && UserService.projectDetaile[0].isExecution" class="span-two five">Execution</div>
                             </li>
                             <li>
                                 <img class="bag"src="assets/img/suitcase-black-shape.png" alt="Details" >

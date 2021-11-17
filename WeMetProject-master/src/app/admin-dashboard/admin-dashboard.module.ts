@@ -12,6 +12,9 @@ import { AppUpdateCategoreyDialogComponent } from './dashbored-admin/app-update-
 import { TableUsersComponent } from './table-users/table-users.component';
 import { HeightthreeapllyprojectComponent } from './heightthreeapllyproject/heightthreeapllyproject.component';
 import { LengthStringFormatePipePipe } from './heightthreeapllyproject/length-string-formate-pipe.pipe';
+import { SearchProjectReportComponent } from './search-project-report/search-project-report.component';
+import { CreatecategoreyDialogComponent } from './heightthreeapllyproject/createcategorey-dialog/createcategorey-dialog.component';
+import { GetAllContactsComponent } from './get-all-contacts/get-all-contacts.component';
 
 
 @NgModule({
@@ -26,6 +29,10 @@ import { LengthStringFormatePipePipe } from './heightthreeapllyproject/length-st
      TableUsersComponent,
      HeightthreeapllyprojectComponent,
      LengthStringFormatePipePipe,
+
+     SearchProjectReportComponent,
+      CreatecategoreyDialogComponent,
+      GetAllContactsComponent,
   
     
   ],
