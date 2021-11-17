@@ -41,6 +41,22 @@ export class SidbarAdminComponent implements OnInit {
    
    
   }
+  GoTotableuser(){
+    this.spinner.show();
+    setTimeout(() => {
+      this.spinner.hide();
+      this.router.navigate(['admin/tableuser']);
+    }, 2000);
+  }
+  HeightApplyProjectt(){
+    this.spinner.show();
+    setTimeout(() => {
+      this.spinner.hide();
+      this.router.navigate(['admin/heightApplyProject']);
+    }, 2000);
+  }
+  
+  
   
 
   ngOnInit(): void {

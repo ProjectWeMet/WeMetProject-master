@@ -566,7 +566,6 @@ uploadImageWork(file:FormData, work:any){
     const requestOptions={
       headers:new HttpHeaders(headerDict)
     }
-
     this.spiner.show();
      this.http.post('https://localhost:44374/api/Project/SearchUserProject',data,requestOptions)
      .subscribe((data:any)=>{
@@ -631,11 +630,21 @@ uploadImageWork(file:FormData, work:any){
       debugger
       this.spiner.hide();
       this.toastr.success("Complete project successfully ");
-      this.router.navigate(['user/publishedProjects']);
+      this.router.navigate(['user/publishedProjects']); },err=>{
+        this.spiner.hide();
+        this.toastr.error(err.status);
+      })
+    }
 
-    },err=>{
-      this.spiner.hide();
-      this.toastr.error(err.status);
-    })
-  }
+editUserQualification(data:any){debugger
+  this.spiner.show();
+  this.http.post('https://localhost:44374/api/Users/updateQualification',data)
+  .subscribe((data:any)=>{
+   this.spiner.hide();
+   this.toastr.success('Update User successfully' );
+     },error=>{
+   this.spiner.hide();
+   this.toastr.error('Something went wrong');
+     })
+}
 }

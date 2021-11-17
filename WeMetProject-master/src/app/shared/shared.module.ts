@@ -59,6 +59,7 @@ import { FlexLayoutModule } from '@angular/flex-layout';
     MatDialogModule,
     NgxMatFileInputModule,
     FlexLayoutModule,
+
       
   ],
   exports: [
@@ -89,8 +90,8 @@ import { FlexLayoutModule } from '@angular/flex-layout';
     FlexLayoutModule,
     MatCardModule,
     MatDialogModule,
-    NgxMatFileInputModule
-
+    NgxMatFileInputModule,
+ 
 
 
 

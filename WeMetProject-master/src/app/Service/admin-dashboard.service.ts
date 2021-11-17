@@ -27,7 +27,7 @@ export class AdminDashboardService {
 
   viewProjectNotAcceptAdmin:any=[{}]
 
-
+  getallProjectHighestApplyJob:any=[{}]
 
 
   constructor(private http:HttpClient,private toaster:ToastrService , private spinner: NgxSpinnerService) { }
@@ -165,8 +165,28 @@ export class AdminDashboardService {
      (error) => this.toaster.error(error.status));
     
       }
+
+      RejectProject(id:any){
+        debugger
+          //call services
+       return this.http.post('https://localhost:44374/api/Project/delete',id).subscribe((result)=> { 
+        this.ViewProjectNotAcceptAdmin();
+         this.spinner.hide();
+         this.toaster.success('Data Retrieved!'); },
+         (error) => this.toaster.error(error.status));
+          }
+
+
         
-      
+      GetallProjectHighestApplyJob(){
+        debugger
+        //call services
+     return this.http.get('https://localhost:44374/api/Project/GetallProjectHighestApplyJob').subscribe((result)=> { 
+       this.getallProjectHighestApplyJob=result,
+       this.spinner.hide();
+       this.toaster.success('Data Retrieved!'); },
+       (error) => this.toaster.error(error.status));
+      }
     
 }
 
