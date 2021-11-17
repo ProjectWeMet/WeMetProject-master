@@ -4,16 +4,12 @@
         <div class="col-md-12" >
             <div class="row" style="text-align: center;">
                 <div class="col-md-6">
-                   
                      <p><input type="file" formControlName="fileControl"   accept="image/*" name="image" id="file" (change)="readURL($event);" style="display: none;"></p>
                     <p><label for="file" style="cursor: pointer;">
                         <img for="file"  id="imgWork" [src]="imageSrc || getImagePath(data.imageName)" alt="your image" /> 
                         
                     </label></p>
-
                 </div>
-            
-
                 <div class="col-md-6 mt-3">
                     <mat-form-field class="example-full-width " appearance="outline" >
                         <mat-label >Work title</mat-label>

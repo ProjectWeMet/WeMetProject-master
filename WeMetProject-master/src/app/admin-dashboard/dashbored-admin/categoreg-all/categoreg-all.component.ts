@@ -16,7 +16,9 @@ export class CategoregAllComponent implements OnInit {
   @Input () categoryId:number|undefined;
   @Input () image:any|undefined;
   @Input ()  categoryTitle :string|undefined;
-  constructor(public adminDashboardService: AdminDashboardService,private router:Router,public homeServiceService:HomeServiceService, private http: HttpClient,public dialog:MatDialog) { }
+  constructor(public adminDashboardService: AdminDashboardService,private router:Router,public homeServiceService:HomeServiceService, private http: HttpClient,public dialog:MatDialog) { 
+    this.homeServiceService.GetAllCategorey();
+  }
   getImagePath(value:string ){
     // debugger
     let basePath="../../../../assets/images/Uploaded File/";

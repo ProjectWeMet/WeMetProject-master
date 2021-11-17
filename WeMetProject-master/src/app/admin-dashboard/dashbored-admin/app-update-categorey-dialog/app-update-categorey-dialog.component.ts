@@ -23,7 +23,7 @@ export class AppUpdateCategoreyDialogComponent implements OnInit {
   categoryId= new FormControl(this.data.categoryId, [Validators.required]);
   image=new FormControl(this.data.image, [Validators.required]);
   categoryTitle=new FormControl(this.data.categoryTitle, [Validators.required]);
-
+  fileControl=new FormControl('',[Validators.required])
 
   
   constructor(public adminDashboardService: AdminDashboardService,public homeServiceService: HomeServiceService,public dialog:MatDialog,private http:HttpClient,private spiner :NgxSpinnerService,private router:Router
@@ -63,7 +63,21 @@ export class AppUpdateCategoreyDialogComponent implements OnInit {
     this.adminDashboardService.uploadAttachmentCategorey(formData,id,categoryTitle);
     this.saveItem();
     }
-
+    formData =new FormData();
+    imageSrc:any
+    readURL(event:any): void {
+      this.formData = new FormData();
+      if (event.target?.files && event.target.files[0]) {
+          const file = event.target.files[0];
+          let fileToUpload = <File>event.target.files[0];
+          this.formData.append('file', fileToUpload, fileToUpload.name);
+  
+          const reader = new FileReader();
+          reader.onload = e => this.imageSrc = reader.result;
+  
+          reader.readAsDataURL(file);
+      }
+  }
     getImagePath(value:string ){
       debugger
       let basePath="../../../../assets/images/Uploaded File/";

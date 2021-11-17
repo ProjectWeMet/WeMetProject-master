@@ -22,7 +22,7 @@
                             <!-- /////////////////////////// -->
 
 
-        <div style="border: 1px  solid  #9095a2;  border-top-left-radius: 10% 10%;
+        <!-- <div style="border: 1px  solid  #9095a2;  border-top-left-radius: 10% 10%;
         border-bottom-left-radius: 10% 10%;padding: 2%;  border-top-right-radius: 10% 10%;
         border-bottom-right-radius: 10% 10%;max-width: 70%;margin-bottom: 5%;margin-left: 14%;" class="job-list-right">
                 <div class="job-list-all">
@@ -57,8 +57,54 @@
                     </div>
                 </div>
             
-        </div>  
-  
+        </div>   -->
+        <div class="col-md-8">
+            <div class="card" style="margin-bottom: 10%;">
+                <div style=" background: -webkit-linear-gradient(left, #3B064D, #BC6FF1);" class="card-header card-header-primary">
+                    <h4 class="card-title">Search Project </h4>
+                    <p class="card-category">Complete your profile</p>
+                </div>
+                <div class="card-body">
+                    <form>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label class="bmd-label-floating">Date From</label>
+                                    <input type="date" [formControl]="startAt" class="form-control" placeholder="From ">
+                                     
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label class="bmd-label-floating">Date To  </label>
+                                    <input  type="date" [formControl]="EndAt" class="form-control" placeholder="To">
+                                  
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label class="bmd-label-floating">Skills</label>
+                                    <input type="text" [formControl]="Skills" class="form-control" placeholder="Skills">
+                                  
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label class="bmd-label-floating">skill </label>
+                                    <input type="text" class="form-control" [formControl]="title" placeholder="Project title ">
+                                    
+                                </div>
+                            </div>
+                        </div>
+                    
+                        <button style=" background: -webkit-linear-gradient(left, #3B064D, #BC6FF1);" type="submit" (click)="search()"  class="btn btn-primary pull-right">Filter Now</button>
+                        <div class="clearfix"></div>
+                    </form>
+                </div>
+            </div>
+        </div>
     <!-- \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\ -->
    
                     <div class="col-md-12">
