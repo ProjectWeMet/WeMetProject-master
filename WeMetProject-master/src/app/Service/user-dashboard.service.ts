@@ -463,7 +463,7 @@ uploadImageWork(file:FormData, work:any){
     .subscribe((data:any)=>{
      this.spiner.hide();
     //  this.GetProjectById(date1.projectId);
-    this.router.navigate(['user/myProfile']);
+    // this.router.navigate(['user/myProfile']);
 
     this.toastr.success('Create work successfully' );
   },error=>{
@@ -640,6 +640,7 @@ editUserQualification(data:any){debugger
   this.http.post('https://localhost:44374/api/Users/updateQualification',data)
   .subscribe((data:any)=>{
    this.spiner.hide();
+   this.getUserById(this.UserId);
    this.toastr.success('Update User successfully' );
      },error=>{
    this.spiner.hide();
@@ -661,6 +662,7 @@ editUserAccount(data:any){debugger
   this.http.post('https://localhost:44374/api/Users/UpdatePersonalInformation',data,requestOptions)
   .subscribe((data:any)=>{
    this.spiner.hide();
+   this.getUserById(this.UserId)
    this.toastr.success('Update User successfully' );
      },error=>{
    this.spiner.hide();

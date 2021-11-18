@@ -9,7 +9,9 @@ import { UserDashboardService } from 'src/app/Service/user-dashboard.service';
 })
 export class MyProfileComponent implements OnInit {
 
-  constructor(public UserService:UserDashboardService,private router:Router) { }
+  constructor(public UserService:UserDashboardService,private router:Router) {
+    this.UserService.getUserById(this.UserService.UserId)
+   }
 
   goToMyWork(id:number){
     debugger
