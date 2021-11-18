@@ -55,7 +55,7 @@
                         <h3>ِApply </h3>
                         <h6>Hurry up to apply now for a job opportunity in the project</h6>
                         <div class=" m-2" style="text-align: center; ">
-                            <a class="apply-btn" (click)="openDialog()">Apply Now <i class="material-icons">add</i></a>
+                            <a class="apply-btn" href="javascript:void(0)" (click)="openDialog()">Apply Now <i class="material-icons">add</i></a>
                             </div>
                     </div>     
                     <div class="job widget-item">
@@ -76,7 +76,7 @@
                                         </ul>
                                         <p>{{card.offerDetails}}</p>
                                         <ul>
-                                            <li class="resume" style="color: #fff;" (click)="downloadFile(card.cv)"><i class="material-icons">download_for_offline</i>Resume</li>
+                                            <a href="javascript:void(0)"><li class="resume" style="color: #fff;" (click)="downloadFile(card.cv)"><i class="material-icons">download_for_offline</i>Resume</li></a>
                                         </ul>
                                     </a> 
                                 </div>    
@@ -156,3 +156,5 @@
         </div>
     </div>
 </div>
+<app-user-footer></app-user-footer>
+

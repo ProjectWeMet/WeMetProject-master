@@ -45,7 +45,8 @@ export class EditProfileComponent implements OnInit {
       
       }
       this.UserService.editUserQualification(data2);
-      
+      this.router.navigate(['user/myProfile']);
+
     }
 
     EditAccount(){
