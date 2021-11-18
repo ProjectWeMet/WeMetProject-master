@@ -8,6 +8,9 @@
     height: 100%;
     
 }
+.rounded-circle {
+  border-radius: 50% !important;
+}
 .profile-img .file {
     position: relative;
     overflow: hidden;
@@ -32,7 +35,7 @@
 
   
   .form-button {
-    background-color:#5f468bc6;
+    background-color:#673ab7;
     color: #ffffff;
     border: none;
     border-radius: 1.5rem;
@@ -49,7 +52,7 @@
   .form-button:active:hover,
   .form-button.active:hover,
   .form-button.active:focus {
-    background-color:#5a3e8a;
+    background-color:#3e236e ;
       
       border: none;
       border-radius: 1.5rem;

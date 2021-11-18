@@ -48,7 +48,7 @@ export class PublishedDetailesComponent implements OnInit {
 
   Complete(){
     console.log(this.UserService.projectDetaile[0].isAccept)
-    // this.UserService.CompletProject(this.UserService.projectDetaile[0].projectId);
+    this.UserService.CompletProject(this.UserService.projectDetaile[0].projectId);
 
   }
 }

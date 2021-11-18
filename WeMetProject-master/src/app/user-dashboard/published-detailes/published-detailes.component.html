@@ -21,7 +21,7 @@
                     </div>
                     <div class="col-lg-4 col-md-12">
                         <div class="right">
-                            <a class="apply-btn "(click)="Complete()" >Complete project <i class="material-icons">check</i>
+                            <a class="apply-btn " href="javascript:void(0)" (click)="Complete()" >Complete project <i class="material-icons">check</i>
                             </a>
 
                         </div>
@@ -78,13 +78,13 @@
                                         </ul>
                                         <p>{{card.offerDetails}}</p>
                                         <ul>
-                                            <li class="resume" style="color: #fff;" (click)="downloadFile(card.cv)"><i class="material-icons">download_for_offline</i>Resume</li>
+                                            <a href="javascript:void(0)"><li class="resume"  style="color: #fff;" (click)="downloadFile(card.cv)"><i class="material-icons">download_for_offline</i>Resume</li></a>
                                         </ul>
                                         <ul >
                                             <li *ngIf="card.isSendSchedule" class="schedule" style="color: #fff; background-color: #c2b0e2;" ><i class="material-icons">schedule_send</i>
                                                 Send schedule</li>
-                                            <li *ngIf="!card.isSendSchedule" class="schedule" style="color: #fff;"  (click)="openDialog(card.userId,card.idApplyJob)"><i class="material-icons">schedule_send</i>
-                                                Send schedule</li>
+                                                <a href="javascript:void(0)"><li *ngIf="!card.isSendSchedule" class="schedule" style="color: #fff;"  (click)="openDialog(card.userId,card.idApplyJob)"><i class="material-icons">schedule_send</i>
+                                                Send schedule</li></a>
                                         </ul>
                                     </a> 
                                 </div>    
@@ -166,3 +166,5 @@
         </div>
     </div>
 </div>
+<app-user-footer></app-user-footer>
+

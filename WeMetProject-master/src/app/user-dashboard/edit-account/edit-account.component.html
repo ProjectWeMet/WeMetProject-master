@@ -24,8 +24,9 @@
 <!-- End Page Title -->
 
 <!-- Jobs -->
-<div class="job-details-area ptb-50" style="background-color: #f1f0f6;">
-    <div class="container">
+
+<div class="job-details-area ptb-50" style="background-color: #f1f0f6; ">
+    <div class="container" style="margin-left: 25%;">
         <div class="row">
             <div class="col-lg-8 col-md-12">
 
@@ -36,11 +37,11 @@
                             
                             <h3>Edit Account</h3>
                             
-                            <div class="col-md-4">
+                            <div class="col-md- text-center">
                                 <div class="profile-img" >
-                                    <p><input type="file" formControlName="fileControl"   accept="image/*" name="image" id="file" (change)="readURL($event);" style="display: none;"></p>
+                                    <p><input type="file" formControlName="fileControl"   accept="image/*" name="image" id="file" (change)="readURL($event);" style="display: none; " ></p>
                                     <p><label for="file" style="cursor: pointer;">
-                                        <img for="file"  id="imgWork"  [src]="imageSrc || getImagePath(UserService.User[0].imageName)" alt="your image" />
+                                        <img for="file" class="rounded-circle"  id="imgWork"  [src]="imageSrc || getImagePath(UserService.User[0].imageName)" alt="your image" />
                                        
                                     </label></p>             
                                       <!-- <div class="file btn btn-lg btn-primary">
@@ -82,7 +83,7 @@
                             <div class="form-group">
                                 <mat-form-field class="col-lg-12 col-md-12" appearance="outline" >
                                   <mat-label >BirthDate</mat-label>
-                                  <input matInput [formControl]="DOB" [(ngModel)]="UserService.User[0].dob">
+                                  <input type="datetime-local" matInput [formControl]="DOB" [(ngModel)]="UserService.User[0].dob">
                               </mat-form-field>
                               </div>
 
@@ -90,7 +91,6 @@
                                 <mat-form-field  class="col-lg-12 col-md-12" appearance="outline">
                                   <mat-label> Choose Country</mat-label>
                                   <mat-select  [(value)]="UserService.User[0].country" >
-                                    <mat-option>Country</mat-option> 
                                     <mat-option *ngFor="let country of countryList" [value]="country">
                                       {{country}}
                                     </mat-option>
@@ -118,3 +118,5 @@
 
         </div>
     </div>
+</div>
+    <app-user-footer></app-user-footer>

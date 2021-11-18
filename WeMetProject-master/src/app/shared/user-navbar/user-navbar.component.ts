@@ -19,7 +19,7 @@ export class UserNavbarComponent implements OnInit {
     setTimeout(() => {
       this.spinner.hide();
       this.router.navigate(['register']);
-    }, 2000);
+    }, 1000);
    
   }
 
@@ -28,7 +28,7 @@ export class UserNavbarComponent implements OnInit {
     setTimeout(() => {
       this.spinner.hide();
       this.router.navigate(['user/projects']);
-    }, 2000);
+    }, 1000);
    
   }
 
@@ -37,7 +37,7 @@ export class UserNavbarComponent implements OnInit {
     setTimeout(() => {
       this.spinner.hide();
       this.router.navigate(['user/user']);
-    }, 2000);
+    }, 1000);
    
   }
 
@@ -46,7 +46,7 @@ export class UserNavbarComponent implements OnInit {
     setTimeout(() => {
       this.spinner.hide();
       this.router.navigate(['']);
-    }, 2000);
+    }, 1000);
    
   }
   GoToMyProject(){
@@ -63,7 +63,7 @@ export class UserNavbarComponent implements OnInit {
     setTimeout(() => {
       this.spinner.hide();
       this.router.navigate(['user/addproject']);
-    }, 2000);
+    }, 1000);
    
    
   }
@@ -73,7 +73,7 @@ export class UserNavbarComponent implements OnInit {
     setTimeout(() => {
       this.spinner.hide();
       this.router.navigate(['user/myProfile']);
-    }, 2000);
+    }, 1000);
    
   }
   GoToSchedule(){
@@ -81,7 +81,15 @@ export class UserNavbarComponent implements OnInit {
     setTimeout(() => {
       this.spinner.hide();
       this.router.navigate(['user/schedule']);
-    }, 2000);
+    }, 1000);
+   
+  }
+  GoToLogin(){
+    this.spinner.show();
+    setTimeout(() => {
+      this.spinner.hide();
+      this.router.navigate(['login']);
+    }, 1000);
    
   }
 

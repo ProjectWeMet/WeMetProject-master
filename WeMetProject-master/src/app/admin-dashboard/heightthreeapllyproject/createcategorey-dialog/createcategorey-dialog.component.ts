@@ -35,7 +35,7 @@ export class CreatecategoreyDialogComponent implements OnInit {
     // let fileToUpload = <File>this.image.value;
  
     // formData.append('file', fileToUpload, fileToUpload.name);
-    debugger
+    
 
     const date={
       image:''  ,
