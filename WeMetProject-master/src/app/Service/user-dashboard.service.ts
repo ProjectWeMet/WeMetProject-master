@@ -288,8 +288,12 @@ uploadAttachment(file:FormData, apply:any){
     this.http.post('https://localhost:44374/api/ApplyJob/createApplyJob',date1,requestOptions)
     .subscribe((data:any)=>{
      this.spiner.hide();
+     
+     this.GetProjectById(date1.projectId);
+    // this.router.navigate(['user/projects']);
+     this.toastr.success('The application has been successfully added');
     //  this.GetProjectById(date1.projectId);
-    this.router.navigate(['user/projects']);
+    // this.router.navigate(['user/projects']);
 
     //  this.toastr.success('Deleted ');
    
