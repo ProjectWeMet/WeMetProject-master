@@ -10,11 +10,13 @@ import { CardProfileComponent } from './admin-profile/card-profile/card-profile.
 import { CategoregAllComponent } from './dashbored-admin/categoreg-all/categoreg-all.component';
 import { AppUpdateCategoreyDialogComponent } from './dashbored-admin/app-update-categorey-dialog/app-update-categorey-dialog.component';
 import { TableUsersComponent } from './table-users/table-users.component';
-import { HeightthreeapllyprojectComponent } from './heightthreeapllyproject/heightthreeapllyproject.component';
-import { LengthStringFormatePipePipe } from './heightthreeapllyproject/length-string-formate-pipe.pipe';
 import { SearchProjectReportComponent } from './search-project-report/search-project-report.component';
-import { CreatecategoreyDialogComponent } from './heightthreeapllyproject/createcategorey-dialog/createcategorey-dialog.component';
 import { GetAllContactsComponent } from './get-all-contacts/get-all-contacts.component';
+import { CategoreyComponent } from './categorey/categorey.component';
+import { CreateCategoreyDialogComponent } from './categorey/create-categorey-dialog/create-categorey-dialog.component';
+import { EditeCategoreyDialogComponent } from './categorey/edite-categorey-dialog/edite-categorey-dialog.component';
+import { CardCategoreyComponent } from './categorey/card-categorey/card-categorey.component';
+
 
 
 @NgModule({
@@ -27,12 +29,14 @@ import { GetAllContactsComponent } from './get-all-contacts/get-all-contacts.com
 
     AppUpdateCategoreyDialogComponent,
      TableUsersComponent,
-     HeightthreeapllyprojectComponent,
-     LengthStringFormatePipePipe,
 
      SearchProjectReportComponent,
-      CreatecategoreyDialogComponent,
+      
       GetAllContactsComponent,
+      CategoreyComponent,
+      CreateCategoreyDialogComponent,
+      EditeCategoreyDialogComponent,
+      CardCategoreyComponent,
   
     
   ],

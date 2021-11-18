@@ -4,16 +4,16 @@ import { MatDialog, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { AdminDashboardService } from 'src/app/Service/admin-dashboard.service';
 
 @Component({
-  selector: 'app-createcategorey-dialog',
-  templateUrl: './createcategorey-dialog.component.html',
-  styleUrls: ['./createcategorey-dialog.component.css']
+  selector: 'app-create-categorey-dialog',
+  templateUrl: './create-categorey-dialog.component.html',
+  styleUrls: ['./create-categorey-dialog.component.css']
 })
-export class CreatecategoreyDialogComponent implements OnInit {
+export class CreateCategoreyDialogComponent implements OnInit {
 
   image=new FormControl('', [Validators.required]);
   categoryTitle=new FormControl('', [Validators.required]);
   fileControl=new FormControl('',[Validators.required])
-  constructor(public adminDashboardService: AdminDashboardService,public dialog:MatDialog,@Inject(MAT_DIALOG_DATA) public data: any ) { }
+  constructor(public adminDashboardService: AdminDashboardService,public dialog:MatDialog,@Inject(MAT_DIALOG_DATA) public data: any) { }
   formData =new FormData();
   imageSrc:any
   readURL(event:any): void {
@@ -38,7 +38,7 @@ export class CreatecategoreyDialogComponent implements OnInit {
     debugger
 
     const date={
-      image:''  ,
+      image:(this.adminDashboardService.display_image2).tostring(),
       categoryTitle:(this.categoryTitle.value).toString()
     }
   
@@ -63,5 +63,6 @@ export class CreatecategoreyDialogComponent implements OnInit {
       }
   ngOnInit(): void {
   }
+ 
 
 }

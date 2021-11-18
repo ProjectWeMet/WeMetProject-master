@@ -40,6 +40,7 @@ export class SearchProjectReportComponent implements OnInit {
   }
   constructor(public adminDashboardService: AdminDashboardService,private router:Router) {
     this.adminDashboardService.GetAllProjects()
+    this.search();
    }
    ngOnInit(): void {
   }

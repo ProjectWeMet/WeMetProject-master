@@ -68,7 +68,8 @@ export class DashboredAdminComponent implements OnInit {
     this.adminDashboardService.CountAcceptJobSchedule();
     this.adminDashboardService.CountCompleteProject();
     this.adminDashboardService.GetAllUsers();
-    this.homeServiceService.GetAllCategorey();
+    this.adminDashboardService.GetAllCategorey();
+    this.adminDashboardService.GetProfileAdmin();
     this.adminDashboardService.GetallProjectHighestApplyJob();
   }
 

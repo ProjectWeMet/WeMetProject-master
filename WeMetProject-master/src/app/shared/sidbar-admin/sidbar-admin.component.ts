@@ -48,11 +48,11 @@ export class SidbarAdminComponent implements OnInit {
       this.router.navigate(['admin/tableuser']);
     }, 2000);
   }
-  HeightApplyProjectt(){
+  CategoreyAll(){
     this.spinner.show();
     setTimeout(() => {
       this.spinner.hide();
-      this.router.navigate(['admin/heightApplyProject']);
+      this.router.navigate(['admin/CategoreyAll']);
     }, 2000);
   }
   searchProjectRepo(){
@@ -70,7 +70,13 @@ export class SidbarAdminComponent implements OnInit {
       this.router.navigate(['admin/getAllContacts']);
     }, 2000);
   }
-  
+  GotToHome(){
+    this.spinner.show();
+    setTimeout(() => {
+      this.spinner.hide();
+      this.router.navigate(['home']);
+    }, 2000);
+  }
   
   
   

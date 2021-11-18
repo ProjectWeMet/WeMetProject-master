@@ -28,6 +28,7 @@ export class AppUpdateCategoreyDialogComponent implements OnInit {
   
   constructor(public adminDashboardService: AdminDashboardService,public homeServiceService: HomeServiceService,public dialog:MatDialog,private http:HttpClient,private spiner :NgxSpinnerService,private router:Router
     ,private toastr:ToastrService,@Inject(MAT_DIALOG_DATA) public data: any ) { 
+     
       // this.homeServiceService.GetCategoreyById(this.categoreyId)
     }
   saveItem(){debugger

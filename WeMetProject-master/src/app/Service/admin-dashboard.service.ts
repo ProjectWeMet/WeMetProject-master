@@ -10,8 +10,7 @@ export class AdminDashboardService {
   display_image: any
   display_image1: any
   display_image2: any
-  data: any = [{
-  }]
+  data: any = []
   data2: any = {
   }
   data3: any = [{
@@ -27,6 +26,7 @@ export class AdminDashboardService {
 
   }]
   getAllProjects: any = [{}]
+  allCategrey:any=[{}]
 
   viewProjectNotAcceptAdmin: any = [{}]
 
@@ -98,7 +98,7 @@ export class AdminDashboardService {
     return this.http.get('https://localhost:44374/api/Users/CountUser').subscribe((result) => {
       this.data3 = result,
         this.spinner.hide();
-      this.toaster.success('Data Retrieved!');
+      // this.toaster.success('Data Retrieved!');
     },
       (error) => this.toaster.error(error.status));
 
@@ -111,7 +111,7 @@ export class AdminDashboardService {
       this.data4 = result,
         console.log(this.data4)
       this.spinner.hide();
-      this.toaster.success('Data Retrieved!');
+      // this.toaster.success('Data Retrieved!');
     },
       (error) => this.toaster.error(error.status));
 
@@ -124,7 +124,7 @@ export class AdminDashboardService {
       this.data5 = result,
 
         this.spinner.hide();
-      this.toaster.success('Data Retrieved!');
+      // this.toaster.success('Data Retrieved!');
     },
       (error) => this.toaster.error(error.status));
 
@@ -148,7 +148,7 @@ export class AdminDashboardService {
 
 
 
-  ViewProjectNotAcceptAdmin() {
+  ViewProjectNotAcceptAdmin() {  
     //debugger
     //call services
     return this.http.get('https://localhost:44374/api/Users/ViewProjectNotAcceptAdmin').subscribe((result) => {
@@ -156,7 +156,7 @@ export class AdminDashboardService {
         console.log(this.viewProjectNotAcceptAdmin),
         //  this.AcceptProject(this.viewProjectNotAcceptAdmin.projectId)
         this.spinner.hide();
-      this.toaster.success('Data Retrieved!');
+      // this.toaster.success('Data Retrieved!');
     },
       (error) => this.toaster.error(error.status));
 
@@ -170,7 +170,7 @@ export class AdminDashboardService {
       this.ViewProjectNotAcceptAdmin();
       console.log(this.acceptProject)
       this.spinner.hide();
-      this.toaster.success('Data Retrieved!');
+      this.toaster.success('Accepted Project!');
     },
       (error) => this.toaster.error(error.status));
 
@@ -182,7 +182,7 @@ export class AdminDashboardService {
     return this.http.post('https://localhost:44374/api/Project/delete', id).subscribe((result) => {
       this.ViewProjectNotAcceptAdmin();
       this.spinner.hide();
-      this.toaster.success('Data Retrieved!');
+      this.toaster.success('Rejected !');
     },
       (error) => this.toaster.error(error.status));
   }
@@ -257,7 +257,7 @@ export class AdminDashboardService {
         console.log(this.viewProjectNotAcceptAdmin),
 
         this.spinner.hide();
-      this.toaster.success('Data Retrieved!');
+      // this.toaster.success('Data Retrieved!');
     },
       (error) => this.toaster.error(error.status));
 
@@ -276,7 +276,7 @@ export class AdminDashboardService {
     }
 
     this.spinner.show();
-    this.http.post('https://localhost:44374/api/Project/SearchProject', data, requestOptions)
+    this.http.post('https://localhost:44374/api/Project/SearchAdminProject', data, requestOptions)
       .subscribe((data: any) => {
         this.spinner.hide();
         this.Projects = data;
@@ -305,8 +305,8 @@ export class AdminDashboardService {
       .subscribe((data: any) => {
         this.spinner.show();
         this.spinner.hide();
-        this.toaster.success('data Update ');
-
+        this.toaster.success('Data Update ');
+        this.GetProfileAdmin();
       }, error => {
         this.spinner.hide();
         this.toaster.error(' Not Update');
@@ -327,9 +327,8 @@ export class AdminDashboardService {
     this.spinner.show();
     this.http.post('https://localhost:44374/api/Category/CreateCategory', date1, requestOptions)
       .subscribe((data: any) => {
-        this.spinner.show();
-        this.spinner.hide();
-        this.toaster.success('data Created ');
+         this.GetAllCategorey();
+        this.toaster.success('Data Created ');
 
       }, error => {
         this.spinner.hide();
@@ -338,7 +337,7 @@ export class AdminDashboardService {
       })
   }
   //uploadAttachmentCreateCategorey ====> Create Categorey
-  uploadAttachmentCreateCategorey(file: FormData,Categoreys:any) {
+  uploadAttachmentCreateCategorey(file: FormData,categoryTitle:any) {
     debugger
 
     const headerDict = {
@@ -352,11 +351,10 @@ export class AdminDashboardService {
       this.display_image2 = data1.image;
       debugger
     const  data={
-        image:this.display_image2,
-        categoryTitle:Categoreys.categoryTitle
-
+        image:(this.display_image2).tostring(),
+        categoryTitle:categoryTitle.categoryTitle
       }
-      this.CreateCategorey(data);
+
       
     }, err => {
 
@@ -385,11 +383,19 @@ export class AdminDashboardService {
     return this.http.delete('https://localhost:44374/api/ContactsUs/DeleteContactUs/'+ id).subscribe((result) => {
       this.ViewProjectNotAcceptAdmin();
       this.spinner.hide();
-      this.toaster.success('Data Retrieved!');
+      this.toaster.success('Data Deleted!');
     },
       (error) => this.toaster.error(error.status));
   }
-
+  GetAllCategorey(){
+    //call services
+    return this.http.get('https://localhost:44374/api/Category').subscribe((result)=> { 
+   this.allCategrey=result,
+   this.spinner.hide();
+    },
+   (error) => this.toaster.error(error.status));
+  
+    }
 }
 
 
