@@ -28,7 +28,9 @@ export class UserDashboardService {
   myWork:any=[];
   Schedule:any=[];
   constructor(private http:HttpClient,private spiner :NgxSpinnerService,private router:Router
-    ,private toastr:ToastrService ) { }
+    ,private toastr:ToastrService ) { 
+      this.getPublishedProjects(this.UserId);
+    }
 
 
 
@@ -462,6 +464,7 @@ uploadImageWork(file:FormData, work:any){
     this.http.post('https://localhost:44374/api/MyWork/CreateMyWork',date1,requestOptions)
     .subscribe((data:any)=>{
      this.spiner.hide();
+     this.getMyWorkById(this.UserId);
     //  this.GetProjectById(date1.projectId);
     // this.router.navigate(['user/myProfile']);
 
@@ -498,6 +501,7 @@ uploadImageWork(file:FormData, work:any){
         }
     
         this.EditWork(date)
+        
   
     }
     }, error => {
@@ -517,8 +521,9 @@ uploadImageWork(file:FormData, work:any){
       this.http.post('https://localhost:44374/api/MyWork/UpdateMyWork',date1,requestOptions)
       .subscribe((data:any)=>{
        this.spiner.hide();
+       this.getMyWorkById(this.UserId);
       //  this.GetProjectById(date1.projectId);
-      this.router.navigate(['user/myProfile']);
+      // this.router.navigate(['user/myProfile']);
   
       this.toastr.success('Update work successfully' );
     },error=>{
@@ -539,8 +544,9 @@ uploadImageWork(file:FormData, work:any){
       this.http.delete('https://localhost:44374/api/MyWork/delete/'+workId)
       .subscribe((data:any)=>{
        this.spiner.hide();
+       this.getMyWorkById(this.UserId);
       //  this.GetProjectById(date1.projectId);
-      this.router.navigate(['user/myProfile']);
+      // this.router.navigate(['user/myProfile']);
       this.toastr.success('Delete work successfully' );
     },error=>{
       this.spiner.hide();
