@@ -21,6 +21,10 @@ export class ProfileComponent implements OnInit {
   ngOnInit(): void {
     
   }
+  getImagePath(value:string ){
+    let basePath="../../../../assets/images/Uploaded File/";
+    return basePath+value;
+    }
 
   hireMe(){
     this.UserService.getUserById(this.UserService.User[0].userId);

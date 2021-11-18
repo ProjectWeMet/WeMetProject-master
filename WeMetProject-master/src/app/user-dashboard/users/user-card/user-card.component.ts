@@ -49,6 +49,10 @@ export class UserCardComponent implements OnInit {
     this.router.navigate(['user/addJopOffer']);
     }
   }
+  getImagePath(value:string ){
+    let basePath="../../../../assets/images/Uploaded File/";
+    return basePath+value;
+    }
   constructor(public UserService:UserDashboardService,private router:Router) { }
 
   ngOnInit(): void {

@@ -60,14 +60,14 @@ onClick(){
 debugger
 console.log(this.value) ;
 
-  this.UserId1=7;
+  // this.UserId1=7;
    
   let today = new Date()
 
   this.DateOfCreate1=new Date(new Date().toString().split('GMT')[0]+'UTC').toISOString();
 
   const data2={
-    UserId:this.UserId1,
+    UserId:this.UserService.UserId,
     ProjectTitle:this.ProjectTitle.value.toString(),
     ProjectDetails:this.ProjectDetails.value.toString(),
     ExpectedBudget:this.ExpectedBudget1.toString(),

@@ -18,7 +18,7 @@
             <div class="col-md-6 ml-auto mr-auto">
               <div class="profile">
                 <div class="avatar">
-                  <img src="https://www.biography.com/.image/ar_1:1%2Cc_fill%2Ccs_srgb%2Cg_face%2Cq_auto:good%2Cw_300/MTU0NjQzOTk4OTQ4OTkyMzQy/ansel-elgort-poses-for-a-portrait-during-the-baby-driver-premiere-2017-sxsw-conference-and-festivals-on-march-11-2017-in-austin-texas-photo-by-matt-winkelmeyer_getty-imagesfor-sxsw-square.jpg" alt="Circle Image" class="img-raised rounded-circle img-fluid">
+                  <img [src]="getImagePath(UserService.User[0].imageName)"  alt="Circle Image" class="img-raised rounded-circle img-fluid">
                 </div>
                 
                 <div class="bbt">
@@ -78,7 +78,7 @@
                       <mat-card-title>{{card.titel}}</mat-card-title>
                       <mat-card-subtitle>{{card.completionDate}}</mat-card-subtitle>
                     </mat-card-header>
-                      <img mat-card-image src="https://images.unsplash.com/photo-1521341057461-6eb5f40b07ab?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=72da2f550f8cbd0ec252ad6fb89c96b2&auto=format&fit=crop&w=334&q=80" alt="Photo of a Shiba Inu">
+                      <img mat-card-image [src]="getImagePath(card.imageName)"  alt="Photo of a Shiba Inu">
                       <mat-card-content>
                         <p>
                           {{card.description}}
