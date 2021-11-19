@@ -12,7 +12,18 @@ textarea:hover{
 }
 
 
-
+.rounded-circle {
+  /* border-radius: 50% !important; */
+  /* width: 8%;
+  height: 50%;
+  margin-right: 10%; */
+  position: absolute;
+  top: 25px;
+  left: 18px;
+  height: 75px;
+  width: 75px;
+  border-radius: 50%;
+}
 .form-button {
   background-color:#673ab7;
   color: #ffffff;

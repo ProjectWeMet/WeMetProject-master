@@ -13,7 +13,14 @@ export class UserNavbarComponent implements OnInit {
 
   ngOnInit(): void {
   }
-
+  goToHome(){
+    this.spinner.show();
+    setTimeout(() => {
+      this.spinner.hide();
+      this.router.navigate(['']);
+    }, 1000);
+   
+  }
   GoToRegister(){
     this.spinner.show();
     setTimeout(() => {

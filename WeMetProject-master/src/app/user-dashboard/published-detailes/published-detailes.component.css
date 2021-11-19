@@ -10,7 +10,18 @@
     padding: 5px 5px 5px 80px;
     transition: 0.5s all ease;
 }
-
+.rounded-circle {
+    /* border-radius: 50% !important; */
+    /* width: 8%;
+    height: 50%;
+    margin-right: 10%; */
+    position: absolute;
+    top: 25px;
+    left: 18px;
+    height: 75px;
+    width: 75px;
+    border-radius: 50%;
+  }
 .apply-item img {
     position: absolute;
     top: 20px;
