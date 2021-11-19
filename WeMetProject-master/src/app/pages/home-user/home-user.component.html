@@ -1,0 +1,120 @@
+
+
+<!-- Navbar -->
+<app-navbar-page></app-navbar-page>
+<!-- End Navbar -->
+
+<!-- Page Title -->
+<div  style="display: flex; background-color:rgba(0, 0, 0, 0.3);">
+    <div style=" flex-basis: 45%;">
+      <h1 style="color: #1f1137; padding-top: 70%;padding-left: 80px;"> Users  </h1>
+      <!-- <p style="color: white; text-align: center;font-size: 25px;">Put forward your project and leave the task of implementing it to the best experts</p> -->
+    </div>
+   
+<div class="page-title-area "  style=" flex-basis: 70%;">
+  <div class="d-table">
+      <div class="d-table-cell">
+          <div class="container">
+              <div class="title-item">
+                
+              </div>
+          </div>
+      </div>
+  </div>
+</div>
+</div>
+<!-- End Page Title -->
+
+<!-- Jobs -->
+<div class="job-area-list ptb-50">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-md-12">
+               
+               
+
+                <div  (click)="showProfile()" class="employer-item" *ngFor="let card of UserService.Users">
+
+                    <a href="javascript:void(0)" style="text-decoration:none">
+                        <div class="avatar">
+                        <img  src="{{getImagePath(card.imageName)}}"  alt="Employer"  class="rounded-circle" >
+                    </div>
+                        <h3>{{card.fname}} {{card.lname}}</h3>
+                        <ul>
+                            <li><i></i>{{jobTitle}}</li>
+                            <!-- <li>5 months ago</li> -->
+                        </ul>
+                        <p >{{card.biography |lenghtStringFormat}}</p>
+                        <ul>
+                            <a href="javascript:void(0)"><li class="span-two" style="margin-top: 20px; padding:10px; font-size:15px;">hire me</li>
+                            </a>
+                        </ul>
+                        
+                    </a>
+                </div>
+                
+
+             
+            </div>
+<!-- --------------------------------------------------------------------------------------------------------- -->
+            <div class="col-lg-4 col-md-12">
+                <div class="job-list-right">
+                   
+
+                    <div class="job-list-all">
+                        <div class="search">
+                            
+                            <h3>Specialization</h3>
+                                <input type="text" class="form-control" [formControl]="specialization" placeholder="">
+                        </div>
+
+
+                            <div class="search ">
+                                <h3>Skills</h3>
+                                <textarea type="text" [formControl]="skill" class="form-control" placeholder=""></textarea>
+
+                            
+                            </div>
+
+                            <div class="search">
+                                <h3>jobTitle</h3>
+                                    <input type="text" class="form-control" [formControl]="jobTitle" placeholder="">
+                            </div>
+
+                            <div class="search">
+                                <h3> Country</h3>
+                                <mat-select [formControl]="country">
+                                
+                                <mat-option *ngFor="let c of countryList" [value]="c">
+                                    {{c}}
+                                </mat-option>
+                                </mat-select>
+                            </div>
+
+                            <div class="form-check">
+                            <input class="form-check-input"  (change)="onChange($any($event.target)?.checked)" type="checkbox" id="isActive">
+                            <label class="form-check-label">
+                                Is Active
+                            </label>
+                        </div>
+                            <!-- <section class="example-section">
+                                <p><mat-checkbox [formControl]="isActive">Active Now</mat-checkbox></p>
+                              </section> -->
+
+                              <div class="level">
+                                <button type="submit" (click)="search()" class="btn">Filter Now</button>
+                            </div>
+                    </div>
+
+                     
+                </div>  
+            </div>
+        </div>
+    </div>
+</div>
+<!-- End Jobs -->
+<app-user-footer></app-user-footer>
+
+<!-- Footer -->
+
+<!-- End Footer -->

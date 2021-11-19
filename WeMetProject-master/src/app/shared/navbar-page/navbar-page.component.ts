@@ -14,7 +14,7 @@ export class NavbarPageComponent implements OnInit {
     this.spinner.show();
       setTimeout(() => {
         this.spinner.hide();
-        this.router.navigate(['home/contact']);
+        this.router.navigate(['contact']);
       }, 2000);
     
   }
@@ -22,7 +22,7 @@ export class NavbarPageComponent implements OnInit {
     this.spinner.show();
     setTimeout(() => {
       this.spinner.hide();
-      this.router.navigate(['home']);
+      this.router.navigate(['']);
     }, 2000);
    
   }
@@ -31,7 +31,7 @@ export class NavbarPageComponent implements OnInit {
     this.spinner.show();
     setTimeout(() => {
       this.spinner.hide();
-      this.router.navigate(['']);
+      this.router.navigate(['login']);
     }, 2000);
    
    
@@ -40,7 +40,7 @@ export class NavbarPageComponent implements OnInit {
     this.spinner.show();
     setTimeout(() => {
       this.spinner.hide();
-      this.router.navigate(['home/about']);
+      this.router.navigate(['about']);
     }, 2000);
     
   }
@@ -50,6 +50,23 @@ export class NavbarPageComponent implements OnInit {
       this.spinner.hide();
       this.router.navigate(['register']);
     }, 2000);
+   
+  }
+  goToProject(){
+    this.spinner.show();
+    setTimeout(() => {
+      this.spinner.hide();
+      this.router.navigate(['Project']);
+    }, 1000);
+   
+  }
+
+  GoToUser(){
+    this.spinner.show();
+    setTimeout(() => {
+      this.spinner.hide();
+      this.router.navigate(['User']);
+    }, 1000);
    
   }
   

@@ -12,6 +12,10 @@ import { BlogComponent } from './home/blog/blog.component';
 import { BlogbyIdComponent } from './home/blogby-id/blogby-id.component';
 import { OurTeamComponent } from './about/our-team/our-team.component';
 import { OurTeamByIdComponent } from './about/our-team-by-id/our-team-by-id.component';
+import { HomeUserComponent } from './home-user/home-user.component';
+import { LenghtStringFormatPipe } from './home/lenght-string-format.pipe';
+import { HomeProjectComponent } from './home-project/home-project.component';
+import { DaysBetweenDatesPipe } from './daysBetweenDates.pipe';
 
 
 
@@ -26,8 +30,12 @@ import { OurTeamByIdComponent } from './about/our-team-by-id/our-team-by-id.comp
     BlogComponent,
     BlogbyIdComponent,
     OurTeamComponent,
-    OurTeamByIdComponent
+    OurTeamByIdComponent,
+    HomeUserComponent,
     
+    LenghtStringFormatPipe,
+          HomeProjectComponent,
+          DaysBetweenDatesPipe
     
 
  
@@ -38,7 +46,7 @@ import { OurTeamByIdComponent } from './about/our-team-by-id/our-team-by-id.comp
     CommonModule,
     PagesRoutingModule,
     SharedModule
-   
+    
    
   ]
 })

@@ -1,0 +1,140 @@
+<!-- Navbar -->
+<!-- <app-navbar></app-navbar> -->
+<app-navbar-page></app-navbar-page>
+<!-- End Navbar -->
+<!-- Roa -->
+<!-- Page Title -->
+<div  style="display: flex; background-color:rgba(0, 0, 0, 0.3);">
+    <div style=" flex-basis: 45%;">
+      <h1 style="color: #1f1137; padding-top: 70%;padding-left: 80px;">  Projects  </h1>
+      <!-- <p style="color: white; text-align: center;font-size: 25px;">Put forward your project and leave the task of implementing it to the best experts</p> -->
+    </div>
+   
+<div class="page-title-area "  style=" flex-basis: 70%;">
+  <div class="d-table">
+      <div class="d-table-cell">
+          <div class="container">
+              <div class="title-item">
+                
+              </div>
+          </div>
+      </div>
+  </div>
+</div>
+</div>
+<!-- End Page Title -->
+
+<!-- Jobs -->
+<div class="job-area-list ptb-50">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-md-12">
+                <ul class="job-list-item align-items-center">
+                   
+                    <li>
+                        
+                        <mat-form-field appearance="outline">
+                            <mat-label>Order By</mat-label>
+                            <select matNativeControl [(ngModel)]="orderBy" (ngModelChange)="getOrderBy()" >
+                              <option  value="Latest">Latest</option>
+                              <option value="Oldest">Oldest</option>
+                              <option  value="LeastViewed">Least viewed</option>
+                              <option value="MostViewed">Most viewed</option>
+                            </select>
+                          </mat-form-field>
+                    </li>
+                    <li></li>
+                </ul>
+
+                <div (click)="showProfile()" *ngFor="let card of UserService.Projects" class="employer-item">
+                    <a href="javascript:void(0)" style="text-decoration:none">
+                        <h3>{{card.projectTitle}}</h3>
+                        <ul>
+                            <li><i class="material-icons">person</i> {{card.fName}} {{card.lName}}</li>
+                            <li><i class="material-icons">access_time</i>{{card.dateOfCreate | daysBetweenDates}}</li>
+                        </ul>
+                        <p>{{card.projectDetails | lengthStringFormate}}</p>
+                        <ul>
+                            <li class="span-two"><i class="material-icons">sticky_note_2</i>{{card.countApplyJob}} Apply</li>
+                        </ul>
+                    </a>
+                </div>
+                    
+
+              
+            </div>
+
+            <div class="col-lg-4 col-md-12">
+                <div class="job-list-right">
+                        <div class="job-list-all">
+                            <div class="search">
+                                <h3>Search Project</h3>
+
+                                    <input type="text" class="form-control" [formControl]="title" placeholder="Project title ">
+                            </div>
+                            <div class="search mt-4 cmn-padding">
+                                <h3>Category</h3>
+                                    <ul class="job-cmn-cat ">
+                                        
+                                        <li *ngFor="let card of UserService.Categorys">
+                                            <div class="form-check">
+                                                <!-- <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+                                                <label class="form-check-label" for="defaultCheck1">{{card.categoryTitle}}</label> -->
+                                                <input class="form-check-input"  (change)="onChange(card?.categoryTitle, $any($event.target)?.checked)"name="{{ card.categoryTitle }}" type="checkbox" id="{{card.categoryTitle}}">
+                                                <label class="form-check-label" for="{{card.categoryTitle}}">
+                                                    {{card.categoryTitle}}
+                                                </label>
+                                            </div>
+                                        </li>   
+                                    </ul>
+                            </div>
+
+                            <div class="search">
+                                <h3>DateFrom</h3>
+                                <input type="date" [formControl]="startAt" class="form-control" placeholder="From ">
+                                <h3 class="mt-3">DateTo</h3>
+
+                                <input type="date" [formControl]="EndAt" class="form-control" placeholder="To ">
+
+                            
+                            </div>
+
+                            <div class="salary cmn-padding">
+                                <h3>Budget</h3>
+    
+                                <mat-slider
+                                thumbLabel
+                                [displayWith]="formatLabel"
+                                tickInterval="10"
+                                step="10"
+                                min="10"
+                                max="1000"
+                                color="primary"
+                                [(ngModel)]="value"
+                                aria-label="units"></mat-slider>
+                                <label class="example-value-label"> Budget : 10 - {{value}} JD</label>
+
+                            </div>
+
+                            <div class="search ">
+                                <h3>Skills</h3>
+                                <textarea type="text" [formControl]="Skills" class="form-control" placeholder=""></textarea>
+
+                            
+                            </div>
+                            <div class="level">
+                                <button type="submit" (click)="search()" class="btn">Filter Now</button>
+                            </div>
+                        </div>
+                    
+                </div>  
+            </div>
+        </div>
+    </div>
+</div>
+<!-- End Jobs -->
+<app-user-footer></app-user-footer>
+
+<!-- Footer -->
+<!-- <app-footer></app-footer> -->
+<!-- End Footer -->
