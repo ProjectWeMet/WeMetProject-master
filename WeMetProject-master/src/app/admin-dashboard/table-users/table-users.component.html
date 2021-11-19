@@ -31,6 +31,8 @@
                                 <tbody  *ngFor ="let card of adminDashboardService.data6"    >
                                   <tr>
                                     <td>{{card.userId}}}</td>
+                                    <td><img  src="{{getImagePath(card.imageName)}}"  alt="Employer"  class="rounded-circle" >
+                                    </td>
                                     <td>{{card.fname}} {{card.lname}}</td>
                                     <td>{{card.jobTitle}}</td>
                                     <td>{{card.phoneNumber}}</td>

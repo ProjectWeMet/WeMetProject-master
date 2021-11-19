@@ -1,0 +1,84 @@
+<body class="dark-edition" style="background-color: #202940; height: 190vh;">
+    <div class="wrapper ">
+        <!-- sidebar -->
+        <app-sidbar-admin></app-sidbar-admin>
+        <!-- end sidebar -->
+        <div class="main-panel">
+            <!-- Navbar -->
+            <app-admin-navbar></app-admin-navbar>
+            <!-- End Navbar -->
+            <div class="content">
+                <div class="container-fluid">
+                  <div class="row">
+                    <div class="col-md-12">
+                      <div id="pdfTable" #pdfTable class="card">
+                        <div class="card-header card-header-primary">
+                          <h4 class="card-title ">Testimonial</h4>
+                          
+                        </div>
+                        <div class="card-body">
+                          <div class="table-responsive">
+                            <table class="table">
+                              <thead class=" text-primary">
+                                <th>
+                                  Image
+                                </th>
+                                <th>
+                                  Name
+                                </th>
+                                <th>
+                                  numberStar
+                                </th>
+                            
+                                <th>
+                                  comment
+                                </th>
+                                
+                                   <th>
+                                   Delete
+                                   </th>
+                              </thead>
+                              <tbody *ngFor ="let card of adminDashboardService.testimonial" >
+                                <tr>
+                                    <td>
+                                        <img  src="{{getImagePath(card.imageName)}}"  alt="Employer"  class="rounded-circle" >
+                                      </td>
+                                  <td>
+                              {{card.fName}}{{card.lName}}
+                                  </td>
+                                  <td>
+                                    {{card.numberStar}}
+                                  </td>
+                                  <td>
+                                    {{card.comment}}
+                                  </td>
+                                  
+                                
+                                  <td>
+                                    <button (click)="Delete(card.testomonialID)" type="button" rel="tooltip" title="Remove" class="btn btn-white btn-link btn-sm">
+                                        <i class="material-icons">close</i>
+                                      </button>
+                                  </td>
+                                </tr>
+                           
+                              </tbody>
+                            </table>
+                          </div>
+                          <button  (click)="downloadAsPDF();" class="btn btn-primary" >Export To PDF</button>
+
+                        </div>
+                      </div>
+                    </div>
+                  
+                  </div>
+                </div>
+              </div>
+            <!-- footer -->
+            <app-admin-footer></app-admin-footer>
+            <!-- end footer -->
+        
+        </div>
+    </div>
+   
+  
+</body>

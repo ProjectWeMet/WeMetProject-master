@@ -689,6 +689,18 @@
     border-style: none;
   }
   
+
+  .rounded-circle {
+    /* border-radius: 50% !important; */
+    /* width: 8%;
+    height: 50%;
+    margin-right: 10%; */
+    position: absolute;
+    top: 10px;
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+  }
   input[type="radio"],
   input[type="checkbox"] {
     box-sizing: border-box;
