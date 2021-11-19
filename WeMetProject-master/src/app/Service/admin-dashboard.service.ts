@@ -378,12 +378,14 @@ export class AdminDashboardService {
   }
 
   //Delete Contacts Us 
-  DeleteContactUs(id: any) {
+  DeleteContactUs(id: any) {debugger
     //debugger
     //call services
     return this.http.delete('https://localhost:44374/api/ContactsUs/DeleteContactUs/'+ id).subscribe((result) => {
-      this.ViewProjectNotAcceptAdmin();
       this.spinner.hide();
+      window.location.reload();
+
+
       this.toaster.success('Data Deleted!');
     },
       (error) => this.toaster.error(error.status));

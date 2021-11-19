@@ -1,5 +1,6 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Router } from '@angular/router';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { ToastrService } from 'ngx-toastr';
 
@@ -12,7 +13,7 @@ export class PagesService {
 }] 
 display_image:any
 OurTeam:any={}
-  constructor(private http:HttpClient,private toaster:ToastrService , private spinner: NgxSpinnerService) { }
+  constructor(private http:HttpClient,private toaster:ToastrService,private router:Router , private spinner: NgxSpinnerService) { }
 
   
   GetAllOurTeam(){
@@ -35,6 +36,30 @@ OurTeam:any={}
       this.spinner.hide();
       this.toaster.success('Data Retrieved!'); 
     },(error) => this.toaster.error(error.status));
+  }
+  contcat(data3:any){
+    debugger
+    const headerDict = {
+      'Content-Type': 'application/json',
+      'Accept': 'application/json'
+      }
+      const requestOptions = {
+        headers: new HttpHeaders(headerDict),
+        };
+   
+      this.spinner.show();
+    this.http.post('https://localhost:44374/api/ContactsUs/CreateContactUs',data3,requestOptions)
+      .subscribe((data:any)=>{
+        this.spinner.hide();
+  
+        this.toaster.success('Send testmonial successfully ');
+        this.router.navigate(['']);
+      
+      },error=>{
+        this.spinner.hide();
+        this.toaster.error('Something went wrong');
+      
+      })
   }
 
   uploadAttachment(file:FormData,id:number){
