@@ -49,8 +49,11 @@ export class ShownProjectsComponent implements OnInit {
     this.UserService.getUserById(id);
     this.router.navigate(['user/myProfile']);
   }
-  getImagePath(value:string ){
+  getImagePath(value:any ){
     let basePath="../../../../assets/images/Uploaded File/";
+    if(value==null)
+    return "../../../../assets/img/User.png";
+    console.log(basePath);
     return basePath+value;
     }
     goToMyProject(id:any){

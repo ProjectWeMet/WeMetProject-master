@@ -21,7 +21,7 @@
                     </div>
                     <div class="col-lg-4 col-md-12">
                         <div class="right">
-                            <a class="apply-btn " href="javascript:void(0)" (click)="Complete()" >Complete project <i class="material-icons">check</i>
+                            <a class="apply-btn " *ngIf=" !(UserService.projectDetaile[0].isComplete) && (UserService.projectDetaile[0].isExecution)"  href="javascript:void(0)" (click)="Complete()" >Complete project <i class="material-icons">check</i>
                             </a>
 
                         </div>
@@ -70,7 +70,7 @@
                             <div *ngFor="let card of UserService.ApplyJob">
                                 <div class="apply-item">
                                     <a >
-                                        <img src="assets/img/home-one/job1.png" alt="Employer" (click)="goToUser(card.userId)">
+                                        <img src="{{getImagePath(card.imageName)}}" alt="Employer" (click)="goToUser(card.userId)">
                                         <h4 (click)="goToUser(card.userId)">{{card.fName}} {{card.lName}}</h4>
                                         <ul>
                                             <li><i class="material-icons">attach_money</i>Budget:<span>{{card.offerValue}} JD</span>  </li>

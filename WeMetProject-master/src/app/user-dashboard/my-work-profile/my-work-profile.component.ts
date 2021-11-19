@@ -50,8 +50,11 @@ goToMySchedule(id:number){
   this.router.navigate(['user/mySchedule']);
   
 }
-getImagePath(value:string ){
+getImagePath(value:any ){
   let basePath="../../../../assets/images/Uploaded File/";
+  if(value==null)
+  return "../../../../assets/img/User.png";
+  console.log(basePath);
   return basePath+value;
   }
 

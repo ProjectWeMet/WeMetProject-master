@@ -50,6 +50,13 @@ export class ScheduleComponent implements OnInit {
     // }
     
   }
+  getImagePath(value:any ){
+    let basePath="../../../../assets/images/Uploaded File/";
+    if(value==null)
+    return "../../../../assets/img/User.png";
+    console.log(basePath);
+    return basePath+value;
+    }
   showProfile(userId:number)
   {debugger
     this.UserService.getUserById(userId);

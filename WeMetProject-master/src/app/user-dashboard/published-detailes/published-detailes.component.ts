@@ -41,6 +41,13 @@ export class PublishedDetailesComponent implements OnInit {
     link.click();
   }
 
+  getImagePath(value:any ){
+    let basePath="../../../../assets/images/Uploaded File/";
+    if(value==null)
+    return "../../../../assets/img/User.png";
+    console.log(basePath);
+    return basePath+value;
+    }
 
   goToUser(id:any){
     this.UserService.getUserById(id);

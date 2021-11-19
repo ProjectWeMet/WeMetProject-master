@@ -1,8 +1,9 @@
 <div class="employer-item" >
 
-    <a>
-        <img src="assets/img/home-one/job1.png" alt="Employer" (click)="showProfile()">
-
+    <a href="javascript:void(0)" style="text-decoration:none">
+        <div class="avatar">
+        <img  src="{{getImagePath(imageName)}}"  alt="Employer" (click)="showProfile()" class="rounded-circle" >
+    </div>
         <h3 (click)="showProfile()">{{fname}} {{lname}}</h3>
         <ul (click)="showProfile()">
             <li><i></i>{{jobTitle}}</li>
