@@ -40,7 +40,7 @@
           </div>
           <hr>
           <div class="row">
-            <div class="col-md-6 ml-auto mr-auto">
+            <div class="col-md-8 ml-auto mr-auto">
               <div class="profile-tabs">
                 <ul class="nav nav-pills nav-pills-icons justify-content-center" role="tablist">
                   <li class="nav-item">
@@ -78,7 +78,15 @@
                       Project
                     </a>
                   </li>
-                 
+                  <li class="nav-item">
+                    <a class="nav-link " (click)="goToMyTestmonial(UserService.UserId)" role="tab" data-toggle="tab">
+                        <i class="bi bi-asterisk"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-asterisk" viewBox="0 0 16 16">
+                            <path d="M8 0a1 1 0 0 1 1 1v5.268l4.562-2.634a1 1 0 1 1 1 1.732L10 8l4.562 2.634a1 1 0 1 1-1 1.732L9 9.732V15a1 1 0 1 1-2 0V9.732l-4.562 2.634a1 1 0 1 1-1-1.732L6 8 1.438 5.366a1 1 0 0 1 1-1.732L7 6.268V1a1 1 0 0 1 1-1z"/>
+                          
+                      </svg></i>
+                      Testmonial
+                    </a>
+                  </li>
                 </ul>
               </div>
             </div>

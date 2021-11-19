@@ -19,6 +19,7 @@ import { MyScheduleComponent } from './my-schedule/my-schedule.component';
 import { MyWorkProfileComponent } from './my-work-profile/my-work-profile.component';
 import { ShownProjectsComponent } from './shown-projects/shown-projects.component';
 import { ScheduleComponent } from './schedule/schedule.component';
+import { TestmonialProfileComponent } from './testmonial-profile/testmonial-profile.component';
 
 
 const routes: Routes = [
@@ -87,6 +88,9 @@ const routes: Routes = [
   },{
     path:'schedule',
     component:ScheduleComponent
+  },{
+    path:'testmonial',
+    component:TestmonialProfileComponent
   }
 ]
 
