@@ -25,6 +25,7 @@ export class CardPublishedProjectsComponent implements OnInit {
   ViewDetailes(){
     if(this.projectId){
       this.UserService.GetProjectById(this.projectId);
+      this.UserService.getUserById(this.UserService.UserId)
       this.router.navigate(['user/publishedDetailes']);
     }
     

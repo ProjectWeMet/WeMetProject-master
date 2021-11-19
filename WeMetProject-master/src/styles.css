@@ -3493,23 +3493,28 @@ button:focus {
 /*----- End Home Demo Three CSS -----*/
 /*----- About CSS -----*/
 .page-title-area {
-    background-image: url('assets/img/page-title-bg.jpg');
-    background-size: cover;
-    background-position: center center;
-    background-repeat: no-repeat;
-    position: relative;
-    height: 400px;
-}
-.page-title-area:before {
-    position: absolute;
-    content: '';
-    width: 100%;
-    height: 100%;
-    top: 0;
-    left: 0;
-    background-color: #000;
-    opacity: 0.7;
-}
+    background-image: url('assets/img/backgrounds/back.PNG'); 
+     background-size: cover;
+     background-position: center center;
+     background-repeat: no-repeat;
+     position: relative;
+     height: 600px;
+     width: 50%;
+     
+     
+ }
+ .page-title-area:before {
+     float: right;
+     position: absolute;
+     content: '';
+     width: 100%;
+     height: 100%;
+     top: 0;
+     /* left: 0; */
+     /* background-color: #000; */
+     background-color:rgba(0, 0, 0, 0.3);
+    
+ }
 .page-title-area .title-item {
     position: relative;
     z-index: 1;
@@ -3521,14 +3526,15 @@ button:focus {
     font-size: 40px;
     margin-bottom: 12px;
 }
-.page-title-area .title-item ul {
+.view-title ul {
     margin: 0;
     padding: 0;
 }
-.page-title-area .title-item ul li {
+.view-title ul li {
     list-style-type: none;
-    display: inline-block;
+    display: block;
     color: #fff;
+
 }
 .page-title-area .title-item ul li img {
     display: inline-block;

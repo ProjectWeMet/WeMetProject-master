@@ -226,6 +226,8 @@ export class UserDashboardService {
     return this.http.get('https://localhost:44374/api/Project/ProjectById/'+id)
     .subscribe((data:any)=>{
      this.projectDetaile=data;
+     console.log(this.projectDetaile[0])
+
      debugger
      this.getApplyJobByProject(id);
     //  console.log(id+"GetProjectById")

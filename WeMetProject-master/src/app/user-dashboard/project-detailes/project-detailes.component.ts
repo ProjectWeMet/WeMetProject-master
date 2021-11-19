@@ -13,9 +13,9 @@ export class ProjectDetailesComponent implements OnInit {
 
   constructor(public UserService:UserDashboardService, public dialog:MatDialog,private router:Router) { 
     // this.UserService.getApplyJobByProject(this.UserService.projectDetaile[0].projectId);
+    // this.UserService.getUserById(this.UserService.UserId)
 
   }
-
   goToUser(id:any){
 debugger
     this.UserService.getUserById(id);
@@ -25,13 +25,15 @@ debugger
   
   }
 
-  getImagePath(value:any ){
-    let basePath="../../../../assets/images/Uploaded File/";
-    if(value==null)
-    return "../../../../assets/img/User.png";
-    console.log(basePath);
-    return basePath+value;
-    }
+  
+    getImagePath(value:any ){
+  
+      let basePath="../../../../assets/images/Uploaded File/";
+      if(value==null)
+      return "../../../../assets/img/User.png";
+      console.log(basePath);
+      return basePath+value;
+      }
   openDialog() {
 
     const dialogConfig = new MatDialogConfig();

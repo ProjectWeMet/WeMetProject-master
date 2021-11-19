@@ -2,45 +2,44 @@
 <!-- End Navbar -->
 <app-user-navbar></app-user-navbar>
 <!-- Page Title -->
-<div class="page-title-area two">
-    <div class="d-table">
-        <div class="d-table-cell">
-            <div class="container">
-                <div class="row align-items-end">
-                    <div class="col-lg-8 col-md-12">
-                        <div class="left"> 
-                            <!-- <img src="assets/img/job-details1.png" alt="Details"> -->
-                            <h2>{{UserService.projectDetaile[0].projectTitle}}</h2>
-                            <ul>
-                               <li><i class="material-icons">category</i>
-                                    {{UserService.projectDetaile[0].categoryTitle}}</li>
-                                <li><i class="material-icons">access_time_filled</i> {{UserService.projectDetaile[0].dateOfCreate |daysBetweenDates }}</li>
-                            </ul>
-                        </div>
-                       
-                    </div>
-                    <div class="col-lg-4 col-md-12">
-                        <div class="right">
-                            <a class="apply-btn " *ngIf=" !(UserService.projectDetaile[0].isComplete) && (UserService.projectDetaile[0].isExecution)"  href="javascript:void(0)" (click)="Complete()" >Complete project <i class="material-icons">check</i>
-                            </a>
-
-                        </div>
-                        </div>
-                    <!-- <div class="col-lg-4 col-md-12">
-                        <div class="right">
-                            <a class="cmn-btn" routerLink="/job-details">Apply Now <i class='bx bx-plus'></i></a>
-                            <ul>
-                                <li><a routerLink="/job-details"><i class='bx bx-heart'></i> Save</a></li>
-                                <li><a routerLink="/job-details"><i class='bx bx-share-alt'></i> Share</a></li>
-                                <li><a routerLink="/job-details"><i class='bx bxs-report'></i> Report</a></li>
-                            </ul>
-                        </div>
-                    </div> -->
-                </div>
+<div  style=" display: flex; background-color:rgba(0, 0, 0, 0.3);" class="view-title">
+    <div style=" flex-basis: 45%;">
+      <div style="color: #1f1137; padding-top: 70%;padding-left: 30px;"> 
+        <div class="row align-items-end">
+            <div class="col-lg-12 col-md-12">
+                <h2>{{UserService.projectDetaile[0].projectTitle}}</h2>
+                <ul>
+                   <li><i class="material-icons">category</i>
+                        {{UserService.projectDetaile[0].categoryTitle}}</li>
+                    <li><i class="material-icons">access_time_filled</i> {{UserService.projectDetaile[0].dateOfCreate |daysBetweenDates }}</li>
+                </ul>
             </div>
+
+           
         </div>
     </div>
+      <!-- <p style="color: white; text-align: center;font-size: 25px;">Put forward your project and leave the task of implementing it to the best experts</p> -->
+    </div>
+   
+<div class="page-title-area "  style=" flex-basis: 70%;">
+  <div class="d-table">
+      <div class="d-table-cell">
+          <div class="container">
+              <div class="title-item">
+                <div class="col-lg-12 col-md-12">
+                    <div style="padding-top: 50%;padding-left: 80px;">
+                        <a class="apply-btn " *ngIf=" !(UserService.projectDetaile[0].isComplete) && (UserService.projectDetaile[0].isExecution)"  href="javascript:void(0)" (click)="Complete()" >Complete project <i class="material-icons">check</i>
+                        </a>
+
+                    </div>
+                    </div>
+              </div>
+          </div>
+      </div>
+  </div>
 </div>
+</div>
+
 <!-- End Page Title -->
 
 <!-- Job Details -->
@@ -69,7 +68,7 @@
                         <div *ngIf="UserService.projectDetaile[0].countApplyJob">
                             <div *ngFor="let card of UserService.ApplyJob">
                                 <div class="apply-item">
-                                    <a >
+                                    <a href="javascript:void(0) " style="text-decoration: none;">
                                         <img src="{{getImagePath(card.imageName)}}" alt="Employer" (click)="goToUser(card.userId)">
                                         <h4 (click)="goToUser(card.userId)">{{card.fName}} {{card.lName}}</h4>
                                         <ul>
@@ -112,14 +111,16 @@
                             <button type="submit" class="btn">Get Job Alert</button>
                         </form>
                     </div> -->
-                    <div class="owner1">
-                        <div class="top">
-                            <img src="assets/img/home-one/job4.png" alt="Owner">
-                            <h3>{{UserService.projectDetaile[0].fName}} {{UserService.projectDetaile[0].lName}}</h3>
-                            <i class="flaticon-send"></i>
-                            <span>{{UserService.projectDetaile[0].jobTitle}}</span>
+                    <a href="javascript:void(0) " style="text-decoration: none;">
+                        <div class="owner1" (click)="goToUser(UserService.User[0].userId)">
+                            <div class="top">
+                                <img src="{{getImagePath(UserService.User[0].imageName)}}" class="rounded-circle" alt="Owner">
+                                <h3>{{UserService.projectDetaile[0].fName}} {{UserService.projectDetaile[0].lName}}</h3>
+                                <i class="flaticon-send"></i>
+                                <span style="color: rgb(65, 63, 63);">{{UserService.projectDetaile[0].jobTitle}}</span>
+                            </div>
                         </div>
-                    </div>
+                    </a>
                     <div class="information widget-item">
                         <h3>Project Information</h3>
                         <ul>
