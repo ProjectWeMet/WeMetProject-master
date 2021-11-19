@@ -57,7 +57,10 @@ getImagePath(value:any ){
   console.log(basePath);
   return basePath+value;
   }
-
+  goToMyTestmonial(id:any){
+    this.UserService.GetProjectById(id);
+    this.router.navigate(['user/testmonial']);
+  }
   EditInfo(){
     if(this.UserService.UserId){
       this.UserService.getUserById(this.UserService.UserId);

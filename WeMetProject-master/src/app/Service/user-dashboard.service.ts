@@ -84,7 +84,6 @@ export class UserDashboardService {
     const requestOptions={
       headers:new HttpHeaders(headerDict)
     }
-
     this.spiner.show();
      this.http.post('https://localhost:44374/api/Project/SearchProject',data,requestOptions)
      .subscribe((data:any)=>{
@@ -726,6 +725,27 @@ uploadImageProfile(file:FormData,Profile:any){
     },error=>{
       this.spiner.hide();
       // this.toastr.error(' Not Deleted ');
+    
+    })
+  }
+  createTestmonial(data:any){debugger
+    const headerDict={
+      'Content-Type':'application/json',
+      'Accept':'application/json'
+    }
+    const requestOptions={
+      headers:new HttpHeaders(headerDict)
+    }
+    this.spiner.show();
+     this.http.post('https://localhost:44374/api/Testmonial/InsertTestmonial',data,requestOptions)
+     .subscribe((data:any)=>{
+      this.spiner.hide();
+
+      this.toastr.success('Send testmonial successfully ');
+    
+    },error=>{
+      this.spiner.hide();
+      this.toastr.error('Something went wrong');
     
     })
   }

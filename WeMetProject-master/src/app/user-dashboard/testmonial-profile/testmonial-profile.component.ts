@@ -1,20 +1,31 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { FormControl, Validators } from '@angular/forms';
+import { MatSliderChange } from '@angular/material/slider';
 import { Router } from '@angular/router';
 import { UserDashboardService } from 'src/app/Service/user-dashboard.service';
 
 @Component({
-  selector: 'app-my-schedule',
-  templateUrl: './my-schedule.component.html',
-  styleUrls: ['./my-schedule.component.css']
+  selector: 'app-testmonial-profile',
+  templateUrl: './testmonial-profile.component.html',
+  styleUrls: ['./testmonial-profile.component.css']
 })
-export class MyScheduleComponent implements OnInit {
-  date=new Date(new Date().toString().split('GMT')[0]+'UTC').toISOString();
+export class TestmonialProfileComponent implements OnInit {
+  value2:any=1;
+  
+   NumberStar= new FormControl('', [Validators.required]);
+    Comment=new FormControl('', [Validators.required]);
   constructor(public UserService:UserDashboardService,private router:Router) {
-    console.log(this.date)
-    console.log("kjk",this.UserService.Schedule.endTime);
+    
    }
-
-   getImagePath(value:any ){
+   
+   formatLabel(value2: number) {
+    return value2;
+  }
+  
+onInputChange(event: MatSliderChange) {
+  this.value2=event.value
+}
+  getImagePath(value:any ){
     let basePath="../../../../assets/images/Uploaded File/";
     if(value==null)
     return "../../../../assets/img/User.png";
@@ -38,10 +49,6 @@ export class MyScheduleComponent implements OnInit {
       this.UserService.getAllSchedule(id);
     this.router.navigate(['user/ShownProjects']);
     }
-    goToMyTestmonial(id:any){
-      this.UserService.GetProjectById(id);
-      this.router.navigate(['user/testmonial']);
-    }
     EditInfo(){
       if(this.UserService.UserId){
         this.UserService.getUserById(this.UserService.UserId);
@@ -56,10 +63,21 @@ export class MyScheduleComponent implements OnInit {
         this.UserService.GetProjectById(id);
         this.router.navigate(['user/projectDetailes']);
       }
-
-    
+      goToMyTestmonial(id:any){
+        this.UserService.GetProjectById(id);
+        this.router.navigate(['user/testmonial']);
+      }
+      onClick(){
+        const data2={
+          userId:this.UserService.UserId,
+          comment:this.Comment.value.toString(),
+          numberStar:this.value2,
+         
+        
+        }
+        this.UserService.createTestmonial(data2);
+      }
   ngOnInit(): void {
-    
   }
 
 }

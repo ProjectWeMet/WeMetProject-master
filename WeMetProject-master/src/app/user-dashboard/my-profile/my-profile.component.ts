@@ -20,6 +20,10 @@ export class MyProfileComponent implements OnInit {
 
     
   }
+  goToMyTestmonial(id:any){
+    this.UserService.GetProjectById(id);
+    this.router.navigate(['user/testmonial']);
+  }
   goToMySchedule(id:number){
     debugger
     this.UserService.getAllSchedule(id);
