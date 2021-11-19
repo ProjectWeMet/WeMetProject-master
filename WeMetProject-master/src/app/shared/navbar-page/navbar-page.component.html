@@ -1,4 +1,4 @@
-	<!-- Top menu -->
+<!-- Top menu -->
     <!-- <head><link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css"></head> -->
 
 
@@ -19,34 +19,44 @@
                 <a  style="background-image: url();" href="">  <img src="../../../assets/img/png.png"  style="width:100px;height:80px;margin-right: 100px; background-color: none;float: left;border-radius:unset;margin-top:0;" alt=""></a>
 
                 <ul class="nav navbar-nav navbar-right">
-                    <li>
-                        <a  href="#">
+                    <li (click)="GoToHome()">
+                        <a href="javascript:void(0)" style="text-decoration:none">
                             <i class="fa fa-home" style="font-size: 22px;margin-left: 12%;"></i> <span>Home</span>
                         </a>
                     </li>
-                    <li>
-                        <a href="#">
-                            <i class="fa fa-wrench" style="font-size: 22px;margin-left: 19%;"></i> <span>Services</span>
+                    <li (click)="GoToAbout()">
+                        <a href="javascript:void(0)" style="text-decoration:none">
+                            <i class="fa fa-wrench" style="font-size: 22px;margin-left: 19%;" ></i> <span>About</span>
                         </a>
                     </li>
-                    <li>
-                        <a href="#">
-                            <i class="fa fa-user" style="font-size: 22px;margin-left: 17%;" ></i> <span (click)="GoToAbout()"> About</span>
+                    <li (click)="GoToUser()">
+                        <a href="javascript:void(0)" style="text-decoration:none">
+                            <i class="fa fa-user" style="font-size: 22px;margin-left: 17%;" ></i> <span > Uesr</span>
                         </a>
                     </li>
-                    <li>
-                        <a href="#">
-                            <i class="fa fa-magic" style="font-size: 22px;margin-left: 15%;"></i> <span>Mission</span>
+                    <li (click)="goToProject()">
+                        <a href="javascript:void(0)" style="text-decoration:none">
+                            <i class="fa fa-magic" style="font-size: 22px;margin-left: 15%;" ></i> <span> Project</span>
                         </a>
                     </li>
-                    <li>
-                        <a href="#">
-                            <i class="fa fa-paper-plane" style="font-size: 22px;margin-left: 12%;"></i> <span>Contact</span>
+                    <li (click)="GoToContact()">
+                        <a href="javascript:void(0)" style="text-decoration:none">
+                            <i class="fa fa-paper-plane" style="font-size: 22px;margin-left: 12%;" ></i> <span>Contact</span>
                         </a>
                     </li>
+                
+               
+                <!-- <li (click)="GoToSchedule()">
+                    <a>
+                        <i class="fa fa-sign-in" style="font-size: 22px;margin-left: 12%;" ></i> <span>sign-in</span>
+                    </a>
+                </li> -->
+                <li (click)="GoTologin()">
+                    <a href="javascript:void(0)" style="text-decoration:none">
+                        <i class="fa fa-sign-out" style="font-size: 22px;margin-left: 12%;" ></i> <span>Login</span>
+                    </a>
+                </li>
                 </ul>
             </div>
         </div>
     </nav>
-
-  

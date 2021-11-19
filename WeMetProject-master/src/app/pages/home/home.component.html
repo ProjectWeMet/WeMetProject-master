@@ -44,7 +44,7 @@
     </div>
 <!-- </section> -->
     <div style="padding:6%" class="row ">
-        <div  *ngFor="let card of UserService.Projects"  class="col-lg-6 col-md-12">
+        <div  *ngFor="let card of UserService.User"  class="col-lg-6 col-md-12">
             <div   class="employer-item">
                 <a  routerLink="/job-details">
                     <img src="assets/img/home-one/job1.png" alt="Employer">
@@ -52,7 +52,7 @@
                     <ul>
                         <li><i class="material-icons">access_time</i>{{card.dateOfCreate}}</li>
                     </ul>
-                    <p >{{card.projectDetails | lengthStringFormate}}</p>    
+                    <p >{{card.projectDetails | lenghtStringFormat}}</p>    
                     <br>    
                     <br>  
                     <br>        

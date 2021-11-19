@@ -73,6 +73,8 @@ export class ReportTableUSERComponent implements OnInit {
     return basePath+value;
     }
   
+
+    
   ngOnInit(): void {
   }
 
