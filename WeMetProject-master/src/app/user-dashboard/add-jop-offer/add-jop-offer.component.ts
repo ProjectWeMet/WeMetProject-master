@@ -60,14 +60,14 @@ onClick(){
 debugger
 
 
-  this.UserIdMan=7;
-  this.UserIdUser=1;
+  // this.UserIdMan=7;
+  // this.UserIdUser=1;
   this.DateCreate1=new Date(new Date().toString().split('GMT')[0]+'UTC').toISOString();
    
 
   const data2={
     
-    UserId1:this.UserIdMan,
+    UserId1:this.UserService.UserId,
     UserId2:this.UserService.User[0].userId,
     ProjectTitle:this.ProjectTitle.value.toString(),
     ProjectDetails:this.ProjectDetails.value.toString(),
@@ -83,6 +83,7 @@ debugger
   }
 
   this.UserService.AddProjectToUser(data2);
+  this.router.navigate(['user/user']);
 }
   
 goToAddProject(){

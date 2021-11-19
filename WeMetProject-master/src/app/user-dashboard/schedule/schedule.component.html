@@ -51,7 +51,7 @@
                         <div class="published-item" >
                             <a >
     
-                                <img src="assets/img/home-one/job1.png" alt="Employer" (click)="showProfile(card.userId)">
+                                <img src="{{getImagePath(card.imageName)}}" alt="Employer" (click)="showProfile(card.userId)">
 
                                 <h3 (click)="ViewDetailes()"><span (click)="showProject(card.projectId)"> {{card.projectTitle}}</span>
                                     <!-- <i class="material-icons" style=" float: right;  margin: 5px;" >cancel</i> -->

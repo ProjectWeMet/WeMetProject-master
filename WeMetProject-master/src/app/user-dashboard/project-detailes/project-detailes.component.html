@@ -51,7 +51,7 @@
                         <h3>Required Skills</h3>
                         <h6>{{UserService.projectDetaile[0].requiredSkills}}</h6>
                     </div>     
-                    <div class="job widget-item">
+                    <div class="job widget-item" *ngIf="!UserService.projectDetaile[0].isExecution">
                         <h3>ِApply </h3>
                         <h6>Hurry up to apply now for a job opportunity in the project</h6>
                         <div class=" m-2" style="text-align: center; ">
@@ -68,7 +68,7 @@
                             <div *ngFor="let card of UserService.ApplyJob">
                                 <div class="apply-item">
                                     <a >
-                                        <img src="assets/img/home-one/job1.png" alt="Employer" (click)="goToUser(card.userId)">
+                                        <img src="{{getImagePath(card.imageName)}}" alt="Employer" (click)="goToUser(card.userId)">
                                         <h4 (click)="goToUser(card.userId)">{{card.fName}} {{card.lName}}</h4>
                                         <ul>
                                             <li><i class="material-icons">attach_money</i>Budget:<span>{{card.offerValue}} JD</span>  </li>
@@ -119,7 +119,10 @@
                             <li>
                                 <img class="bag"src="assets/img/suitcase-black-shape.png" alt="Details" >
                                 <h4>Project state</h4>
-                                <span class="span-two" style=" color: #fff;">Open</span>
+                                <div *ngIf="!(UserService.projectDetaile[0].isAccept)" class="span-two two">Processing</div>
+                                <div *ngIf="UserService.projectDetaile[0].isAccept && UserService.projectDetaile[0].isComplete" class="span-two three">Complete</div>
+                                <div *ngIf="UserService.projectDetaile[0].isAccept && !(UserService.projectDetaile[0].isComplete) && !(UserService.projectDetaile[0].isExecution)" class="span-two four">Open</div>
+                                <div *ngIf="UserService.projectDetaile[0].isAccept && !(UserService.projectDetaile[0].isComplete) && UserService.projectDetaile[0].isExecution" class="span-two five">Execution</div>
                             </li>
                             <li>
                                 <img class="bag"src="assets/img/suitcase-black-shape.png" alt="Details" >

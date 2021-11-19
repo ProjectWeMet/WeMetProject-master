@@ -14,8 +14,11 @@ export class MyScheduleComponent implements OnInit {
     console.log("kjk",this.UserService.Schedule.endTime);
    }
 
-  getImagePath(value:string){
+   getImagePath(value:any ){
     let basePath="../../../../assets/images/Uploaded File/";
+    if(value==null)
+    return "../../../../assets/img/User.png";
+    console.log(basePath);
     return basePath+value;
     }
 
@@ -44,6 +47,10 @@ export class MyScheduleComponent implements OnInit {
       goToinfo(id:number){
         this.UserService.getUserById(id);
         this.router.navigate(['user/myProfile']);
+      }
+      GoToProject(id:any){
+        this.UserService.GetProjectById(id);
+        this.router.navigate(['user/projectDetailes']);
       }
 
     

@@ -61,7 +61,7 @@
                     </a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link active" (click)="goToMySchedule(UserService.User[0].userId)" role="tab" data-toggle="tab">
+                    <a class="nav-link active" (click)="goToMySchedule(UserService.UserId)" role="tab" data-toggle="tab">
                         <i class="bi bi-briefcase-fill"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-briefcase-fill" viewBox="0 0 16 16">
                         <path d="M6.5 1A1.5 1.5 0 0 0 5 2.5V3H1.5A1.5 1.5 0 0 0 0 4.5v1.384l7.614 2.03a1.5 1.5 0 0 0 .772 0L16 5.884V4.5A1.5 1.5 0 0 0 14.5 3H11v-.5A1.5 1.5 0 0 0 9.5 1h-3zm0 1h3a.5.5 0 0 1 .5.5V3H6v-.5a.5.5 0 0 1 .5-.5z"/>
                         <path d="M0 12.5A1.5 1.5 0 0 0 1.5 14h13a1.5 1.5 0 0 0 1.5-1.5V6.85L8.129 8.947a.5.5 0 0 1-.258 0L0 6.85v5.65z"/>
@@ -70,7 +70,7 @@
                     </a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link" (click)="goToMyProject(UserService.User[0].userId)" role="tab" data-toggle="tab">
+                    <a class="nav-link" (click)="goToMyProject(UserService.UserId)" role="tab" data-toggle="tab">
                         <i class="bi bi-briefcase-fill"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-briefcase-fill" viewBox="0 0 16 16">
                         <path d="M6.5 1A1.5 1.5 0 0 0 5 2.5V3H1.5A1.5 1.5 0 0 0 0 4.5v1.384l7.614 2.03a1.5 1.5 0 0 0 .772 0L16 5.884V4.5A1.5 1.5 0 0 0 14.5 3H11v-.5A1.5 1.5 0 0 0 9.5 1h-3zm0 1h3a.5.5 0 0 1 .5.5V3H6v-.5a.5.5 0 0 1 .5-.5z"/>
                         <path d="M0 12.5A1.5 1.5 0 0 0 1.5 14h13a1.5 1.5 0 0 0 1.5-1.5V6.85L8.129 8.947a.5.5 0 0 1-.258 0L0 6.85v5.65z"/>
@@ -87,12 +87,13 @@
             <div class="tab-pane active text-center gallery" id="studio" *ngFor="let card of UserService.Schedule">
               <div class="row" >                       
                 <div class="employer-item" >
-                    <a >
-                        <h3>{{card.projectTitle}}</h3>
+                  <a>
+                        <a href="javascript:void(0)" style="text-decoration:none"><h3 (click)="GoToProject(card.projectId)">{{card.projectTitle}}</h3></a>
+                        
                         <ul>
-                            
-                            <li><i class="material-icons">access_time</i>{{card.startTime}}</li>
-                            <li><i class="material-icons">access_time</i>{{card.endTime}}</li>
+                            <li><i class="material-icons">date_range</i>{{card.date|getDateFormate}}</li>
+                            <li><i class="material-icons">access_time</i>{{card.startTime|getDateFormate}}</li>
+                            <li><i class="material-icons">access_time</i>{{card.endTime|getDateFormate}}</li>
 
                         </ul>
                         <p>{{card.projectDetails}}</p>

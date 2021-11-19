@@ -30,10 +30,14 @@ export class MyProfileComponent implements OnInit {
     this.UserService.getUserById(this.UserService.UserId);
   }
 
-  getImagePath(value:string ){
+  getImagePath(value:any ){
     let basePath="../../../../assets/images/Uploaded File/";
+    if(value==null)
+    return "../../../../assets/img/User.png";
+    console.log(basePath);
     return basePath+value;
     }
+    
     goToMyProject(id:any){
       this.UserService.getAllSchedule(id);
     this.router.navigate(['user/ShownProjects']);
