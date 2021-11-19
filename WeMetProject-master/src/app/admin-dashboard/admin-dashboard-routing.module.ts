@@ -7,6 +7,7 @@ import { GetAllContactsComponent } from './get-all-contacts/get-all-contacts.com
 import { ReportTableUSERComponent } from './report-table-user/report-table-user.component';
 import { SearchProjectReportComponent } from './search-project-report/search-project-report.component';
 import { TableUsersComponent } from './table-users/table-users.component';
+import { TestimonialComponent } from './testimonial/testimonial.component';
 
 const routes: Routes = [{
 
@@ -36,6 +37,10 @@ const routes: Routes = [{
 {
   path:"getAllContacts",
   component:GetAllContactsComponent
+},
+{
+  path:"testimonial",
+  component:TestimonialComponent
 }];
 
 @NgModule({

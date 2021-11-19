@@ -78,10 +78,13 @@ export class SidbarAdminComponent implements OnInit {
     }, 2000);
   }
   
-  
-  
-  
-
+  GetAlltestimonial(){
+    this.spinner.show();
+    setTimeout(() => {
+      this.spinner.hide();
+      this.router.navigate(['admin/testimonial']);
+    }, 2000);
+  }
   ngOnInit(): void {
   }
 

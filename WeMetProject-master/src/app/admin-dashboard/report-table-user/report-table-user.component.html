@@ -13,7 +13,7 @@
                     <div class="col-md-12">
                       <div id="pdfTable" #pdfTable class="card">
                         <div class="card-header card-header-primary">
-                          <h4 class="card-title ">Accept Project </h4>
+                          <h4 class="card-title "> Project </h4>
                           
                         </div>
                         <div class="card-body">
@@ -24,8 +24,11 @@
                                   ID
                                 </th>
                                 <th>
-                                  Name
+                                  Image
                                 </th>
+                                <th>
+                                    Name
+                                  </th>
                                 <th>
                                     Project Title
                                 </th>
@@ -46,10 +49,14 @@
                               <tbody *ngFor ="let card of adminDashboardService.viewProjectNotAcceptAdmin" >
                                 <tr>
                                   <td>
-                               {{card.projectId}}
+                               {{card.projectId}}                                        
+
                                   </td>
                                   <td>
-                            {{card.fName}} {{card.lName}}
+                                    <img  src="{{getImagePath(card.imageName)}}"  alt="Employer"  class="rounded-circle" >
+                                  </td>
+                                  <td>
+                                    {{card.fName}} {{card.lName}}
                                   </td>
                                   <td>
                                  {{card.projectTitle}}

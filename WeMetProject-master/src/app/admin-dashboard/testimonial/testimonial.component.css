@@ -31,18 +31,6 @@
     -ms-overflow-style: scrollbar;
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
   }
-
-  .rounded-circle {
-    /* border-radius: 50% !important; */
-    /* width: 8%;
-    height: 50%;
-    margin-right: 10%; */
-    position: absolute;
-    top: 5px;
-    height: 40px;
-    width: 40px;
-    border-radius: 50%;
-  }
   
   @-ms-viewport {
     width: device-width;
@@ -62,16 +50,7 @@
     display: block;
   }
   
-  body {
-    margin: 0;
-    font-family: "Roboto", "Helvetica", "Arial", sans-serif;
-    font-size: 1rem;
-    font-weight: 400;
-    line-height: 1.5;
-    color: #212529;
-    text-align: left;
-    background-color: #fafafa;
-  }
+  
   
   [tabindex="-1"]:focus {
     outline: 0 !important;
@@ -22079,8 +22058,17 @@
       transform: scale(0.75);
     }
   }
+
+  .rounded-circle {
+    /* border-radius: 50% !important; */
+    /* width: 8%;
+    height: 50%;
+    margin-right: 10%; */
+    position: absolute;
+    top: 10px;
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+  }
   
   /*# sourceMappingURL=dashboard-free.css.map */
-  /*
-Flaticon icon font: Flaticon
-*/

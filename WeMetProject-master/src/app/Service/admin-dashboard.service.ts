@@ -34,6 +34,7 @@ export class AdminDashboardService {
 
   Projects: any = [{}]
   getAllContactUs:any=[{}]
+  testimonial:any=[];
   constructor(private http: HttpClient, private toaster: ToastrService, private spinner: NgxSpinnerService) { }
 
 
@@ -395,6 +396,30 @@ export class AdminDashboardService {
     },
    (error) => this.toaster.error(error.status));
   
+    }
+
+    getAlltestimonial(){
+      this.spinner.show();
+       this.http.get('https://localhost:44374/api/Testmonial/DisplayAllTestmonial')
+       .subscribe((data:any)=>{
+        this.spinner.hide();
+        this.testimonial=data;
+      },error=>{
+        this.spinner.hide();
+        // this.toastr.error(' Not Deleted ');
+      
+      })
+    }
+
+    Deletetestimonial(id:any){debugger
+      this.http.delete('https://localhost:44374/api/Testmonial/DeleteTestmonial/'+id)
+      .subscribe((data:any)=>{
+
+       this.toaster.success('Delete work successfully' );
+       window.location.reload();
+    },error=>{
+      
+    })
     }
 }
 
