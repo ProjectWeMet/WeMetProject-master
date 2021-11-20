@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { AutheraizationGuard } from './autheraization.guard';
 
 const routes: Routes = [
   {
@@ -11,10 +12,17 @@ const routes: Routes = [
      loadChildren:()=>import('./pages/pages.module').then((m)=>m.PagesModule)},
   {
     path:'user',
-    loadChildren:()=>import('./user-dashboard/user-dashboard.module').then((m)=>m.UserDashboardModule)},
+    loadChildren:()=>import('./user-dashboard/user-dashboard.module').then((m)=>m.UserDashboardModule),
+    canActivate:[AutheraizationGuard]
+
+  },
  {
   path:'admin',
-  loadChildren:()=>import('./admin-dashboard/admin-dashboard.module').then((m)=>m.AdminDashboardModule)}
+  loadChildren:()=>import('./admin-dashboard/admin-dashboard.module').then((m)=>m.AdminDashboardModule),
+  canActivate:[AutheraizationGuard]
+
+}
+
 ];
 
 
