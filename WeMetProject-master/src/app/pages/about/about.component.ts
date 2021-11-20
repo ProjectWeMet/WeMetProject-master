@@ -13,13 +13,18 @@ export class AboutComponent implements OnInit {
   @Input () Id:any|undefined;
   @Input () img:any|undefined;
   @Input () Description:string|undefined;
-  @Input () Address:string|undefined;
+  @Input () logo:any;
   @Input () Email:string|undefined;
   constructor(public UserService:UserDashboardService,private router:Router,public pagesService:PagesService) {
     // this.UserService.GatAllOurTeam();
+    this.pagesService.GetAllAboutUs();
    }
 
   ngOnInit(): void {
   }
-
+  getImagePath(value:string ){
+    debugger
+    let basePath="../../../../assets/images/Uploaded File/";
+    return basePath+value;
+    }
 }

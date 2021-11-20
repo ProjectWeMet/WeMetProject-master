@@ -12,26 +12,16 @@
             <div class="content">
                 <div class="container-fluid">
                     <div class="row">
-                        <div class="col-md-8">
+                        <div class="col-md-12">
                             <div class="card">
                                 <div style=" background: -webkit-linear-gradient(left, #3B064D, #BC6FF1);" class="card-header card-header-primary">
-                                    <h4 class="card-title">Edit Profile</h4>
-                                    <p class="card-category">Complete your profile</p>
+                                    <h4 class="card-title">About As</h4>
                                 </div>
                                 <div class="card-body">
                                     <form>
-                                        <div class="row">
-                                            <div class="col-md-5">
-                                                <div class="form-group">
-                                                    <label class="bmd-label-floating">Email</label>
-                                                    <input  matInput [formControl]="email"  placeholder="Ex: Example@yahoo.com"  type="text" class="form-control" >
-                                                    <mat-error *ngIf="email.hasError('required')">
-                                                        Email  is <strong> Required</strong>
-                                                        </mat-error>
-                                                    
-                                                </div>
-                                            </div>
-                                            <div class="col-md-3">
+                                        <div class="row justify-content-center">
+                                            
+                                            <!-- <div class="col-md-6">
                                                 <div class="form-group">
                                                     <label  class="bmd-label-floating">PhoneNumber</label>
                                                     <input matInput [formControl]="phoneNumber" type="text" class="form-control">
@@ -39,48 +29,47 @@
                                                         PhoneNumber  is <strong> Required</strong>
                                                     </mat-error>
                                                 </div>
-                                            </div>
-                                            <div class="col-md-4">
-                                                <div class="form-group">
-                                                    <label class="bmd-label-floating">country</label>
-                                                    <input  matInput [formControl]="country"  type="email" class="form-control">
-                                                    <mat-error *ngIf="country.hasError('required')">
-                                                        Country  is <strong> Required</strong>
-                                                    </mat-error>
+                                            </div> -->
+                                            <div class="col-md-6">
+                                                <div class="form-group ">
+                                                    <p><input type="file" [formControl]="img"   accept="image/*" name="image" id="file" (change)="readURL($event);" style="display: none;"></p>
+                                                    <p><label for="file" style="cursor: pointer;">
+                                                        <img for="file"  id="imgWork" [src]="imageSrc || getImagePath(adminDashboardService.allAbout[0].logo)" alt="your image" /> 
+                                                        
+                                                    </label></p>
                                                 </div>
                                             </div>
+                                            
                                         </div>
                                         <div class="row">
                                             <div class="col-md-6">
                                                 <div class="form-group">
-                                                    <label class="bmd-label-floating">biography</label>
-                                                    <input matInput [formControl]="biography" type="text" class="form-control">
-                                                       <mat-error *ngIf="biography.hasError('required')">
-                                                            Biography  is <strong> Required</strong>
-                                                        </mat-error>
+                                                    <label class="bmd-label-floating">Descriptions </label>
+                                                    <textarea  matInput [formControl]="descriptions" [(ngModel)]="adminDashboardService.allAbout[0].descriptions" rows="8" type="text" class="form-control"></textarea>
+                                                    <mat-error *ngIf="descriptions.hasError('required')">
+                                                        Descriptions  is <strong> Required</strong>
+                                                    </mat-error>
                                                 </div>
                                             </div>
                                             <div class="col-md-6">
                                                 <div class="form-group">
-                                                    <label class="bmd-label-floating">skill </label>
-                                                    <input  matInput [formControl]="skill" type="text" class="form-control">
-                                                    <mat-error *ngIf="skill.hasError('required')">
-                                                        Skill  is <strong> Required</strong>
+                                                    <label class="bmd-label-floating">Phone </label>
+                                                    <input  matInput [formControl]="phone" type="text"  [(ngModel)]="adminDashboardService.allAbout[0].phone" class="form-control">
+                                                    <mat-error *ngIf="phone.hasError('required')">
+                                                        Phone  is <strong> Required</strong>
                                                     </mat-error>
                                                 </div>
                                             </div>
+                                            
                                         </div>
                                     
-                                        <button style=" background: -webkit-linear-gradient(left, #3B064D, #BC6FF1);" [disabled]="!email.valid && !skill.valid && !biography.valid &&!country.valid &&!phoneNumber.valid "  cdkFocusInitial (click)="saveItem(9)"  type="submit" class="btn btn-primary pull-right">Update Profile</button>
+                                        <button style=" background: -webkit-linear-gradient(left, #3B064D, #BC6FF1);" [disabled]=" !img.valid &&!phone.valid &&!descriptions.valid "  cdkFocusInitial (click)="saveItem(9)"  type="submit" class="btn btn-primary pull-right">Update About As</button>
                                         <div class="clearfix"></div>
                                     </form>
                                 </div>
                             </div>
                         </div>
-                        <div style="background-color:#202940 ;" class="col-md-4">
-                            <app-card-profile *ngFor ="let card of adminDashboardService.data" [imageName]="card.imageName"
-                            [biography]="card.biography" [lname]="card.lname"  [fname]="card.fname"   [phoneNumber]="card.phoneNumber"[skill]="card.skill"   [country]="card.country"  [email]="card.email"></app-card-profile>
-                        </div>
+                        
                     </div>
                     
                 </div>

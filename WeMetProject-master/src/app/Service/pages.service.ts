@@ -13,6 +13,7 @@ export class PagesService {
 }] 
 display_image:any
 OurTeam:any={}
+  aboutUs: any=[];
   constructor(private http:HttpClient,private toaster:ToastrService,private router:Router , private spinner: NgxSpinnerService) { }
 
   
@@ -61,7 +62,15 @@ OurTeam:any={}
       
       })
   }
-
+  GetAllAboutUs(){
+    //call services
+    return this.http.get('https://localhost:44374/api/AboutUs/GetAboutUs').subscribe((result)=> { 
+   this.aboutUs=result,
+   this.spinner.hide();
+   this.toaster.success('Data Retrieved!'); },
+   (error) => this.toaster.error(error.status));
+  
+    }
   uploadAttachment(file:FormData,id:number){
     debugger
 

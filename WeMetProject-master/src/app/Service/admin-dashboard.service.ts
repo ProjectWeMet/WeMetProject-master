@@ -25,6 +25,7 @@ export class AdminDashboardService {
   acceptProject: any = [{
 
   }]
+  allAbout:any=[]
   getAllProjects: any = [{}]
   allCategrey:any=[{}]
 
@@ -397,6 +398,16 @@ export class AdminDashboardService {
    (error) => this.toaster.error(error.status));
   
     }
+    GetAllAboutAs(){
+      //call services
+      return this.http.get('https://localhost:44374/api/AboutUs/GetAboutUs').subscribe((result)=> { 
+     this.allAbout=result,
+     this.spinner.hide();
+      },
+     (error) => this.toaster.error(error.status));
+    
+      }
+  
 
     getAlltestimonial(){
       this.spinner.show();
@@ -421,6 +432,49 @@ export class AdminDashboardService {
       
     })
     }
+    
+  UpdateAboutAdmin(img :any,date1: any) {
+    debugger
+    const headerDict = {
+      'Content-Type': 'application/json',
+      'Accept': 'application/json'
+    }
+    const requestOptions = {
+      headers: new HttpHeaders(headerDict),
+    };
+    this.spinner.show();
+    this.http.post('https://localhost:44374/api/AboutUs/upload', img)
+      .subscribe((data: any) => {
+        this.spinner.hide();
+        const data3={
+          id:1,
+          phone:date1.phone,
+          descriptions:date1.descriptions,
+          logo:data.logo
+         }
+         debugger 
+        this.updateAboutAs(data3);
+      }, error => {
+        this.spinner.hide();
+        this.toaster.error(' Not Update');
+
+      })
+  }
+  updateAboutAs(data:any){debugger
+    this.spinner.show();
+    this.http.post('https://localhost:44374/api/AboutUs/UpdateAboutUs',data)
+    .subscribe((data:any)=>{
+     this.spinner.hide();
+     this.toaster.success('Update about as info successfully' );
+     window.location.reload();
+
+       },error=>{
+     this.spinner.hide();
+     this.toaster.error('Something went wrong');
+  
+   
+  })
+  }
 }
 
 

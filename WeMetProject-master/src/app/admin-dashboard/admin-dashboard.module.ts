@@ -17,6 +17,7 @@ import { CreateCategoreyDialogComponent } from './categorey/create-categorey-dia
 import { EditeCategoreyDialogComponent } from './categorey/edite-categorey-dialog/edite-categorey-dialog.component';
 import { CardCategoreyComponent } from './categorey/card-categorey/card-categorey.component';
 import { TestimonialComponent } from './testimonial/testimonial.component';
+import { AboutAdminComponent } from './about-admin/about-admin.component';
 
 
 
@@ -39,6 +40,7 @@ import { TestimonialComponent } from './testimonial/testimonial.component';
       EditeCategoreyDialogComponent,
       CardCategoreyComponent,
       TestimonialComponent,
+      AboutAdminComponent,
   
     
   ],
