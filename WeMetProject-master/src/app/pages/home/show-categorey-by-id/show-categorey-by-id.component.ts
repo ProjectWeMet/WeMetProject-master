@@ -12,7 +12,7 @@ export class ShowCategoreyByIdComponent implements OnInit {
   @Input () categoryTitle:string|undefined;
   @Input () categoryId:any|undefined;
   @Input () image:any|undefined;
-  constructor(public homeServiceService: HomeServiceService, private http: HttpClient) { 
+  constructor(public homeServiceService: HomeServiceService,private http: HttpClient) { 
     // this.homeServiceService.GetCategoreyById(this.categoryId);
   }
   uploadFile(files:any,id:any) {debugger

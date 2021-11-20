@@ -13,14 +13,31 @@ export class HomeServiceService {
   }] 
   display_image:any
   categorey:any={}
-
+  Projects:any=[];
   // blog
   allBlog : any =[{
   }] 
   displayBlog_image:any
   Blog:any={}
+  testimonial:any=[];
   constructor(private http:HttpClient,private toaster:ToastrService , private spinner: NgxSpinnerService,private router:Router) { }
 
+
+  getAllProjects(){
+    this.spinner.show();
+     this.http.get('https://localhost:44374/api/Project/VeiwAllProjectForUser')
+     .subscribe((data:any)=>{
+      this.spinner.hide();
+      this.Projects=data;
+
+      // this.toastr.success('Deleted ');
+    
+    },error=>{
+      this.spinner.hide();
+      // this.toastr.error(' Not Deleted ');
+    
+    })
+  }
 
   GetAllCategorey(){
     //call services
@@ -161,6 +178,21 @@ export class HomeServiceService {
       
       })
       }
+
+
+      getAlltestimonial(){
+        this.spinner.show();
+         this.http.get('https://localhost:44374/api/Testmonial/DisplayAllTestmonial')
+         .subscribe((data:any)=>{
+          this.spinner.hide();
+          this.testimonial=data;
+        },error=>{
+          this.spinner.hide();
+          // this.toastr.error(' Not Deleted ');
+        
+        })
+      }
+  
 
 
 }

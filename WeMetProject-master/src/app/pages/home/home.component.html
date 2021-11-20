@@ -10,29 +10,46 @@
 <!-- End Navbar -->
 
 <!-- Banner -->
-<div style="overflow-x:hidden;" >
-<div class="banner-area three" style="background-image: url(../../../assets/img/backgrounds/WhatsApp\ Image\ 2021-11-17\ at\ 4.53.58\ PM.jpeg );background-repeat: no-repeat;background-size:cover;background-position:center;height:100vh;" >
-    <div class="banner-shape-three"><img src=""  alt="Shape"></div>
+<div  style="display: flex; background-color:rgba(0, 0, 0, 0.3);">
 
-    <div class="container-fluid">
-        <div class="banner-content two three">
-            <div class="d-table">
-                <div style="padding-bottom: 38rem;" class="d-table-cell">
-                    <h1>We’ll Help You To Find Your <span>Desire Job</span></h1>
-                </div>
-            </div>
-        </div>
+    <div style=" flex-basis: 45%;">
+
+      <h1 style="color: #1f1137; padding-top: 40%;padding-left: 80px;">  Welcome To WeMet  </h1>
+
+      <p style="color: white; text-align: center;font-size: 25px;">Put forward your project and leave the task of implementing it to the best experts</p>
+
     </div>
 
-    <div class="banner-bottom-btn">
-        <a routerLink="/jobs"><i class='bx bx-mouse-alt'></i></a>
-    </div>
+   
+
+<div class="page-title-area "  style=" flex-basis: 70%;">
+
+  <div class="d-table">
+
+      <div class="d-table-cell">
+
+          <div class="container">
+
+              <div class="title-item">
+
+               
+
+              </div>
+
+          </div>
+
+      </div>
+
+  </div>
+
+</div>
+
 </div>
 <!-- End Banner -->
 
 <!-- Employer -->
 <!-- <section class="employer-area pb-100"> -->
-    <div  class="employer-area pb-100">
+    <div  class="employer-area">
     <div class="container">
         <div class="section-title three">
             <div class="sub-title-wrap">
@@ -44,7 +61,7 @@
     </div>
 <!-- </section> -->
     <div style="padding:6%" class="row ">
-        <div  *ngFor="let card of UserService.User"  class="col-lg-6 col-md-12">
+        <div  *ngFor="let card of UserService.Projects"  class="col-lg-6 col-md-12">
             <div   class="employer-item">
                 <a  routerLink="/job-details">
                     <img src="assets/img/home-one/job1.png" alt="Employer">
@@ -52,7 +69,7 @@
                     <ul>
                         <li><i class="material-icons">access_time</i>{{card.dateOfCreate}}</li>
                     </ul>
-                    <p >{{card.projectDetails | lenghtStringFormat}}</p>    
+                    <p >{{card.projectDetails | lengthStringFormate}}</p>    
                     <br>    
                     <br>  
                     <br>        
@@ -336,6 +353,7 @@
 <!-- End Company -->
 
 
+
 <!-- TESTIMONIALS -->
 <div id="myCarousel" class="carousel slide" data-ride="carousel">
     <!-- Carousel indicators -->
@@ -346,26 +364,28 @@
     </ol> <!-- Wrapper for carousel items -->
     <div class="carousel-inner">
         <div class="item carousel-item active">
-            <div class="img-box"><img src="https://i.imgur.com/Ur43esv.jpg" alt=""></div>
-            <p class="testimonial">Phasellus vitae suscipit justo. Mauris pharetra feugiat ante id lacinia. Etiam faucibus mauris id tempor egestas. Duis luctus turpis at accumsan tincidunt. Phasellus risus risus, volutpat vel tellus ac, tincidunt fringilla massa. Etiam hendrerit dolor eget rutrum.</p>
-            <p class="overview"><b>Paula Wilsons</b>Seo Analyst </p>
+            <div class="img-box"><img  src="{{getImagePath(homeServiceService.testimonial[0].imageName)}}" alt=""></div>
+            <p class="testimonial">{{homeServiceService.testimonial[0].comment}}</p>
+            <p class="overview"><b> {{homeServiceService.testimonial[0].fName}}</b>{{homeServiceService.testimonial[0].lName}} </p>
             <div class="star-rating"> </div>
         </div>
         <div class="item carousel-item">
-            <div class="img-box"><img src="https://i.imgur.com/8RKXAIV.jpg" alt=""></div>
-            <p class="testimonial">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam eu sem tempor, varius quam at, luctus dui. Mauris magna metus, dapibus nec turpis vel, semper malesuada ante. Vestibulum idac nisl bibendum scelerisque non non purus. Suspendisse varius nibh non aliquet.</p>
-            <p class="overview"><b>Paula Wilson</b>Media Analyst </p>
+            <div class="img-box"><img  src="{{getImagePath(homeServiceService.testimonial[1].imageName)}}"  alt=""></div>
+            <p class="testimonial">{{homeServiceService.testimonial[1].comment}}</p>
+            <p class="overview"><b> {{homeServiceService.testimonial[1].fName}}</b>{{homeServiceService.testimonial[1].lName}}</p>
             <div class="star-rating"> </div>
         </div>
         <div class="item carousel-item">
-            <div class="img-box"><img src="https://i.imgur.com/J6l19aF.jpg" alt=""></div>
-            <p class="testimonial">Vestibulum quis quam ut magna consequat faucibus. Pellentesque eget nisi a mi suscipit tincidunt. Utmtc tempus dictum risus. Pellentesque viverra sagittis quam at mattis. Suspendisse potenti. Aliquam sit amet gravida nibh, facilisis gravida odio. Phasellus auctor velit.</p>
-            <p class="overview"><b>Antonio Moreno</b>Web Developer</p>
+            <div class="img-box"><img  src="{{getImagePath(homeServiceService.testimonial[2].imageName)}}" alt=""></div>
+            <p class="testimonial">{{homeServiceService.testimonial[2].comment}}</p>
+            <p class="overview"><b> {{homeServiceService.testimonial[2].fName}}</b>{{homeServiceService.testimonial[2].lName}}</p>
             <div class="star-rating"> </div>
         </div>
     </div> <!-- Carousel controls --> <a class="carousel-control left carousel-control-prev" href="#myCarousel" data-slide="prev"> <i class="fa fa-angle-left"></i> </a> <a class="carousel-control right carousel-control-next" href="#myCarousel" data-slide="next"> <i class="fa fa-angle-right"></i> </a>
 </div>
       <!-- END OF TESTIMONIALS -->
+  
+
   
 
 
@@ -435,9 +455,7 @@
 </section>
 </div>
 <!-- End Blog -->
-ئ
 <!-- Footer -->
 
 <!-- End Footer -->
 <app-footer-page></app-footer-page>
-
