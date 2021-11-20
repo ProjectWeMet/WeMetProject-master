@@ -25,6 +25,8 @@ export class UserNavbarComponent implements OnInit {
     this.spinner.show();
     setTimeout(() => {
       this.spinner.hide();
+      localStorage.clear()
+
       this.router.navigate(['register']);
     }, 1000);
    
@@ -52,6 +54,7 @@ export class UserNavbarComponent implements OnInit {
     this.spinner.show();
     setTimeout(() => {
       this.spinner.hide();
+      localStorage.clear()
       this.router.navigate(['']);
     }, 1000);
    

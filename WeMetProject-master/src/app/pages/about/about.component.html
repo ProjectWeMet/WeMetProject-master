@@ -4,40 +4,39 @@
 
 
 <!-- Page Title -->
-<div class="page-title-area">
-    <div class="d-table">
-        <div class="d-table-cell">
-            <div class="container">
-                <div class="title-item">
-                    <h2>About Us</h2>
-                    <ul>
-                        <li>
-                            <img src="assets/img/home-three/title-img-two.png" alt="Image">
-                            <a routerLink="/">Home</a>
-                        </li>
-                        <li><span>/</span></li>
-                        <li>About Us</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
+<div  style="display: flex; background-color:rgba(0, 0, 0, 0.3);">
+    <div style=" flex-basis: 45%;">
+      <h1 style="color: #1f1137; padding-top: 40%;padding-left: 80px;">  About As </h1>
+      <!-- <p style="color: white; text-align: center;font-size: 25px;">Put forward your project and leave the task of implementing it to the best experts</p> -->
     </div>
+   
+<div class="page-title-area "  style=" flex-basis: 70%;">
+  <div class="d-table">
+      <div class="d-table-cell">
+          <div class="container">
+              <div class="title-item">
+                
+              </div>
+          </div>
+      </div>
+  </div>
+</div>
 </div>
 <!-- End Page Title -->
 
 
 <div id="about" class="section wb" style="padding: 7%;">
     <div class="container">
-        <h1 style="text-align: center;color: #5f459a;padding-bottom: 2%;">WeMet Description</h1>
-        <div class="row" style="border: 1px solid;padding: 10px;" >
+        <div  *ngFor ="let card of pagesService.aboutUs"  class="row" style="border: 1px solid;padding: 20px;" >
            
             <div class="col-md-6">
                 <div class="message-box">
-                    <h4 style="text-align: center;color: #b05fa1;">About Us</h4>
-                    <h2 style="text-align: center;color: #b05fa1;">Welcome to WeMet Solutions</h2>
-                    <p class="lead" style="text-align:start;">Quisque eget nisl id nulla sagittis auctor quis id. Aliquam quis vehicula enim, non aliquam risus. Sed a tellus quis mi rhoncus dignissim.</p>
+               
+                    <h2 style="text-align: center;color: #5f459a">Welcome to WeMet Solutions</h2>
+                    <p class="lead" style="text-align:start;">{{card.descriptions}}</p>
+                    <p class="lead" style="text-align:start;">PhoneNumber: {{card.phone}}</p>
 
-                    <p style="text-align: start;"> Integer rutrum ligula eu dignissim laoreet. Pellentesque venenatis nibh sed tellus faucibus bibendum. Sed fermentum est vitae rhoncus molestie. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Sed vitae rutrum neque. Ut id erat sit amet libero bibendum aliquam. Donec ac egestas libero, eu bibendum risus. Phasellus et congue justo. </p>
+                   
 
                    
                 </div><!-- end messagebox -->
@@ -45,82 +44,57 @@
 
             <div class="col-md-6">
                 <div class="post-media wow fadeIn">
-                    <img src="https://th.bing.com/th/id/OIP.O97t-6-l0pT7Ceq4K7j1BgHaE8?pid=ImgDet&w=1024&h=683&rs=1" alt="" class="img-responsive img-rounded">
-                    <a href="https://youtu.be/RgWhD2Ecr-I" data-rel="prettyPhoto[gal]" class="playbutton"><i class="flaticon-play-button"></i></a>
+             <a> <img style=" width: 100% !important;height:140px !important;margin-top: 10px !important;"
+        src="{{getImagePath(card.logo)}}"><i class="flaticon-play-button"></i></a>
                 </div><!-- end media -->
             </div><!-- end col -->
         </div><!-- end row -->
 
-        
-    <div style="padding-top: 5%;">
-        
-        <div class="row" style="border: 1px solid;padding: 10px;">
-            <div class="col-md-6" >
-                <div class="post-media wow fadeIn" style="text-align:start; padding-right: 2%;">
-                    <img src="https://thirdspace.net/wp-content/uploads/2019/09/azure-sentinel-laptop-mobile-hand-close2.jpg" alt="" class="img-responsive img-rounded">
-                </div><!-- end media -->
-            </div><!-- end col -->
-            
-            <div class="col-md-6" >
-                <div class="message-box">
-                    <h4 style="text-align: center;color: #b05fa1;">Who We are</h4>
-                    <h2 style="text-align: center;color: #b05fa1;">We Are GoodWEB Solutions</h2>
-                    <p class="lead" style="text-align:start; ">Quisque eget nisl id nulla sagittis auctor quis id. Aliquam quis vehicula enim, non aliquam risus. Sed a tellus quis mi rhoncus dignissim.</p>
-
-                    <p style="text-align:start;"> Integer rutrum ligula eu dignissim laoreet. Pellentesque venenatis nibh sed tellus faucibus bibendum. Sed fermentum est vitae rhoncus molestie. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Sed vitae rutrum neque. Ut id erat sit amet libero bibendum aliquam. Donec ac egestas libero, eu bibendum risus. Phasellus et congue justo. </p>
-
-                   
-                </div><!-- end messagebox -->
-            </div><!-- end col -->
-        </div><!-- end row -->
-    </div>
+    
     </div><!-- end container -->
 </div><!-- end section -->
 
 <!-- Feedback -->
-<section class="feedback-area two pt-100"  style="padding: 6%; margin: 4%; ">
+<section class="feedback-area two pt-50"  style="padding: 6%; margin: 4%; ">
     <h1 style="text-align: center;color: #5f459a;padding-bottom: 2%;">Our Team</h1>
     <div class="container">
-        <div class="row" *ngFor ="let card of pagesService.allOurTeam">
-            <div class="col-lg-6 col-md-12" style="box-shadow: 5px #fae8e8; -webkit-box-shadow: 0 10px 6px -6px #777; -moz-box-shadow: 0 10px 6px -6px #777;box-shadow: 0 10px 6px -6px #777;">
-                
+        <div class="row" >
+            <div class="col-lg-6 col-md-12 " style="margin-bottom: 8px;box-shadow: 10px #fae8e8; -webkit-box-shadow: 0 10px 6px -6px #777; -moz-box-shadow: 0 10px 6px -6px #777;box-shadow: 0 10px 6px -6px #777;">
                 <div class="feedback-item">
-                    
-                    <h3><i class="material-icons">person</i> Jubra Ward</h3>
-                    <span> <i class="fa fa-home" ></i> CEO at Alfa School</span>
+                    <h3>Bushra Assi</h3>
+                    <span>Copmuter Information System </span>
                     <p>“I’m ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniaxn ullamco laboris nisi ut at voluptatem.</p>
-                    <h4><i class="flaticon-left-quote"></i> Just Awesome</h4>
-                    <img src="assets/img/home-one/feedback1.jpg" alt="Feedback">
-                   
+                    <h4><i class="flaticon-left-quote"></i> </h4>
+                    <img src="assets/img/home-one/feedback2.jpg" alt="Feedback">
                 </div>
             </div>
 
-            <div class="col-lg-6 col-md-12 " style="margin-bottom: 1px;box-shadow: 5px #fae8e8; -webkit-box-shadow: 0 10px 6px -6px #777; -moz-box-shadow: 0 10px 6px -6px #777;box-shadow: 0 10px 6px -6px #777;">
+            <div class="col-lg-6 col-md-12 " style="margin-bottom: 8px;box-shadow: 10px #fae8e8; -webkit-box-shadow: 0 10px 6px -6px #777; -moz-box-shadow: 0 10px 6px -6px #777;box-shadow: 0 10px 6px -6px #777;">
                 <div class="feedback-item">
-                    <h3>Robin William</h3>
-                    <span>Manager Support Act It</span>
+                    <h3>Ro'a Qarqz</h3>
+                    <span>Software Engineering</span>
                     <p>“I’m ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniaxn ullamco laboris nisi ut at voluptatem.</p>
-                    <h4><i class="flaticon-left-quote"></i> Very Reliable</h4>
+                    <h4><i class="flaticon-left-quote"></i> </h4>
                     <img src="assets/img/home-one/feedback2.jpg" alt="Feedback">
                 </div>
             </div>
 
             <div class="col-lg-6 col-md-12"style="box-shadow: 5px #fae8e8; -webkit-box-shadow: 0 10px 6px -6px #777; -moz-box-shadow: 0 10px 6px -6px #777;box-shadow: 0 10px 6px -6px #777;">
                 <div class="feedback-item">
-                    <h3>Tom Henry</h3>
-                    <span>Director at Alfa School</span>
+                    <h3>Maha Amayreh</h3>
+                    <span>Computer Science</span>
                     <p>“I’m ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniaxn ullamco laboris nisi ut at voluptatem.</p>
-                    <h4><i class="flaticon-left-quote"></i> Looking Nice</h4>
+                    <h4><i class="flaticon-left-quote"></i> </h4>
                     <img src="assets/img/home-one/feedback3.jpg" alt="Feedback">
                 </div>
             </div>
 
             <div class="col-lg-6 col-md-12" style="padding: 10px;box-shadow: 5px  #fae8e8;box-shadow: 5px #fae8e8; -webkit-box-shadow: 0 10px 6px -6px #777; -moz-box-shadow: 0 10px 6px -6px #777;box-shadow: 0 10px 6px -6px #777;">
                 <div class="feedback-item">
-                    <h3>Jac Jackson</h3>
-                    <span>Engineer at Alfa School</span>
+                    <h3>Zain Malkawi</h3>
+                    <span>Copmuter Information System </span>
                     <p>“I’m ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniaxn ullamco laboris nisi ut at voluptatem.</p>
-                    <h4><i class="flaticon-left-quote"></i> Awesome</h4>
+                    <h4><i class="flaticon-left-quote"></i> </h4>
                     <img src="assets/img/home-one/feedback4.jpg" alt="Feedback">
                 </div>
             </div>
@@ -131,32 +105,3 @@
 
 
 <app-footer-page></app-footer-page>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

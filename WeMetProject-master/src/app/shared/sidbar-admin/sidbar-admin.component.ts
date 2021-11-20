@@ -36,6 +36,7 @@ export class SidbarAdminComponent implements OnInit {
     this.spinner.show();
     setTimeout(() => {
       this.spinner.hide();
+      localStorage.clear()
       this.router.navigate(['']);
     }, 2000);
    
@@ -46,6 +47,13 @@ export class SidbarAdminComponent implements OnInit {
     setTimeout(() => {
       this.spinner.hide();
       this.router.navigate(['admin/tableuser']);
+    }, 2000);
+  }
+  GetAbout(){
+    this.spinner.show();
+    setTimeout(() => {
+      this.spinner.hide();
+      this.router.navigate(['admin/about']);
     }, 2000);
   }
   CategoreyAll(){

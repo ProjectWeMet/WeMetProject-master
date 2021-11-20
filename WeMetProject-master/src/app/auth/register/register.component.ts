@@ -15,7 +15,7 @@ export class RegisterComponent implements OnInit {
     lastName: new FormControl('', [Validators.required]),
     email: new FormControl('', [Validators.required,Validators.email]),
     dob: new FormControl('', [Validators.required]),
-    country: new FormControl('', [Validators.required]),
+    country: new FormControl('Jordan', [Validators.required]),
     // userName: new FormControl('', [Validators.required,Validators.minLength(5),Validators.maxLength(20)]),
     userName: new FormControl('', [Validators.required,Validators.minLength(5),Validators.maxLength(20)]),
     password: new FormControl('', [Validators.required,Validators.minLength(8)]),
@@ -290,7 +290,7 @@ export class RegisterComponent implements OnInit {
     }
     this.auth.Register(data);
     // console.log(this.registerForm.value);
-     this.route.navigate(['']);
+     this.route.navigate(['login/register']);
   }
   GoToLogin(){
     this.route.navigate(['']);

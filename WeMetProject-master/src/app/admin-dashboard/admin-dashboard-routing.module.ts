@@ -1,5 +1,6 @@
 import { Component, NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { AboutAdminComponent } from './about-admin/about-admin.component';
 import { AdminProfileComponent } from './admin-profile/admin-profile.component';
 import { CategoreyComponent } from './categorey/categorey.component';
 import { DashboredAdminComponent } from './dashbored-admin/dashbored-admin.component';
@@ -41,6 +42,10 @@ const routes: Routes = [{
 {
   path:"testimonial",
   component:TestimonialComponent
+},
+{
+  path:"about",
+  component:AboutAdminComponent
 }];
 
 @NgModule({
