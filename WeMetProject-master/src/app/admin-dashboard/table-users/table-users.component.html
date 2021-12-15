@@ -1,4 +1,4 @@
-<body class="dark-edition" style="background-color: #202940; height: 190vh;">
+<body class="dark-edition" >
     <div class="wrapper ">
         <!-- sidebar -->
         <app-sidbar-admin></app-sidbar-admin>
@@ -11,42 +11,80 @@
                 <div class="container-fluid">
                     <div class="row">
                         <div class="col-lg-12 col-md-12">
+                           
                           <div id="pdfTable" #pdfTable class="card">
                             <div  class="card-header card-header-primary nav-link">
-                             <h4 class="card-title ">  <i   class="material-icons">person</i>   Users Information</h4>
-                              <p class="card-category"> ^_^</p>
+                             <h4 class="card-title ">  Users Information</h4>
+                              <!-- <p class="card-category"> ^_^</p> -->
                             </div>
-                            <div  class="card-body table-responsive">
-                              <table class="table table-hover">
-                                <thead class="text-warning">
-                                  <th>ID</th>
-                                  <th>Image</th>
-                                  <th>Full Name </th>
-                                  <th>Job Title</th>
-                                  <th>PhoneNumber</th>
-                                  <th>Country</th>
-                                  <th>Specialization</th>
-                                  
-                                </thead>
-                                <!-- <app-dashbored-admin></app-dashbored-admin> -->
-                                <tbody  *ngFor ="let card of adminDashboardService.data6"    >
-                                  <tr>
-                                    <td>{{card.userId}}}</td>
-                                    <td><img  src="{{getImagePath(card.imageName)}}"  alt="Employer"  class="rounded-circle" >
-                                    </td>
-                                    <td>{{card.fname}} {{card.lname}}</td>
-                                    <td>{{card.jobTitle}}</td>
-                                    <td>{{card.phoneNumber}}</td>
-                                    <td>{{card.country}}</td>
-                                    <td>{{card.specialization}}</td>
-                                  </tr>
-                         
-                                 
-                                </tbody>
-                              </table>
+                            <div class="row mt-4" style="margin-left: 10px; margin-right: 10px;">
+                                <h4 class="text-primary"> <strong>Filter Information</strong>  </h4>
+                              
+                                <div class="col-lg-4 col-md-6">
+                                    <mat-form-field class="example-full-width" appearance="outline">
+                                        <mat-label>Name</mat-label>
+                                        <input type="text" matInput [formControl]="skill"  placeholder="" (input)="search()">
+
+                                      </mat-form-field>
+    
+                                </div>
+                                <div class="col-lg-4 col-md-6">
+                                    <mat-form-field class="example-full-width" appearance="outline">
+                                        <mat-label>Job Title</mat-label>
+                                        <input type="text" matInput [formControl]="jobTitle" placeholder="" (input)="search()">
+
+                                      </mat-form-field>
+                                </div>
+                                <div class="col-lg-4 col-md-6">
+                                    
+                                    <mat-form-field class="example-full-width" appearance="outline">
+                                        <mat-label>Country</mat-label>
+
+                                    <select matNativeControl  [formControl]="country"  (change)="search()"  >
+                                   
+                                    <option *ngFor="let c of countryList" [value]="c" >
+    
+                                        {{c}}
+                                    </option>
+                                    </select>
+                                </mat-form-field>
+                                </div>
+                            </div>
+                            <hr>
+                            <div  class="card-body">
+                                <div class=" table-responsive">
+                                    <table class="table table-hover">
+                                        <thead class="text-primary">
+                                       
+                                        <th>Image</th>
+                                        <th>Full Name </th>
+                                        <th>Job Title</th>
+                                        <th>PhoneNumber</th>
+                                        <th>Country</th>
+                                        <th>Specialization</th>
+                                        
+                                        </thead>
+                                    <!-- <app-dashbored-admin></app-dashbored-admin> -->
+                                        <tbody  *ngFor ="let card of adminDashboardService.users"    >
+                                        <tr (click)="showProfile(card.userId)">
+                                            <td>
+                                                <img  src="{{getImagePath(card.imageName)}}"  alt="Employer"  class="rounded-circle" >
+                                            </td>
+                                            <td>{{card.fname}} {{card.lname}}</td>
+                                            <td>{{card.jobTitle}}</td>
+                                            <td>{{card.phoneNumber}}</td>
+                                            <td>{{card.country}}</td>
+                                            <td>{{card.specialization}}</td>
+                                        </tr>
+                                
+                                        
+                                        </tbody>
+                                </table>
+                                    </div>
+                          
                     
                             </div>
-                            <button class="btn btn-primary" (click)="downloadAsPDF();">Export To PDF</button>
+                           
                     
                           </div>
                         </div>

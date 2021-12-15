@@ -1,6 +1,6 @@
 
 
-<body class="dark-edition" style="background-color: #202940; height: 146vh;">
+<body class="dark-edition" >
     <div class="wrapper ">
         <!-- sidebar -->
         <app-sidbar-admin></app-sidbar-admin>
@@ -14,17 +14,17 @@
                     <div class="row">
                         <div class="col-md-12">
                             <div class="card">
-                                <div style=" background: -webkit-linear-gradient(left, #3B064D, #BC6FF1);" class="card-header card-header-primary">
+                                <div  class="card-header card-header-primary">
                                     <h4 class="card-title">About As</h4>
                                 </div>
                                 <div class="card-body">
-                                    <form>
+                                    <form   [formGroup]="AboutForm"  >
                                         <div class="row justify-content-center">
                                             
                                             <!-- <div class="col-md-6">
                                                 <div class="form-group">
                                                     <label  class="bmd-label-floating">PhoneNumber</label>
-                                                    <input matInput [formControl]="phoneNumber" type="text" class="form-control">
+                                                    <input matInput formControlName="phoneNumber" type="text" class="form-control">
                                                     <mat-error *ngIf="phoneNumber.hasError('required')">
                                                         PhoneNumber  is <strong> Required</strong>
                                                     </mat-error>
@@ -32,7 +32,7 @@
                                             </div> -->
                                             <div class="col-md-6">
                                                 <div class="form-group ">
-                                                    <p><input type="file" [formControl]="img"   accept="image/*" name="image" id="file" (change)="readURL($event);" style="display: none;"></p>
+                                                    <p><input type="file" formControlName="img"   accept="image/*" name="image" id="file" (change)="readURL($event);" style="display: none;"></p>
                                                     <p><label for="file" style="cursor: pointer;">
                                                         <img for="file"  id="imgWork" [src]="imageSrc || getImagePath(adminDashboardService.allAbout[0].logo)" alt="your image" /> 
                                                         
@@ -45,8 +45,8 @@
                                             <div class="col-md-6">
                                                 <div class="form-group">
                                                     <label class="bmd-label-floating">Descriptions </label>
-                                                    <textarea  matInput [formControl]="descriptions" [(ngModel)]="adminDashboardService.allAbout[0].descriptions" rows="8" type="text" class="form-control"></textarea>
-                                                    <mat-error *ngIf="descriptions.hasError('required')">
+                                                    <textarea  matInput formControlName="descriptions" [(ngModel)]="adminDashboardService.allAbout[0].descriptions" rows="5" type="text" class="form-control"></textarea>
+                                                    <mat-error *ngIf="AboutForm.controls.descriptions.hasError('required')">
                                                         Descriptions  is <strong> Required</strong>
                                                     </mat-error>
                                                 </div>
@@ -54,16 +54,37 @@
                                             <div class="col-md-6">
                                                 <div class="form-group">
                                                     <label class="bmd-label-floating">Phone </label>
-                                                    <input  matInput [formControl]="phone" type="text"  [(ngModel)]="adminDashboardService.allAbout[0].phone" class="form-control">
-                                                    <mat-error *ngIf="phone.hasError('required')">
+                                                    <input  matInput formControlName="phone" type="text"  [(ngModel)]="adminDashboardService.allAbout[0].phone" class="form-control">
+                                                    <mat-error *ngIf="AboutForm.controls.phone.hasError('required')">
                                                         Phone  is <strong> Required</strong>
                                                     </mat-error>
                                                 </div>
                                             </div>
                                             
                                         </div>
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label class="bmd-label-floating">Address </label>
+                                                    <input  matInput formControlName="Address" [(ngModel)]="adminDashboardService.allAbout[0].address"  type="text" class="form-control">
+                                                    <mat-error *ngIf="AboutForm.controls.Address.hasError('required')">
+                                                        Address  is <strong> Required</strong>
+                                                    </mat-error>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label class="bmd-label-floating">Email </label>
+                                                    <input  matInput formControlName="email" type="text"  [(ngModel)]="adminDashboardService.allAbout[0].email" class="form-control">
+                                                    <mat-error *ngIf="AboutForm.controls.email.hasError('required')">
+                                                        Email  is <strong> Required</strong>
+                                                    </mat-error>
+                                                </div>
+                                            </div>
+                                            
+                                        </div>
                                     
-                                        <button style=" background: -webkit-linear-gradient(left, #3B064D, #BC6FF1);" [disabled]=" !img.valid &&!phone.valid &&!descriptions.valid "  cdkFocusInitial (click)="saveItem(9)"  type="submit" class="btn btn-primary pull-right">Update About As</button>
+                                        <button  [disabled]="!AboutForm.valid"   cdkFocusInitial (click)="saveItem(9)"  type="submit" class="btn pull-right">Update About As</button>
                                         <div class="clearfix"></div>
                                     </form>
                                 </div>

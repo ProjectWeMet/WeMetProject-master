@@ -1,23 +1,27 @@
+<!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.bundle.min.js">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.0.3/css/font-awesome.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"> -->
 <app-navbar-page></app-navbar-page>
     <!-- Page Title -->
-    <div  style="display: flex; background-color:rgba(0, 0, 0, 0.3);">
-        <div style=" flex-basis: 45%;">
-          <h1 style="color: #1f1137; padding-top: 40%;padding-left: 80px;">  Contact Us </h1>
-          <!-- <p style="color: white; text-align: center;font-size: 25px;">Put forward your project and leave the task of implementing it to the best experts</p> -->
-        </div>
-       
-    <div class="page-title-area "  style=" flex-basis: 70%;">
-      <div class="d-table">
-          <div class="d-table-cell">
-              <div class="container">
-                  <div class="title-item">
-                    
-                  </div>
+<div  style="display: flex; background-color:rgba(0, 0, 0, 0.3);">
+    <div style=" flex-basis: 45%;">
+      <h1 style="color: #1f1137; padding-top: 70%;padding-left: 80px;">  Contact Us </h1>
+      <!-- <p style="color: white; text-align: center;font-size: 25px;">Put forward your project and leave the task of implementing it to the best experts</p> -->
+    </div>
+    
+<div class="page-title-area "  style=" flex-basis: 70%;">
+  <div class="d-table">
+      <div class="d-table-cell">
+          <div class="container">
+              <div class="title-item">
+                
               </div>
           </div>
       </div>
-    </div>
-    </div>
+  </div>
+</div>
+</div>
 <!-- End Page Title -->
 
 <!-- Info -->
@@ -25,7 +29,7 @@
 <!-- End Info -->
 
 <!-- Contact -->
-<div class="contact-form-area pb-100" style="background-color: #f1f0f6;">
+<div class="contact-form-area pb-100" style="background-color: #f0ebf8;">
   <div class="container" style="padding-top: 5%;">
       <div class="form-item">
           <h2>Contact Us</h2>
@@ -33,16 +37,19 @@
           <form  [formGroup]="ContactForm">
               <div class="row">
                   <div class="col-sm-6 col-lg-6">
-                       <div class="form-group">
+                       
                         <mat-form-field class="example-full-width " appearance="outline" >
+                          <div class="form-group">
+
+                          
                           <label>Name</label>
-                         
-                     <input formControlName="name"  class="form-control" required>
-                     <!-- <mat-error  *ngIf="ContactForm.controls.name.hasError('required')">
-                        Name is <strong> Required</strong>
-                      </mat-error> -->
-                        </mat-form-field>
-                      </div> 
+                          <input matInput  formControlName="name"  required>
+                          <!-- <mat-error  *ngIf="ContactForm.controls.name.hasError('required')">
+                              Name is <strong> Required</strong>
+                            </mat-error> -->
+                          </div> 
+                              </mat-form-field>
+                            
                      
                   </div>
 
@@ -50,7 +57,7 @@
                     <mat-form-field class="example-full-width " appearance="outline" >
                       <div class="form-group">
                           <label>Email</label>
-                          <input formControlName="email"  class="form-control" required>
+                          <input matInput formControlName="email"   >
                           <!-- <mat-error  *ngIf="ContactForm.controls.email.hasError('required')">
                             Email is <strong> Required</strong>
                           </mat-error> -->
@@ -59,10 +66,11 @@
                   </div>
 
                   <div class="col-sm-6 col-lg-6">
-                    <mat-form-field class="example-full-width " appearance="outline" >
+                    <mat-form-field class="example-full-width" appearance="outline" >
                       <div class="form-group">
                           <label>Phone</label>
-                          <input formControlName="phone" type="text" name="phone_number" id="phone_number" required class="form-control">
+                          <input matInput  formControlName="phone" type="text" 
+                          name="phone_number" id="phone_number"  >
                           <!-- <mat-error  *ngIf="ContactForm.controls.phone.hasError('required')">
                             Phone is <strong> Required</strong>
                           </mat-error> -->
@@ -74,7 +82,8 @@
                     <mat-form-field class="example-full-width " appearance="outline" >
                       <div class="form-group">
                           <label>Subject</label>
-                          <input formControlName="subject" type="text" name="msg_subject" id="msg_subject" class="form-control" required>
+                          <input matInput  formControlName="subject" type="text" name="msg_subject"
+                           id="msg_subject" >
                           <!-- <mat-error  *ngIf="ContactForm.controls.Subject.hasError('required')">
                             Subject is <strong> Required</strong>
                           </mat-error> -->
@@ -86,7 +95,7 @@
                     <mat-form-field class="example-full-width " appearance="outline" >
                       <div class="form-group">
                           <label>Message</label>
-                          <textarea formControlName="message" class="form-control" id="message" cols="30" rows="8" required></textarea>
+                          <textarea matInput formControlName="message"  id="message" cols="30" rows="8" ></textarea>
                           <!-- <mat-error  *ngIf="ContactForm.controls.message.hasError('required')">
                             Message is <strong> Required</strong>
                           </mat-error> -->
@@ -95,9 +104,9 @@
                   </div>
 
                   <div class="col-md-12 col-lg-12">
-                    <button  mat-raised-button [disabled]="!ContactForm.valid" (click)="onSubmit()" class="form-button" style="color: white;background-color: rgb(36, 13, 58);">Sign In
+                    <button  mat-raised-button [disabled]="!ContactForm.valid"  (click)="onSubmit()" class="form-button" style="color: white;background-color: rgb(36, 13, 58);">Sign In
                         </button>    
-                      <!-- <button  mat-raised-button [disabled]="!ContactForm.valid" (click)="onSubmit()"  class="btn">Send Message</button> -->
+                      <!-- <button  mat-raised-button  (click)="onSubmit()"  class="btn">Send Message</button> -->
                   </div>
               </div>
           </form>

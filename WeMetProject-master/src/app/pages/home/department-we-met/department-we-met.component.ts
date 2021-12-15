@@ -36,7 +36,6 @@ export class DepartmentWeMetComponent implements OnInit {
   //   this.homeServiceService.uploadAttachment(formData);
   //   }
     getImagePath(value:string ){
-      debugger
       let basePath="../../../../assets/images/Uploaded File/";
       return basePath+value;
       }

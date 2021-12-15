@@ -12,7 +12,10 @@ export class MyProfileComponent implements OnInit {
   constructor(public UserService:UserDashboardService,private router:Router) {
     this.UserService.getUserById(this.UserService.UserId)
    }
-
+   goToMyBalance(id :number){
+    this.UserService.GetBalanceById(id);
+  this.router.navigate(['user/balance']);
+  }
   goToMyWork(id:number){
     debugger
     this.UserService.getMyWorkById(id);
@@ -43,7 +46,7 @@ export class MyProfileComponent implements OnInit {
     }
     
     goToMyProject(id:any){
-      this.UserService.getAllSchedule(id);
+      this.UserService.GetUserProjectById(id);
     this.router.navigate(['user/ShownProjects']);
     }
     goToinfo(id:number){

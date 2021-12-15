@@ -13,7 +13,10 @@ export class MyScheduleComponent implements OnInit {
     console.log(this.date)
     console.log("kjk",this.UserService.Schedule.endTime);
    }
-
+   goToMyBalance(id :number){
+    this.UserService.GetBalanceById(id);
+  this.router.navigate(['user/balance']);
+  }
    getImagePath(value:any ){
     let basePath="../../../../assets/images/Uploaded File/";
     if(value==null)

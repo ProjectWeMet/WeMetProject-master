@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { MatSliderChange } from '@angular/material/slider';
 import { UserDashboardService } from 'src/app/Service/user-dashboard.service';
 import { UserDashboardModule } from '../user-dashboard.module';
 
@@ -119,6 +120,11 @@ onChange(email:string, isChecked: boolean) {
     let index = this.categoryFormArray.indexOf(email);
     this.categoryFormArray.splice(index,1);
   }
-console.log(this.categoryFormArray.toString())
+  this.search();
+}
+
+onInputChange() {
+  this.search();
+
 }
 }

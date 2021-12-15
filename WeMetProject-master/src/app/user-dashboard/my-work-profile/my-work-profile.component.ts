@@ -37,6 +37,7 @@ export class MyWorkProfileComponent implements OnInit {
     }    
     );
 }
+
 goToMyWork(id:number){
   debugger
   this.UserService.getMyWorkById(id);
@@ -100,12 +101,16 @@ DeleteDialog(card:any){
   });
 }
 goToMyProject(id:any){
-  this.UserService.getAllSchedule(id);
-this.router.navigate(['user/ShownProjects']);
+  this.UserService.GetUserProjectById(id);
+  this.router.navigate(['user/ShownProjects']);
 }
 goToinfo(id:number){
   this.UserService.getUserById(id);
   this.router.navigate(['user/myProfile']);
+}
+goToMyBalance(id :number){
+  this.UserService.GetBalanceById(id);
+  this.router.navigate(['user/balance']);
 }
   ngOnInit(): void {
   }

@@ -89,21 +89,21 @@
                             <div class="search">
                                 <h3>Search Schedule</h3>
                                 <label id="example-radio-group-label">Project Title </label>
-                                    <input type="text" class="form-control mt-2"  [formControl]="title" placeholder="Project title ">
+                                    <input type="text" class="form-control mt-2"  [formControl]="title" placeholder="Project title " (input)="search()">
                             </div>
                             <div class="search">
                                 <label id="example-radio-group-label">User name </label>
-                                    <input type="text" class="form-control mt-2"  [formControl]="name" placeholder="User name">
+                                    <input type="text" class="form-control mt-2"  [formControl]="name" placeholder="User name" (input)="search()">
                             </div>
                             <div class="search">
                                 <label id="example-radio-group-label">Date </label>
-                                    <input type="date" class="form-control mt-2"  [formControl]="dateSend" placeholder="Project title ">
+                                    <input type="date" class="form-control mt-2"  [formControl]="dateSend" placeholder="Project title " (input)="search()">
                             </div>
                             
  
-                            <div class="level">
+                            <!-- <div class="level">
                                 <button type="submit" (click)="search()" class="btn">Filter Now</button>
-                            </div>
+                            </div> -->
                         </div>
                     
                 </div>  

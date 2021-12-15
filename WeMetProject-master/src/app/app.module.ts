@@ -9,6 +9,10 @@ import { AdminDashboardRoutingModule } from './admin-dashboard/admin-dashboard-r
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { ToastrModule } from 'ngx-toastr';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { ChartsModule } from 'ng2-charts';
+import { RouterModule } from '@angular/router';
+import { SidbarAdminComponent } from './shared/sidbar-admin/sidbar-admin.component';
 
 
 
@@ -16,7 +20,8 @@ import { ToastrModule } from 'ngx-toastr';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    
   ],
   imports: [
     
@@ -28,9 +33,12 @@ import { ToastrModule } from 'ngx-toastr';
     HttpClientModule,
     BrowserAnimationsModule,
     FormsModule,
- 
+    ChartsModule,
+    RouterModule,
+    AppRoutingModule,
     ToastrModule.forRoot({
       positionClass :'toast-bottom-right'}),
+       NgbModule,
 
 
   ],

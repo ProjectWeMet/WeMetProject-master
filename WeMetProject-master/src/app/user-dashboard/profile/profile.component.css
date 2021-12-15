@@ -154,9 +154,12 @@ a .material-icons {
 }
 
 .rounded-circle {
-  border-radius: 50% !important;
-}
-
+ 
+  
+    height: 200px;
+    width:200px;
+    border-radius: 50%;}
+  
 .img-fluid,
 .img-thumbnail {
   max-width: 100%;

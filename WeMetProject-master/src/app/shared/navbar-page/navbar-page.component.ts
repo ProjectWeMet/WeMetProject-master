@@ -31,6 +31,7 @@ export class NavbarPageComponent implements OnInit {
     this.spinner.show();
     setTimeout(() => {
       this.spinner.hide();
+      localStorage.clear();
       this.router.navigate(['login']);
     }, 2000);
    

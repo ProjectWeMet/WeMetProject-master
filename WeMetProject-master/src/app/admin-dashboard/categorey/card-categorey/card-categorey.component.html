@@ -18,21 +18,25 @@
 
 
 
-    <mat-card  style="  background: #e9ebf1e8;width: 97%;height:100%;" class="example-card">
+    <mat-card  style="  background: #fff;" class="example-card">
+      <a href="javascript:void(0)" (click)="openDialog(categoryId,categoryTitle,image)"><i class="material-icons" style=" float: right; color: black;"  >edit</i></a>
+
         <img style=" width: 100% !important;height:180px !important;margin-top: 0px !important; border-top-left-radius: 10% 50%;
         border-bottom-left-radius: 10% 50%;border-top-right-radius: 10% 50%;
         border-bottom-right-radius: 10% 50%;"
         src="{{getImagePath(image)}}">
-        <h6 style="color: #202940; "  class="card-category">{{homeServiceService.display_image}}</h6> 
+        <!-- <h6 style="color: #202940; "  class="card-category">{{homeServiceService.display_image}}</h6>  -->
         
           <hr style="background:-webkit-linear-gradient(left, #400355, #200135);;height: 4px;">  
                <mat-card-content>
-            <p style="color: black;font-weight: 500;">
-              {{categoryTitle}}
-            </p>
+                <p style="color: black;font-weight: 500;">
+                  {{categoryTitle}}
+                </p>
+            
+
           </mat-card-content>
           <!-- <mat-card-actions style="  background: -webkit-linear-gradient(left, #3B064D, #BC6FF1);color: white;padding-top: 1%;width: 40%;">
-              <button mat-button  (click)="openDialog(categoryId,categoryTitle,image)"> <i class="material-icons">edit</i>Edit</button>
+              <button mat-button  > Edit</button>
   
           </mat-card-actions> -->
         </mat-card>

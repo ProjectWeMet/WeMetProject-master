@@ -5,10 +5,14 @@ import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 import { AdminDashboardService } from 'src/app/Service/admin-dashboard.service';
 import { HomeServiceService } from 'src/app/Service/home-service.service';
 import { AddApplyDialogComponent } from 'src/app/user-dashboard/project-detailes/add-apply-dialog/add-apply-dialog.component';
+import { ChartOptions, ChartType, ChartDataSets } from 'chart.js';
+
 declare var require: any;
 
 import * as pdfMake from "pdfmake/build/pdfmake";
 import * as pdfFonts from "pdfmake/build/vfs_fonts";
+import { BaseChartDirective, Color, Label } from 'ng2-charts';
+import { couldStartTrivia } from 'typescript';
 const htmlToPdfmake = require("html-to-pdfmake");
 (pdfMake as any).vfs = pdfFonts.pdfMake.vfs;
 
@@ -18,36 +22,8 @@ const htmlToPdfmake = require("html-to-pdfmake");
   styleUrls: ['./dashbored-admin.component.css']
 })
 export class DashboredAdminComponent implements OnInit {
-  @Input () userId:number|undefined;
-  @Input () fname:string|undefined;
-  @Input () lname:string|undefined;
-  @Input () phoneNumber:string|undefined;
-  @Input () email:string|undefined;
-  @Input () dob:any|undefined;
-  @Input () country:string|undefined;
-  @Input () specialization:string|undefined;
-  @Input () biography:string|undefined;
-  @Input () imageName:string|undefined;
-  @Input () userName:string|undefined;
-  @Input () password:string|undefined;
-  @Input () roleNameId:string|undefined;
-  @Input () jobTitle:string|undefined;
-  @Input () isActive:string|undefined;
-  @Input () skill:string|undefined;
-  @Input () role:string|undefined;
-  @Input () createDate:string|undefined;
-//
-@Input () projectId:number|undefined;
-  @Input () isAccept:boolean|undefined;
-  @Input () requiredSkills:string|undefined;
-  @Input () projectTitle:string|undefined;
-  @Input () countApplyJob:number|undefined;
-  @Input () projectDetails:string|undefined;
-  @Input () dateOfCreate:string|undefined;
-  @Input () expectedBudget:any|undefined;
-  @Input () categoryId:any|undefined;
-  @Input () estimatedDeliveryTime:any|undefined;
-  @Input () isComplete:boolean|undefined;
+  @ViewChild(BaseChartDirective) chart: any;
+
   @ViewChild('pdfTable')
   pdfTable!: ElementRef;
   
@@ -58,22 +34,93 @@ export class DashboredAdminComponent implements OnInit {
     pdfMake.createPdf(documentDefinition).download(); 
      
   }
+  year:any=new Date().getFullYear();
   
 
+  barChartOptions :any
+  barChartData: any[] =[]
   
+  barChartLabels: Label[] = [];
+  barChartLegend :any;
+  barChartPlugins:any = [];
+
+  public barChartColors: Color[] = [
+    {
+      borderColor: 'black',
+      backgroundColor: '#764ebe',
+
+    },
+  ];
+  
+  loaded = false;
+  loaded1 = false;
+
+  lineChartData:any[]=[]
+  lineChartLabels:Label[]=[]
+  lineChartOptions:any
+  lineChartColors:Color[]=[]
+  lineChartLegend :any;
+  lineChartPlugins:any;
+getData(){
+  debugger
+  this.lineChartData = [
+    { data: this.adminDashboardService.profitChart , label:'Amount of profit JD'},
+  ];
+  
+  this.lineChartLabels = this.adminDashboardService.monthChart;
+  this.lineChartOptions= {
+    responsive: true,
+  };
+  this.lineChartColors = [
+    {
+      borderColor: 'black',
+    },
+  ];
+  this.lineChartLegend = false;
+  this.lineChartPlugins = [];
+  this.loaded = true;
+  this.loaded1 = true;
+
+  //
+  this.barChartOptions = {
+    responsive: true,
+  };
+  this.barChartData = [
+    { data: this.adminDashboardService.countProjectChart, label: 'Count Project' }
+  ];
+  
+  this.barChartLabels= this.adminDashboardService.monthChart;
+  this.barChartLegend = true;
+  this.barChartPlugins = [];
+
+}
+
 
   constructor(public adminDashboardService: AdminDashboardService, private http: HttpClient,public homeServiceService:HomeServiceService,public dialog:MatDialog) {
-
+    this.adminDashboardService.ChartProfit();
     this.adminDashboardService.countUser();
     this.adminDashboardService.CountAcceptJobSchedule();
-    this.adminDashboardService.CountCompleteProject();
-    this.adminDashboardService.GetAllUsers();
-    this.adminDashboardService.GetAllCategorey();
-    this.adminDashboardService.GetProfileAdmin();
-    this.adminDashboardService.GetallProjectHighestApplyJob();
-  }
+    this.adminDashboardService.CountOpenProject();
 
+    this.adminDashboardService.CountCompleteProject();
+  
+    this.adminDashboardService.GetallProjectHighestApplyJob();
+    // console.log(this.adminDashboardService.profitChart)
+  }
+ 
 ngOnInit(): void {
+  this.getData();
+  
+
+//   setTimeout(() => {
+//     this.chart.chart.config.data.datasets = this.adminDashboardService.profitChart
+//     this.chart.chart.config.data.labels=this.adminDashboardService.monthChart
+//     // this.chart.chart.update()
+// }, 200);
 }
+
+
+
+  
 
 }

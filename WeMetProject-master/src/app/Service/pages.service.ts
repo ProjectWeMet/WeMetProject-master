@@ -14,15 +14,30 @@ export class PagesService {
 display_image:any
 OurTeam:any={}
   aboutUs: any=[];
+  Projects:any=[];
   constructor(private http:HttpClient,private toaster:ToastrService,private router:Router , private spinner: NgxSpinnerService) { }
 
-  
+  getAllHighestProjects(){
+    this.spinner.show();
+     this.http.get('https://localhost:44374/api/Project/GetallProjectHighestApplyJob')
+     .subscribe((data:any)=>{
+      this.spinner.hide();
+      this.Projects=data;
+
+      // this.toastr.success('Deleted ');
+    
+    },error=>{
+      this.spinner.hide();
+      // this.toastr.error(' Not Deleted ');
+    
+    })
+  }
   GetAllOurTeam(){
     //call services
     return this.http.get('https://localhost:44374/api/OurTeam').subscribe((result)=> { 
    this.allOurTeam=result,
    this.spinner.hide();
-   this.toaster.success('Data Retrieved!'); },
+    },
    (error) => this.toaster.error(error.status));
   
     }
@@ -35,9 +50,11 @@ OurTeam:any={}
       this.OurTeam=data;
       console.log(this.OurTeam);
       this.spinner.hide();
-      this.toaster.success('Data Retrieved!'); 
+     
     },(error) => this.toaster.error(error.status));
   }
+
+
   contcat(data3:any){
     debugger
     const headerDict = {
@@ -53,7 +70,7 @@ OurTeam:any={}
       .subscribe((data:any)=>{
         this.spinner.hide();
   
-        this.toaster.success('Send testmonial successfully ');
+        this.toaster.success('Send Contact successfully ');
         this.router.navigate(['']);
       
       },error=>{
@@ -67,7 +84,7 @@ OurTeam:any={}
     return this.http.get('https://localhost:44374/api/AboutUs/GetAboutUs').subscribe((result)=> { 
    this.aboutUs=result,
    this.spinner.hide();
-   this.toaster.success('Data Retrieved!'); },
+   },
    (error) => this.toaster.error(error.status));
   
     }

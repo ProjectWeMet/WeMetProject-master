@@ -1,4 +1,4 @@
-<body class="dark-edition" style="background-color: #202940; height: 190vh;">
+<body class="dark-edition" >
     <div class="wrapper ">
         <!-- sidebar -->
         <app-sidbar-admin></app-sidbar-admin>
@@ -18,11 +18,9 @@
                         </div>
                         <div class="card-body">
                           <div class="table-responsive">
-                            <table class="table">
+                            <table class="table table-hover">
                               <thead class=" text-primary">
-                                <th>
-                                  ID
-                                </th>
+                               
                                 <th>
                                   Image
                                 </th>
@@ -33,9 +31,11 @@
                                     Project Title
                                 </th>
                                 <th>
-                                    Count Apply Job
+                                  Details
                                 </th>
-                            
+                                <th>
+                                  Budget
+                                 </th>
                                 <th>
                                     Date Of Create
                                 </th>
@@ -47,11 +47,8 @@
                                    </th>
                               </thead>
                               <tbody *ngFor ="let card of adminDashboardService.viewProjectNotAcceptAdmin" >
-                                <tr>
-                                  <td>
-                               {{card.projectId}}                                        
-
-                                  </td>
+                                <tr (click)="goProject(card.projectId)">
+                                  
                                   <td>
                                     <img  src="{{getImagePath(card.imageName)}}"  alt="Employer"  class="rounded-circle" >
                                   </td>
@@ -62,31 +59,32 @@
                                  {{card.projectTitle}}
                                   </td>
                                   <td>
-                                    {{card.countApplyJob}}
+                                    {{card.projectDetails}}
+                                  </td>
+                                  <td>
+                                    {{card.expectedBudget}}
                                   </td>
                                   <td>
                          
-                                    {{card.dateOfCreate}}
+                                    {{card.dateOfCreate |daysBetweenDates}}
                                   </td>
-                                  <td  class="td-actions text-right">
-                                    <button  (click)="AcceptProjectt(card.projectId)"  type="button" rel="tooltip" title="Edit Task" class="btn btn-white btn-link btn-sm">
-                                      <i   class="material-icons">edit</i>
+                                  <td  >
+                                    <button (click)="AcceptProjectt(card.projectId)" mat-icon-button aria-label="Example icon-button with a heart icon">
+                                      <mat-icon>check</mat-icon>
                                     </button>
-  
-                                   
+                 
                                   </td>
                                   <td>
-                                    <button (click)="RejectProjectt(card.projectId)"    type="button" rel="tooltip" title="Remove" class="btn btn-white btn-link btn-sm">
-                                        <i class="material-icons">close</i>
-                                      </button>
+                                    <button (click)="RejectProjectt(card.projectId)" mat-icon-button aria-label="Example icon-button with a heart icon">
+                                      <mat-icon>close</mat-icon>
+                                    </button>
+                                   
                                   </td>
                                 </tr>
                            
                               </tbody>
                             </table>
                           </div>
-                          <button class="btn btn-primary" (click)="downloadAsPDF();">Export To PDF</button>
-
                         </div>
                       </div>
                     </div>

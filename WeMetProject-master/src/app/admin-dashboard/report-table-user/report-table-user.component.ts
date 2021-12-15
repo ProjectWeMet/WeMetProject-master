@@ -24,6 +24,7 @@ export class ReportTableUSERComponent implements OnInit {
   
   @ViewChild('pdfTable')
   pdfTable!: ElementRef;
+  IsAccept=true;
   
   public downloadAsPDF() {
     const pdfTable = this.pdfTable.nativeElement;
@@ -39,7 +40,19 @@ export class ReportTableUSERComponent implements OnInit {
   }
   AcceptProjectt(id:any)
   {debugger
-    const data = {projectId:id}
+    this.IsAccept=false
+    var today = new Date();
+    var dd = String(today.getDate()).padStart(2, '0');
+    var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
+    var yyyy = today.getFullYear();
+
+    const currentDate = yyyy + '/' + mm + '/' +dd;
+    // const currentDate = '2021/9/1';
+
+    const data = {
+      projectId:id,
+      currentDate:currentDate
+    }
     if(id)
     {
       this.adminDashboardService.AcceptProject(data);
@@ -56,6 +69,7 @@ export class ReportTableUSERComponent implements OnInit {
     const data = {projectId:id}
     if(id)
     {
+      this.IsAccept=false
       this.adminDashboardService.RejectProject(data);
       // this.router.navigate(['admin/report']);
       // this.openProfile.emit();
@@ -73,7 +87,10 @@ export class ReportTableUSERComponent implements OnInit {
     return basePath+value;
     }
   
-
+    goProject(id:any){
+      this.adminDashboardService.GetProjectById(id);
+      this.router.navigate(['admin/projects']);
+    }
     
   ngOnInit(): void {
   }

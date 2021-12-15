@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, Validators } from '@angular/forms';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { AdminDashboardService } from 'src/app/Service/admin-dashboard.service';
 
 @Component({
@@ -8,10 +8,15 @@ import { AdminDashboardService } from 'src/app/Service/admin-dashboard.service';
   styleUrls: ['./about-admin.component.css']
 })
 export class AboutAdminComponent implements OnInit {
+  AboutForm = new FormGroup({
 
-  phone=new FormControl('', [Validators.required]);
-  img= new FormControl('', [Validators.required]);
-  descriptions=new FormControl('', [Validators.required]);
+    phone:new FormControl('', [Validators.required]),
+    
+    descriptions:new FormControl('', [Validators.required]),
+    email:new FormControl('', [Validators.required]),
+  Address:new FormControl('', [Validators.required])})
+
+  img= new FormControl('', [Validators.required])
   formData :any=null;
 
   imageSrc:any;
@@ -33,8 +38,10 @@ export class AboutAdminComponent implements OnInit {
      if(this.formData==null){
       const data={
         id:1,
-        phone:this.phone.value,
-        descriptions:this.descriptions.value.toString(),
+        phone:this.AboutForm.controls.phone.value,
+        descriptions:this.AboutForm.controls.descriptions.value.toString(),
+        email:this.AboutForm.controls.email.value.toString(),
+        address:this.AboutForm.controls.Address.value.toString(),
         logo:this.adminDashboardService.allAbout[0].logo
        }
       this.adminDashboardService.updateAboutAs(data)
@@ -43,8 +50,10 @@ export class AboutAdminComponent implements OnInit {
      else{
       const data={
         id:1,
-        phone:this.phone.value,
-        descriptions:this.descriptions.value.toString(),
+        phone:this.AboutForm.controls.phone.value,
+        descriptions:this.AboutForm.controls.descriptions.value.toString(),
+        email:this.AboutForm.controls.email.value.toString(),
+        address:this.AboutForm.controls.Address.value.toString(),
        }
        this.adminDashboardService.UpdateAboutAdmin(this.formData,data)
 

@@ -1,4 +1,6 @@
-<div style="background-color: #1f283d;" class="sidebar" data-color="purple" data-background-color="black" data-image="../assets/img/sidebar-2.jpg">
+<div style="background-color: #f6f3fb
+
+;" class="sidebar" data-color="purple" data-background-color="black" data-image="../assets/img/sidebar-2.jpg">
     <!--
       Tip 1: You can change the color of the sidebar using: data-color="purple | azure | green | orange | danger"
 
@@ -9,78 +11,71 @@
       </a></div>
     <div class="sidebar-wrapper">
       <ul class="nav">
-        <li class="nav-item active  ">
-          <a href="javascript:void(0)"  (click)="GoDashboredAdmin()"class="nav-link" >
-            <i class="material-icons">dashboard</i>
-            <p>Dashboard</p>
-          </a>
-        </li>
-        <li class="nav-item ">
-          <a href="javascript:void(0)" (click)=" GoProfileAdmin()"  class="nav-link" >
-            <i class="material-icons">person</i>
-            <p>Profile</p>
-          </a>
-        </li>
-        <li class="nav-item ">
-          <a href="javascript:void(0)" (click)=" GoToReportUser()"  class=" nav-link "  >
-            <i class="material-icons">content_paste</i>
-            <p> All Project</p>
+        <li class="nav-item "   >
+          <a href="javascript:void(0)" [routerLink]="'/admin/dash'"  routerLinkActive="active1" [routerLinkActiveOptions]="{exact: true}" class="nav-link" >
+            <p> <mat-icon>dashboard</mat-icon>Dashboard</p>
           </a>
         </li>
         
+        <li class="nav-item ">
+          <a href="javascript:void(0)"  [routerLink]="['/admin/Profile']" routerLinkActive="active1" [routerLinkActiveOptions]="{exact: true}"   class="nav-link" >
+            <p><mat-icon>person</mat-icon>Profile</p>
+          </a>
+        </li>
+        <li class="nav-item ">
+          <a href="javascript:void(0)" [routerLink]="['/admin/profit']" routerLinkActive="active1" [routerLinkActiveOptions]="{exact: true}"   class="nav-link" >
+            <p> <mat-icon>monetization_on</mat-icon> Profit</p>
+          </a>
+        </li>
+        <li class="nav-item ">
+          <a href="javascript:void(0)" [routerLink]="['/admin/report']" routerLinkActive="active1" [routerLinkActiveOptions]="{exact: true}"   class=" nav-link "  >
+            <p> <mat-icon>business_center</mat-icon> All Project</p>
+          </a>
+        </li>
+        
+         
+          <li class="nav-item ">
+            <a href="javascript:void(0)" [routerLink]="['/admin/CategoreyAll']" routerLinkActive="active1" [routerLinkActiveOptions]="{exact: true}" 
+              class="nav-link"   >
+              <p> <mat-icon>category</mat-icon> Category </p>
+            </a>
+          </li> 
+           <li class="nav-item ">
+            <a href="javascript:void(0)" [routerLink]="['/admin/searchProjectRepo']" routerLinkActive="active1" [routerLinkActiveOptions]="{exact: true}" class=" nav-link "  >
+              <p> <mat-icon>business_center</mat-icon>Accept Project </p>
+            </a>
+          </li>
           <li class="nav-item   ">
-            <a href="javascript:void(0)"  (click)=" GoTotableuser()" class="nav-link" >
-              <i class="material-icons">person</i>
-              <p>All User</p>
+            <a href="javascript:void(0)"  [routerLink]="['/admin/tableuser']" routerLinkActive="active1" [routerLinkActiveOptions]="{exact: true}" class="nav-link" >
+              <p><mat-icon>person</mat-icon> Users</p>
             </a>
           </li>
           <li class="nav-item ">
-            <a href="javascript:void(0)" (click)="CategoreyAll()"  class=" nav-link "  >
-              <i class="material-icons">content_paste</i>
-              <p> Category All In WebSite </p>
+            <a href="javascript:void(0)"  [routerLink]="['/admin/getAllContacts']" routerLinkActive="active1" [routerLinkActiveOptions]="{exact: true}" class=" nav-link "  >
+              <p> <mat-icon>content_paste</mat-icon> Contact Us </p>
             </a>
           </li>
           <li class="nav-item ">
-            <a href="javascript:void(0)" (click)="searchProjectRepo()"  class=" nav-link "  >
-              <!-- <i class="material-icons">content_paste</i> -->
-              <i _ngcontent-rqy-c101="" class="material-icons">search</i>
-              <p>Accept Project </p>
+            <a href="javascript:void(0)" [routerLink]="['/admin/about']"  routerLinkActive="active1" [routerLinkActiveOptions]="{exact: true}" class=" nav-link "  >
+              
+              <p> <mat-icon>content_paste</mat-icon> About Us </p>
             </a>
-          </li>
+          </li> 
           <li class="nav-item ">
-            <a href="javascript:void(0)" (click)="GetAllContacts()"  class=" nav-link "  >
-              <!-- <i class="material-icons">content_paste</i> -->
-              <i class="material-icons">content_paste</i>
-              <p> All Contact Us </p>
+            <a href="javascript:void(0)" [routerLink]="['/admin/testimonial']"  routerLinkActive="active1" [routerLinkActiveOptions]="{exact: true}"  class=" nav-link "  >
+             
+              <p>  <mat-icon>star</mat-icon> Testimonial </p>
             </a>
-          </li>
-          <li class="nav-item ">
-            <a href="javascript:void(0)" (click)="GetAbout()"  class=" nav-link "  >
-              <!-- <i class="material-icons">content_paste</i> -->
-              <i class="material-icons">content_paste</i>
-              <p> About Us </p>
-            </a>
-          </li>
-          <li class="nav-item ">
-            <a href="javascript:void(0)" (click)="GetAlltestimonial()"  class=" nav-link "  >
-              <!-- <i class="material-icons">content_paste</i> -->
-              <i class="material-icons">content_paste</i>
-              <p> All testimonial </p>
-            </a>
-          </li>
+          </li> 
           <li class="nav-item ">
             <a href="javascript:void(0)" (click)="  GotToHome()"  class=" nav-link "  >
               <i class="fa fa-home"></i> 
               <p> Home </p>
             </a>
           </li>
-          <li class="nav-item ">
-            <a class="nav-link"href="javascript:void(0)" (click)="  GoTologin()">
-              <i class="material-icons">bubble_chart</i>
-              <p>Log Out </p>
-            </a>
-          </li>
+         
       
        </ul>
     </div>
   </div>
+  <router-outlet></router-outlet>

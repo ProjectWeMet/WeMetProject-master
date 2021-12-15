@@ -595,7 +595,8 @@ button:focus {
     height: 25px;
     left: 0;
     top: -2px;
-    background-color: #fe4a55;
+    background-color: #673ab7
+    ;
     border-radius: 50%;
     z-index: -1;
 }
@@ -608,7 +609,7 @@ button:focus {
     margin-bottom: 30px;
     position: relative;
     z-index: 1;
-    background-color: #f8e8e9;
+    background-color: #f0ebf8;
     padding: 30px 30px 28px;
     border-radius: 5px;
     transition: 0.5s all ease;
@@ -620,7 +621,8 @@ button:focus {
     height: 0;
     left: 0;
     bottom: 0;
-    background-color: #221668;
+    background-color: #673ab7
+    ;
     opacity: 0;
     z-index: -1;
     border-radius: 5px;
@@ -652,9 +654,20 @@ button:focus {
     line-height: 45px;
     transition: 0.5s all ease;
 }
+.work-item i img {
+    width: 50px;
+    height: 50px;
+    filter: invert(24%) sepia(20%) saturate(4887%) hue-rotate(239deg) brightness(107%) contrast(99%);
+}
+.work-item:hover i img {
+    
+    filter: invert(100%) sepia(0%) saturate(0%) hue-rotate(82deg) brightness(105%) contrast(105%);
+
+}
 .work-item span {
     display: block;
-    color: #fe4a55;
+    color: #150c25
+    ;
     margin-bottom: 10px;
 }
 .work-item h3 {
@@ -699,18 +712,18 @@ button:focus {
 }
 .job-browse p {
     margin-bottom: 0;
-    font-size: 17px;
-    color: #7068a3;
+    font-size: 20px;
+    color: #100f14;
 }
 .job-browse p a {
     display: inline-block;
-    color: #fe4a55;
+    color: #673ab7;
     font-weight: 500;
-    border-bottom: 1px solid #fe4a55;
+    border-bottom: 1px solid #673ab7;
 }
 .job-browse p a:hover {
-    color: #221668;
-    border-bottom: 1px solid #221668;
+    color: #673ab7;
+    border-bottom: 1px solid #673ab7;
 }
 .job-item {
     padding: 25px 35px 30px;
@@ -1262,7 +1275,7 @@ button:focus {
     height: 100px;
 }
 .feedback-area .section-title {
-    text-align: center;
+    text-align: left;
 }
 .feedback-area .section-title .sub-title {
     display: inline-block;
@@ -1288,7 +1301,7 @@ button:focus {
 }
 .feedback-area .feedback-item span {
     display: block;
-    color: #fe4a55;
+    color: #673ab7;
     margin-bottom: 15px;
 }
 .feedback-area .feedback-item p {
@@ -1588,7 +1601,9 @@ button:focus {
 }
 .footer-item .footer-logo .logo {
     display: block;
-    margin-bottom: 25px;
+    margin-bottom: 15px;
+    align-content: center;
+    width: 150px;
 }
 .footer-item .footer-logo ul {
     margin: 0;
@@ -1683,8 +1698,8 @@ button:focus {
 /*-- Copyright --*/
 .copyright-area {
     background-color: #e6e6e6;
-    padding-top: 25px;
-    padding-bottom: 25px;
+    padding-top: 15px;
+    padding-bottom: 15px;
 }
 .copyright-area .copyright-item ul {
     margin: 0;
@@ -1965,7 +1980,7 @@ button:focus {
 /*-- End Support --*/
 /*-- Company --*/
 .company-area.two .section-title {
-    text-align: center;
+    /* text-align: center; */
 }
 .company-area.two .owl-prev {
     position: absolute;
@@ -2055,7 +2070,8 @@ button:focus {
 /*-- End Company --*/
 /*-- Explore --*/
 .explore-area.two {
-    background-color: #dffedb;
+    background-color: #f0ebf8
+    ;
     background-image: unset;
 }
 .explore-area.two .container {
@@ -2069,7 +2085,7 @@ button:focus {
     margin-left: 0;
 }
 .explore-area.two .explore-item .section-title .sub-title {
-    color: #21a212;
+    color: #673ab7;
 }
 .explore-area.two .explore-item .section-title .sub-title:before {
     background-color: #fff;
@@ -2082,13 +2098,14 @@ button:focus {
 }
 .explore-area.two .explore-item ul li .left-btn {
     color: #fff;
-    background-color: #21a212;
+    background-color: #673ab7;
 }
 .explore-area.two .explore-item ul li .left-btn i {
-    background-color: #17870a;
+    background-color: #3e236e;
 }
 .explore-area.two .explore-item ul li .left-btn:hover {
-    background-color: #17870a;
+    background-color: #3e236e
+    ;
 }
 .explore-area.two .explore-item ul li span {
     color: #221668;
@@ -2103,7 +2120,7 @@ button:focus {
 }
 .explore-area.two .explore-img {
     position: absolute;
-    top: -130px;
+    top: -160px;
     right: 0;
     max-width: 600px;
     animation: explore-img-ani 5s infinite linear;
@@ -2217,11 +2234,12 @@ button:focus {
 /*-- End Categories --*/
 /*-- Work --*/
 .section-title.two .sub-title:before {
-    background-color: #21a212;
+    background-color: #673ab7;
 }
 .work-area.two .section-title {
-    text-align: center;
+    text-align: left;
 }
+
 .work-item.two {
     padding: 0 20px;
     background-color: #fff;
@@ -2501,7 +2519,7 @@ button:focus {
     opacity: 0;
 }
 .testimonial-area .owl-prev:hover {
-    color: #21a212 !important;
+    color: #673ab7 !important;
     background-color: transparent !important;
 }
 .testimonial-area .owl-prev:hover:after {
@@ -2515,7 +2533,7 @@ button:focus {
     width: 30px;
     height: 30px;
     border-radius: 50%;
-    background-color: #21a212;
+    background-color: #673ab7;
     z-index: -1;
     transition: 0.5s all ease;
 }
@@ -2530,7 +2548,7 @@ button:focus {
     opacity: 0;
 }
 .testimonial-area .owl-next:hover {
-    color: #21a212 !important;
+    color: #673ab7 !important;
     background-color: transparent !important;
 }
 .testimonial-area .owl-next:hover:after {
@@ -2544,7 +2562,7 @@ button:focus {
     width: 30px;
     height: 30px;
     border-radius: 50%;
-    background-color: #21a212;
+    background-color: #673ab7;
     z-index: -1;
     transition: 0.5s all ease;
 }
@@ -2613,6 +2631,12 @@ button:focus {
 }
 .register-area .container .row {
     padding-right: 390px;
+}
+.work-area .container .row {
+    margin-left: 0;
+    margin-right: 0;
+    padding-left:0 ;
+    padding-right: 0;
 }
 .register-area ul {
     margin: 0;
@@ -2867,7 +2891,8 @@ button:focus {
 /*-- End Banner --*/
 /*-- Employer --*/
 .employer-area {
-    padding-top: 155px;
+    padding-right: 1px;
+    overflow: hidden;
 }
 .employer-area .section-title {
     text-align: center;
@@ -3126,10 +3151,12 @@ button:focus {
     text-align: center;
 }
 .work-item.three i {
-    color: #fe4a55;
+    color: #673ab7
+    ;
 }
 .work-item.three:after {
-    border-bottom: 12px solid #fe4a55;
+    border-bottom: 12px solid #673ab7
+    ;
 }
 /*-- End Work --*/
 /*-- Feature --*/
@@ -3476,7 +3503,7 @@ button:focus {
     color: #afadad;
 }
 .footer-item.three .footer-logo ul li span {
-    color: #fe4a55;
+    color: #673ab7;
 }
 .footer-item.three .footer-service ul li a {
     color: #afadad;
@@ -3822,8 +3849,8 @@ button:focus {
     background-color: #673AB7;
     padding: 0;
     height: 45px;
-    padding-left: 12px;
-    padding-right: 12px;
+    padding-left: 2px;
+    padding-right: 2px;
     font-size: 20px;
 }
 .job-area-list .job-list-right .job-list-all .search  .btn:hover {
@@ -6143,7 +6170,7 @@ button:focus {
     padding-top: 0;
 }
 .employer-area.two .employer-item {
-    padding: 25px 30px 25px 95px;
+    padding: 25px 30px 25px 25px;
 }
 
 .employer-area.two .employer-item ul li:nth-child(7) span {

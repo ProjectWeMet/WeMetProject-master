@@ -123,9 +123,18 @@ onChange(email:string, isChecked: boolean) {
     let index = this.categoryFormArray.indexOf(email);
     this.categoryFormArray.splice(index,1);
   }
-console.log(this.categoryFormArray.toString())
+  this.search();
 }
 
+onInputChange() {
+  this.search();
+
+}
+showDetailes(projectId:number){
+    this.UserService.GetProjectById(projectId);
+    this.router.navigate(['projectDetailes']);
+  
+}
   ngOnInit(): void {
   }
 

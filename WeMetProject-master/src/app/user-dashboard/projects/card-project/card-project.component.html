@@ -1,4 +1,4 @@
-<div class="employer-item" (click)="ViewDetailes()">
+<div class="project-item" (click)="ViewDetailes()">
     <a href="javascript:void(0)" style="text-decoration:none">
         <h3>{{projectTitle}}</h3>
         <ul>
@@ -7,7 +7,7 @@
         </ul>
         <p>{{projectDetails | lengthStringFormate}}</p>
         <ul>
-            <li class="span-two"><i class="material-icons">sticky_note_2</i>{{countApplyJob | showApplyJob}}</li>
+            <li class="span-two" style="color: white;"><i class="material-icons">sticky_note_2</i>{{countApplyJob | showApplyJob}}</li>
         </ul>
     </a>
 </div>

@@ -1,4 +1,4 @@
-<body class="dark-edition" style="background-color: #202940; height: 190vh;">
+<body class="dark-edition">
     <div class="wrapper ">
         <!-- sidebar -->
         <app-sidbar-admin></app-sidbar-admin>
@@ -18,7 +18,7 @@
                         </div>
                         <div class="card-body">
                           <div class="table-responsive">
-                            <table class="table">
+                            <table class="table ">
                               <thead class=" text-primary">
                                 <th>
                                   Image
@@ -33,7 +33,9 @@
                                 <th>
                                   comment
                                 </th>
-                                
+                                <th>
+                                  Accept
+                                  </th>
                                    <th>
                                    Delete
                                    </th>
@@ -44,27 +46,35 @@
                                         <img  src="{{getImagePath(card.imageName)}}"  alt="Employer"  class="rounded-circle" >
                                       </td>
                                   <td>
-                              {{card.fName}}{{card.lName}}
+                              {{card.fName}} {{card.lName}}
                                   </td>
                                   <td>
                                     {{card.numberStar}}
                                   </td>
                                   <td>
                                     {{card.comment}}
+                                    
                                   </td>
                                   
-                                
                                   <td>
-                                    <button (click)="Delete(card.testomonialID)" type="button" rel="tooltip" title="Remove" class="btn btn-white btn-link btn-sm">
-                                        <i class="material-icons">close</i>
-                                      </button>
+                                    <button *ngIf="!(card.status)" (click)="Accept(card.testomonialID)" mat-icon-button aria-label="Example icon-button with a heart icon">
+                                      <mat-icon>check</mat-icon>
+                                    </button>
+                                     
+                                    
+                                  </td>
+                                  <td>
+                                    <button (click)="Delete(card.testomonialID)"mat-icon-button aria-label="Example icon-button with a heart icon">
+                                      <mat-icon>close</mat-icon>
+                                    </button>
+                                    
                                   </td>
                                 </tr>
                            
                               </tbody>
                             </table>
                           </div>
-                          <button  (click)="downloadAsPDF();" class="btn btn-primary" >Export To PDF</button>
+                          
 
                         </div>
                       </div>

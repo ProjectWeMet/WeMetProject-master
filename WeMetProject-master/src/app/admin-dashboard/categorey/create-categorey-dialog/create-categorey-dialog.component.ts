@@ -14,6 +14,7 @@ export class CreateCategoreyDialogComponent implements OnInit {
   categoryTitle=new FormControl('', [Validators.required]);
   fileControl=new FormControl('',[Validators.required])
   constructor(public adminDashboardService: AdminDashboardService,public dialog:MatDialog,@Inject(MAT_DIALOG_DATA) public data: any) { }
+  title:any;
   formData =new FormData();
   imageSrc:any
   readURL(event:any): void {
@@ -37,12 +38,10 @@ export class CreateCategoreyDialogComponent implements OnInit {
     // formData.append('file', fileToUpload, fileToUpload.name);
     
 
-    const date={
-      image:(this.adminDashboardService.display_image2).tostring(),
-      categoryTitle:(this.categoryTitle.value).toString()
-    }
+    this.title=(this.categoryTitle.value).toString()
+    
   
-    this.adminDashboardService.uploadAttachmentCreateCategorey(this.formData,date);
+    this.adminDashboardService.uploadAttachmentCreateCategorey(this.formData,this.title);
   }
   // uploadFile(files:any) {debugger
   //   if (files.length === 0) {

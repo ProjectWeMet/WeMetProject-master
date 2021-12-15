@@ -275,13 +275,22 @@ export class UsersComponent implements OnInit {
   active1:any;
   
 
-  onChange(isChecked: boolean) {
-    if(isChecked) {
-      this.active1=true;
-    } else {
-      this.active1=false;
-    }
-  }
+  onChange(isChecked: any) {debugger
+    this.country1=isChecked.target.value;
+    this.specialization1=this.specialization.value;
+    this.skill1=this.skill.value;
+    this.jobTitle1=this.jobTitle.value;
+   //  this.active1=this.isActive.value;
+
+    const data2={
+     country:this.country1.toString(),
+     specialization:this.specialization1.toString(),
+     skill:this.skill1.toString(),
+     jobTitle:this.jobTitle1.toString(),
+     isActive:this.active1
+     }
+    console.log(isChecked);
+    this.UserService.searchUser(data2);  }
 
   search(){debugger
     console.log(this.active1,this.isActive.value)

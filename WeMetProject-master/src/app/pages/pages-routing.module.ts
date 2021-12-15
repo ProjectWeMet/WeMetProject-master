@@ -2,6 +2,9 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AboutComponent } from './about/about.component';
 import { ContactComponent } from './contact/contact.component';
+import { HomeMyworkComponent } from './home-mywork/home-mywork.component';
+import { HomeProfileComponent } from './home-profile/home-profile.component';
+import { HomeProjectDetailesComponent } from './home-project-detailes/home-project-detailes.component';
 import { HomeProjectComponent } from './home-project/home-project.component';
 import { HomeUserComponent } from './home-user/home-user.component';
 import { BlogbyIdComponent } from './home/blogby-id/blogby-id.component';
@@ -46,6 +49,15 @@ const routes: Routes = [
   path:'Project',
   component:HomeProjectComponent
 
+},{
+  path:'projectDetailes',
+  component:HomeProjectDetailesComponent
+},{
+  path:'profile',
+  component:HomeProfileComponent
+},{
+  path:'myWork',
+  component:HomeMyworkComponent
 }
 ];
 

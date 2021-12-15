@@ -6602,7 +6602,8 @@
   }
   
   .rounded-circle {
-    border-radius: 50% !important;
+    width: 200px;
+    height: 200px;
   }
   
   .rounded-0 {
@@ -17862,8 +17863,10 @@
   }
   
   .card-profile .card-avatar img {
-    width: 100%;
-    height: auto;
+    width: 200px;
+    height: 200px;
+    
+
   }
   
   .card-profile .card-body+.card-footer {
@@ -17885,8 +17888,8 @@
   }
   
   .card-profile .card-avatar {
-    max-width: 130px;
-    max-height: 130px;
+    width: 200px;
+    height: 200px;
   }
   
   .card-plain {

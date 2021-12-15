@@ -26,7 +26,7 @@ export class HomeComponent implements OnInit {
   @Input () descriptions:string|undefined;
   constructor(public UserService:UserDashboardService,private router:Router,public homeServiceService:HomeServiceService) { 
   
-    this.UserService.getAllProjects();
+    this.homeServiceService.getAllHighestProjects();
     this.homeServiceService.GetAllCategorey();
     this.homeServiceService.GetAllBLOG();
     this.homeServiceService.getAlltestimonial();
@@ -42,7 +42,19 @@ export class HomeComponent implements OnInit {
     console.log(basePath);
     return basePath+value;
     }
-
+    GoAllProject(){
+      this.router.navigate(['Project']);
+  
+    }
+    GoLogin(){
+      this.router.navigate(['login']);
+  
+    }
+    showDetailes(projectId:number){
+      this.UserService.GetProjectById(projectId);
+      this.router.navigate(['projectDetailes']);
+    
+  }
   ngOnInit(): void {
    
   }

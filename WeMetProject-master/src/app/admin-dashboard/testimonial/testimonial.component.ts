@@ -24,6 +24,9 @@ export class TestimonialComponent implements OnInit {
     console.log(basePath);
     return basePath+value;
     }
+    Accept(id:any){
+      this.adminDashboardService.Accepttestimonial(id);
+    }
     Delete(id:any){
       this.adminDashboardService.Deletetestimonial(id);
     }
