@@ -306,10 +306,10 @@ export class HomeUserComponent implements OnInit {
  
    }
 
-   showProfile()
+   showProfile(userId:number)
   {debugger
-    this.router.navigate(['login']);
-  }
+    this.UserService.getUserById(userId);
+    this.router.navigate(['profile']);  }
 
   
 

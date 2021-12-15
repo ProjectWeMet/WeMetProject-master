@@ -61,7 +61,8 @@
                             <div class="search">
                                 <h3>Search Project</h3>
                                 <label id="example-radio-group-label">Project Title : </label>
-                                    <input type="text" class="form-control mt-2"  [formControl]="title" placeholder="Project title ">
+                                    <input type="text" class="form-control mt-2"  [formControl]="title" 
+                                    placeholder="Project title " (input)="search(selectedState)">
                             </div>
                             <div >
                                 <label id="example-radio-group-label">Project State :</label>
@@ -69,16 +70,17 @@
                                 aria-labelledby="example-radio-group-label"
                                 class="example-radio-group"
                                 color=primary
+                               
                                 [(ngModel)]="selectedState">
-                                <mat-radio-button class="example-radio-button" *ngFor="let state of stateProject" [value]="state">
+                                <mat-radio-button class="example-radio-button"  *ngFor="let state of stateProject" (change)="search($event.value)" [value]="state"  >
                                     {{state}}
                                 </mat-radio-button>
                                 </mat-radio-group>
                             </div>
- 
+<!--  
                             <div class="level">
                                 <button type="submit" (click)="search()" class="btn">Filter Now</button>
-                            </div>
+                            </div> -->
                         </div>
                     
                 </div>  

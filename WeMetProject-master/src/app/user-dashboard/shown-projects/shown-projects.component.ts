@@ -15,7 +15,6 @@ export class ShownProjectsComponent implements OnInit {
     
     'Complete' ,
     'Execution',
-    
     'All'
 ];
   title=new FormControl("");
@@ -60,15 +59,19 @@ export class ShownProjectsComponent implements OnInit {
     return basePath+value;
     }
     goToMyProject(id:any){
-      this.UserService.getAllSchedule(id);
+      this.UserService.GetUserProjectById(id);
     this.router.navigate(['user/ShownProjects']);
     }
-  search(){
-    this.radioChange();
+    search(selectedState:any){
+      this.radioChange(selectedState)
     this.UserService.SearchUserProject(this.date);
   }
-  radioChange(){debugger
-    switch(this.selectedState){
+  goToMyBalance(id :number){
+    this.UserService.GetBalanceById(id);
+  this.router.navigate(['user/balance']);
+  }
+  radioChange(selectedState:any){debugger
+    switch(selectedState){
        
       case "Complete":
         this.date={

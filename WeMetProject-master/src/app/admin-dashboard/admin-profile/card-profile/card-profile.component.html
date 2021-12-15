@@ -1,49 +1,31 @@
 
-    <div  style="background-color:#202940 ;" class="card card-profile">
+    <div   class="card card-profile">
         <div class="card-avatar">
           <div>
                 <!-- <img class="img" src="../assets/img/faces/marc.jpg" /> -->
-                <img class="img"   src="{{getImagePath(imageName)}}">
+                <p><input type="file" [formControl]="fileControl"   accept="image/*" name="image" id="file" (change)="readURL($event);" style="display: none; " ></p>
+                <p><label for="file" style="cursor: pointer;">
+                    <img for="file" class="rounded-circle"  id="imgWork"  [src]="imageSrc || getImagePath(imageName)" alt="your image" />
+                   
+                </label></p> 
 
 </div>
 
 
                
         </div>
+        
         <div class="card-body">
-            <h6 class="card-category">{{adminDashboardService.display_image1}}</h6>
             <h4 class="card-title">{{fname}}  </h4>
-            <p class="card-description">
-              PhoneNumber: {{phoneNumber}} 
-            </p>
-            <p class="card-description">
-              Bography:  {{biography}}  
-            </p>
-            <p class="card-description">
-              Country: {{country}}   
-            </p>
-            <p class="card-description">
-              Email: {{email}}  
-            </p>
-            <p class="card-description">
-              Skill: {{skill}}  
-            </p>
-            
-            
-            <p class="card-description">
-               
-            </p>
-            <div class="row" style="margin-bottom:15px;">
+            <div class="row" style="margin:15px;">
               <div class="col-md-3">
-                <input type="file" #file placeholder="Choose Image" 
-                (change)="uploadFile(file.files,9)" 
-                style="display:none;">
-                <button style="  background: -webkit-linear-gradient(left, #3B064D, #BC6FF1);
-                " type="button" class="btn btn-success" 
-                (click)="file.click()">Upload Image</button>
+                
+                <button (click)="uploadFile()" type="submit" class="btn " style="  background-color: #673ab7;">Upload Image</button>
               </div>
             </div>
-        </div>
+           
+           
+        </div> 
     </div>
 
     

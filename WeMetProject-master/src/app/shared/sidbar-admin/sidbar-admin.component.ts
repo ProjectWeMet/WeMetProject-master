@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { NgxSpinnerService } from 'ngx-spinner';
+import { AdminDashboardService } from 'src/app/Service/admin-dashboard.service';
 
 @Component({
   selector: 'app-sidbar-admin',
@@ -9,20 +10,29 @@ import { NgxSpinnerService } from 'ngx-spinner';
 })
 export class SidbarAdminComponent implements OnInit {
 
-  constructor(private router:Router,private spinner: NgxSpinnerService) { }
+  constructor(private router:Router,private spinner: NgxSpinnerService,private admin:AdminDashboardService ) { }
   
   GoProfileAdmin(){
     this.spinner.show();
     setTimeout(() => {
       this.spinner.hide();
-      this.router.navigate(['admin/Profile']);
+      // this.router.navigate(['admin/Profile']);
     }, 2000);
   }
   GoDashboredAdmin(){
     this.spinner.show();
     setTimeout(() => {
       this.spinner.hide();
-      this.router.navigate(['admin/dash']);
+      // this.admin.ChartProfit();
+
+      // this.router.navigate(['admin/dash']);
+    }, 2000);
+  }
+  GoProfitAdmin(){
+    this.spinner.show();
+    setTimeout(() => {
+      this.spinner.hide();
+      this.router.navigate(['admin/profit']);
     }, 2000);
   }
   GoToReportUser(){
@@ -37,7 +47,7 @@ export class SidbarAdminComponent implements OnInit {
     setTimeout(() => {
       this.spinner.hide();
       localStorage.clear()
-      this.router.navigate(['']);
+      this.router.navigate(['login']);
     }, 2000);
    
    
@@ -82,7 +92,7 @@ export class SidbarAdminComponent implements OnInit {
     this.spinner.show();
     setTimeout(() => {
       this.spinner.hide();
-      this.router.navigate(['home']);
+      this.router.navigate(['']);
     }, 2000);
   }
   
@@ -93,6 +103,7 @@ export class SidbarAdminComponent implements OnInit {
       this.router.navigate(['admin/testimonial']);
     }, 2000);
   }
+ 
   ngOnInit(): void {
   }
 

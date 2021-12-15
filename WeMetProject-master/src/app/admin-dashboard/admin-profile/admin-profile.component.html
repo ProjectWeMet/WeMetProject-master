@@ -1,6 +1,6 @@
 
 
-<body class="dark-edition" style="background-color: #202940; height: 146vh;">
+<body class="dark-edition">
     <div class="wrapper ">
         <!-- sidebar -->
         <app-sidbar-admin></app-sidbar-admin>
@@ -14,18 +14,18 @@
                     <div class="row">
                         <div class="col-md-8">
                             <div class="card">
-                                <div style=" background: -webkit-linear-gradient(left, #3B064D, #BC6FF1);" class="card-header card-header-primary">
+                                <div  class="card-header card-header-primary">
                                     <h4 class="card-title">Edit Profile</h4>
                                     <p class="card-category">Complete your profile</p>
                                 </div>
                                 <div class="card-body">
-                                    <form>
+                                    <form   [formGroup]="ProfileForm"  >
                                         <div class="row">
                                             <div class="col-md-5">
                                                 <div class="form-group">
                                                     <label class="bmd-label-floating">Email</label>
-                                                    <input  matInput [formControl]="email"  placeholder="Ex: Example@yahoo.com"  type="text" class="form-control" >
-                                                    <mat-error *ngIf="email.hasError('required')">
+                                                    <input  matInput formControlName="email"  [(ngModel)]="adminDashboardService.data[0].email" placeholder="Ex: Example@yahoo.com"  type="text" class="form-control" >
+                                                    <mat-error *ngIf="ProfileForm.controls.email.hasError('required')">
                                                         Email  is <strong> Required</strong>
                                                         </mat-error>
                                                     
@@ -34,8 +34,8 @@
                                             <div class="col-md-3">
                                                 <div class="form-group">
                                                     <label  class="bmd-label-floating">PhoneNumber</label>
-                                                    <input matInput [formControl]="phoneNumber" type="text" class="form-control">
-                                                    <mat-error *ngIf="phoneNumber.hasError('required')">
+                                                    <input matInput formControlName="phoneNumber"  [(ngModel)]="adminDashboardService.data[0].phoneNumber" type="text" class="form-control">
+                                                    <mat-error *ngIf="ProfileForm.controls.phoneNumber.hasError('required')">
                                                         PhoneNumber  is <strong> Required</strong>
                                                     </mat-error>
                                                 </div>
@@ -43,8 +43,8 @@
                                             <div class="col-md-4">
                                                 <div class="form-group">
                                                     <label class="bmd-label-floating">country</label>
-                                                    <input  matInput [formControl]="country"  type="email" class="form-control">
-                                                    <mat-error *ngIf="country.hasError('required')">
+                                                    <input  matInput formControlName="country" [(ngModel)]="adminDashboardService.data[0].country" type="email" class="form-control">
+                                                    <mat-error *ngIf="ProfileForm.controls.country.hasError('required')">
                                                         Country  is <strong> Required</strong>
                                                     </mat-error>
                                                 </div>
@@ -54,8 +54,10 @@
                                             <div class="col-md-6">
                                                 <div class="form-group">
                                                     <label class="bmd-label-floating">biography</label>
-                                                    <input matInput [formControl]="biography" type="text" class="form-control">
-                                                       <mat-error *ngIf="biography.hasError('required')">
+                                                    <textarea matInput formControlName="biography" [(ngModel)]="adminDashboardService.data[0].biography" type="text" class="form-control">
+                                                       
+                                                        </textarea>
+                                                        <mat-error *ngIf="ProfileForm.controls.biography.hasError('required')">
                                                             Biography  is <strong> Required</strong>
                                                         </mat-error>
                                                 </div>
@@ -63,21 +65,21 @@
                                             <div class="col-md-6">
                                                 <div class="form-group">
                                                     <label class="bmd-label-floating">skill </label>
-                                                    <input  matInput [formControl]="skill" type="text" class="form-control">
-                                                    <mat-error *ngIf="skill.hasError('required')">
+                                                    <input  matInput formControlName="skill" [(ngModel)]="adminDashboardService.data[0].skill" type="text" class="form-control">
+                                                    <mat-error *ngIf="ProfileForm.controls.skill.hasError('required')">
                                                         Skill  is <strong> Required</strong>
                                                     </mat-error>
                                                 </div>
                                             </div>
                                         </div>
                                     
-                                        <button style=" background: -webkit-linear-gradient(left, #3B064D, #BC6FF1);" [disabled]="!email.valid && !skill.valid && !biography.valid &&!country.valid &&!phoneNumber.valid "  cdkFocusInitial (click)="saveItem(9)"  type="submit" class="btn btn-primary pull-right">Update Profile</button>
+                                        <button  [disabled]="!ProfileForm.valid" (click)="saveItem()"  type="submit" class="btn pull-right">Update Profile</button>
                                         <div class="clearfix"></div>
                                     </form>
                                 </div>
                             </div>
                         </div>
-                        <div style="background-color:#202940 ;" class="col-md-4">
+                        <div  class="col-md-4">
                             <app-card-profile *ngFor ="let card of adminDashboardService.data" [imageName]="card.imageName"
                             [biography]="card.biography" [lname]="card.lname"  [fname]="card.fname"   [phoneNumber]="card.phoneNumber"[skill]="card.skill"   [country]="card.country"  [email]="card.email"></app-card-profile>
                         </div>

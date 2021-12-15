@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { PagesService } from 'src/app/Service/pages.service';
+import { UserDashboardService } from 'src/app/Service/user-dashboard.service';
 
 @Component({
   selector: 'app-contact',
@@ -10,7 +11,6 @@ import { PagesService } from 'src/app/Service/pages.service';
 export class ContactComponent implements OnInit {
   ContactForm = new FormGroup({
     name: new FormControl('', [Validators.required]),
-    //lastName: new FormControl('', [Validators.required]),
     email: new FormControl('', [Validators.required]),
     phone: new FormControl('', [Validators.required]),
     subject: new FormControl('', [Validators.required]),
@@ -36,7 +36,7 @@ export class ContactComponent implements OnInit {
     }
     this.pagesService.contcat(data);
   }
-  constructor(public pagesService:PagesService) { }
+  constructor(public pagesService:PagesService,public UserService:UserDashboardService) { }
 
   ngOnInit(): void {
   }

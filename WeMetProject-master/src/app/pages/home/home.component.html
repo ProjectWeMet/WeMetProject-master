@@ -2,10 +2,11 @@
 <!-- qqqqqqqqqqqqqq -->
 <!-- Navbar -->
 <!-- <app-navbar></app-navbar> -->
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+<!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.bundle.min.js">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.0.3/css/font-awesome.css">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"> -->
+
 <app-navbar-page></app-navbar-page>
 <!-- End Navbar -->
 
@@ -46,54 +47,81 @@
 
 </div>
 <!-- End Banner -->
+<!-- Work -->
+<section class="work-area two ptb-50">
+    <div class="container">
+        <div class="section-title">
+            <span class="sub-title" >Working Process</span>
+            <h1 >See How It Works</h1>
+        </div>
 
+        <div class="row">
+            <div class="col-sm-6 col-lg-4">
+                <div class="work-item">
+                    <i><img src="../../../assets/img/registered.png"></i>
+                    <span>STEP 01</span>
+                    <h3>Register An Account</h3>
+                    <p>Lorem ipsum dolor sit amet conscu adipiscing elit sed do eusmod tempor incididunt ut into</p>
+                </div>
+            </div>
+
+            <div class="col-sm-6 col-lg-4">
+                <div class="work-item">
+                    <i><img src="../../../assets/img/job-search.png"></i>
+                    <span>STEP 02</span>
+                    <h3>Search Your Job</h3>
+                    <p>Lorem ipsum dolor sit amet conscu adipiscing elit sed do eusmod tempor incididunt ut into</p>
+                </div>
+            </div>
+
+            <div class="col-sm-6 offset-sm-3 offset-lg-0 col-lg-4">
+                <div class="work-item">
+                    <i><img src="../../../assets/img/surveyor.png"></i>
+                    <span>STEP 03</span>
+                    <h3>Apply For Job</h3>
+                    <p>Lorem ipsum dolor sit amet conscu adipiscing elit sed do eusmod tempor incididunt ut into</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- End Work -->
 <!-- Employer -->
 <!-- <section class="employer-area pb-100"> -->
-    <div  class="employer-area">
+<section  class="employer-area ptb-50" style="background-color: #f0ebf8;   border-radius: 10%; ">
     <div class="container">
-        <div class="section-title three">
-            <div class="sub-title-wrap">
-                <img src="assets/img/home-three/title-img.png" alt="Icon">
-                <span class="sub-title">Employers Offering Job</span>
-            </div>
-            <h2>Company Offering Job</h2>
+        <div class="section-title ">
+            <span class="sub-title"  >Some Project</span>
+
+            <h2>Website project</h2>
         </div>
     </div>
-<!-- </section> -->
-    <div style="padding:6%" class="row ">
-        <div  *ngFor="let card of UserService.Projects"  class="col-lg-6 col-md-12">
-            <div   class="employer-item">
-                <a  routerLink="/job-details">
-                    <img src="assets/img/home-one/job1.png" alt="Employer">
-                    <h3> <i class="material-icons">person</i> {{card.fName}} {{card.lName}}</h3>
+    <div style="padding:2%" class="row ">
+        <div  *ngFor="let card of homeServiceService.Projects"  class="col-lg-6 col-md-12">
+            <div class="project-item" (click)="showDetailes(card.projectId)" >
+                <a href="javascript:void(0)" style="text-decoration:none">
+                    <h3>{{card.projectTitle}}</h3>
                     <ul>
-                        <li><i class="material-icons">access_time</i>{{card.dateOfCreate}}</li>
+                        <li class="m-1"><i class="material-icons">person</i> {{card.fName}} {{card.lName}}</li>
+                        <li class="m-1"><i class="material-icons">access_time</i>{{card.dateOfCreate | daysBetweenDates}}</li>
+                        <li class="m-1"><i class="material-icons">category</i>{{card.categoryTitle}}</li>
+
                     </ul>
-                    <p >{{card.projectDetails | lengthStringFormate}}</p>    
-                    <br>    
-                    <br>  
-                    <br>        
-                    <span class="span-two">FULL TIME</span>
+                    <p>{{card.projectDetails | lengthStringFormate}}</p>
+                    <ul>
+                        <li class="span-two" style="color: white;"><i class="material-icons">sticky_note_2</i>{{card.countApplyJob }} offer</li>
+                    </ul>
                 </a>
             </div>
+          
         </div>
-
+        <div class="job-browse">
+            <p> A meny of project are waiting for you. <a (click)="GoAllProject()" href="javascript:void(0)" style="text-decoration:none;color: #673ab7;" >Browse all project</a></p>
+        </div>
     </div>
 
-<!--  
-<div class="container">
-    <mat-grid-list cols="2" rowHeight="260px" gutterSize ="22px"  >
-        <mat-grid-tile
-        *ngFor="let card of UserService.Projects"
-        >
-            <app-cardsprojects         [fName]="card.fName"
-            [lName]="card.lName" [projectTitle]="card.projectTitle" [countApplyJob]="card.countApplyJob" 
-            [projectDetails]="card.projectDetails" [dateOfCreate]="card.dateOfCreate" [projectId]="card.projectId">
-        </app-cardsprojects>
-        </mat-grid-tile>
-      </mat-grid-list>
-</div> -->
-    
+
+</section>
    
   
 
@@ -109,15 +137,11 @@
 
 
 <!-- Work -->
-<section class="work-area two three pt-100 pb-70">
+<section class="work-area two three ptb-50">
     <div class="container">
         <div class="section-title three">
-            <div class="sub-title-wrap">
-                <img src="assets/img/home-three/title-img.png" alt="Icon">
-                <span class="sub-title">Working Process</span>
-            </div>
             <!-- <h2>See How It Works</h2> -->
-            <h2 style="color: #b05ea1;">Departments</h2>
+            <h2>Categorys</h2>
         </div>
 
         <div fxLayout="row wrap" fxLayoutGap="10px grid">
@@ -137,10 +161,9 @@
 <!-- End Feature -->
 
 <!-- Company -->
-<section class="company-area pb-70">
+<!-- <section class="company-area pb-70">
     <div class="container">
-       
-
+     
         <div id="container" class="row">
             <div class="col-sm-6 col-lg-3 mix n">
                 <div class="company-item">
@@ -349,111 +372,207 @@
             </div>
         </div>
     </div>
-</section>
+</section> -->
 <!-- End Company -->
 
 
 
-<!-- TESTIMONIALS -->
-<div id="myCarousel" class="carousel slide" data-ride="carousel">
-    <!-- Carousel indicators -->
-    <ol class="carousel-indicators">
-        <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-        <li data-target="#myCarousel" data-slide-to="1"></li>
-        <li data-target="#myCarousel" data-slide-to="2"></li>
-    </ol> <!-- Wrapper for carousel items -->
-    <div class="carousel-inner">
-        <div class="item carousel-item active">
-            <div class="img-box"><img  src="{{getImagePath(homeServiceService.testimonial[0].imageName)}}" alt=""></div>
-            <p class="testimonial">{{homeServiceService.testimonial[0].comment}}</p>
-            <p class="overview"><b> {{homeServiceService.testimonial[0].fName}}</b>{{homeServiceService.testimonial[0].lName}} </p>
-            <div class="star-rating"> </div>
-        </div>
-        <div class="item carousel-item">
-            <div class="img-box"><img  src="{{getImagePath(homeServiceService.testimonial[1].imageName)}}"  alt=""></div>
-            <p class="testimonial">{{homeServiceService.testimonial[1].comment}}</p>
-            <p class="overview"><b> {{homeServiceService.testimonial[1].fName}}</b>{{homeServiceService.testimonial[1].lName}}</p>
-            <div class="star-rating"> </div>
-        </div>
-        <div class="item carousel-item">
-            <div class="img-box"><img  src="{{getImagePath(homeServiceService.testimonial[2].imageName)}}" alt=""></div>
-            <p class="testimonial">{{homeServiceService.testimonial[2].comment}}</p>
-            <p class="overview"><b> {{homeServiceService.testimonial[2].fName}}</b>{{homeServiceService.testimonial[2].lName}}</p>
-            <div class="star-rating"> </div>
-        </div>
-    </div> <!-- Carousel controls --> <a class="carousel-control left carousel-control-prev" href="#myCarousel" data-slide="prev"> <i class="fa fa-angle-left"></i> </a> <a class="carousel-control right carousel-control-next" href="#myCarousel" data-slide="next"> <i class="fa fa-angle-right"></i> </a>
-</div>
-      <!-- END OF TESTIMONIALS -->
-  
 
-  
-
-
-<!-- Client -->
-
-    <!-- TESTIMONIALS -->
-
-
-      <!-- END OF TESTIMONIALS -->
-
-<!-- End Client -->
 
 <!-- Blog -->
-<section class="blog-area three pt-100 pb-70">
+<!-- <section class="blog-area three ptb-50">
     <div class="container">
         <div class="section-title three">
-            <div class="sub-title-wrap">
-                <img src="assets/img/home-three/title-img.png" alt="Icon">
-                <span class="sub-title">News & Blog</span>
-            </div>
             <h2>Latest Blog Posts</h2>
         </div>
-<!-- Bushra Assi  -->
-     
-            
-
-            <div fxLayout="row wrap" fxLayoutGap="10px grid">
+             <div fxLayout="row wrap" fxLayoutGap="10px grid">
                 <div fxFlex="32%"  *ngFor ="let cardblog of homeServiceService.allBlog" >
             <app-blog [id]="cardblog.id"  [title]="cardblog.title" [img]="cardblog.img" [descriptions]="cardblog.descriptions">
     
             </app-blog>
                 </div>
             </div>
-       
-
-            
-            
-         
-
-            <!-- <div class="col-sm-6 col-lg-4">
-                <div class="blog-item">
-                    <div class="top">
-                        <a routerLink="/blog-details"><img src="assets/img/home-one/blog2.jpg" alt="Blog"></a>
-                    </div>
-                    <span>Career advice. 11-09-2020</span>
-                    <h3><a routerLink="/blog-details">Today From Connecting With Potential Employers</a></h3>
-                    <div class="cmn-link">
-                        <a routerLink="/blog-details"><i class="flaticon-right-arrow one"></i> Learn More <i class="flaticon-right-arrow two"></i></a>
-                    </div>
-                </div>
-            </div> -->
-
-            <!-- <div class="col-sm-6 offset-sm-3 offset-lg-0 col-lg-4">
-                <div class="blog-item">
-                    <div class="top">
-                        <a routerLink="/blog-details"><img src="assets/img/home-one/blog3.jpg" alt="Blog"></a>
-                    </div>
-                    <span>Future plan. 10-09-2020</span>
-                    <h3><a routerLink="/blog-details">We’ve Weeded Through Hundreds Of Job Hunting</a></h3>
-                    <div class="cmn-link">
-                        <a routerLink="/blog-details"><i class="flaticon-right-arrow one"></i> Learn More <i class="flaticon-right-arrow two"></i></a>
-                    </div>
-                </div>
-            </div> -->
-       
+   
+    </div>
+</section> -->
+<section class="explore-area two ptb-100">
+    <div class="container">
+        <div class="explore-item">
+            <div class="section-title">
+                <!-- <span class="sub-title">Explore New Life</span> -->
+                <h2>Are you ready to start your own project?</h2>
+            </div>
+            <ul>
+                <li><a class="left-btn" (click)="GoLogin()">Start now<i class="material-icons">add</i></a></li>
+                
+            </ul>
+        </div>
+        <div class="explore-img" ><img src="assets/img/png.png" alt="Explore"></div>
     </div>
 </section>
-</div>
+<section class="testimonial-area ptb-50">
+    <div id="myCarousel" class="carousel slide">
+        <div class="section-title two " >
+            <span class="sub-title">Testimonials</span>
+            <h2>What Our Users Say About Us</h2>
+        </div>
+
+        <div class="testimonial-slider owl-theme owl-carousel">
+            
+            <div id="myCarousel" class="carousel slide" data-ride="carousel">
+                <!-- Carousel indicators -->
+                <ol class="carousel-indicators">
+                    <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+                    <li data-target="#myCarousel" data-slide-to="1"></li>
+                    <li data-target="#myCarousel" data-slide-to="2"></li>
+                </ol> <!-- Wrapper for carousel items -->
+                <div class="carousel-inner">
+                    <div class="item carousel-item active">
+                        <div class="img-box"><img  src="{{getImagePath(homeServiceService.testimonial[0].imageName)}}" alt=""></div>
+                        <p class="testimonial">{{homeServiceService.testimonial[0].comment}}</p>
+                        <p class="overview"> {{homeServiceService.testimonial[0].fName}} {{homeServiceService.testimonial[0].lName}} </p>
+                        <div class="star-rating" *ngIf="homeServiceService.testimonial[0].numberStar==5">
+                            <i class="material-icons">star</i>
+                            <i class="material-icons">star</i>
+                            <i class="material-icons">star</i>
+                            <i class="material-icons">star</i>
+                            <i class="material-icons">star</i>
+            
+                        </div>
+                        <div class="star-rating" *ngIf="homeServiceService.testimonial[0].numberStar==4">
+                            <i class="material-icons">star</i>
+                            <i class="material-icons">star</i>
+                            <i class="material-icons">star</i>
+                            <i class="material-icons">star</i>
+                            <i class="material-icons">star_border</i>
+            
+                        </div>
+                       <div class="star-rating" *ngIf="homeServiceService.testimonial[0].numberStar==3">
+                            <i class="material-icons">star</i>
+                            <i class="material-icons">star</i>
+                            <i class="material-icons">star</i>
+                            <i class="material-icons">star_border</i>
+                            <i class="material-icons">star_border</i>
+            
+                        </div> 
+                        <div class="star-rating" *ngIf="homeServiceService.testimonial[0].numberStar==2">
+                            <i class="material-icons">star</i>
+                            <i class="material-icons">star</i>
+                            <i class="material-icons">star_border</i>
+                            <i class="material-icons">star_border</i>
+                            <i class="material-icons">star_border</i>
+            
+                        </div> 
+                        <div class="star-rating" *ngIf="homeServiceService.testimonial[0].numberStar==1">
+                            <i class="material-icons">star</i>
+                            <i class="material-icons">star_border</i>
+                            <i class="material-icons">star_border</i>
+                            <i class="material-icons">star_border</i>
+                            <i class="material-icons">star_border</i>
+            
+                        </div> 
+                    </div>
+                    <div class="item carousel-item">
+                        <div class="img-box"><img  src="{{getImagePath(homeServiceService.testimonial[1].imageName)}}"  alt=""></div>
+                        <p class="testimonial">{{homeServiceService.testimonial[1].comment}}</p>
+                        <p class="overview"> {{homeServiceService.testimonial[1].fName}} {{homeServiceService.testimonial[1].lName}}</p>
+                        <div class="star-rating" *ngIf="homeServiceService.testimonial[1].numberStar==5">
+                            <i class="material-icons">star</i>
+                            <i class="material-icons">star</i>
+                            <i class="material-icons">star</i>
+                            <i class="material-icons">star</i>
+                            <i class="material-icons">star</i>
+            
+                        </div>
+                        <div class="star-rating" *ngIf="homeServiceService.testimonial[1].numberStar==4">
+                            <i class="material-icons">star</i>
+                            <i class="material-icons">star</i>
+                            <i class="material-icons">star</i>
+                            <i class="material-icons">star</i>
+                            <i class="material-icons">star_border</i>
+            
+                        </div>
+                       <div class="star-rating" *ngIf="homeServiceService.testimonial[1].numberStar==3">
+                            <i class="material-icons">star</i>
+                            <i class="material-icons">star</i>
+                            <i class="material-icons">star</i>
+                            <i class="material-icons">star_border</i>
+                            <i class="material-icons">star_border</i>
+            
+                        </div> 
+                        <div class="star-rating" *ngIf="homeServiceService.testimonial[1].numberStar==2">
+                            <i class="material-icons">star</i>
+                            <i class="material-icons">star</i>
+                            <i class="material-icons">star_border</i>
+                            <i class="material-icons">star_border</i>
+                            <i class="material-icons">star_border</i>
+            
+                        </div> 
+                        <div class="star-rating" *ngIf="homeServiceService.testimonial[1].numberStar==1">
+                            <i class="material-icons">star</i>
+                            <i class="material-icons">star_border</i>
+                            <i class="material-icons">star_border</i>
+                            <i class="material-icons">star_border</i>
+                            <i class="material-icons">star_border</i>
+            
+                        </div> 
+                            </div>
+                    <div class="item carousel-item">
+                        <div class="img-box"><img  src="{{getImagePath(homeServiceService.testimonial[2].imageName)}}" alt=""></div>
+                        <p class="testimonial">{{homeServiceService.testimonial[2].comment}}</p>
+                        <p class="overview"> {{homeServiceService.testimonial[2].fName}} {{homeServiceService.testimonial[2].lName}}</p>
+                        <div class="star-rating" *ngIf="homeServiceService.testimonial[2].numberStar==5">
+                            <i class="material-icons">star</i>
+                            <i class="material-icons">star</i>
+                            <i class="material-icons">star</i>
+                            <i class="material-icons">star</i>
+                            <i class="material-icons">star</i>
+            
+                        </div>
+                        <div class="star-rating" *ngIf="homeServiceService.testimonial[2].numberStar==4">
+                            <i class="material-icons">star</i>
+                            <i class="material-icons">star</i>
+                            <i class="material-icons">star</i>
+                            <i class="material-icons">star</i>
+                            <i class="material-icons">star_border</i>
+            
+                        </div>
+                       <div class="star-rating" *ngIf="homeServiceService.testimonial[2].numberStar==3">
+                            <i class="material-icons">star</i>
+                            <i class="material-icons">star</i>
+                            <i class="material-icons">star</i>
+                            <i class="material-icons">star_border</i>
+                            <i class="material-icons">star_border</i>
+            
+                        </div> 
+                        <div class="star-rating" *ngIf="homeServiceService.testimonial[2].numberStar==2">
+                            <i class="material-icons">star</i>
+                            <i class="material-icons">star</i>
+                            <i class="material-icons">star_border</i>
+                            <i class="material-icons">star_border</i>
+                            <i class="material-icons">star_border</i>
+            
+                        </div> 
+                        <div class="star-rating" *ngIf="homeServiceService.testimonial[2].numberStar==1">
+                            <i class="material-icons">star</i>
+                            <i class="material-icons">star_border</i>
+                            <i class="material-icons">star_border</i>
+                            <i class="material-icons">star_border</i>
+                            <i class="material-icons">star_border</i>
+            
+                        </div> 
+                    </div>
+                </div> <!-- Carousel controls --> <a class="carousel-control left carousel-control-prev" href="#myCarousel" data-slide="prev"> <i class="fa fa-angle-left"></i> </a> <a class="carousel-control right carousel-control-next" href="#myCarousel" data-slide="next"> <i class="fa fa-angle-right"></i> </a>
+            </div>
+          
+        </div>
+    </div>
+</section>
+
+<!-- TESTIMONIALS -->
+
+      <!-- END OF TESTIMONIALS -->
+
 <!-- End Blog -->
 <!-- Footer -->
 

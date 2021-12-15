@@ -1,7 +1,8 @@
-<div style="background-color: #202940; height: 160vh;" >
+<div  >
     <div  class="dark-edition wrapper" >
       <!-- sidebar -->
       <app-sidbar-admin></app-sidbar-admin>
+
       <!-- end sidebar -->
       <div class="main-panel">
         <!-- Navbar -->
@@ -10,11 +11,11 @@
         <div class="content">
           <div class="container-fluid">
                       <div class="row">
-              <div  style="margin-left: 5%;" class="col-xl-3 col-lg-6 col-md-6 col-sm-6">
+              <div  class="col-xl-3 col-lg-3 col-md-6 col-sm-6">
                 <div class="card card-stats">
                   <div class="card-header card-header-warning card-header-icon">
-                    <div style="background-color: #667a8f;" class="card-icon">
-                      <i class="material-icons">content_copy</i>
+                    <div style="background-color: #f0f5fa;" class="card-icon">
+                      <i class="material-icons">person</i>
                     </div>
                     <p class="card-category">Count User</p>
                     <h3 class="card-title">{{ adminDashboardService.data3.countUser }}
@@ -23,80 +24,188 @@
                   </div>
                   <div class="card-footer">
                     <div class="stats">
-                      <i class="material-icons text-warning">warning</i>
-                      <a href="#pablo" class="warning-link"> Count User ...</a>
+                      <i class="material-icons text-warning">local_offer</i> 
+                      <a   class="warning-link"> Count User ...</a>
                     </div>
                   </div>
                 </div>
               </div>
-              <div style="margin-left: 5%;"  class="col-xl-3 col-lg-6 col-md-6 col-sm-6">
+              <div  class="col-xl-3 col-lg-3 col-md-6 col-sm-6">
                 <div class="card card-stats">
-                  <div class="card-header card-header-success card-header-icon">
+                  <div class="card-header card-header-info card-header-icon">
                     <div class="card-icon">
-                      <i class="material-icons">store</i>
-                    </div>
-                    <p class="card-category">Count Project</p>
-                    <h3 class="card-title"> {{ adminDashboardService.data4.countComplete }}</h3>
-                  </div>
-                  <div class="card-footer">
-                    <div class="stats">
-                      <i class="material-icons">date_range</i> Count Complete Project...
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div  style="margin-left: 5%;"  class="col-xl-3 col-lg-6 col-md-6 col-sm-6">
-                <div class="card card-stats">
-                  <div class="card-header card-header-danger card-header-icon">
-                    <div class="card-icon">
-                      <i class="material-icons">info_outline</i>
+                      <i class="material-icons">person</i>
                     </div>
                     <p class="card-category">Accept Job</p>
                     <h3 class="card-title"> {{ adminDashboardService.data5.countAcceptJob }}</h3>
                   </div>
                   <div class="card-footer">
                     <div class="stats">
-                      <i class="material-icons">local_offer</i> count Accept Job...
+                      <i class="material-icons text-info">local_offer</i> 
+                      <a   class="info-link">  count Accept Job...</a>
+                     
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div  class="col-xl-3 col-lg-3 col-md-6 col-sm-6">
+                <div class="card card-stats">
+                  <div class="card-header card-header-success card-header-icon">
+                    <div class="card-icon">
+                      <i class="material-icons">work</i>
+                    </div>
+                    <p class="card-category">Open Project</p>
+                    <h3 class="card-title"> {{ adminDashboardService.OpenProject.countOpen }}</h3>
+                  </div>
+                  <div class="card-footer">
+                    <div class="stats">
+                      <i class="material-icons text-success">local_offer</i> 
+                      <a   class="success-link">  Count Open Project...</a>
+
+                      
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div  class="col-xl-3 col-lg-3 col-md-6 col-sm-6">
+                <div class="card card-stats">
+                  <div class="card-header card-header-danger card-header-icon">
+                    <div class="card-icon">
+                      <i class="material-icons">work</i>
+                    </div>
+                    <p class="card-category">Complete Project</p>
+                    <h3 class="card-title"> {{ adminDashboardService.data4.countComplete }}</h3>
+                  </div>
+                  <div class="card-footer">
+                    <div class="stats">
+                      <i class="material-icons text-danger">local_offer</i>
+                      <a   class="danger-link">  Count Complete Project...</a>
+
+                       
                     </div>
                   </div>
                 </div>
               </div>
             </div>
             <!-- <h2 style="text-align: center;margin-top: 2%;margin-bottom: 4%;font-weight:900;color: gray;">Category All In WebSite</h2>  -->
-            <div class="container">
-              <div class="section-title three">
-                  <div class="sub-title-wrap">
-                      <img src="assets/img/home-three/title-img.png" alt="Icon">
-                  </div>
-                  <h2 style="color: #f1f0f6;font-weight: 500;text-align: center;">Top Three Heighest Apply Job Project </h2>
-              </div>
-          </div>
-            <div style="padding:6%" class="row ">
-              <div  *ngFor="let card of adminDashboardService.getallProjectHighestApplyJob"  class="col-lg-6 col-md-12">
-                  <div   class="employer-item">
-                      <a  routerLink="/job-details">
-                          <img src="assets/img/home-one/job1.png" alt="Employer">
-                          <p >{{card.projectTitle}}</p>  
-                          <h3>  {{card.fName}} {{card.lName}}</h3>
-                          <ul>
-                            <li><i _ngcontent-uhe-c195="" style="font-size: larger;"  class="material-icons">sticky_note_2</i>{{card.countApplyJob}} Offer</li>
-                            <br>
-                              <li><i class="material-icons">access_time</i>{{card.dateOfCreate}}</li>
-                           
+           <hr>
+          <div class="content">
+            <div class="container-fluid">
+              <div class="row">
+                <div class="col-md-12">
+                  <div id="pdfTable" #pdfTable class="card" style="  border: 1px solid #673ab7;">
+                    <div class="card-header card-header-primary">
+                      <h4 class="card-title ">Top Four Heighest Apply Job Project</h4>
+                      
+                    </div>
+                    <div class="card-body">
+                      <div class="table-responsive">
+                        <table class="table">
+                          <thead class=" text-primary">
+                            <th>
+                              Project Title
+                            </th>
+                            <th>
+                              Full Name
+                            </th>
+                            <th>
+                              Date Of Create
+                            </th>
+                        
+                            <th>
+                              Count Apply 
+                            </th>
+                            <th>
+                              Category Title
+                            </th>
+                          </thead>
+                          <tbody *ngFor="let card of adminDashboardService.getallProjectHighestApplyJob" >
+                            <tr>
+                              <td>
+                                  {{card.projectTitle}}                                  </td>
+                              <td>
+                                {{card.fName}} {{card.lName}}
+                              </td>
+                              <td>
+                                {{card.dateOfCreate | daysBetweenDates}}
+                                </td>
+                              <td>
+                                {{card.countApplyJob}}
+                                
+                              </td>
+                              <td>
+                                {{card.categoryTitle}}
+                              </td>
+                              
+                            </tr>
+                       
+                          </tbody>
+                        </table>
+                      </div>
+                      
 
-                          </ul>
-                          
-                          <br>    
-                          <br>  
-                          <br>        
-                      </a>
+                    </div>
                   </div>
+                </div>
+              
               </div>
+            </div>
           </div>
+          <hr>
+          <div class="content">
+            <div class="container-fluid">
+              <div class="row">
+                <div class="col-md-12">
+                    <h3 class="text-center " style="color: #0f1407">Amount of monthly profits for the year {{year}} </h3>
+                    
+                  <div style="display: block; margin-top: 20px;">
+                    <canvas baseChart 
+                    *ngIf="loaded" 
+                        [datasets]="adminDashboardService.profitChart1" 
+                        [labels]="adminDashboardService.monthChart" 
+                        [options]="lineChartOptions"
+                        [colors]="lineChartColors" 
+                        [legend]="lineChartLegend" 
+                        [chartType]="'line'"
+                        [plugins]="lineChartPlugins">
+                    </canvas>
+                </div>
+                </div>
+              
+              </div>
+            </div>
+          </div>
+          <hr>
+          <div class="content">
+            <div class="container-fluid">
+              <div class="row">
+                <div class="col-md-12">
+                  <h3 class="text-center" style="color: #0f1407">Monthly number of projects created for the year {{year}}</h3>
+
+                  <div style="display: block; margin-top: 20px;">
+                    <canvas baseChart 
+                    *ngIf="loaded1"
+                  [datasets]="adminDashboardService.countProjectChart1"
+                  [labels]="adminDashboardService.monthChart"
+                  [options]="barChartOptions"
+                  [colors]="barChartColors" 
+                  [plugins]="barChartPlugins"
+                  [legend]="barChartLegend"
+                  [chartType]="'bar'"
+                  >
+                </canvas>
+
+                </div>
+                </div>
+              
+              </div>
+            </div>
+          </div>
+          
           </div>
         </div>
         <!-- footer -->
-       
+        <app-admin-footer></app-admin-footer>
         <!-- end footer -->
         <script>
           const x = new Date().getFullYear();
@@ -105,7 +214,8 @@
         </script>
       </div>
     </div>
-    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.3.0/Chart.min.js"></script>
+
     <script src="../assets/js/core/jquery.min.js"></script>
     <script src="../assets/js/core/popper.min.js"></script>
     <script src="../assets/js/core/bootstrap-material-design.min.js"></script>
@@ -123,6 +233,41 @@
     <script src="../assets/js/material-dashboard.js?v=2.1.0"></script>
     <!-- Material Dashboard DEMO methods, don't include it in your project! -->
     <script src="../assets/demo/demo.js"></script>
+    <script>
+      var ds = new kendo.data.DataSource({
+        transport: {
+          read: function(e) {
+            // Delay response to simulate remote data
+            setTimeout(function() {
+              e.success([{
+                value: 1
+              }, {
+                value: 2
+              }, {
+                value: 3
+              }]);
+            }, 2000);
+          }
+        }
+      });
+
+      $("#chart").kendoChart({
+        dataSource: ds,
+        series: [{
+          field: "value"
+        }],
+        render: function(e) {
+          // Clear up the loading indicator for this chart
+          var loading = $(".chart-loading", e.sender.element.parent());
+          kendo.ui.progress(loading, false);
+        }
+      });
+
+      $(document).ready(function() {
+        // Spin all loading indicators on the page
+        kendo.ui.progress($(".chart-loading"), true);
+      });
+    </script>
     <script>
       $(document).ready(function() {
         $().ready(function() {
@@ -294,5 +439,4 @@
     </script>
  
 
-</div>
-<app-admin-footer></app-admin-footer>
+  </div>

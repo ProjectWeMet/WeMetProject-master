@@ -148,13 +148,15 @@ a .material-icons {
 }
 
 .img-raised {
-  box-shadow: 0 5px 15px -8px rgba(0, 0, 0, 0.24),
+  box-shadow: 0 5px 15px -8px rgba(53, 52, 52, 0.24),
     0 8px 10px -5px rgba(0, 0, 0, 0.2);
 }
 
 .rounded-circle {
-  border-radius: 50% !important;
-}
+  
+  height: 200px;
+  width:200px;
+  border-radius: 50%;}
 
 .img-fluid,
 .img-thumbnail {

@@ -46,7 +46,7 @@ onInputChange(event: MatSliderChange) {
       
     }
     goToMyProject(id:any){
-      this.UserService.getAllSchedule(id);
+      this.UserService.GetUserProjectById(id);
     this.router.navigate(['user/ShownProjects']);
     }
     EditInfo(){
@@ -72,10 +72,13 @@ onInputChange(event: MatSliderChange) {
           userId:this.UserService.UserId,
           comment:this.Comment.value.toString(),
           numberStar:this.value2,
-         
         
         }
         this.UserService.createTestmonial(data2);
+      }
+      goToMyBalance(id :number){
+        this.UserService.GetBalanceById(id);
+        this.router.navigate(['user/balance']);
       }
   ngOnInit(): void {
   }

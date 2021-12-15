@@ -18,11 +18,23 @@ import { EditeCategoreyDialogComponent } from './categorey/edite-categorey-dialo
 import { CardCategoreyComponent } from './categorey/card-categorey/card-categorey.component';
 import { TestimonialComponent } from './testimonial/testimonial.component';
 import { AboutAdminComponent } from './about-admin/about-admin.component';
+import { DaysBetweenDatesPipe } from './daysBetweenDates.pipe';
+import { ChartsModule } from 'ng2-charts';
+import { ProfitAdminComponent } from './profit-admin/profit-admin.component';
+import { RouterModule } from '@angular/router';
+import { UserProfileComponent } from './table-users/user-profile/user-profile.component';
+import { UserWorkComponent } from './table-users/user-work/user-work.component';
+import { GetDateFormatePipe } from './GetDateFormate.pipe';
+import { UserBalanceComponent } from './table-users/user-balance/user-balance.component';
+import { UserPublishedProjectsComponent } from './table-users/user-published-projects/user-published-projects.component';
+import { LengthStringFormatePipe } from './lengthStringFormate.pipe';
+import { ProjectAdminComponent } from './project-admin/project-admin.component';
 
 
 
 @NgModule({
   declarations: [
+    
     DashboredAdminComponent,
     AdminProfileComponent,
     ReportTableUSERComponent,
@@ -41,6 +53,16 @@ import { AboutAdminComponent } from './about-admin/about-admin.component';
       CardCategoreyComponent,
       TestimonialComponent,
       AboutAdminComponent,
+      DaysBetweenDatesPipe,
+      ProfitAdminComponent,
+      UserProfileComponent,
+      UserWorkComponent,
+      GetDateFormatePipe,
+      UserBalanceComponent,
+      UserPublishedProjectsComponent,
+      LengthStringFormatePipe,
+      ProjectAdminComponent
+      
   
     
   ],
@@ -48,6 +70,10 @@ import { AboutAdminComponent } from './about-admin/about-admin.component';
     CommonModule,
     AdminDashboardRoutingModule,
     SharedModule,
+    ChartsModule,
+    RouterModule
+    
+    
     
   ]
 })

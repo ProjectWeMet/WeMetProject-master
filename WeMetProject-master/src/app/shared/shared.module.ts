@@ -26,6 +26,9 @@ import { SidbarAdminComponent } from './sidbar-admin/sidbar-admin.component';
 import { AdminDashboardRoutingModule } from '../admin-dashboard/admin-dashboard-routing.module';
 import {MatGridListModule} from '@angular/material/grid-list';
 import { FlexLayoutModule } from '@angular/flex-layout';
+import { RouterModule } from '@angular/router';
+import { AppRoutingModule } from '../app-routing.module';
+import { AppComponent } from '../app.component';
 
 
 @NgModule({
@@ -41,6 +44,7 @@ import { FlexLayoutModule } from '@angular/flex-layout';
     
   ],
   imports: [
+    RouterModule,
     CommonModule,
     MatFormFieldModule,
     MatInputModule,
@@ -59,6 +63,8 @@ import { FlexLayoutModule } from '@angular/flex-layout';
     MatDialogModule,
     NgxMatFileInputModule,
     FlexLayoutModule,
+    MatFormFieldModule,
+
 
       
   ],
@@ -91,6 +97,7 @@ import { FlexLayoutModule } from '@angular/flex-layout';
     MatCardModule,
     MatDialogModule,
     NgxMatFileInputModule,
+    
  
 
 

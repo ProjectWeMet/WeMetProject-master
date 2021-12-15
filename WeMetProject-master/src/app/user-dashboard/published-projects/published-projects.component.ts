@@ -26,12 +26,13 @@ export class PublishedProjectsComponent implements OnInit {
 
   ngOnInit(): void {
   }
-  search(){
-    this.radioChange();
+  search(selectedState:any){
+    this.radioChange(selectedState)
+
     this.UserService.SearchPublishedProject(this.date);
   }
-  radioChange(){debugger
-    switch(this.selectedState){
+  radioChange(selectedState:any){debugger
+    switch(selectedState){
       case "Open":
         this.date={
           userId: this.UserService.UserId,
@@ -72,16 +73,7 @@ export class PublishedProjectsComponent implements OnInit {
           isExecution:null     
         }
           break;
-      case "All":
-        this.date={
-          userId: this.UserService.UserId,
-          ProjectTitle:this.title.value,
-          isAccept: null,
-          isOpen: null,
-          isComplete: null,
-          isExecution:null     
-        }
-          break;
+     
       default:
         this.date={
           userId: this.UserService.UserId,
@@ -93,6 +85,5 @@ export class PublishedProjectsComponent implements OnInit {
         }
 
     }
-    
   }
 }

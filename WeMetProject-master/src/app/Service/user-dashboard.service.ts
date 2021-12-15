@@ -27,6 +27,7 @@ export class UserDashboardService {
   User:any={};
   myWork:any=[];
   Schedule:any=[];
+  Balance:any=[];
   constructor(private http:HttpClient,private spiner :NgxSpinnerService,private router:Router
     ,private toastr:ToastrService ) { 
       this.getPublishedProjects(this.UserId);
@@ -218,7 +219,39 @@ export class UserDashboardService {
       // this.router.navigate(['']);
     })
   }
+  GetBalanceById(id:number){
+    debugger
+    this.spiner.show();
+    this.http.get('https://localhost:44374/api/BalanceAccount/GetBalanceById/'+id).subscribe((data:any)=>{
+      debugger
+      this.Balance=data;
+      console.log(this.Balance);
+      
+    // this.router.navigate(['user/myWork']);
+      this.spiner.hide();
 
+    },err=>{
+      this.spiner.hide();
+      // this.toastr.error(err.status);
+      // this.router.navigate(['']);
+    })
+  }
+  UpdateBalance(data:any){
+    debugger
+    this.spiner.show();
+    this.http.post('https://localhost:44374/api/BalanceAccount/UpdateBalance/',data).subscribe((data:any)=>{
+      debugger
+      this.GetBalanceById(this.UserId);
+
+    // this.router.navigate(['user/myWork']);
+      this.spiner.hide();
+
+    },err=>{
+      this.spiner.hide();
+      // this.toastr.error(err.status);
+      // this.router.navigate(['']);
+    })
+  }
 
    
   GetProjectById(id:number){debugger
@@ -339,7 +372,7 @@ uploadAttachment(file:FormData, apply:any){
     this.spiner.hide();
     this.addProject=data;
 
-     this.toastr.success('add successfull');
+     this.toastr.success('Add project successfull,The request to add has been sent to the admin');
   
   },error=>{
     this.spiner.hide();
@@ -401,7 +434,7 @@ AddProjectToUser(data:any){debugger
     this.http.post('https://localhost:44374/api/Project/SearchPublishedProject',Project)
     .subscribe((data:any)=>{
      this.spiner.hide();
-     this.toastr.success('Retrieve data');
+    //  this.toastr.success('Retrieve data');
      this.PublishedProjects=data;
        },error=>{
      this.spiner.hide();

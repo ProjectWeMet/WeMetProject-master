@@ -1,5 +1,6 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Component, Input, OnInit } from '@angular/core';
+import { FormControl, Validators } from '@angular/forms';
 import { AdminDashboardService } from 'src/app/Service/admin-dashboard.service';
 
 
@@ -21,16 +22,26 @@ export class CardProfileComponent implements OnInit {
  constructor(public adminDashboardService:AdminDashboardService,private http:HttpClient) {
 
   }
+  fileControl= new FormControl("", [Validators.required]);
 
-  uploadFile(files:any,id:any) {debugger
-    if (files.length === 0) {
-    return;
+  formData:any=null;
+  imageSrc:any;
+
+  uploadFile() {debugger
+    
+    this.adminDashboardService.uploadAttachment(this.formData);
     }
-    let fileToUpload = <File>files[0];
-    const formData = new FormData();
-    formData.append('file', fileToUpload, fileToUpload.name);
-    this.adminDashboardService.uploadAttachment(formData,id);
-    }
+    readURL(event:any): void {
+      this.formData=new FormData();
+      if (event.target?.files && event.target.files[0]) {
+          const file = event.target.files[0];
+          let fileToUpload = <File>event.target.files[0];
+          this.formData.append('file', fileToUpload, fileToUpload.name);
+          const reader = new FileReader();
+          reader.onload = e => this.imageSrc = reader.result;
+          reader.readAsDataURL(file);
+      }
+  }
     getImagePath(value:string ){
       let basePath="../../../../assets/images/Uploaded File/";
       return basePath+value;

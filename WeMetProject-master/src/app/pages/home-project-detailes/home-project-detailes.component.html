@@ -1,0 +1,167 @@
+<!-- Navbar -->
+<!-- End Navbar -->
+<app-navbar-page></app-navbar-page>
+<!-- Page Title -->
+<div  style=" display: flex; background-color:rgba(0, 0, 0, 0.3);" class="view-title">
+    <div style=" flex-basis: 45%;">
+      <div style="color: #1f1137; padding-top: 70%;padding-left: 40px;"> 
+        <div class="row align-items-end">
+            <div class="col-lg-12 col-md-12">
+                <h2>{{UserService.projectDetaile[0].projectTitle}}</h2>
+                <ul>
+                   <li><i class="material-icons">category</i>
+                        {{UserService.projectDetaile[0].categoryTitle}}</li>
+                    <li><i class="material-icons">access_time_filled</i> {{UserService.projectDetaile[0].dateOfCreate |daysBetweenDates }}</li>
+                </ul>
+            </div>
+
+           
+        </div>
+    </div>
+      <!-- <p style="color: white; text-align: center;font-size: 25px;">Put forward your project and leave the task of implementing it to the best experts</p> -->
+    </div>
+   
+<div class="page-title-area "  style=" flex-basis: 70%;">
+  <div class="d-table">
+      <div class="d-table-cell">
+          <div class="container">
+              <div class="title-item">
+                
+              </div>
+          </div>
+      </div>
+  </div>
+</div>
+</div>
+
+<!-- End Page Title -->
+
+<!-- Job Details -->
+<div class="job-details-area ptb-50"  style="background-color: #f1f0f6;">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-md-12">
+                <div class="widget-area1">
+                    <div class="job widget-item">
+                        <h3>Project Details</h3>
+                        <h6>{{UserService.projectDetaile[0].projectDetails}}</h6>
+                    </div>
+
+                    <div class="job widget-item">
+                        <h3>Required Skills</h3>
+                        <h6>{{UserService.projectDetaile[0].requiredSkills}}</h6>
+                    </div>     
+                    <div class="job widget-item" *ngIf="!UserService.projectDetaile[0].isExecution">
+                        <h3>ِApply </h3>
+                        <h6>Hurry up to apply now for a job opportunity in the project</h6>
+                        <div class=" m-2" style="text-align: center;display:block; ">
+                            <a class="apply-btn m-1" href="javascript:void(0)" (click)="GoToLogin()" >Login<i class="material-icons">login</i></a>
+                            <a class="apply-btn m-1" href="javascript:void(0)" (click)="GoToRegister()">Register<i class="material-icons">person_add</i></a>
+                        </div>
+                        
+                    </div>     
+                    <div class="job widget-item">
+                        <h3>Employment applications</h3>
+                        <div *ngIf="!UserService.projectDetaile[0].countApplyJob" style="text-align: center;">
+                            <h6 >There are no applicants yet.</h6>
+
+                        </div>
+                        <div *ngIf="UserService.projectDetaile[0].countApplyJob">
+                            <div *ngFor="let card of UserService.ApplyJob">
+                                <div class="apply-item">
+                                    <a href="javascript:void(0) " style="text-decoration: none;">
+                                        <img src="{{getImagePath(card.imageName)}}" alt="Employer" (click)="goToUser(card.userId)" class="rounded-circle">
+                                        <h4 (click)="goToUser(card.userId)">{{card.fName}} {{card.lName}}</h4>
+                                        <ul>
+                                            <li><i class="material-icons">attach_money</i>Budget:<span>{{card.offerValue}} JD</span>  </li>
+                                            <li><i class="material-icons">access_time</i>Delivery term:<span>{{card.deliveryTerm}}</span> </li>
+                                        </ul>
+                                        <p>{{card.offerDetails}}</p>
+                                        <ul>
+                                            <a href="javascript:void(0)"><li class="resume" style="color: #fff;" (click)="downloadFile(card.cv)"><i class="material-icons">download_for_offline</i>Resume</li></a>
+                                        </ul>
+                                    </a> 
+                                </div>    
+                                <hr>
+                            </div>
+                          
+                                       
+                        </div>
+                        </div>
+                       
+                                 
+                       
+                           
+                </div>
+            </div>
+
+            <div class="col-lg-4 col-md-12">
+                <div class="widget-area1">
+                    <!-- <div class="job widget-item">
+                        <h3>project card</h3>
+
+                        <form>
+                            <label><i class="flaticon-send"></i></label>
+                            <input type="text" class="form-control" placeholder="Email address">
+                            <button type="submit" class="btn">Get Job Alert</button>
+                        </form>
+                    </div> -->
+                    <a href="javascript:void(0) " style="text-decoration: none;">
+                        <div class="owner1" (click)="goToUser(UserService.projectDetaile[0].userId)">
+                        <div class="top">
+                            <img src="{{getImagePath(UserService.projectDetaile[0].imageName)}}" class="rounded-circle" alt="Owner">
+                            <h3>{{UserService.projectDetaile[0].fName}} {{UserService.projectDetaile[0].lName}}</h3>
+                            <i class="flaticon-send"></i>
+                            <span style="color: rgb(65, 63, 63);">{{UserService.projectDetaile[0].jobTitle}}</span>
+                        </div>
+                    </div>
+                    </a>
+                    <div class="information widget-item">
+                        <h3>Project Information</h3>
+
+                        <ul>
+                            <li>
+                                <img class="bag"src="assets/img/suitcase-black-shape.png" alt="Details" >
+                                <h4>Project state</h4>
+                                <div *ngIf="!(UserService.projectDetaile[0].isAccept)" class="span-two two">Processing</div>
+                                <div *ngIf="UserService.projectDetaile[0].isAccept && UserService.projectDetaile[0].isComplete" class="span-two three">Complete</div>
+                                <div *ngIf="UserService.projectDetaile[0].isAccept && !(UserService.projectDetaile[0].isComplete) && !(UserService.projectDetaile[0].isExecution)" class="span-two four">Open</div>
+                                <div *ngIf="UserService.projectDetaile[0].isAccept && !(UserService.projectDetaile[0].isComplete) && UserService.projectDetaile[0].isExecution" class="span-two five">Execution</div>
+                            </li>
+                            <li>
+                                <img class="bag"src="assets/img/suitcase-black-shape.png" alt="Details" >
+                                <h4>Category</h4>
+                                <span>{{UserService.projectDetaile[0].categoryTitle}}</span>
+                            </li>
+                            <li>
+                                <img class="bag"src="assets/img/suitcase-black-shape.png" alt="Details" >
+                                <h4>Posted date</h4>
+                                <span >{{UserService.projectDetaile[0].dateOfCreate |daysBetweenDates }}</span>
+                            </li>
+                            <li>
+                                <img class="bag"src="assets/img/suitcase-black-shape.png" alt="Details" >
+                                <h4>Budgety</h4>
+                                <span>{{UserService.projectDetaile[0].expectedBudget}} JD</span>
+                            </li>
+                            <li>
+                                <img class="bag"src="https://cdn-icons-png.flaticon.com/512/39/39581.png" alt="Details" >
+                                <h4>Execution time</h4>
+                                <span>{{UserService.projectDetaile[0].estimatedDeliveryTime}}</span>
+                            </li>
+                            <li>
+                                <img class="bag"src="https://cdn-icons-png.flaticon.com/512/39/39581.png" alt="Details" >
+                                <h4>Count apply</h4>
+                                <span>{{UserService.projectDetaile[0].countApplyJob}} Apply</span>
+                            </li>
+                           
+                        </ul>
+                    </div>
+
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<app-footer-page></app-footer-page>
+

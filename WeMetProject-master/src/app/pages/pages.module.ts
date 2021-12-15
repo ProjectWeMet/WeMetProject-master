@@ -16,6 +16,12 @@ import { HomeUserComponent } from './home-user/home-user.component';
 import { LenghtStringFormatPipe } from './home/lenght-string-format.pipe';
 import { HomeProjectComponent } from './home-project/home-project.component';
 import { DaysBetweenDatesPipe } from './daysBetweenDates.pipe';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { HomeProjectDetailesComponent } from './home-project-detailes/home-project-detailes.component';
+import { HomeProfileComponent } from './home-profile/home-profile.component';
+import { HomeMyworkComponent } from './home-mywork/home-mywork.component';
+import { GetDateFormatePipe } from './GetDateFormate.pipe';
 
 
 
@@ -34,8 +40,12 @@ import { DaysBetweenDatesPipe } from './daysBetweenDates.pipe';
     HomeUserComponent,
     
     LenghtStringFormatPipe,
+    GetDateFormatePipe,
           HomeProjectComponent,
-          DaysBetweenDatesPipe
+          DaysBetweenDatesPipe,
+          HomeProjectDetailesComponent,
+          HomeProfileComponent,
+          HomeMyworkComponent
     
 
  
@@ -45,7 +55,9 @@ import { DaysBetweenDatesPipe } from './daysBetweenDates.pipe';
   imports: [
     CommonModule,
     PagesRoutingModule,
-    SharedModule
+    SharedModule,
+    MatFormFieldModule,
+        MatInputModule
     
    
   ]

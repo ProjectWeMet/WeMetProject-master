@@ -1,6 +1,11 @@
 <!-- Navbar -->
 <!-- <app-navbar></app-navbar> -->
+<!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.bundle.min.js">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.0.3/css/font-awesome.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"> -->
 <app-navbar-page></app-navbar-page>
+
 <!-- End Navbar -->
 <!-- Roa -->
 <!-- Page Title -->
@@ -46,7 +51,7 @@
                     <li></li>
                 </ul>
 
-                <div (click)="showProfile()" *ngFor="let card of UserService.Projects" class="employer-item">
+                <div (click)="showDetailes(card.projectId)" *ngFor="let card of UserService.Projects" class="project-item">
                     <a href="javascript:void(0)" style="text-decoration:none">
                         <h3>{{card.projectTitle}}</h3>
                         <ul>
@@ -55,7 +60,7 @@
                         </ul>
                         <p>{{card.projectDetails | lengthStringFormate}}</p>
                         <ul>
-                            <li class="span-two"><i class="material-icons">sticky_note_2</i>{{card.countApplyJob}} Apply</li>
+                            <li class="span-two" style="color: white;"><i class="material-icons">sticky_note_2</i>{{card.countApplyJob}} Apply</li>
                         </ul>
                     </a>
                 </div>
@@ -70,7 +75,7 @@
                             <div class="search">
                                 <h3>Search Project</h3>
 
-                                    <input type="text" class="form-control" [formControl]="title" placeholder="Project title ">
+                                    <input type="text" class="form-control" [formControl]="title" placeholder="Project title "  (input)="search()">
                             </div>
                             <div class="search mt-4 cmn-padding">
                                 <h3>Category</h3>
@@ -91,10 +96,10 @@
 
                             <div class="search">
                                 <h3>DateFrom</h3>
-                                <input type="date" [formControl]="startAt" class="form-control" placeholder="From ">
+                                <input type="date" [formControl]="startAt" class="form-control" placeholder="From " (input)="search()">
                                 <h3 class="mt-3">DateTo</h3>
 
-                                <input type="date" [formControl]="EndAt" class="form-control" placeholder="To ">
+                                <input type="date" [formControl]="EndAt" class="form-control" placeholder="To" (input)="search()">
 
                             
                             </div>
@@ -104,6 +109,7 @@
     
                                 <mat-slider
                                 thumbLabel
+                                (input)="search()"
                                 [displayWith]="formatLabel"
                                 tickInterval="10"
                                 step="10"
@@ -118,13 +124,13 @@
 
                             <div class="search ">
                                 <h3>Skills</h3>
-                                <textarea type="text" [formControl]="Skills" class="form-control" placeholder=""></textarea>
+                                <textarea type="text" [formControl]="Skills" class="form-control" placeholder=""  (input)="search()"></textarea>
 
                             
                             </div>
-                            <div class="level">
+                            <!-- <div class="level">
                                 <button type="submit" (click)="search()" class="btn">Filter Now</button>
-                            </div>
+                            </div> -->
                         </div>
                     
                 </div>  
@@ -133,7 +139,7 @@
     </div>
 </div>
 <!-- End Jobs -->
-<app-user-footer></app-user-footer>
+<app-footer-page></app-footer-page>
 
 <!-- Footer -->
 <!-- <app-footer></app-footer> -->

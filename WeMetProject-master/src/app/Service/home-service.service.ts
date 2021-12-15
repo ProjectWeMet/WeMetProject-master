@@ -14,6 +14,7 @@ export class HomeServiceService {
   display_image:any
   categorey:any={}
   Projects:any=[];
+  allAbout:any=[];
   // blog
   allBlog : any =[{
   }] 
@@ -21,7 +22,21 @@ export class HomeServiceService {
   Blog:any={}
   testimonial:any=[];
   constructor(private http:HttpClient,private toaster:ToastrService , private spinner: NgxSpinnerService,private router:Router) { }
+  getAllHighestProjects(){
+    this.spinner.show();
+     this.http.get('https://localhost:44374/api/Project/GetallProjectHighestApplyJob')
+     .subscribe((data:any)=>{
+      this.spinner.hide();
+      this.Projects=data;
 
+      // this.toastr.success('Deleted ');
+    
+    },error=>{
+      this.spinner.hide();
+      // this.toastr.error(' Not Deleted ');
+    
+    })
+  }
 
   getAllProjects(){
     this.spinner.show();
@@ -38,7 +53,15 @@ export class HomeServiceService {
     
     })
   }
-
+  GetAllAboutAs(){debugger
+    //call services
+    return this.http.get('https://localhost:44374/api/AboutUs/GetAboutUs').subscribe((result)=> { 
+   this.allAbout=result,
+   this.spinner.hide();
+    },
+   (error) => this.toaster.error(error.status));
+  
+    }
   GetAllCategorey(){
     //call services
     return this.http.get('https://localhost:44374/api/Category').subscribe((result)=> { 
@@ -57,7 +80,7 @@ export class HomeServiceService {
       this.categorey=data;
       console.log(this.categorey);
       this.spinner.hide();
-      this.toaster.success('Data Retrieved!'); 
+      // this.toaster.success('Data Retrieved!'); 
     },(error) => this.toaster.error(error.status));
   }
 
@@ -115,7 +138,8 @@ export class HomeServiceService {
   return this.http.get('https://localhost:44374/api/BLOG').subscribe((result)=> { 
  this.allBlog=result,
  this.spinner.hide();
- this.toaster.success('Data Retrieved!'); },
+//  this.toaster.success('Data Retrieved!'); 
+},
  (error) => this.toaster.error(error.status));
 
   }

@@ -20,6 +20,7 @@ import { MyWorkProfileComponent } from './my-work-profile/my-work-profile.compon
 import { ShownProjectsComponent } from './shown-projects/shown-projects.component';
 import { ScheduleComponent } from './schedule/schedule.component';
 import { TestmonialProfileComponent } from './testmonial-profile/testmonial-profile.component';
+import { BalanceProfileComponent } from './balance-profile/balance-profile.component';
 
 
 const routes: Routes = [
@@ -91,6 +92,9 @@ const routes: Routes = [
   },{
     path:'testmonial',
     component:TestmonialProfileComponent
+  },{
+    path:'balance',
+    component:BalanceProfileComponent
   }
 ]
 

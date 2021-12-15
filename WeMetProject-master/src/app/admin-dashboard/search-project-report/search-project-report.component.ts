@@ -109,5 +109,8 @@ formatLabel(value: number) {
      this.adminDashboardService.searchProject(data2);
  
    }
- 
+   goProject(id:any){
+    this.adminDashboardService.GetProjectById(id);
+    this.router.navigate(['admin/projects']);
+  }
 }

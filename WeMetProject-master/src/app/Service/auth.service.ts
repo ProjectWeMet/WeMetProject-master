@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import jwtDecode from 'jwt-decode';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { ToastrService } from 'ngx-toastr';
+import { AdminDashboardService } from './admin-dashboard.service';
 import { UserDashboardService } from './user-dashboard.service';
 
 @Injectable({
@@ -11,7 +12,7 @@ import { UserDashboardService } from './user-dashboard.service';
 })
 export class AuthService {
 
-  constructor(public UserService:UserDashboardService,private spinner: NgxSpinnerService,private router:Router,private http:HttpClient,private toastr:ToastrService) {
+  constructor(public UserService:UserDashboardService,private adminDashboardService:AdminDashboardService,private spinner: NgxSpinnerService,private router:Router,private http:HttpClient,private toastr:ToastrService) {
       
    }
 
@@ -43,12 +44,19 @@ export class AuthService {
        localStorage.setItem('user',JSON.stringify({...data}));
          if(data.role=='Admin'){
            this.router.navigate(['admin/dash']);
+           this.adminDashboardService.ChartProfit();
+
          }
          else if(data.role=='User'){
            this.router.navigate(['user/user']);
          }
-        })
-        this.spinner.hide();
+        }
+        ,error=>{
+          this.spinner.hide();
+          this.toastr.error('Invalid username or password');
+          
+          })
+          
     }
 
 

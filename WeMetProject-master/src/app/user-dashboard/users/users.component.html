@@ -52,45 +52,47 @@
                         <div class="search">
                             
                             <h3>Specialization</h3>
-                                <input type="text" class="form-control" [formControl]="specialization" placeholder="">
+                                <input type="text" class="form-control" [formControl]="specialization" placeholder="" (input)="search()">
                         </div>
 
 
                             <div class="search ">
                                 <h3>Skills</h3>
-                                <textarea type="text" [formControl]="skill" class="form-control" placeholder=""></textarea>
+                                <textarea type="text" [formControl]="skill" class="form-control" placeholder="" (input)="search()"></textarea>
 
                             
                             </div>
 
                             <div class="search">
                                 <h3>jobTitle</h3>
-                                    <input type="text" class="form-control" [formControl]="jobTitle" placeholder="">
+                                    <input type="text" class="form-control" [formControl]="jobTitle" placeholder="" (input)="search()">
                             </div>
 
                             <div class="search">
                                 <h3> Country</h3>
-                                <mat-select [formControl]="country">
-                                
-                                <mat-option *ngFor="let c of countryList" [value]="c">
+                                <select [formControl]="country" style="height: 45px;width: 365px;
+                                " (change)="search()"  >
+                               
+                                <option *ngFor="let c of countryList" [value]="c" >
+
                                     {{c}}
-                                </mat-option>
-                                </mat-select>
+                                </option>
+                                </select>
                             </div>
 
-                            <div class="form-check">
+                            <!-- <div class="form-check">
                             <input class="form-check-input"  (change)="onChange($any($event.target)?.checked)" type="checkbox" id="isActive">
                             <label class="form-check-label">
                                 Is Active
                             </label>
-                        </div>
+                        </div> -->
                             <!-- <section class="example-section">
                                 <p><mat-checkbox [formControl]="isActive">Active Now</mat-checkbox></p>
                               </section> -->
 
-                              <div class="level">
+                              <!-- <div class="level">
                                 <button type="submit" (click)="search()" class="btn">Filter Now</button>
-                            </div>
+                            </div> -->
                     </div>
 
                      

@@ -1,4 +1,7 @@
-
+<!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.bundle.min.js">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.0.3/css/font-awesome.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"> -->
 
 <!-- Navbar -->
 <app-navbar-page></app-navbar-page>
@@ -33,7 +36,7 @@
                
                
 
-                <div  (click)="showProfile()" class="employer-item" *ngFor="let card of UserService.Users">
+                <div  (click)="showProfile(card.userId)" class="employer-item" *ngFor="let card of UserService.Users">
 
                     <a href="javascript:void(0)" style="text-decoration:none">
                         <div class="avatar">
@@ -41,7 +44,7 @@
                     </div>
                         <h3>{{card.fname}} {{card.lname}}</h3>
                         <ul>
-                            <li><i></i>{{jobTitle}}</li>
+                            <li><i></i>{{card.jobTitle}}</li>
                             <!-- <li>5 months ago</li> -->
                         </ul>
                         <p >{{card.biography |lenghtStringFormat}}</p>
@@ -57,63 +60,65 @@
              
             </div>
 <!-- --------------------------------------------------------------------------------------------------------- -->
-            <div class="col-lg-4 col-md-12">
-                <div class="job-list-right">
-                   
+<div class="col-lg-4 col-md-12">
+    <div class="job-list-right">
+       
 
-                    <div class="job-list-all">
-                        <div class="search">
-                            
-                            <h3>Specialization</h3>
-                                <input type="text" class="form-control" [formControl]="specialization" placeholder="">
-                        </div>
-
-
-                            <div class="search ">
-                                <h3>Skills</h3>
-                                <textarea type="text" [formControl]="skill" class="form-control" placeholder=""></textarea>
-
-                            
-                            </div>
-
-                            <div class="search">
-                                <h3>jobTitle</h3>
-                                    <input type="text" class="form-control" [formControl]="jobTitle" placeholder="">
-                            </div>
-
-                            <div class="search">
-                                <h3> Country</h3>
-                                <mat-select [formControl]="country">
-                                
-                                <mat-option *ngFor="let c of countryList" [value]="c">
-                                    {{c}}
-                                </mat-option>
-                                </mat-select>
-                            </div>
-
-                            <div class="form-check">
-                            <input class="form-check-input"  (change)="onChange($any($event.target)?.checked)" type="checkbox" id="isActive">
-                            <label class="form-check-label">
-                                Is Active
-                            </label>
-                        </div>
-                            <!-- <section class="example-section">
-                                <p><mat-checkbox [formControl]="isActive">Active Now</mat-checkbox></p>
-                              </section> -->
-
-                              <div class="level">
-                                <button type="submit" (click)="search()" class="btn">Filter Now</button>
-                            </div>
-                    </div>
-
-                     
-                </div>  
+        <div class="job-list-all">
+            <div class="search">
+                
+                <h3>Specialization</h3>
+                    <input type="text" class="form-control" [formControl]="specialization" placeholder="" (input)="search()">
             </div>
+
+
+                <div class="search ">
+                    <h3>Skills</h3>
+                    <textarea type="text" [formControl]="skill" class="form-control" placeholder="" (input)="search()"></textarea>
+
+                
+                </div>
+
+                <div class="search">
+                    <h3>jobTitle</h3>
+                        <input type="text" class="form-control" [formControl]="jobTitle" placeholder="" (input)="search()">
+                </div>
+
+                <div class="search">
+                    <h3> Country</h3>
+                    <select [formControl]="country" style="height: 45px;width: 365px;
+                    " (change)="search()"  >
+                   
+                    <option *ngFor="let c of countryList" [value]="c" >
+
+                        {{c}}
+                    </option>
+                    </select>
+                </div>
+
+                <!-- <div class="form-check">
+                <input class="form-check-input"  (change)="onChange($any($event.target)?.checked)" type="checkbox" id="isActive">
+                <label class="form-check-label">
+                    Is Active
+                </label>
+            </div> -->
+                <!-- <section class="example-section">
+                    <p><mat-checkbox [formControl]="isActive">Active Now</mat-checkbox></p>
+                  </section> -->
+
+                  <!-- <div class="level">
+                    <button type="submit" (click)="search()" class="btn">Filter Now</button>
+                </div> -->
+        </div>
+
+         
+    </div>  
+</div>
         </div>
     </div>
 </div>
 <!-- End Jobs -->
-<app-user-footer></app-user-footer>
+<app-footer-page></app-footer-page>
 
 <!-- Footer -->
 

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { MatSliderChange } from '@angular/material/slider';
+import { ToastrService } from 'ngx-toastr';
 import { UserDashboardService } from 'src/app/Service/user-dashboard.service';
 //import * as moment from 'moment';
 @Component({
@@ -12,23 +13,25 @@ export class AddProjectComponent implements OnInit {
 
   
   
-  constructor(public UserService:UserDashboardService) { 
+  constructor(public UserService:UserDashboardService,private toastr:ToastrService ) { 
     this.UserService.getAllCategory();
+    this.UserService.GetBalanceById(this.UserService.UserId);
+
     console.log(new Date(new Date().toString().split('GMT')[0]+'UTC').toISOString());
     // console.log(moment().format("YYYY-MM-DD[T]HH:mm:ss"));
     
   }
   value2:any=10;
   value:any=10;
-  
-    UserId= new FormControl('', [Validators.required]);
-    ProjectTitle=new FormControl('', [Validators.required]);
-    RequiredSkills=new FormControl('', [Validators.required]);
-    ProjectDetails=new FormControl('', [Validators.required]);
-    ExpectedBudget=new FormControl('', [Validators.required]);
-    EstimatedDeliveryTime=new FormControl('', [Validators.required]);
-    DateOfCreate=new FormControl('', [Validators.required]);
-    CategoryId=new FormControl('', [Validators.required]);
+  addForm = new FormGroup({
+    
+    ProjectTitle:new FormControl('', [Validators.required]),
+    RequiredSkills:new FormControl('', [Validators.required]),
+    ProjectDetails:new FormControl('', [Validators.required]),
+    
+    EstimatedDeliveryTime:new FormControl('', [Validators.required]),
+   
+    CategoryId:new FormControl('', [Validators.required])});
     
 
     formatLabel(value2: number) {
@@ -57,28 +60,30 @@ onInputChange(event: MatSliderChange) {
 
 
 onClick(){
+
 debugger
-console.log(this.value) ;
-
-  // this.UserId1=7;
-   
-  let today = new Date()
-
+  const tax=(this.ExpectedBudget1*2.5)/100;
+  const total=this.ExpectedBudget1+tax;
+  if( total <= this.UserService.Balance[0].availableBalance){
+    debugger
   this.DateOfCreate1=new Date(new Date().toString().split('GMT')[0]+'UTC').toISOString();
 
   const data2={
     UserId:this.UserService.UserId,
-    ProjectTitle:this.ProjectTitle.value.toString(),
-    ProjectDetails:this.ProjectDetails.value.toString(),
+    ProjectTitle:this.addForm.controls.ProjectTitle.value.toString(),
+    ProjectDetails:this.addForm.controls.ProjectDetails.value.toString(),
     ExpectedBudget:this.ExpectedBudget1.toString(),
-    RequiredSkills:this.RequiredSkills.value.toString(),
+    RequiredSkills:this.addForm.controls.RequiredSkills.value.toString(),
     DateOfCreate:this.DateOfCreate1.toString(),
-    EstimatedDeliveryTime:this.EstimatedDeliveryTime.value.toString(),
+    EstimatedDeliveryTime:this.addForm.controls.EstimatedDeliveryTime.value.toString(),
     CategoryId:this.CategoryId1
   
   }
-  console.log(this.DateOfCreate);
   this.UserService.AddNewProject(data2);
+}
+else{
+  this.toastr.warning("The available balance is not enough to add a new project");
+}
 }
   
   ngOnInit(): void {

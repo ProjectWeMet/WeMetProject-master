@@ -1,0 +1,77 @@
+<h1 mat-dialog-title style="text-align: center;">Recharge</h1>
+<mat-dialog-content class="mat-typography">
+    <form [formGroup]="formGroup" >
+        <div class="col-md-12" >
+            <div class="row ">
+                <div class="col-md-6">
+                   
+                    <mat-form-field class="example-full-width " appearance="outline" >
+                        <mat-label >The Amount</mat-label>
+                        <input matInput formControlName="Amount" >
+                        <mat-error *ngIf="formGroup.controls.Amount.hasError('required')">
+                            Amount is <strong> Required</strong>
+                        </mat-error>
+                    </mat-form-field>
+                        <mat-form-field class="example-full-width " appearance="outline" >
+                            <mat-label >Card owner name</mat-label>
+                            <input matInput formControlName="CardName" >
+                            <mat-error *ngIf="formGroup.controls.CardName.hasError('required')">
+                                Card name is <strong> Required</strong>
+                            </mat-error>
+                        </mat-form-field>
+                        
+                </div>
+                <div class="col-md-6 " style="text-align: center;" >
+                    <img src="../../../../assets/img/credit-card.png" style="width: 250px; height: 150px; " >
+                </div>
+
+            </div>
+            <div class="row" style="text-align: center;">
+               
+                <div class="col-md-6 mt-3">
+                    <mat-form-field class="example-full-width " appearance="outline" >
+                        <mat-label >Card number</mat-label>
+                        <input matInput formControlName="CardNumber" maxlength="16" type="CardNumber">
+                        <mat-error *ngIf="formGroup.controls.CardNumber.hasError('required')">
+                            Card number is <strong> Required</strong>
+                        </mat-error>
+                    </mat-form-field>
+                   
+                </div>
+                <div class="col-md-6 mt-3">
+                    <div class="row">
+                       <div class="col-md-6 ">
+                           <mat-form-field class="example-full-width " appearance="outline" >
+                               <mat-label >Expiration date</mat-label>
+                               <input matInput formControlName="ExpirationDate"  maxlength="5" placeholder="MM/YY" >
+                               <mat-error *ngIf="formGroup.controls.ExpirationDate.hasError('required')">
+                                   Expiration date is <strong> Required</strong>
+                               </mat-error>
+                           </mat-form-field>
+                       </div>
+                       <div class="col-md-6 ">
+                           <mat-form-field class="example-full-width " appearance="outline" >
+                               <mat-label >Security code</mat-label>
+                               <input matInput formControlName="SecurityCode"  maxlength="3" placeholder="123">
+                               <mat-error *ngIf="formGroup.controls.SecurityCode.hasError('required')">
+                                   Security code is <strong> Required</strong>
+                               </mat-error>
+                           </mat-form-field>
+                       </div>
+       
+                    </div>
+                     
+                </div>
+             </div> 
+        
+         
+          
+        
+           
+         </div>
+    </form>
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+  <button mat-button mat-dialog-close>Cancel</button>
+  <button [disabled]="!formGroup.valid" mat-button [mat-dialog-close]="true" cdkFocusInitial (click)="saveItem()">Recharge</button>
+</mat-dialog-actions>

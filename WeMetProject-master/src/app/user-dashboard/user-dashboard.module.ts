@@ -36,6 +36,8 @@ import { CardShownProjectsComponent } from './shown-projects/card-shown-projects
 import { ScheduleComponent } from './schedule/schedule.component';
 import { EditScheduleDialogComponent } from './schedule/edit-schedule-dialog/edit-schedule-dialog.component';
 import { TestmonialProfileComponent } from './testmonial-profile/testmonial-profile.component';
+import { BalanceProfileComponent } from './balance-profile/balance-profile.component';
+import { RechargeDialogComponent } from './balance-profile/recharge-dialog/recharge-dialog.component';
 
 
 
@@ -84,6 +86,8 @@ import { TestmonialProfileComponent } from './testmonial-profile/testmonial-prof
     ScheduleComponent,
     EditScheduleDialogComponent,
     TestmonialProfileComponent,
+    BalanceProfileComponent,
+    RechargeDialogComponent,
 
 
 

@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { FormControl, Validators } from '@angular/forms';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { AdminDashboardService } from 'src/app/Service/admin-dashboard.service';
 
 @Component({
@@ -8,23 +8,15 @@ import { AdminDashboardService } from 'src/app/Service/admin-dashboard.service';
   styleUrls: ['./admin-profile.component.css']
 })
 export class AdminProfileComponent implements OnInit {
-  // @Input () userId:number|undefined;
-  // @Input () email: string|undefined;
-
-  // @Input () phoneNumber:string|undefined;
-
-  // @Input () country:string|undefined;
-
-  // @Input ()  biography:string|undefined;
  
-  
-  // @Input ()  skill:string|undefined;
   userId= new FormControl('', [Validators.required]);
-  email=new FormControl('@example.com', [Validators.required]);
-  phoneNumber=new FormControl('07########', [Validators.required]);
-  country= new FormControl('Amman', [Validators.required]);
-  biography=new FormControl('Exampllee', [Validators.required]);
-  skill=new FormControl('Example', [Validators.required]);
+  ProfileForm = new FormGroup({
+
+  email:new FormControl('@example.com', [Validators.required]),
+  phoneNumber:new FormControl('07########', [Validators.required]),
+  country: new FormControl('Amman', [Validators.required]),
+  biography:new FormControl('Exampllee', [Validators.required]),
+  skill:new FormControl('Example', [Validators.required])})
 
   constructor(public adminDashboardService:AdminDashboardService) {
     this.adminDashboardService.GetProfileAdmin();
@@ -32,7 +24,7 @@ export class AdminProfileComponent implements OnInit {
    }
 
 
-   saveItem(id:any){debugger
+   saveItem(){debugger
    
     // let fileToUpload = <File>this.image.value;
     const formData = new FormData();
@@ -40,12 +32,12 @@ export class AdminProfileComponent implements OnInit {
    
     debugger
     const date={
-      userId:id,
-      email:(this.email.value).toString()   ,
-      biography:(this.biography.value).toString(),
-      skill:(this.skill.value).toString(),
-      phoneNumber:(this.phoneNumber.value).toString(),
-      country:(this.country.value).toString()   
+      userId:19,
+      email:(this.ProfileForm.controls.email.value).toString()   ,
+      biography:(this.ProfileForm.controls.biography.value).toString(),
+      skill:(this.ProfileForm.controls.skill.value).toString(),
+      phoneNumber:(this.ProfileForm.controls.phoneNumber.value).toString(),
+      country:(this.ProfileForm.controls.country.value).toString()   
     
       
      

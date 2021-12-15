@@ -68,7 +68,7 @@
                             <div *ngFor="let card of UserService.ApplyJob">
                                 <div class="apply-item">
                                     <a href="javascript:void(0) " style="text-decoration: none;">
-                                        <img src="{{getImagePath(card.imageName)}}" alt="Employer" (click)="goToUser(card.userId)">
+                                        <img src="{{getImagePath(card.imageName)}}" alt="Employer" (click)="goToUser(card.userId)" class="rounded-circle">
                                         <h4 (click)="goToUser(card.userId)">{{card.fName}} {{card.lName}}</h4>
                                         <ul>
                                             <li><i class="material-icons">attach_money</i>Budget:<span>{{card.offerValue}} JD</span>  </li>

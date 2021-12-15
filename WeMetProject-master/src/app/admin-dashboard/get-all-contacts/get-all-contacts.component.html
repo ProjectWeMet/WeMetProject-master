@@ -1,5 +1,4 @@
-
-<body class="dark-edition" style="background-color: #202940; height: 190vh;">
+<body class="dark-edition">
     <div class="wrapper ">
         <!-- sidebar -->
         <app-sidbar-admin></app-sidbar-admin>
@@ -14,50 +13,45 @@
                     <div class="col-md-12">
                       <div id="pdfTable" #pdfTable class="card">
                         <div class="card-header card-header-primary">
-                          <h4 class="card-title ">Get All Contact </h4>
+                          <h4 class="card-title ">Contact As</h4>
                           
                         </div>
                         <div class="card-body">
                           <div class="table-responsive">
                             <table class="table">
                               <thead class=" text-primary">
-                                <th>
-                                  ID
-                                </th>
+                                
                                 <th>
                                   Name
                                 </th>
                                 <th>
                                  Phone Number 
                                 </th>
-                                <th>
-                                    Message
-                                </th>
+                               
                             
                                 <th>
                                     Email
                                 </th>
                                 <th>
                                     Subject 
-                                   </th>
+                                </th>
+                                <th>
+                                    Message
+                                </th>
                                    <th>
                                 Delete
                                    </th>
                               </thead>
                               <tbody *ngFor ="let card of adminDashboardService.getAllContactUs" >
                                 <tr>
-                                  <td>
-                               {{card.id}}
-                                  </td>
+                                  
                                   <td>
                             {{card.name}}
                                   </td>
                                   <td>
                                  {{card.phone}}
                                   </td>
-                                  <td>
-                                    {{card.message}}
-                                  </td>
+                                 
                                   <td>
                          
                                     {{card.email}}
@@ -66,11 +60,14 @@
                          
                                     {{card.subject}}
                                   </td>
-                                  
                                   <td>
-                                    <button (click)="DeleteContactss(card.id)"    type="button" rel="tooltip" title="Remove" class="btn btn-white btn-link btn-sm">
-                                        <i class="material-icons">close</i>
+                                    {{card.message}}
+                                  </td>
+                                  <td>
+                                    <button  (click)="DeleteContactss(card.id)" mat-icon-button aria-label="Example icon-button with a heart icon">
+                                        <mat-icon>close</mat-icon>
                                       </button>
+                                   
                                   </td>
                                 </tr>
                            
